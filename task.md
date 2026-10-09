@@ -6,7 +6,7 @@ Objetivo: terminar un juego breve de investigación en Godot, con personajes y e
 
 **Nombre del local:** Velvet, elegido por el autor. El título del juego sigue pendiente.
 
-**Tarea actual:** T03 · referencia de Sota, Entregada; revisión y escala pendientes. **Después:** T02 · escala en escena. **Completadas:** T00 y T01.
+**Tarea actual:** T02 · escala en escena, Entregada para revisión. T03 sigue Entregada; pendiente valoración y acabado fino de bordes. **Completadas:** T00 y T01.
 
 El autor pide priorizar generación de recursos tras la limpieza. Se adelanta la referencia de T03; su cierre técnico seguirá necesitando T02. No se abre otra producción artística antes de revisar esta entrega.
 
@@ -53,11 +53,13 @@ La ambición de calidad se concreta en estos criterios y en revisiones sobre res
 
 **Resultado T01:** Git local, base `740bbb3`, respaldo externo al proyecto y recuperación de un archivo comprobada. [Registro](proceso/RESPALDO_Y_LIMPIEZA.md).
 
-### T02 · Fijar escala, encuadre y acabado en escena — Pendiente
+### T02 · Fijar escala, encuadre y acabado en escena — Entregada
 
 **Entrega:** comparación en Godot de Sota, suelo, mobiliario y personajes de Velvet, tomando [Fiebre v8](trabajo/arte/conceptos/fiebre_v8/fiebre_escena_v8.png) como referencia. Elegir resolución de trabajo, filtrado y encuadre con esa comparación visible.
 
 **Cierre:** Sota tiene proporciones creíbles junto a puertas y personas; el recorrido se entiende y la ciudad mantiene su escala. Registrar la opción elegida y la valoración del autor. Los 1280 × 720 de la prueba técnica no constituyen una decisión artística.
+
+**Entrega T02:** [escena, capturas y propuesta](trabajo/arte/revisiones/escala_v1/README.md). Composición 1672 × 941, propuesta Sota 252, cuatro vistas con apoyo normalizado y filtro suave/nítido. Prueba automática y render nativo correctos; exportación Web correcta. Pendientes valoración del autor y comprobación visual en navegador.
 
 ### T03 · Preparar a Sota para producción — Entregada
 
@@ -230,3 +232,4 @@ Al completar una tarea, añadir una fila breve y actualizar su estado arriba. Lo
 | T00 | 9 oct 2026 | Base Godot y exportación Web; `godot/README.md` | Instalación, importación, prueba automática y escena técnica en Safari | Elección de Godot por el autor; sin aprobación de un acabado nuevo |
 | T01 | 9 oct 2026 | Git local y [respaldo/limpieza](proceso/RESPALDO_Y_LIMPIEZA.md) | Recuperación idéntica desde respaldo y Git; retirados 47 MiB regenerables/duplicados | Respaldo en el mismo equipo; conserva fuentes y versiones |
 | T03 · entrega | 9 oct 2026 | [Sota: cuatro vistas y prompts](trabajo/arte/personajes/sota/README.md) | Transparencia y siluetas medidas, importación Godot correcta | Pendientes valoración, escala/apoyos T02 y bordes; sin animación nueva |
+| T02 · entrega | 9 oct 2026 | [Revisión de escala y capturas](trabajo/arte/revisiones/escala_v1/README.md) | Cuatro vistas y tres alturas, apoyos y filtros; render nativo, importación, pruebas y exportación Web correctos | Propuesta 252; pendientes valoración y prueba visual en navegador |

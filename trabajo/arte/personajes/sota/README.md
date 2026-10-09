@@ -25,3 +25,7 @@ La transparencia es real. La comprobación de las cuatro siluetas al umbral alfa
 Las alturas medidas son 580, 581, 594 y 590 píxeles; las bases locales son 613, 613, 601 y 601. No utilizar una base idéntica para todas las celdas ni reproducirlas como ciclo de animación. Los pivotes del JSON son centros iniciales de la silueta, no un ajuste final de locomoción.
 
 Pendiente: revisar escala junto a personas y mobiliario de Velvet, ajustar apoyo al suelo, acabado de bordes y coherencia fina de cara/manos/ropa entre vistas. Las ediciones generativas introducen pequeñas variaciones; no se afirma conservación píxel a píxel. La referencia es estática y no acredita caminar, correr o giros terminados.
+
+## Integración posterior en T02
+
+[Revisión en Velvet](../../revisiones/escala_v1/README.md): recortes y altura normalizados por vista, apoyo estable a y = 710 y shader que descarta alfa residual menor que 0,1 al dibujar. El PNG no se modifica. Esto reduce el ruido periférico en la escena; la revisión fina de bordes, rostro y ropa sigue pendiente, igual que la valoración del autor.

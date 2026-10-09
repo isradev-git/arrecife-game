@@ -1,6 +1,6 @@
 # PASE PENDIENTE · Base Godot
 
-Preparación técnica del 9 de octubre de 2026. **Todavía no contiene el caso jugable ni el movimiento de Sota.** La escena de verificación carga el fondo de Velvet y permite comprobar entrada mediante un botón.
+Preparación técnica del 9 de octubre de 2026. **Todavía no contiene el caso jugable ni el movimiento de Sota.** La escena principal actual permite revisar las cuatro vistas de Sota en Velvet, su altura y filtrado. La escena técnica anterior se conserva en `verificacion.tscn`.
 
 ## Instalación comprobada
 
@@ -15,7 +15,7 @@ Abrir Godot e importar `project.godot`, o ejecutar desde la raíz del repositori
 /Applications/Godot.app/Contents/MacOS/Godot --editor --path godot
 ```
 
-F5 ejecuta la escena. El proyecto usa GDScript y Compatibility; la exportación Web desactiva hilos y extensiones. No necesita .NET ni complementos.
+F5 ejecuta la revisión de escala. Los botones cambian vista, altura, ubicación y filtrado; todavía no hay desplazamiento. [Capturas y propuesta de escala](../trabajo/arte/revisiones/escala_v1/README.md). El proyecto usa GDScript y Compatibility; la exportación Web desactiva hilos y extensiones. No necesita .NET ni complementos.
 
 ## Repetir la comprobación y exportar
 
@@ -24,6 +24,7 @@ Desde la raíz `el-arrecife/`:
 ```sh
 /Applications/Godot.app/Contents/MacOS/Godot --headless --path godot --editor --import
 /Applications/Godot.app/Contents/MacOS/Godot --headless --path godot --script tests/verificacion.gd
+/Applications/Godot.app/Contents/MacOS/Godot --headless --path godot --script tests/escala.gd
 mkdir -p godot/build/web
 /Applications/Godot.app/Contents/MacOS/Godot --headless --path godot --export-release Web
 python3 -m http.server 8766 --bind 127.0.0.1 --directory godot/build/web
@@ -46,6 +47,8 @@ Durante la verificación de esta entrega se sirvió la raíz completa del proyec
 No se ha validado aquí guardado, audio, lectores de pantalla, móvil, otros navegadores ni rendimiento del juego completo. El árbol de accesibilidad de Safari expone esta prueba principalmente como un canvas: los controles nativos de Godot no heredan automáticamente la accesibilidad HTML del prototipo. Hay que comprobarla expresamente al migrar la libreta.
 
 Cambio posterior del mismo día: el fondo activo pasa a Velvet. Importación, comprobación automática y exportación Web repetidas con resultado correcto; la prueba visual en Safari de la tabla corresponde a la entrega anterior.
+
+Revisión de escala posterior: cuatro vistas y tres alturas verificadas por prueba automática y capturas nativas. La exportación Web se regenera correctamente. La prueba en Safari de la tabla corresponde a la escena técnica anterior: no se ha observado todavía la revisión nueva en navegador.
 
 ## Recursos y continuidad
 

@@ -11,14 +11,17 @@ config_version=5
 [application]
 
 config/name="Pase pendiente · EL ARRECIFE"
-run/main_scene="res://verificacion.tscn"
+run/main_scene="res://revision_escala.tscn"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 
 [display]
 
-window/size/viewport_width=1280
-window/size/viewport_height=720
+window/size/viewport_width=1672
+window/size/viewport_height=941
+window/size/window_width_override=1280
+window/size/window_height_override=720
 window/stretch/mode="canvas_items"
+window/stretch/aspect="keep"
 
 [rendering]
 
