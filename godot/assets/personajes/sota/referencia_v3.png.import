@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dw3717kxf8w0j"
-path="res://.godot/imported/fiebre_fondo_v1.png-ed0c05b8a4a31fb13df16ce03ee500f7.ctex"
+uid="uid://bp0nlalda0o3b"
+path="res://.godot/imported/referencia_v3.png-018f3b19716582d641f30bce5543ab11.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/fiebre_fondo_v1.png"
-dest_files=["res://.godot/imported/fiebre_fondo_v1.png-ed0c05b8a4a31fb13df16ce03ee500f7.ctex"]
+source_file="res://assets/personajes/sota/referencia_v3.png"
+dest_files=["res://.godot/imported/referencia_v3.png-018f3b19716582d641f30bce5543ab11.ctex"]
 
 [params]
 

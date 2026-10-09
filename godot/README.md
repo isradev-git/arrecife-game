@@ -49,7 +49,7 @@ Cambio posterior del mismo día: el fondo activo pasa a Velvet. Importación, co
 
 ## Recursos y continuidad
 
-El fondo activo es `assets/fiebre_velvet_v1.png`, copia idéntica del recurso del prototipo con el neón renombrado a **VELVET** por decisión del autor. [Procedencia y valoración](../juego/arte/velvet_v1.md); [prompt](../juego/arte/prompts/velvet_rotulo_v1.txt). Se conserva `assets/fiebre_fondo_v1.png` como versión anterior.
+El fondo activo es `assets/fiebre_velvet_v1.png`, copia idéntica del recurso del prototipo con el neón renombrado a **VELVET** por decisión del autor. [Procedencia y valoración](../juego/arte/velvet_v1.md); [prompt](../juego/arte/prompts/velvet_rotulo_v1.txt). La versión anterior se conserva en `juego/assets/fiebre_fondo_v1.png`; se retiró su copia inactiva de Godot durante la limpieza.
 
 La carpeta `build/` y la caché `.godot/` se pueden regenerar y están excluidas del control de versiones. Los archivos de importación y UID junto a recursos/scripts sí forman parte del proyecto reproducible. No distribuir canon, guion de moderación o documentos de proceso como parte del paquete Web.
 

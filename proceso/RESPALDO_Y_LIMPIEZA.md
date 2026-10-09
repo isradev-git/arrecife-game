@@ -8,7 +8,7 @@ Copia previa a la limpieza: `/Users/glitchbane/Documents/proyectos/el-arrecife-r
 
 Control de versiones Git local iniciado con una base anterior a la limpieza. No se publica ni se crea remoto.
 
-## Retirada prevista
+## Retirada realizada
 
 - `godot/build/`: exportación técnica regenerable.
 - `godot/.godot/`: caché regenerable; se recreará al importar.
@@ -16,3 +16,7 @@ Control de versiones Git local iniciado con una base anterior a la limpieza. No 
 - Archivos `.DS_Store`: metadatos de Finder.
 
 Se conservan el prototipo JavaScript, pruebas, guion y versiones anteriores: siguen siendo fuentes de migración y referencia. La limpieza no cancela la instalación de Godot ni elimina las plantillas Web.
+
+Resultado: eliminados 47.0 MiB de archivos regenerables y copia inactiva. La caché volverá a existir al importar recursos.
+
+Base Git: `740bbb3`. Recuperación de `godot/project.godot` desde esa revisión comprobada por comparación de bytes. Tras limpieza, las 13 pruebas del prototipo siguen pasando y la escena técnica de Godot sigue cargando su fondo activo. La referencia nueva de Sota importa correctamente; no se regenera la exportación Web en esta entrega.

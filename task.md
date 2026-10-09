@@ -6,7 +6,9 @@ Objetivo: terminar un juego breve de investigación en Godot, con personajes y e
 
 **Nombre del local:** Velvet, elegido por el autor. El título del juego sigue pendiente.
 
-**Tarea actual:** ninguna en ejecución. **Siguiente:** T01. **Completada:** T00.
+**Tarea actual:** T03 · referencia de Sota, Entregada; revisión y escala pendientes. **Después:** T02 · escala en escena. **Completadas:** T00 y T01.
+
+El autor pide priorizar generación de recursos tras la limpieza. Se adelanta la referencia de T03; su cierre técnico seguirá necesitando T02. No se abre otra producción artística antes de revisar esta entrega.
 
 ## Cómo trabajar esta lista
 
@@ -43,11 +45,13 @@ La ambición de calidad se concreta en estos criterios y en revisiones sobre res
 
 **Evidencia:** [godot/README.md](godot/README.md). Todavía no acredita movimiento ni caso migrados.
 
-### T01 · Guardar una base recuperable — Pendiente
+### T01 · Guardar una base recuperable — Completada
 
 **Entrega:** control de versiones local, exclusión de cachés/exportaciones y una copia de respaldo fuera de la carpeta de trabajo. Conservar prototipo, recursos y prompts.
 
 **Cierre:** identificar la versión de partida y comprobar que un archivo puede recuperarse desde una copia temporal, sin alterar los originales. Registrar ubicación del respaldo. La publicación de un repositorio será una decisión posterior.
+
+**Resultado T01:** Git local, base `740bbb3`, respaldo externo al proyecto y recuperación de un archivo comprobada. [Registro](proceso/RESPALDO_Y_LIMPIEZA.md).
 
 ### T02 · Fijar escala, encuadre y acabado en escena — Pendiente
 
@@ -55,11 +59,13 @@ La ambición de calidad se concreta en estos criterios y en revisiones sobre res
 
 **Cierre:** Sota tiene proporciones creíbles junto a puertas y personas; el recorrido se entiende y la ciudad mantiene su escala. Registrar la opción elegida y la valoración del autor. Los 1280 × 720 de la prueba técnica no constituyen una decisión artística.
 
-### T03 · Preparar a Sota para producción — Pendiente
+### T03 · Preparar a Sota para producción — Entregada
 
 **Entrega:** referencia coherente de frente, tres cuartos y ambos perfiles, con medidas de suelo/pivote y detalles de ropa, pelo, manos, correa y deck. Mantener el diseño aprobado.
 
 **Cierre:** las vistas representan al mismo personaje, coinciden en proporciones y mantienen el lado del equipo; funcionan a la escala elegida. Guardar recurso, prompt y revisión.
+
+**Entrega T03:** [referencia de cuatro vistas](trabajo/arte/personajes/sota/README.md), PNG importado en Godot, regiones y apoyos medidos. Perfil izquierdo propio, deck en el lado físico correcto. Pendientes valoración del autor, bordes de alfa y escala/apoyos en T02; no se da por terminada la producción del personaje.
 
 ### T04 · Construir el desplazamiento en Godot — Pendiente
 
@@ -222,3 +228,5 @@ Al completar una tarea, añadir una fila breve y actualizar su estado arriba. Lo
 | Tarea | Fecha | Entrega y archivos | Resultado comprobado | Valoración del autor / pendiente |
 | --- | --- | --- | --- | --- |
 | T00 | 9 oct 2026 | Base Godot y exportación Web; `godot/README.md` | Instalación, importación, prueba automática y escena técnica en Safari | Elección de Godot por el autor; sin aprobación de un acabado nuevo |
+| T01 | 9 oct 2026 | Git local y [respaldo/limpieza](proceso/RESPALDO_Y_LIMPIEZA.md) | Recuperación idéntica desde respaldo y Git; retirados 47 MiB regenerables/duplicados | Respaldo en el mismo equipo; conserva fuentes y versiones |
+| T03 · entrega | 9 oct 2026 | [Sota: cuatro vistas y prompts](trabajo/arte/personajes/sota/README.md) | Transparencia y siluetas medidas, importación Godot correcta | Pendientes valoración, escala/apoyos T02 y bordes; sin animación nueva |
