@@ -1,0 +1,16 @@
+Use case: precise-object-edit / text-localization.
+Create revision 5 of the supplied pixel-art game scene for EL ARRECIFE: PASE PENDIENTE.
+
+Edit ONLY the two signs above the right-hand reception. The location is a fictional adult sex-work establishment offering real and virtual adult companionship. Its advertising should sound like a local business selling an experience, rather than a generic category sign. This is non-graphic environmental storytelling.
+
+1. Replace the large red neon word "CITAS" with the establishment's proper name, exactly:
+"DOBLE PIEL"
+Fit the name inside the existing large rectangular sign with slightly narrower, carefully formed uppercase neon letters. Keep its worn housing, perspective, red-pink glow, placement and approximate footprint.
+2. Replace the smaller "COMPAÑÍA ÍNTIMA" sign immediately beneath it with a modest two-line advertising panel, exact Spanish text:
+"ELLAS Y ELLOS"
+"CARNE O SIMULACIÓN"
+Use clear pale-pink uppercase letters on the same dark, worn sign material. This advertising offers adult women and men, with physical and virtual options. Preserve the accent in SIMULACIÓN. The brand must be visually dominant over its smaller advertising copy. Keep the panel compact within the existing frontage; do not cover the room-key board or add floating text.
+
+Preserve EVERYTHING else as closely as possible: the side-on composition and image dimensions, central city canyon, towers and bridges continuing above and below frame, continuous walking floor, right reception and attendant, keys and 30/60 MIN board, left frontage and staff booth, all adult figures and their positions, neon palette, steam, pipes, cables, damp reflections, pixel-art texture and cinematic depth.
+
+Especially preserve Sota exactly as depicted: one adult woman at center walking right, same small scale, dark short hair and grey streak, rust-brown jacket, dark trousers, pale diagonal strap, external deck, empty hands. Do not repaint or redesign the characters. All people remain fully clothed mature adults. No nudity, sex acts, erotic illustrations or new figures. No change to clothing, pose or anatomy. No title, watermark, UI or extra signage. One finished scene, not a poster.

@@ -1,0 +1,17 @@
+# Dirección artística de trabajo · Pase pendiente
+
+Registro de decisiones del autor para las próximas revisiones. No modifica el canon literario. Actualizado el 9 de octubre de 2026.
+
+- Universo inequívocamente cyberpunk. Referencias expresas del autor: William Gibson, Cyberpunk 2077 y Cyberpunk: Edgerunners. La arquitectura, tecnología corporal, objetos y vestuario deben sostener esa identidad juntos.
+- Pixel art cinematográfico lateral con profundidad; composición y escala de la Fiebre v1 como referencia. REPLACED orienta iluminación y encuadre, sin copiar diseños.
+- Criterio precisado por el autor tras v7: prima la experiencia inmersiva de EL ARRECIFE. El acabado deseado es el píxel fino y pulido de v1, con sutileza cinematográfica; no se busca maximizar el tamaño ni la visibilidad de los bloques. V7 se conserva como prueba de un píxel demasiado grueso para la dirección final. Mantener el vestuario de v6 con materiales, rostros y bordes trabajados como v1, evitando tanto el contorno de ilustración lisa como el pixelado grueso. La resolución lógica final sigue pendiente de prueba.
+- El autor aprueba expresamente la v8 como síntesis visual y destaca la protagonista. A partir de esta aprobación, v8 es la referencia principal del escenario y de Sota en escena; la hoja de Sota v1 conserva los detalles de identidad. No rediseñar su rostro, silueta o vestuario al comenzar la prueba narrativa.
+- Vestuario más futurista: siluetas, cortes y materiales reconocibles a escala de escena; diferencias de clase, tecnología incorporada y reparaciones. La ropa contemporánea con neón alrededor no basta. Las soluciones de vestuario concretas siguen siendo propuestas.
+- El autor aprueba la dirección de vestuario de la v6 para este tramo de la Fiebre: la clientela dispone de dinero para pagar servicios sexuales por tiempo y su apariencia puede mostrar capacidad de gasto. Esta escena admite prendas cuidadas y una imagen comercial atractiva sobre infraestructura antigua y reparada. No se deduce que toda la cota sea rica ni que quienes trabajan allí compartan la renta de sus clientes. La dirección visual de otras cotas se abordará cuando corresponda; no se amplía ahora el alcance.
+- Los negocios pueden tener nombres en inglés, japonés o español. El rótulo principal identifica al negocio; la línea secundaria publicita su oferta. No hace falta repartir los tres idiomas en cada pantalla ni cambiar un nombre que ya funciona.
+- El autor sustituye el nombre del local «Doble Piel» por **Velvet** el 9 de octubre de 2026. La publicidad secundaria sigue siendo «Ellas y ellos · Carne o simulación». Es una decisión del juego; no modifica el canon. Los conceptos anteriores conservan sus rótulos históricos.
+- Sota conserva pelo corto oscuro con mecha gris, chaqueta marrón rojiza, pantalón oscuro y deck externo con correa clara. Los ajustes materiales respetan esa identidad y su condición de civil sin armas.
+- La Fiebre debe expresar trabajo sexual adulto, oferta real y virtual y diferencias de poder, sin desnudos ni actos explícitos. No equiparar trabajo sexual con coerción ni convertir el caso de Iria en secuestro.
+- No ampliar el alcance: seguimos afinando arte. Guardar nuevas versiones y prompts en trabajo/arte/conceptos/; conservar las anteriores y no editar canon ni sources/.
+
+La producción posterior deberá probar escala del píxel, capas, sprites y animaciones. Una imagen integrada no los valida.

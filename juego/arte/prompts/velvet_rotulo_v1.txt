@@ -1,0 +1,4 @@
+Use case: text-localization.
+Asset type: existing 2D game background plate, EL ARRECIFE.
+Input image: edit target. Precisely replace ONLY the main red neon sign text "DOBLE PIEL" with "VELVET" (V E L V E T), clearly readable uppercase red neon tube lettering, centered within the SAME existing perspective-angled rectangular sign.
+Preserve the neon border, sign housing, red glow, perspective, weathering and all other signage, especially "ELLAS Y ELLOS" and "CARNE O SIMULACIÓN". Preserve the entire rest of the input exactly: camera, framing, 1672 × 941 dimensions, fine polished cinematic pixel finish, architecture, wet floor, lighting, objects, all adult clothed characters and their faces/clothes/poses. Keep central walkway empty, do not add Sota or any character. No new objects, no redesign, no cropping, no new text, no UI. Change only those six neon letters.

@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#13151a">
+  <title>Pase pendiente · El Arrecife</title>
+  <link rel="stylesheet" href="style.css">
+  <script defer src="src/evidence.js"></script>
+  <script defer src="src/content.js"></script>
+  <script defer src="src/engine.js"></script>
+  <script defer src="src/motion.js"></script>
+  <script defer src="src/atmosphere.js"></script>
+  <script defer src="src/sprites.js"></script>
+  <script defer src="src/app.js"></script>
+</head>
+<body>
+  <main id="game">
+    <header id="topbar">
+      <a class="wordmark" href="#" id="menu-link" aria-label="Abrir menú">El Arrecife <span>Pase pendiente</span></a>
+      <div id="location">Cota 4 · La Fiebre</div>
+      <button id="options-button" class="quiet" type="button">Opciones</button>
+    </header>
+    <section id="stage" aria-label="Escenario de la investigación">
+      <canvas id="scene" width="1672" height="941" role="img" aria-label="Galería de la Fiebre. Sota se acerca a la recepción de Velvet."></canvas>
+      <div id="hotspots" aria-label="Puntos de investigación"></div>
+      <div id="title-screen">
+        <div class="title-copy">
+          <p class="series">Una historia de El Arrecife</p>
+          <h1>Pase<br>pendiente<span class="title-period">.</span></h1>
+          <p class="premise">Iria pagó por trabajar arriba.<br>Ahora nadie sabe dónde está.</p>
+          <div class="title-buttons">
+            <button id="start-button" class="primary" disabled>Comenzar</button>
+            <button id="continue-button" hidden>Continuar</button>
+          </div>
+          <p id="loading" role="status">Preparando la ciudad…</p>
+          <p class="title-note">Una investigación sin combate.<br>Observa, pregunta y contrasta.</p>
+        </div>
+      </div>
+      <section id="dialogue" class="dialogue" aria-label="Conversación" hidden>
+        <div class="dialogue-meta"><span id="speaker"></span><span id="line-counter"></span></div>
+        <p id="speech" aria-live="polite"></p>
+        <button id="next-line" class="primary">Continuar</button>
+      </section>
+      <section id="ending" hidden aria-label="Cierre del caso">
+        <div>
+          <p class="series">El Arrecife</p>
+          <h2>Caso cerrado.</h2>
+          <p>Iria ha vuelto por decisión propia. Recupera dos láminas y mantiene la reclamación de la tercera.</p>
+          <p class="book-invite">La ciudad continúa en <em>CARGA ADMISIBLE</em>, la novela ambientada en El Arrecife.</p>
+          <button id="review-button">Revisar la libreta</button>
+          <button id="end-menu">Volver al menú</button>
+        </div>
+      </section>
+    </section>
+    <footer id="hud" hidden>
+      <div class="objective"><span id="scene-name">Velvet</span><p id="objective"></p></div>
+      <nav aria-label="Herramientas de Sota">
+        <button id="run-button" aria-pressed="false">Correr</button>
+        <button id="front-button">De frente</button>
+        <button id="explore-button">Explorar</button>
+        <button id="notebook-button">Libreta <span id="doc-count">0</span></button>
+        <button id="map-button">Recorrido</button>
+      </nav>
+    </footer>
+    <div id="controls" hidden><span>← → / A D caminar · Mayús correr · doble clic para correr hasta allí</span><span>F de frente · E interactuar · J libreta · M recorrido · H puntos</span></div>
+  </main>
+  <dialog id="panel" aria-labelledby="panel-title">
+    <header class="panel-header"><div><p id="panel-kicker"></p><h2 id="panel-title"></h2></div><button id="close-panel" aria-label="Cerrar ventana">Cerrar <span aria-hidden="true">×</span></button></header>
+    <div id="panel-body"></div>
+  </dialog>
+  <div id="toast" role="status" aria-live="polite"></div>
+  <noscript>Este juego necesita JavaScript para las conversaciones y las deducciones.</noscript>
+</body>
+</html>

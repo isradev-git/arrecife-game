@@ -1,0 +1,24 @@
+Use case: style-transfer / compositing.
+Create La Fiebre revision 8 for EL ARRECIFE: PASE PENDIENTE, one widescreen cinematic game environment.
+
+REFERENCE PRIORITY:
+IMAGE 1 (fiebre_escena_v1.png) is the authoritative STYLE reference: match its refined, fine-grained cinematic pixel-art finish, careful human rendering, restrained highlights, deep shadows and atmospheric layering.
+IMAGE 2 (fiebre_escena_v6.png) is the CONTENT and LAYOUT reference: preserve its scene, people, futuristic clothing, commercial frontage and red/pink nightlife identity.
+
+The user wants the visual finesse of IMAGE 1 applied to the developed scene of IMAGE 2. Fine polished pixel art, immersive and atmospheric, with the city taking precedence over conspicuous pixel blocks. Match the small pixel clusters and edge treatment of IMAGE 1 directly. No deliberately coarse sprite treatment, no low-resolution mosaic, no exaggerated stair steps, no posterization. Equally, avoid the smooth comic-book contours that appeared on the people in IMAGE 2. Keep subtle pixel craftsmanship in faces, clothing, architecture and material highlights. No blur filter or grain overlay.
+
+Preserve the exact side-on camera, horizontal walking gallery, foreground pipes, immense tower canyon, bridges above and below frame and open space around Sota. Preserve every existing adult's location and the six street figures' futuristic clothing: the two women at left with angular plum/graphite garments, the burgundy technical jacket and ochre-backed vest beside reception, the angular aubergine shoulder layer and pale-inset coat at far right. Keep plausible adult anatomy and individualized faces rendered with the finesse of IMAGE 1. Keep the reception attendant and the left staff booth operator.
+
+Keep ONE Sota centered at the same scale, walking right: dark short bob with small grey streak, olive skin, worn rust-brown short jacket, dark olive trousers, pale diagonal strap and battered external deck. Preserve her facial identity and equipment.
+
+Keep the right-hand reception, numbered private doors, key board, folded linen, appointment book and signage exactly as IMAGE 2:
+"DOBLE PIEL"
+"ELLAS Y ELLOS"
+"CARNE O SIMULACIÓN"
+"30 / 60 MIN"
+Keep the left sign "PERSONAL" / "SALIDA AUTORIZADA".
+Do not restore the earlier COTA 4 sign or erase the developed businesses. All existing figures remain mature fully clothed adults in ordinary public conversation. No new figures, poses, intimate activity or illustrations.
+
+LIGHTING: retain crimson and pink as the local dominant light sources, with a small warm amber task light at reception. Bring back IMAGE 1's lighting discipline: large quiet dark masses, damp metal catching selective highlights, distant buildings fading into desaturated blue-green haze, several clearly separated depth layers. Pink neon remains rich around entrances but should not wash the whole city. Make the wet floor a set of subdued interrupted reflections with a few bright accents, leaving characters and the counter easy to read. Keep humidity, restrained steam, repaired cables and patched industrial surfaces. The city is inhabited and functioning. No new sky.
+
+The final image should feel like being inside a vast, tangible cyberpunk city, rendered in elegant cinematic pixel art. Keep fine detail and material richness without crunchy oversharpening, noisy glitter, flattened contrast, broad cartoon outlines or a smooth vector finish. Do not make an artificial compromise blur: genuinely redraw with the refined visual construction of IMAGE 1. One finished landscape scene, same framing and aspect ratio. No UI, comparison panels, watermark or outside labels.
