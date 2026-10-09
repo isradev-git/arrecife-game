@@ -1,12 +1,14 @@
 # EL ARRECIFE · Tareas del videojuego
 
-Actualizado: **9 de octubre de 2026**. **Título definitivo pendiente**: el autor ha descartado «Pase pendiente» para la versión final. Ese nombre permanece en los archivos anteriores como referencia histórica hasta elegir el nuevo.
+Actualizado: **10 de octubre de 2026**. **Título definitivo pendiente**: el autor ha descartado «Pase pendiente» para la versión final. Ese nombre permanece en los archivos anteriores como referencia histórica hasta elegir el nuevo.
 
 Objetivo: terminar un juego breve de investigación en Godot, con personajes y entornos cuidados, jugable en navegador y presentable como proyecto propio. Desarrollan y prueban el autor y el asistente.
 
 **Nombre del local:** Velvet, elegido por el autor. El título del juego sigue pendiente.
 
-**Tarea actual:** T02 · escala en escena, Entregada para revisión. T03 sigue Entregada; pendiente valoración y acabado fino de bordes. **Completadas:** T00 y T01.
+**Sota:** solo perfil derecho e izquierdo, decisión del autor del 10 de octubre. Reposo, respiración, conversación y cambios de dirección no muestran frontal ni tres cuartos. Se conserva la escala de la entrega aprobada.
+
+**Tarea actual:** T02 · escala en escena, Entregada; valoración visual aprobada, navegador pendiente. T03 sigue Entregada; perfiles aprobados, acabado fino de bordes pendiente. **Completadas:** T00 y T01.
 
 El autor pide priorizar generación de recursos tras la limpieza. Se adelanta la referencia de T03; su cierre técnico seguirá necesitando T02. No se abre otra producción artística antes de revisar esta entrega.
 
@@ -59,15 +61,15 @@ La ambición de calidad se concreta en estos criterios y en revisiones sobre res
 
 **Cierre:** Sota tiene proporciones creíbles junto a puertas y personas; el recorrido se entiende y la ciudad mantiene su escala. Registrar la opción elegida y la valoración del autor. Los 1280 × 720 de la prueba técnica no constituyen una decisión artística.
 
-**Entrega T02:** [escena, capturas y propuesta](trabajo/arte/revisiones/escala_v1/README.md). Composición 1672 × 941, propuesta Sota 252, cuatro vistas con apoyo normalizado y filtro suave/nítido. Prueba automática y render nativo correctos; exportación Web correcta. Pendientes valoración del autor y comprobación visual en navegador.
+**Entrega T02:** [escena, capturas y propuesta](trabajo/arte/revisiones/escala_v1/README.md). Composición 1672 × 941, Sota 252, dos perfiles con apoyo normalizado y filtro suave/nítido. Prueba automática y render nativo correctos; exportación Web correcta. El autor aprueba el aspecto de Sota en escena y elige solo perfiles. Pendiente comprobación visual en navegador.
 
 ### T03 · Preparar a Sota para producción — Entregada
 
-**Entrega:** referencia coherente de frente, tres cuartos y ambos perfiles, con medidas de suelo/pivote y detalles de ropa, pelo, manos, correa y deck. Mantener el diseño aprobado.
+**Entrega:** referencia coherente de ambos perfiles, con medidas de suelo/pivote y detalles de ropa, pelo, manos, correa y deck. Mantener el diseño aprobado.
 
 **Cierre:** las vistas representan al mismo personaje, coinciden en proporciones y mantienen el lado del equipo; funcionan a la escala elegida. Guardar recurso, prompt y revisión.
 
-**Entrega T03:** [referencia de cuatro vistas](trabajo/arte/personajes/sota/README.md), PNG importado en Godot, regiones y apoyos medidos. Perfil izquierdo propio, deck en el lado físico correcto. Pendientes valoración del autor, bordes de alfa y escala/apoyos en T02; no se da por terminada la producción del personaje.
+**Entrega T03:** [referencia y perfiles vigentes](trabajo/arte/personajes/sota/README.md), PNG importado en Godot, regiones y apoyos medidos. Perfil izquierdo propio, deck en el lado físico correcto. El autor aprueba los perfiles en escena y descarta las otras vistas para ejecución. Pendiente acabado fino de bordes; no se da por terminada la animación del personaje.
 
 ### T04 · Construir el desplazamiento en Godot — Pendiente
 
@@ -81,9 +83,9 @@ La ambición de calidad se concreta en estos criterios y en revisiones sobre res
 
 **Cierre:** revisar apoyos, transferencia de peso, articulaciones, manos, ropa y deck; sin saltos de tamaño, pivote o postura al cerrar el ciclo. Ajustar zancada y velocidad viendo el resultado en escena.
 
-### T06 · Terminar carrera, giros y reposo — Pendiente
+### T06 · Terminar carrera, cambios de dirección y reposo — Pendiente
 
-**Entrega:** carrera propia, cambios caminar/correr, parada, vuelta y reposo con respiración sutil.
+**Entrega:** carrera propia, cambios caminar/correr, parada, cambio entre perfiles y reposo con respiración y gestos sutiles. No mostrar frontal ni tres cuartos, tampoco durante conversaciones o transiciones.
 
 **Cierre:** ambas direcciones y todas las transiciones son continuas, conservan identidad y equipo y mantienen los apoyos. Movimiento reducido funciona. Registrar revisión visual del autor.
 
@@ -115,7 +117,7 @@ La ambición de calidad se concreta en estos criterios y en revisiones sobre res
 
 **Entrega:** versión Web del primer tramo con personaje, entorno, actividad, encargo y documento funcionando juntos.
 
-**Cierre:** el autor prueba caminar, correr, giros, interacción y lectura. Registrar problemas concretos y corregir los que afecten al estándar visual o de control. Cerrar con valoración del conjunto antes de extenderlo a las otras pantallas.
+**Cierre:** el autor prueba caminar, correr, cambios entre perfiles, interacción y lectura. Registrar problemas concretos y corregir los que afecten al estándar visual o de control. Cerrar con valoración del conjunto antes de extenderlo a las otras pantallas.
 
 ## Completar personajes, entornos y caso
 
@@ -233,3 +235,4 @@ Al completar una tarea, añadir una fila breve y actualizar su estado arriba. Lo
 | T01 | 9 oct 2026 | Git local y [respaldo/limpieza](proceso/RESPALDO_Y_LIMPIEZA.md) | Recuperación idéntica desde respaldo y Git; retirados 47 MiB regenerables/duplicados | Respaldo en el mismo equipo; conserva fuentes y versiones |
 | T03 · entrega | 9 oct 2026 | [Sota: cuatro vistas y prompts](trabajo/arte/personajes/sota/README.md) | Transparencia y siluetas medidas, importación Godot correcta | Pendientes valoración, escala/apoyos T02 y bordes; sin animación nueva |
 | T02 · entrega | 9 oct 2026 | [Revisión de escala y capturas](trabajo/arte/revisiones/escala_v1/README.md) | Cuatro vistas y tres alturas, apoyos y filtros; render nativo, importación, pruebas y exportación Web correctos | Propuesta 252; pendientes valoración y prueba visual en navegador |
+| Dirección de Sota | 10 oct 2026 | Solo perfiles en la revisión Godot; frontal y tres cuartos conservados como historial | Comprobación adaptada a dos vistas | Autor aprueba el aspecto en escena y descarta frontal; respiración y animaciones todavía pendientes |

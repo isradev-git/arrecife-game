@@ -4,6 +4,8 @@
 
 Actualización: el orden y estado de ejecución se mantienen en [task.md](../task.md), una tarea cada vez. El autor ha descartado el título «Pase pendiente» para la versión final; este documento conserva el nombre histórico del prototipo.
 
+**Decisión del 10 de octubre:** el autor aprueba cómo queda Sota en Velvet y establece presentación exclusivamente de perfil, en ambos sentidos. Reposo, respiración, conversación y cambios de dirección mantienen esa orientación; no producir frontal ni tres cuartos para ejecución.
+
 ## Diagnóstico
 
 El prototipo tiene el recorrido narrativo completo y reglas comprobables. Todavía no tiene el acabado visual, la animación ni la validación de distribución de una entrega pública.
@@ -50,7 +52,7 @@ Orden interno:
 
 1. Fijar escala de Sota, plano de suelo y espacio transitable tomando v8 como referencia. Definir resolución y filtrado viendo el resultado a tamaño real; los 1280 × 720 de la prueba de instalación no son una retícula artística aprobada.
 2. Construir movimiento con límites/colisiones y puntos de llegada por interacción. Conservar teclado y clic; impedir movimiento mientras se lee o conversa. No añadir salto, combate ni plataformas.
-3. Calibrar el ciclo de caminar: apoyos, transferencia de peso, distancia de zancada y pivote común. Corregir la consistencia de los fotogramas antes de aumentar su número. Revisar después carrera, frenada, vuelta y reposo; preparar izquierda propia para conservar el deck.
+3. Calibrar el ciclo de caminar: apoyos, transferencia de peso, distancia de zancada y pivote común. Corregir la consistencia de los fotogramas antes de aumentar su número. Revisar después carrera, frenada, cambio entre perfiles y reposo con respiración sutil; preparar izquierda propia para conservar el deck.
 4. Comprobar qué debe quedar delante y detrás de Sota. Separar los elementos necesarios del fondo y reconstruir lo oculto por ellos. Guardar nuevas versiones y prompts. Godot no separa automáticamente los personajes de una ilustración.
 5. Añadir profundidad y actividad discreta: capas con parallax donde haya movimiento de cámara, vapor, reflejos, luces y algún secundario independiente. La cámara debe servir a la composición; un fondo fijo no gana profundidad solo por usar un nodo de parallax.
 6. Encargo y primer documento con controles de Godot, foco de teclado, texto cómodo y movimiento reducido. Evaluar el conjunto con el autor.

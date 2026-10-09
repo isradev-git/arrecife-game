@@ -1,6 +1,6 @@
 # PASE PENDIENTE · Base Godot
 
-Preparación técnica del 9 de octubre de 2026. **Todavía no contiene el caso jugable ni el movimiento de Sota.** La escena principal actual permite revisar las cuatro vistas de Sota en Velvet, su altura y filtrado. La escena técnica anterior se conserva en `verificacion.tscn`.
+Preparación técnica del 9 de octubre de 2026. **Todavía no contiene el caso jugable ni el movimiento de Sota.** La escena principal actual permite revisar ambos perfiles de Sota en Velvet, su altura y filtrado. La escena técnica anterior se conserva en `verificacion.tscn`.
 
 ## Instalación comprobada
 
@@ -49,6 +49,8 @@ No se ha validado aquí guardado, audio, lectores de pantalla, móvil, otros nav
 Cambio posterior del mismo día: el fondo activo pasa a Velvet. Importación, comprobación automática y exportación Web repetidas con resultado correcto; la prueba visual en Safari de la tabla corresponde a la entrega anterior.
 
 Revisión de escala posterior: cuatro vistas y tres alturas verificadas por prueba automática y capturas nativas. La exportación Web se regenera correctamente. La prueba en Safari de la tabla corresponde a la escena técnica anterior: no se ha observado todavía la revisión nueva en navegador.
+
+Decisión del 10 de octubre: el autor aprueba el aspecto de Sota en escena y elige solo perfiles. Los controles actuales ya no ofrecen frontal ni tres cuartos; el atlas original se conserva. [Revisión vigente](../trabajo/arte/revisiones/escala_v2/README.md). Respiración, carrera y cambios de dirección animados siguen pendientes.
 
 ## Recursos y continuidad
 

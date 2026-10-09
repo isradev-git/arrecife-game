@@ -1,5 +1,7 @@
 # Velvet · Escala y apoyo de Sota v1
 
+**Versión histórica:** el 10 de octubre el autor aprueba el aspecto en escena y descarta frontal/tres cuartos. La escena actual ofrece solo perfiles; [revisión vigente](../escala_v2/README.md). Se conservan estas capturas y comprobaciones de la primera entrega.
+
 9 de octubre de 2026. Entrega T02 para revisión del autor. Se utiliza [Velvet aprobado](../../../../godot/assets/fiebre_velvet_v1.png) y la [referencia de Sota v3](../../personajes/sota/README.md), sin alterar esos PNG.
 
 ## Propuesta del asistente

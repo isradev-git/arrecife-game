@@ -1,5 +1,7 @@
 # Sota · Referencia de producción
 
+**Decisión vigente · 10 de octubre:** el autor aprueba cómo queda en Velvet y elige solo los perfiles derecho e izquierdo. Frontal y tres cuartos se conservan en el atlas por historial, pero no se muestran en Godot ni se producirán sus animaciones. El reposo, la respiración y las conversaciones serán de perfil. [Revisión vigente](../../revisiones/escala_v2/README.md). Las secciones siguientes documentan la entrega original.
+
 9 de octubre de 2026. Primera entrega de T03, adelantada por la petición del autor de continuar generando recursos. **Entregada, pendiente de revisión estética, bordes y comprobación de escala T02.** No sustituye las animaciones del prototipo.
 
 Referencia entregada: [referencia_v3.png](../../../../godot/assets/personajes/sota/referencia_v3.png), importable en Godot. Cuatro vistas: perfil derecho, perfil izquierdo, frente y tres cuartos derecho. La izquierda es una vista propia: el deck queda en la cadera derecha, al otro lado del cuerpo. El parche de la manga y la mecha gris siguen el lado físico del personaje.

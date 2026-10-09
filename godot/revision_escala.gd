@@ -3,7 +3,7 @@ extends Node2D
 const ATLAS = preload("res://assets/personajes/sota/referencia_v3.png")
 const BACKGROUND = preload("res://assets/fiebre_velvet_v1.png")
 const CUTOUT = preload("res://assets/personajes/sota/silueta.gdshader")
-const LABELS = ["Perfil derecho", "Perfil izquierdo", "Frente", "Tres cuartos"]
+const LABELS = ["Perfil derecho", "Perfil izquierdo"]
 const HEIGHTS = [232.0, 252.0, 272.0]
 
 var views: Array
@@ -15,7 +15,7 @@ var status := Label.new()
 
 
 func _ready() -> void:
-	views = JSON.parse_string(FileAccess.get_file_as_string("res://assets/personajes/sota/referencia_v3.json"))["vistas"]
+	views = JSON.parse_string(FileAccess.get_file_as_string("res://assets/personajes/sota/referencia_v3.json"))["vistas"].slice(0, 2)
 	var background := Sprite2D.new()
 	background.texture = BACKGROUND
 	background.centered = false

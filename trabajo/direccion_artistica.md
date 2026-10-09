@@ -1,6 +1,6 @@
 # Dirección artística de trabajo · Pase pendiente
 
-Registro de decisiones del autor para las próximas revisiones. No modifica el canon literario. Actualizado el 9 de octubre de 2026.
+Registro de decisiones del autor para las próximas revisiones. No modifica el canon literario. Actualizado el 10 de octubre de 2026.
 
 - Universo inequívocamente cyberpunk. Referencias expresas del autor: William Gibson, Cyberpunk 2077 y Cyberpunk: Edgerunners. La arquitectura, tecnología corporal, objetos y vestuario deben sostener esa identidad juntos.
 - Pixel art cinematográfico lateral con profundidad; composición y escala de la Fiebre v1 como referencia. REPLACED orienta iluminación y encuadre, sin copiar diseños.
@@ -10,6 +10,7 @@ Registro de decisiones del autor para las próximas revisiones. No modifica el c
 - El autor aprueba la dirección de vestuario de la v6 para este tramo de la Fiebre: la clientela dispone de dinero para pagar servicios sexuales por tiempo y su apariencia puede mostrar capacidad de gasto. Esta escena admite prendas cuidadas y una imagen comercial atractiva sobre infraestructura antigua y reparada. No se deduce que toda la cota sea rica ni que quienes trabajan allí compartan la renta de sus clientes. La dirección visual de otras cotas se abordará cuando corresponda; no se amplía ahora el alcance.
 - Los negocios pueden tener nombres en inglés, japonés o español. El rótulo principal identifica al negocio; la línea secundaria publicita su oferta. No hace falta repartir los tres idiomas en cada pantalla ni cambiar un nombre que ya funciona.
 - El autor sustituye el nombre del local «Doble Piel» por **Velvet** el 9 de octubre de 2026. La publicidad secundaria sigue siendo «Ellas y ellos · Carne o simulación». Es una decisión del juego; no modifica el canon. Los conceptos anteriores conservan sus rótulos históricos.
+- El 10 de octubre el autor aprueba cómo queda Sota en Velvet y decide que **solo se verá de perfil**, derecho e izquierdo. Descarta frontal y tres cuartos para su presentación en juego. Reposo, conversación, respiración y cambios de dirección conservan el perfil; los pies permanecen apoyados. El deck mantiene su lado físico. Las hojas anteriores se conservan como historial.
 - Sota conserva pelo corto oscuro con mecha gris, chaqueta marrón rojiza, pantalón oscuro y deck externo con correa clara. Los ajustes materiales respetan esa identidad y su condición de civil sin armas.
 - La Fiebre debe expresar trabajo sexual adulto, oferta real y virtual y diferencias de poder, sin desnudos ni actos explícitos. No equiparar trabajo sexual con coerción ni convertir el caso de Iria en secuestro.
 - No ampliar el alcance: seguimos afinando arte. Guardar nuevas versiones y prompts en trabajo/arte/conceptos/; conservar las anteriores y no editar canon ni sources/.
