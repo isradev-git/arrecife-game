@@ -6,6 +6,8 @@ Actualización: el orden y estado de ejecución se mantienen en [task.md](../tas
 
 **Decisión del 10 de octubre:** el autor aprueba cómo queda Sota en Velvet y establece presentación exclusivamente de perfil, en ambos sentidos. Reposo, respiración, conversación y cambios de dirección mantienen esa orientación; no producir frontal ni tres cuartos para ejecución.
 
+**GitHub · 10 de octubre:** el autor autoriza subir el proyecto completo, canon y documentos internos incluidos, a `isradev-git/arrecife-game` pese a que el repositorio es público; indica que lo hará privado después. Esta autorización sustituye la exclusión del canon para esta subida de desarrollo. Sigue vigente separar fuentes internas de los paquetes distribuidos a jugadores.
+
 ## Diagnóstico
 
 El prototipo tiene el recorrido narrativo completo y reglas comprobables. Todavía no tiene el acabado visual, la animación ni la validación de distribución de una entrega pública.
