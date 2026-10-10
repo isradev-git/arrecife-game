@@ -51,7 +51,7 @@ La ambición de calidad se concreta en estos criterios y en revisiones sobre res
 
 **Entrega:** control de versiones local, exclusión de cachés/exportaciones y una copia de respaldo fuera de la carpeta de trabajo. Conservar prototipo, recursos y prompts.
 
-**Cierre:** identificar la versión de partida y comprobar que un archivo puede recuperarse desde una copia temporal, sin alterar los originales. Registrar ubicación del respaldo. La publicación de un repositorio será una decisión posterior.
+**Cierre:** identificar la versión de partida y comprobar que un archivo puede recuperarse desde una copia temporal, sin alterar los originales. Registrar ubicación del respaldo. El autor ha autorizado subir el proyecto completo a GitHub el 10 de octubre; subida verificada en `main`. La publicación del juego para jugadores sigue siendo posterior.
 
 **Resultado T01:** Git local, base `740bbb3`, respaldo externo al proyecto y recuperación de un archivo comprobada. [Registro](proceso/RESPALDO_Y_LIMPIEZA.md).
 
@@ -236,3 +236,4 @@ Al completar una tarea, añadir una fila breve y actualizar su estado arriba. Lo
 | T03 · entrega | 9 oct 2026 | [Sota: cuatro vistas y prompts](trabajo/arte/personajes/sota/README.md) | Transparencia y siluetas medidas, importación Godot correcta | Pendientes valoración, escala/apoyos T02 y bordes; sin animación nueva |
 | T02 · entrega | 9 oct 2026 | [Revisión de escala y capturas](trabajo/arte/revisiones/escala_v1/README.md) | Cuatro vistas y tres alturas, apoyos y filtros; render nativo, importación, pruebas y exportación Web correctos | Propuesta 252; pendientes valoración y prueba visual en navegador |
 | Dirección de Sota | 10 oct 2026 | Solo perfiles en la revisión Godot; frontal y tres cuartos conservados como historial | Comprobación adaptada a dos vistas | Autor aprueba el aspecto en escena y descarta frontal; respiración y animaciones todavía pendientes |
+| GitHub | 10 oct 2026 | Proyecto e historial en isradev-git/arrecife-game, main | Clonación desde GitHub: 129 archivos idénticos y 7 commits hasta 5e8a2d7; cierre posterior adicional | Autor autoriza incluir canon y documentos; él lo hará privado |

@@ -20,3 +20,7 @@ Se conservan el prototipo JavaScript, pruebas, guion y versiones anteriores: sig
 Resultado: eliminados 47.0 MiB de archivos regenerables y copia inactiva. La caché volverá a existir al importar recursos.
 
 Base Git: `740bbb3`. Recuperación de `godot/project.godot` desde esa revisión comprobada por comparación de bytes. Tras limpieza, las 13 pruebas del prototipo siguen pasando y la escena técnica de Godot sigue cargando su fondo activo. La referencia nueva de Sota importa correctamente; no se regenera la exportación Web en esta entrega.
+
+## Copia en GitHub
+
+10 de octubre: proyecto e historial completos subidos a `https://github.com/isradev-git/arrecife-game`, rama `main`, con autorización expresa para incluir canon y documentos internos mientras es público. Clonación nueva verifica los 129 archivos byte a byte y los 7 commits hasta `5e8a2d7`; el cierre añade un commit posterior. El autor indica que lo hará privado. Caches, exportaciones regenerables y credenciales no se suben.
