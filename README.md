@@ -4,6 +4,8 @@ Juego de investigación en desarrollo, ambientado en la megaciudad vertical de E
 
 La producción definitiva utiliza **Godot 4.7.2, GDScript y 2D Compatibility**, con exportación Web. El caso completo todavía se encuentra en el prototipo JavaScript; la versión Godot permite revisar a Sota, de perfil, dentro de Velvet. La migración y las animaciones siguen en curso.
 
+**Dirección artística · 10 de octubre:** vamos a renovar sprites, modelos, personajes, objetos, animaciones y entornos por capas para que sean más pixel art, más cercanos al estilo de REPLACED. Se conserva la identidad de Sota y su presentación solo de perfil. [Criterios vigentes](trabajo/direccion_artistica.md); renovación pendiente en [task.md](task.md). La captura siguiente muestra la iteración anterior al cambio de acabado.
+
 ![Sota de perfil en Velvet](trabajo/arte/revisiones/escala_v2/perfil_0.png)
 
 ## Abrir el proyecto

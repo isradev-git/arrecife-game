@@ -2,6 +2,8 @@
 
 Preparación técnica del 9 de octubre de 2026. **Todavía no contiene el caso jugable ni el movimiento de Sota.** La escena principal actual permite revisar ambos perfiles de Sota en Velvet, su altura y filtrado. La escena técnica anterior se conserva en `verificacion.tscn`.
 
+**Acabado pendiente · 10 de octubre:** los recursos activos pertenecen a la iteración anterior. Se renovarán sprites, modelos, personajes, objetos, animaciones y entornos por capas hacia un pixel art más cercano a REPLACED, según la [dirección vigente](../trabajo/direccion_artistica.md). Revisar resolución, retícula, filtrado y escala al integrar las versiones nuevas; esta actualización documental no cambia los PNG ni la configuración de Godot.
+
 ## Instalación comprobada
 
 - Editor estándar **4.7.2.stable.official.ed1daf0bf**, en `/Applications/Godot.app`.

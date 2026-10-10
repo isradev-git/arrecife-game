@@ -6,11 +6,13 @@ Objetivo: terminar un juego breve de investigación en Godot, con personajes y e
 
 **Nombre del local:** Velvet, elegido por el autor. El título del juego sigue pendiente.
 
-**Sota:** solo perfil derecho e izquierdo, decisión del autor del 10 de octubre. Reposo, respiración, conversación y cambios de dirección no muestran frontal ni tres cuartos. Se conserva la escala de la entrega aprobada.
+**Sota:** solo perfil derecho e izquierdo, decisión del autor del 10 de octubre. Reposo, respiración, conversación y cambios de dirección no muestran frontal ni tres cuartos. La escala de la entrega aprobada sirve de base; se revisará con los recursos nuevos.
 
-**Tarea actual:** T02 · escala en escena, Entregada; valoración visual aprobada, navegador pendiente. T03 sigue Entregada; perfiles aprobados, acabado fino de bordes pendiente. **Completadas:** T00 y T01.
+**Dirección artística vigente:** renovar sprites, modelos, personajes, objetos, animaciones y entornos por capas para un acabado más pixel art, más cercano a REPLACED. Los recursos actuales son una iteración previa; conservar identidad, universo, versiones y prompts. Criterios en [dirección artística](trabajo/direccion_artistica.md). La renovación se incorpora a las tareas existentes, una cada vez.
 
-El autor pide priorizar generación de recursos tras la limpieza. Se adelanta la referencia de T03; su cierre técnico seguirá necesitando T02. No se abre otra producción artística antes de revisar esta entrega.
+**Tarea actual:** T02 · escala en escena, Entregada; valoración de la iteración anterior aprobada, nuevo acabado pixel art y navegador pendientes. T03 sigue Entregada; perfiles aprobados, renovación pixel art pendiente. **Completadas:** T00 y T01.
+
+El autor pide priorizar generación de recursos tras la limpieza. Se adelanta la referencia de T03; su cierre técnico seguirá necesitando T02. El siguiente pase debe probar el nuevo acabado de Sota en Velvet antes de producir el resto en serie.
 
 ## Cómo trabajar esta lista
 
@@ -28,6 +30,7 @@ Este archivo es la fuente del orden y estado de las tareas. [PLAN_GODOT.md](proc
 
 | Área | Criterio de revisión |
 | --- | --- |
+| Pixel art | Píxeles y formas trabajados en el recurso original, legibles a tamaño de juego, con retícula y tratamiento coherentes entre sprites, objetos y capas; acabado cercano a REPLACED según la dirección vigente. Un filtro sobre la imagen anterior no cierra la renovación. |
 | Personajes | Identidad, anatomía, ropa y equipo coherentes entre vistas y fotogramas; silueta legible; escala y presencia propias. Sota conserva la identidad aprobada en v8 y el deck en la cadera derecha. |
 | Animación | Apoyos y peso creíbles, pies acordes al avance, pivote estable, cambios de dirección y velocidad continuos. Revisar a velocidad normal y fotograma a fotograma. |
 | Entornos | Espacio transitable comprensible, perspectiva y escala consistentes, arquitectura vertical, materiales usados y reparados, luz con jerarquía y profundidad por capas. Rótulos, tecnología y vestuario sostienen el universo. |
@@ -57,19 +60,19 @@ La ambición de calidad se concreta en estos criterios y en revisiones sobre res
 
 ### T02 · Fijar escala, encuadre y acabado en escena — Entregada
 
-**Entrega:** comparación en Godot de Sota, suelo, mobiliario y personajes de Velvet, tomando [Fiebre v8](trabajo/arte/conceptos/fiebre_v8/fiebre_escena_v8.png) como referencia. Elegir resolución de trabajo, filtrado y encuadre con esa comparación visible.
+**Entrega:** comparación en Godot de Sota, suelo, mobiliario y personajes de Velvet, tomando [Fiebre v8](trabajo/arte/conceptos/fiebre_v8/fiebre_escena_v8.png) como referencia de identidad y composición, y REPLACED como orientación del nuevo acabado pixel art. Elegir resolución de trabajo, retícula, filtrado y encuadre con recursos nuevos a tamaño real.
 
-**Cierre:** Sota tiene proporciones creíbles junto a puertas y personas; el recorrido se entiende y la ciudad mantiene su escala. Registrar la opción elegida y la valoración del autor. Los 1280 × 720 de la prueba técnica no constituyen una decisión artística.
+**Cierre:** Sota tiene proporciones creíbles junto a puertas y personas; el recorrido se entiende y la ciudad mantiene su escala. Revisar el nuevo acabado pixel art integrado, registrar la opción elegida y la valoración del autor. La aprobación de la iteración anterior no cierra esta renovación; los 1280 × 720 de la prueba técnica no constituyen una decisión artística.
 
 **Entrega T02:** [escena, capturas y propuesta](trabajo/arte/revisiones/escala_v1/README.md). Composición 1672 × 941, Sota 252, dos perfiles con apoyo normalizado y filtro suave/nítido. Prueba automática y render nativo correctos; exportación Web correcta. El autor aprueba el aspecto de Sota en escena y elige solo perfiles. Pendiente comprobación visual en navegador.
 
 ### T03 · Preparar a Sota para producción — Entregada
 
-**Entrega:** referencia coherente de ambos perfiles, con medidas de suelo/pivote y detalles de ropa, pelo, manos, correa y deck. Mantener el diseño aprobado.
+**Entrega:** nueva referencia pixel art coherente de ambos perfiles, con medidas de suelo/pivote y detalles de ropa, pelo, manos, correa y deck. Redibujar el recurso manteniendo la identidad aprobada y el nuevo criterio de acabado.
 
 **Cierre:** las vistas representan al mismo personaje, coinciden en proporciones y mantienen el lado del equipo; funcionan a la escala elegida. Guardar recurso, prompt y revisión.
 
-**Entrega T03:** [referencia y perfiles vigentes](trabajo/arte/personajes/sota/README.md), PNG importado en Godot, regiones y apoyos medidos. Perfil izquierdo propio, deck en el lado físico correcto. El autor aprueba los perfiles en escena y descarta las otras vistas para ejecución. Pendiente acabado fino de bordes; no se da por terminada la animación del personaje.
+**Entrega T03:** [referencia y perfiles vigentes](trabajo/arte/personajes/sota/README.md), PNG importado en Godot, regiones y apoyos medidos. Perfil izquierdo propio, deck en el lado físico correcto. El autor aprueba los perfiles en escena y descarta las otras vistas para ejecución. Pendiente sustituirlos por nuevas versiones pixel art y revisar bordes, identidad y apoyos en T02; no se da por terminada la animación del personaje.
 
 ### T04 · Construir el desplazamiento en Godot — Pendiente
 
@@ -93,7 +96,7 @@ La ambición de calidad se concreta en estos criterios y en revisiones sobre res
 
 **Entrega:** fondo distante, arquitectura, suelo, recepción y elementos de primer plano separados donde haga falta. Reconstruir zonas ocultas al extraer personajes u objetos del fondo existente.
 
-**Cierre:** Sota recorre la escena con perspectiva, suelo y oclusiones correctos; las capas mantienen el acabado aprobado y no revelan huecos. El movimiento de cámara, si lo hay, conserva la composición y permite comprobar profundidad.
+**Cierre:** Sota recorre la escena con perspectiva, suelo y oclusiones correctos; todas las capas siguen el nuevo acabado pixel art cercano a REPLACED, coherente con los personajes, y no revelan huecos. El movimiento de cámara, si lo hay, conserva la composición y permite comprobar profundidad.
 
 ### T08 · Producir la jefa de la Nómina — Pendiente
 
@@ -237,3 +240,4 @@ Al completar una tarea, añadir una fila breve y actualizar su estado arriba. Lo
 | T02 · entrega | 9 oct 2026 | [Revisión de escala y capturas](trabajo/arte/revisiones/escala_v1/README.md) | Cuatro vistas y tres alturas, apoyos y filtros; render nativo, importación, pruebas y exportación Web correctos | Propuesta 252; pendientes valoración y prueba visual en navegador |
 | Dirección de Sota | 10 oct 2026 | Solo perfiles en la revisión Godot; frontal y tres cuartos conservados como historial | Comprobación adaptada a dos vistas | Autor aprueba el aspecto en escena y descarta frontal; respiración y animaciones todavía pendientes |
 | GitHub | 10 oct 2026 | Proyecto e historial en isradev-git/arrecife-game, main | Clonación desde GitHub: 129 archivos idénticos y 7 commits hasta 5e8a2d7; cierre posterior adicional | Autor autoriza incluir canon y documentos; él lo hará privado |
+| Dirección pixel art | 10 oct 2026 | Dirección y criterios de T02/T03/T07 actualizados; cambio aplicable a toda la cola de recursos | Revisión documental; no se generan ni sustituyen recursos en esta entrega | Autor pide sprites/modelos y entornos más pixel art, cercanos a REPLACED; nuevas versiones y revisión en escena pendientes |

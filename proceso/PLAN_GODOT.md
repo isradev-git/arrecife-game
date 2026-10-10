@@ -8,6 +8,8 @@ Actualización: el orden y estado de ejecución se mantienen en [task.md](../tas
 
 **GitHub · 10 de octubre:** el autor autoriza subir el proyecto completo, canon y documentos internos incluidos, a `isradev-git/arrecife-game` pese a que el repositorio es público; indica que lo hará privado después. Esta autorización sustituye la exclusión del canon para esta subida de desarrollo. Sigue vigente separar fuentes internas de los paquetes distribuidos a jugadores.
 
+**Cambio de acabado · 10 de octubre:** renovar sprites, modelos, personajes, objetos, animaciones y todas las capas de entorno hacia un pixel art más cercano a REPLACED. Los recursos actuales son una iteración previa. [Dirección artística vigente](../trabajo/direccion_artistica.md); la sustitución y revisión se incorporan a las tareas existentes. Se conserva el proyecto 2D y la identidad del universo; todavía no hay recursos nuevos de este pase.
+
 ## Diagnóstico
 
 El prototipo tiene el recorrido narrativo completo y reglas comprobables. Todavía no tiene el acabado visual, la animación ni la validación de distribución de una entrega pública.
@@ -52,7 +54,7 @@ Este es el siguiente trabajo recomendado. Primera entrega pequeña: Sota recorre
 
 Orden interno:
 
-1. Fijar escala de Sota, plano de suelo y espacio transitable tomando v8 como referencia. Definir resolución y filtrado viendo el resultado a tamaño real; los 1280 × 720 de la prueba de instalación no son una retícula artística aprobada.
+1. Revisar primero el nuevo acabado pixel art de Sota en Velvet: v8 conserva identidad y composición; REPLACED orienta el tratamiento visual vigente. Fijar escala, plano de suelo, resolución, retícula y filtrado con recursos nuevos a tamaño real antes de extender la producción. Los 1280 × 720 de la prueba de instalación no son una retícula artística aprobada.
 2. Construir movimiento con límites/colisiones y puntos de llegada por interacción. Conservar teclado y clic; impedir movimiento mientras se lee o conversa. No añadir salto, combate ni plataformas.
 3. Calibrar el ciclo de caminar: apoyos, transferencia de peso, distancia de zancada y pivote común. Corregir la consistencia de los fotogramas antes de aumentar su número. Revisar después carrera, frenada, cambio entre perfiles y reposo con respiración sutil; preparar izquierda propia para conservar el deck.
 4. Comprobar qué debe quedar delante y detrás de Sota. Separar los elementos necesarios del fondo y reconstruir lo oculto por ellos. Guardar nuevas versiones y prompts. Godot no separa automáticamente los personajes de una ilustración.

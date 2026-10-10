@@ -2,6 +2,8 @@
 
 Registro de la primera base local de navegador, sin servicios externos ni dependencias de ejecución. El 9 de octubre de 2026 el autor decidió producir el juego completo en Godot; el editor ya está instalado y existe una prueba técnica independiente en [godot/](../godot/README.md). Este documento describe el alcance del prototipo anterior. La migración se organiza en [PLAN_GODOT.md](../proceso/PLAN_GODOT.md).
 
+**Dirección posterior · 10 de octubre:** en la producción Godot se sustituirán sprites, modelos y demás recursos, incluidos personajes, objetos, animaciones y entornos por capas, por versiones más pixel art y cercanas a REPLACED. [Criterios vigentes](../trabajo/direccion_artistica.md). Los recursos y la aprobación de v8 que se describen debajo corresponden a la etapa anterior; se conservan como referencia de identidad e historial.
+
 ## Alcance de la primera entrega
 
 Recorrer la Fiebre, las dependencias de Iria, la oficina de Sanz y el taller de Berta; hablar, examinar, conservar documentos, comparar pruebas, reconstruir el caso y ver la coda. La prueba es del autor y el asistente. No depende de terceros.
