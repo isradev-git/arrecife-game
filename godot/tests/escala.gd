@@ -49,6 +49,20 @@ func check_scene() -> void:
 	assert(is_equal_approx(scene.back_railing.position.y + scene.back_railing.texture.get_height() * scene.back_railing.scale.y, scene.BACK_EDGE_Y))
 	assert(scene.back_railing.z_index < scene.sota.z_index and scene.sota.z_index < scene.railing.z_index)
 	assert(scene.back_railing.visible and scene.railing.visible)
+	var segments := [scene.railing.get_child(0), scene.railing.get_child(1), scene.railing, scene.railing.get_child(2), scene.railing.get_child(3), scene.railing.get_child(4)]
+	var end_x := 0.0
+	for segment in segments:
+		var start: Vector2 = segment.to_global(Vector2.ZERO)
+		var end: Vector2 = segment.to_global(Vector2(segment.texture.get_width(), segment.texture.get_height()))
+		assert(start.x <= end_x and is_equal_approx(end.y, scene.FRONT_EDGE_Y))
+		assert(segment.material == scene.railing.material)
+		end_x = end.x
+	assert(end_x >= scene.BACKGROUND.get_width())
+	for visible in [false, true]:
+		scene.set_railings(true, visible)
+		for segment in segments:
+			assert(segment.is_visible_in_tree() == visible)
+		assert(scene.back_railing.visible)
 	scene.toggle_filter()
 	assert(scene.sota.texture_filter == CanvasItem.TEXTURE_FILTER_LINEAR)
 	scene.toggle_filter()

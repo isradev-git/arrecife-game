@@ -17,7 +17,7 @@ Abrir Godot e importar `project.godot`, o ejecutar desde la raíz del repositori
 /Applications/Godot.app/Contents/MacOS/Godot --editor --path godot
 ```
 
-F5 ejecuta la revisión. Los botones cambian vista, altura, ubicación, filtrado y color del contorno; todavía no hay desplazamiento. En **Galería**, alternar **Ambas barandillas / Solo trasera / Solo delantera / Sin barandillas** para comprobar ambos bordes y sus oclusiones. [Centro de pasarela y capas vigentes](../trabajo/arte/revisiones/profundidad_v1/README.md); [comparación de luz](../trabajo/arte/revisiones/luz_v2/README.md). El proyecto usa GDScript y Compatibility; la exportación Web desactiva hilos y extensiones. No necesita .NET ni complementos.
+F5 ejecuta la revisión. Los botones cambian vista, altura, ubicación, filtrado y color del contorno; todavía no hay desplazamiento. Elegir **Galería / Recepción / Personal / Extremo** y alternar **Ambas barandillas / Solo trasera / Solo delantera / Sin barandillas** para comprobar ambos bordes y sus oclusiones. [Centro de pasarela y capas vigentes](../trabajo/arte/revisiones/recorrido_v1/README.md); [comparación de luz](../trabajo/arte/revisiones/luz_v2/README.md). El proyecto usa GDScript y Compatibility; la exportación Web desactiva hilos y extensiones. No necesita .NET ni complementos.
 
 ## Repetir la comprobación y exportar
 
@@ -65,7 +65,7 @@ Decisión del 10 de octubre: el autor aprueba el aspecto de Sota en escena y eli
 
 ## Recursos y continuidad
 
-**Suelo horizontal y capas vigentes:** `assets/entornos/velvet/fondo_suelo_recto_v1.png` conserva el recorrido horizontal y el ancho visible de la pasarela. `BACK_EDGE_Y = 675`, `GROUND_Y = 705` y `FRONT_EDGE_Y = 735` distinguen borde trasero, centro transitable y borde delantero. Dos instancias del recurso de barandilla ocupan sus bordes, con z = −5 y +5 respecto a Sota (z = 0); los botones controlan su visibilidad, sin invertir su orden. [Fondo, intentos y prompts](../trabajo/arte/entornos/velvet/suelo_v1/README.md). Solo se cubre el tramo central; ciudad, humo, luces y mobiliario/figurantes restantes siguen aplanados. T07 continúa en curso.
+**Suelo horizontal y capas vigentes:** `assets/entornos/velvet/fondo_suelo_recto_v1.png` conserva el recorrido horizontal y el ancho visible de la pasarela. `BACK_EDGE_Y = 675`, `GROUND_Y = 705` y `FRONT_EDGE_Y = 735` distinguen borde trasero, centro transitable y borde delantero. Seis módulos delanteros solapados (z = +5) cubren todo el ancho visible y una barandilla trasera (z = −5) conserva el hueco central, con Sota en z = 0; los botones controlan su visibilidad, sin invertir su orden. [Fondo, intentos y prompts](../trabajo/arte/entornos/velvet/suelo_v1/README.md). Los módulos se unen por postes, separados 754 píxeles del atlas, con remates solapados; ciudad, humo, luces y mobiliario/figurantes restantes siguen aplanados. T07 continúa en curso.
 
 La prueba de oclusión necesita render gráfico:
 
@@ -73,7 +73,7 @@ La prueba de oclusión necesita render gráfico:
 /Applications/Godot.app/Contents/MacOS/Godot --path godot --script tests/capas.gd
 ```
 
-En Apple M4 comprueba metal opaco delante, aberturas transparentes y Sota por delante de la trasera en ambos perfiles. `tests/escala.gd` comprueba suela en seis posiciones, centro equidistante, bases en cada borde y orden fijo. Importación, escena técnica y exportación Web correctas; [cuatro capturas nativas y tres de navegador](../trabajo/arte/revisiones/profundidad_v1/README.md). Helium/Chromium muestra ambas barandillas, perfiles y cambio a solo trasera por clic, sin errores registrados. El autor valora positivamente la perspectiva del montaje nuevo y la fija como criterio esencial. Safari/Firefox y movimiento/colisiones pendientes.
+En Apple M4 comprueba largueros sin huecos en dos filas del ancho completo y oclusión GPU en ocho combinaciones de posición/perfil, incluidas uniones y extremos. Escala, suelas, bases, cobertura y ocultación de todos los módulos correctas; importación, escena técnica y exportación correctas. [Cuatro capturas nativas y cinco Web](../trabajo/arte/revisiones/recorrido_v1/README.md): Helium muestra cuatro ubicaciones, ambos perfiles y retirada conjunta de todas las extensiones por clic, sin errores registrados. El autor valora la perspectiva de T07.3; extensión T07.4 pendiente de valoración. Acabado/luz repetidos del módulo, resto de capas, Safari/Firefox y movimiento/colisiones pendientes.
 
 Sota usa `assets/personajes/sota/perfiles_base_v1.png` y su JSON; v7 sigue disponible para comparar. `contraluz.gdshader` calcula el borde alfa de la base; `silueta.gdshader` conserva la solución anterior para v7. La barandilla se recorta con AtlasTexture y `metal_opaco.gdshader` evita residuos/metal semitransparente.
 

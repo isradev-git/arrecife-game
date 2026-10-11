@@ -18,6 +18,15 @@ func frame() -> Image:
 	return viewport.get_texture().get_image()
 
 
+func front_metal_at(scene, rail_image: Image, point: Vector2i) -> bool:
+	for segment in [scene.railing] + scene.railing.get_children():
+		var local: Vector2 = segment.to_local(Vector2(point) + Vector2(0.5, 0.5))
+		if local.x >= 0 and local.x < rail_image.get_width() and local.y >= 0 and local.y < rail_image.get_height():
+			if rail_image.get_pixelv(Vector2i(local)).a >= 0.5:
+				return true
+	return false
+
+
 func check() -> void:
 	viewport.size = Vector2i(1672, 941)
 	viewport.render_target_update_mode = SubViewport.UPDATE_ALWAYS
@@ -34,8 +43,12 @@ func check() -> void:
 	var empty := await frame()
 	scene.set_railings(false, true)
 	var rail_only := await frame()
-	for pose in range(2):
-		scene.show_pose(pose)
+	for y in [649, 703]:
+		for x in range(1672):
+			assert(front_metal_at(scene, rail_image, Vector2i(x, y)))
+	for sample in [[160.0, 0], [450.0, 1], [780.0, 0], [780.0, 1], [935.0, 0], [1160.0, 1], [1254.0, 0], [1500.0, 1]]:
+		scene.set_ground(sample[0])
+		scene.show_pose(sample[1])
 		scene.sota.visible = true
 		scene.set_railings(false, false)
 		var person := await frame()
@@ -48,12 +61,11 @@ func check() -> void:
 		var covered := 0
 		var openings := 0
 		for y in range(int(scene.railing.position.y), int(scene.FRONT_EDGE_Y)):
-			for x in range(450, 935):
+			for x in range(maxi(0, int(scene.ground.x) - 90), mini(1672, int(scene.ground.x) + 90)):
 				var point := Vector2i(x, y)
 				if person.get_pixelv(point) == empty.get_pixelv(point):
 					continue
-				var local: Vector2 = (Vector2(point) + Vector2(0.5, 0.5) - scene.railing.position) / scene.railing.scale
-				if rail_image.get_pixelv(Vector2i(local)).a < 0.5:
+				if not front_metal_at(scene, rail_image, point):
 					assert(front.get_pixelv(point) == person.get_pixelv(point))
 					openings += 1
 				else:
@@ -75,6 +87,8 @@ func check() -> void:
 					# El atlas tiene alfa casi opaco: solo debe contribuir su fracción transparente.
 					assert(maxf(absf(delta.r), maxf(absf(delta.g), absf(delta.b))) <= 1.0 - alpha + 2.0 / 255.0)
 					back_visible += 1
-		print("OK perfil ", pose, ": ", covered, " píxeles ocultos por metal; ", openings, " visibles entre barrotes; ", back_visible, " conservados delante de la trasera.")
-		assert(covered > 100 and openings > 100 and back_visible > 100)
+		print("OK x ", sample[0], " perfil ", sample[1], ": ", covered, " píxeles ocultos por metal; ", openings, " visibles entre barrotes; ", back_visible, " conservados delante de la trasera.")
+		assert(covered > 100 and openings > 100)
+		if sample[0] == 780.0:
+			assert(back_visible > 100)
 	quit()

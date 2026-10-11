@@ -1,5 +1,7 @@
 # Velvet · Centro de pasarela y dos barandillas
 
+**Continuación:** [T07.4 extiende la delantera a todo el recorrido](../recorrido_v1/README.md), conservando la geometría de esta revisión. Capturas anteriores intactas.
+
 11 de octubre de 2026 · T07.3. El autor corrige el montaje anterior: Sota estaba en el borde trasero y la barandilla la tapaba; faltaba otra en el borde delantero. El recorrido horizontal conserva la profundidad visible de la pasarela.
 
 Se reutilizan el [fondo de suelo horizontal](../../entornos/velvet/suelo_v1/README.md) y la [barandilla independiente](../../entornos/velvet/capas_v1/README.md), sin editar sus PNG ni generar arte nuevo. Dos instancias centrales del mismo recurso, x = 450–935, con altura 126 y orden fijo:

@@ -35,7 +35,7 @@ func _ready() -> void:
 	background.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
 	background.z_index = -20
 	add_child(background)
-	# shortcut: dos tramos centrales usan el mismo recurso; completar el recorrido en T07.
+	# shortcut: módulos repetidos conservan la luz del recurso; variar acabados al separar luces en T09.
 	var rail_texture := AtlasTexture.new()
 	rail_texture.atlas = RAILING
 	rail_texture.region = Rect2(382, 506, 910, 186)
@@ -50,6 +50,14 @@ func _ready() -> void:
 	railing.material = rail_material
 	railing.z_index = 5
 	add_child(railing)
+	# Unir por los postes extremos, separados 754 píxeles; los remates del PNG sobresalen.
+	for offset in [-2, -1, 1, 2, 3]:
+		var extension := Sprite2D.new()
+		extension.texture = rail_texture
+		extension.centered = false
+		extension.position.x = offset * 754.0
+		extension.material = rail_material
+		railing.add_child(extension)
 	back_railing.texture = rail_texture
 	back_railing.centered = false
 	back_railing.position = Vector2(450, BACK_EDGE_Y - 126.0)
@@ -144,7 +152,7 @@ func build_controls() -> void:
 	column.add_theme_constant_override("separation", 8)
 	margin.add_child(column)
 	var title := Label.new()
-	title.text = "VELVET · Centro y bordes de pasarela"
+	title.text = "VELVET · Barandillas del recorrido"
 	title.add_theme_font_size_override("font_size", 24)
 	column.add_child(title)
 	var art := HBoxContainer.new()
@@ -161,6 +169,8 @@ func build_controls() -> void:
 		add_button(options, str(int(height)), set_height.bind(height))
 	add_button(options, "Galería", set_ground.bind(780.0))
 	add_button(options, "Recepción", set_ground.bind(1160.0))
+	add_button(options, "Personal", set_ground.bind(160.0))
+	add_button(options, "Extremo", set_ground.bind(1500.0))
 	add_button(options, "Suave / nítido", toggle_filter)
 	var lighting := HBoxContainer.new()
 	column.add_child(lighting)
