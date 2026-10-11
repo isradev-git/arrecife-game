@@ -1,5 +1,7 @@
 # Velvet · Sota pixel art · Comparación en Godot
 
+**Revisión histórica rechazada:** el autor pide píxel mucho más intenso y caras sin definición. [Comparación vigente](../escala_v4/README.md). Las notas siguientes documentan la entrega anterior.
+
 11 de octubre de 2026. Entrega del asistente autorizada por el autor tras fijar las dos referencias de estilo. **Pendiente valoración visual del autor; no equivale a aprobación de los sprites nuevos.**
 
 La escena principal carga [dos perfiles pixel art](../../../../godot/assets/personajes/sota/perfiles_pixel_v2.png) sobre [Velvet pixel art](../../../../godot/assets/fiebre_velvet_pixel_v1.png), copia idéntica de la imagen 1 aportada por el autor. El atlas anterior se conserva y puede elegirse mediante «Arte anterior»; «Pixel art» vuelve al nuevo. La comparación mantiene el mismo fondo, posición y altura; cada versión arranca con su filtro propuesto (anterior suave, nueva nítida), con opción de cambiarlo.

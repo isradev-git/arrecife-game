@@ -1,0 +1,54 @@
+{
+	"archivo": "perfiles_pixel_v3.png",
+	"cuadricula": [
+		2,
+		1
+	],
+	"dimensiones": [
+		1536,
+		1024
+	],
+	"nota": "Referencia pixel art de reposo; dos perfiles propios. Alfa real; recorte al umbral 0.1. Pivote provisional: centro horizontal y base, normalizado en la revisión. No es un ciclo de animación ni una retícula definitiva.",
+	"vistas": [
+		{
+			"altura_medida": 870,
+			"limites_alfa_10_por_ciento": [
+				362,
+				76,
+				238,
+				870
+			],
+			"pivote_provisional": [
+				481.0,
+				946
+			],
+			"region": [
+				0,
+				0,
+				768,
+				1024
+			],
+			"vista": "perfil_derecho"
+		},
+		{
+			"altura_medida": 859,
+			"limites_alfa_10_por_ciento": [
+				179,
+				87,
+				216,
+				859
+			],
+			"pivote_provisional": [
+				287.0,
+				946
+			],
+			"region": [
+				768,
+				0,
+				768,
+				1024
+			],
+			"vista": "perfil_izquierdo"
+		}
+	]
+}

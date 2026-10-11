@@ -1,8 +1,8 @@
 extends Node2D
 
-const ATLASES = [preload("res://assets/personajes/sota/referencia_v3.png"), preload("res://assets/personajes/sota/perfiles_pixel_v2.png")]
-const METADATA = ["res://assets/personajes/sota/referencia_v3.json", "res://assets/personajes/sota/perfiles_pixel_v2.json"]
-const ART_LABELS = ["Arte anterior", "Pixel art"]
+const ATLASES = [preload("res://assets/personajes/sota/perfiles_pixel_v2.png"), preload("res://assets/personajes/sota/perfiles_pixel_v3.png")]
+const METADATA = ["res://assets/personajes/sota/perfiles_pixel_v2.json", "res://assets/personajes/sota/perfiles_pixel_v3.json"]
+const ART_LABELS = ["Versión rechazada", "Píxel intenso"]
 const BACKGROUND = preload("res://assets/fiebre_velvet_pixel_v1.png")
 const CUTOUT = preload("res://assets/personajes/sota/silueta.gdshader")
 const LABELS = ["Perfil derecho", "Perfil izquierdo"]
@@ -41,7 +41,7 @@ func load_views() -> void:
 func set_art(index: int) -> void:
 	art_index = index
 	load_views()
-	sota.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST if index == 1 else CanvasItem.TEXTURE_FILTER_LINEAR
+	sota.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
 	show_pose(pose_index)
 
 

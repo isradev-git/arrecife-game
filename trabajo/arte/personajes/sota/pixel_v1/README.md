@@ -1,5 +1,7 @@
 # Sota · Primer pase pixel art
 
+**Rechazada por el autor · 11 de octubre:** píxel demasiado fino y cara demasiado definida. Se conserva como historial; [propuesta corregida](../pixel_v2/README.md). El estado de valoración descrito debajo corresponde al momento de la entrega original.
+
 11 de octubre de 2026. **Entrega del asistente, pendiente de valoración del autor.** Generada con `imagegen` integrado, usando la Sota v3 como referencia de identidad y las dos imágenes aprobadas como referencias de estilo y entorno. No modifica canon ni historia.
 
 | Versión | Imagen | Prompt | Resultado |

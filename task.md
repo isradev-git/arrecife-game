@@ -10,9 +10,9 @@ Objetivo: terminar un juego breve de investigación en Godot, con personajes y e
 
 **Dirección artística vigente:** renovar sprites, modelos, personajes, objetos, animaciones y entornos por capas para un acabado más pixel art, más cercano a REPLACED. Los recursos actuales son una iteración previa; conservar identidad, universo, versiones y prompts. El 11 de octubre el autor fija las [dos imágenes de estilo aprobadas](trabajo/arte/referencias/pixel_art_v1/README.md) como referencia principal para todo el juego: entorno y personajes. Criterios en [dirección artística](trabajo/direccion_artistica.md). La renovación se incorpora a las tareas existentes, una cada vez.
 
-**Tarea actual:** T03 · renovación pixel art de los dos perfiles de Sota — Entregada, pendiente valoración del autor. T02 sigue Entregada; [comparación pixel art en Godot](trabajo/arte/revisiones/escala_v3/README.md) realizada, navegador y retícula final pendientes. **Completadas:** T00 y T01.
+**Tarea actual:** T03 · corrección del pixel art de Sota — Entregada, pendiente valoración del autor. El autor rechaza el primer pase: píxel demasiado fino y cara demasiado definida; exige bloques más intensos y rostros sin detalle para todas las personas. T02 sigue Entregada; [comparación del píxel intenso en Godot](trabajo/arte/revisiones/escala_v4/README.md) realizada, navegador y retícula final pendientes. **Completadas:** T00 y T01.
 
-El autor pide priorizar generación de recursos tras la limpieza. Se adelanta la referencia de T03; su cierre técnico seguirá necesitando T02. El primer pase pixel art ya se puede revisar en Velvet; resolver su valoración y escala/retícula antes de producir el resto en serie.
+El autor pide priorizar generación de recursos tras la limpieza. Se adelanta la referencia de T03; su cierre técnico seguirá necesitando T02. El primer pase ha sido rechazado; la propuesta corregida de píxel intenso ya se puede revisar en Velvet; resolver su valoración y escala/retícula antes de producir el resto en serie.
 
 ## Cómo trabajar esta lista
 
@@ -30,7 +30,7 @@ Este archivo es la fuente del orden y estado de las tareas. [PLAN_GODOT.md](proc
 
 | Área | Criterio de revisión |
 | --- | --- |
-| Pixel art | Píxeles y formas trabajados en el recurso original, legibles a tamaño de juego, con retícula y tratamiento coherentes entre sprites, objetos y capas; acabado cercano a REPLACED según la dirección vigente. Un filtro sobre la imagen anterior no cierra la renovación. |
+| Pixel art | Todas las personas con píxel intenso y rostros reducidos a manchas, sin rasgos detallados de retrato, según la corrección del autor del 11 de octubre. Píxeles y formas trabajados en el recurso original, legibles a tamaño de juego, con retícula y tratamiento coherentes entre sprites, objetos y capas; acabado cercano a REPLACED según la dirección vigente. Un filtro sobre la imagen anterior no cierra la renovación. |
 | Personajes | Identidad, anatomía, ropa y equipo coherentes entre vistas y fotogramas; silueta legible; escala y presencia propias. Sota conserva la identidad aprobada en v8 y el deck en la cadera derecha. |
 | Animación | Apoyos y peso creíbles, pies acordes al avance, pivote estable, cambios de dirección y velocidad continuos. Revisar a velocidad normal y fotograma a fotograma. |
 | Entornos | Espacio transitable comprensible, perspectiva y escala consistentes, arquitectura vertical, materiales usados y reparados, luz con jerarquía y profundidad por capas. Rótulos, tecnología y vestuario sostienen el universo. |
@@ -64,7 +64,7 @@ La ambición de calidad se concreta en estos criterios y en revisiones sobre res
 
 **Cierre:** Sota tiene proporciones creíbles junto a puertas y personas; el recorrido se entiende y la ciudad mantiene su escala. Revisar el nuevo acabado pixel art integrado, registrar la opción elegida y la valoración del autor. La aprobación de la iteración anterior no cierra esta renovación; los 1280 × 720 de la prueba técnica no constituyen una decisión artística.
 
-**Entrega T02 vigente:** [comparación anterior/pixel art y capturas](trabajo/arte/revisiones/escala_v3/README.md), sobre el Velvet aportado por el autor. Composición 1672 × 941, propuesta de altura 252, dos perfiles con apoyo normalizado y nearest inicial para el recurso nuevo; se conservan alturas, ubicación y filtros alternativos. Prueba automática, render nativo y exportación Web correctos. La aprobación anterior no se traslada al atlas nuevo: pendientes valoración del autor, retícula final y comprobación visual en navegador.
+**Entrega T02 vigente:** [comparación rechazado/píxel intenso y capturas](trabajo/arte/revisiones/escala_v4/README.md), sobre el Velvet aportado por el autor. Composición 1672 × 941, propuesta de altura 252, dos perfiles con apoyo normalizado y nearest inicial para ambas versiones; se conservan alturas, ubicación y filtros alternativos. Prueba automática, render nativo y exportación Web correctos. La aprobación anterior no se traslada al atlas nuevo: pendientes valoración del autor, retícula final y comprobación visual en navegador.
 
 ### T03 · Preparar a Sota para producción — Entregada
 
@@ -72,7 +72,7 @@ La ambición de calidad se concreta en estos criterios y en revisiones sobre res
 
 **Cierre:** las vistas representan al mismo personaje, coinciden en proporciones y mantienen el lado del equipo; funcionan a la escala elegida y siguen el acabado de las referencias aprobadas del 11 de octubre. Guardar recurso, prompt y comparación en escena.
 
-**Entrega T03 vigente:** [primer pase pixel art y prompts](trabajo/arte/personajes/sota/pixel_v1/README.md). Atlas v2 de dos perfiles, transparencia real, regiones y apoyos medidos e importación correcta. Versiones previas conservadas y comparables en Godot; deck y detalles laterales revisados por el asistente. Pendientes valoración estética del autor, revisión fina de luz/identidad y cierre técnico de T02; no hay respiración ni locomoción nueva.
+**Entrega T03 vigente:** [píxel intenso y prompt](trabajo/arte/personajes/sota/pixel_v2/README.md). Atlas v3 de dos perfiles, transparencia real, regiones y apoyos medidos e importación correcta. Versiones previas conservadas y comparables en Godot; deck y detalles laterales revisados por el asistente. Pendientes valoración estética del autor, revisión fina de luz/silueta/equipo y cierre técnico de T02; no hay respiración ni locomoción nueva.
 
 ### T04 · Construir el desplazamiento en Godot — Pendiente
 
@@ -243,3 +243,4 @@ Al completar una tarea, añadir una fila breve y actualizar su estado arriba. Lo
 | Dirección pixel art | 10 oct 2026 | Dirección y criterios de T02/T03/T07 actualizados; cambio aplicable a toda la cola de recursos | Revisión documental; no se generan ni sustituyen recursos en esta entrega | Autor pide sprites/modelos y entornos más pixel art, cercanos a REPLACED; nuevas versiones y revisión en escena pendientes |
 | Referencias pixel art | 11 oct 2026 | [Dos PNG aportados por el autor](trabajo/arte/referencias/pixel_art_v1/README.md), guardados sin editar | Copias idénticas a los adjuntos y enlaces comprobados | Autor aprueba este acabado para todo el juego; sprites, capas y animaciones aún pendientes |
 | T03/T02 · pase pixel art | 11 oct 2026 | [Atlas, prompts](trabajo/arte/personajes/sota/pixel_v1/README.md) y [cuatro capturas nativas](trabajo/arte/revisiones/escala_v3/README.md); comparación anterior/nuevo en Godot | Importación, prueba de ambas versiones/transparencia/apoyos, escena técnica y exportación Web correctas | Asistente revisa el render; pendientes valoración del autor, retícula/luz y visual Web (control Safari falla) |
+| T03 · corrección de acabado | 11 oct 2026 | [Atlas v3 y prompt](trabajo/arte/personajes/sota/pixel_v2/README.md), [comparación nativa](trabajo/arte/revisiones/escala_v4/README.md) | Importación, perfiles/alturas/apoyos/alfa/filtros, escena técnica y exportación correctas | Autor rechaza v2 y exige píxel intenso y caras sin definición para todas las personas; v3 pendiente de valoración |

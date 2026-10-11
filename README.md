@@ -4,13 +4,13 @@ Juego de investigación en desarrollo, ambientado en la megaciudad vertical de E
 
 La producción definitiva utiliza **Godot 4.7.2, GDScript y 2D Compatibility**, con exportación Web. El caso completo todavía se encuentra en el prototipo JavaScript; la versión Godot permite revisar a Sota, de perfil, dentro de Velvet. La migración y las animaciones siguen en curso.
 
-**Dirección artística · 10 de octubre:** vamos a renovar sprites, modelos, personajes, objetos, animaciones y entornos por capas para que sean más pixel art, más cercanos al estilo de REPLACED. Se conserva la identidad de Sota y su presentación solo de perfil. [Criterios vigentes](trabajo/direccion_artistica.md); renovación pendiente en [task.md](task.md). Primer pase de Sota integrado con el Velvet aportado por el autor; [comparación y límites](trabajo/arte/revisiones/escala_v3/README.md). La captura siguiente muestra la propuesta nueva, todavía pendiente de valoración del autor.
+**Dirección artística · 10 de octubre:** vamos a renovar sprites, modelos, personajes, objetos, animaciones y entornos por capas para que sean más pixel art, más cercanos al estilo de REPLACED. Se conserva la identidad de Sota y su presentación solo de perfil. [Criterios vigentes](trabajo/direccion_artistica.md); renovación pendiente en [task.md](task.md). Pase corregido de Sota, con píxel más intenso y rostro sin rasgos detallados, integrado con el Velvet aportado por el autor; [comparación y límites](trabajo/arte/revisiones/escala_v4/README.md). La captura siguiente muestra la propuesta nueva, todavía pendiente de valoración del autor.
 
-![Sota pixel art de perfil en Velvet](trabajo/arte/revisiones/escala_v3/pixel_0.png)
+![Sota pixel art de perfil en Velvet](trabajo/arte/revisiones/escala_v4/intenso_0.png)
 
 ## Abrir el proyecto
 
-Clonar el repositorio e importar `godot/project.godot` desde Godot 4.7.2. Ejecutar con F5. La escena actual compara Sota anterior y pixel art, ambos perfiles, alturas, ubicación y filtrado; todavía no contiene desplazamiento ni diálogos.
+Clonar el repositorio e importar `godot/project.godot` desde Godot 4.7.2. Ejecutar con F5. La escena actual compara Sota rechazada y la nueva propuesta de píxel intenso, ambos perfiles, alturas, ubicación y filtrado; todavía no contiene desplazamiento ni diálogos.
 
 Instalación, plantillas y exportación: [godot/README.md](godot/README.md).
 

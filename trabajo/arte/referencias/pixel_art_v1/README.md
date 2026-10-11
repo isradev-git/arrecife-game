@@ -1,5 +1,7 @@
 # Pixel art · Referencias aprobadas
 
+**Precisión posterior del autor · 11 de octubre:** todas las personas deben tener píxel mucho más intenso y caras sin definición detallada. El primer atlas de Sota fue rechazado por mantener demasiado detalle. Esta imagen de personajes manda sobre la cara de la referencia antigua de Sota; conservar su identidad mediante silueta, pelo, ropa y equipo.
+
 11 de octubre de 2026. El autor aporta estas dos imágenes y establece: «este es el nuevo estilo de pixel que vamos a querer durante todo el juego». Son la referencia principal de acabado para personajes, sprites, animaciones, objetos, escenarios y sus capas. Concretan la orientación hacia REPLACED registrada el 10 de octubre.
 
 | Referencia | Archivo original conservado | Uso |
