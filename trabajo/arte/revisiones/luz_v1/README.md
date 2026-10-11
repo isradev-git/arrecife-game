@@ -1,6 +1,6 @@
 # Sota · Color de luz adaptable
 
-11 de octubre de 2026. El autor valora positivamente el estilo vigente y advierte que el rosa del personaje podría desentonar al cambiar de escenario. **El estilo está aprobado; esta prueba de control de color está entregada por el asistente y pendiente de valoración.**
+11 de octubre de 2026. El autor valora positivamente el estilo vigente y advierte que el rosa del personaje podría desentonar al cambiar de escenario. **El estilo y el criterio de hacer coincidir el contraluz del personaje con la luz del entorno están aprobados por el autor.** Esta decisión no aprueba individualmente todos los colores de demostración ni acredita iluminación espacial terminada.
 
 El rosa y el naranja están pintados en el atlas. Se conserva el PNG v7 y se controla su neón al dibujarlo con el [shader de Godot](../../../../godot/assets/personajes/sota/silueta.gdshader). No se regenera a Sota, no se modifica el archivo ni se añaden prompts. El modo inicial «Velvet original» mantiene exactamente el aspecto aprobado.
 
@@ -31,6 +31,6 @@ Esto es **recoloración del contorno ya dibujado**, no iluminación física. Pue
 
 Antes de producir las animaciones, preparar una base sin neón de escenario y una máscara explícita de luz, conservando el estilo aprobado. Así el escenario podrá controlar color, intensidad y dirección sin seleccionar colores de ropa o piel. Esta preparación pertenece a T02/T03, antes de extender la producción; no se entrega aquí una base nueva ni un sistema espacial terminado.
 
-Pendientes valoración de estos modos, máscara/base de producción, retícula, luz espacial, animación y comprobación visual Web. El bloqueo de control de Safari anterior no se reintenta; una exportación correcta no equivale a validación en navegador.
+Criterio aprobado: conservar el contraluz de color integrado en la iluminación del entorno. La escena actual usa modos manuales; todavía no responde automáticamente a fuentes del escenario. Pendientes ajuste de cada modo a su localización, máscara/base de producción, retícula, luz espacial, animación y comprobación visual Web. El bloqueo de control de Safari anterior no se reintenta; una exportación correcta no equivale a validación en navegador.
 
 Implementación consultada en la documentación oficial de [CanvasItem shaders](https://docs.godotengine.org/en/stable/tutorials/shaders/shader_reference/canvas_item_shader.html) y [uniforms del lenguaje de shaders](https://docs.godotengine.org/en/stable/tutorials/shaders/shader_reference/shading_language.html). [Atlas y prompts anteriores](../../personajes/sota/pixel_v3/README.md) · [Dirección](../../../direccion_artistica.md) · [Tareas](../../../../task.md).
