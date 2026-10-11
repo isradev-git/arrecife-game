@@ -73,7 +73,7 @@ La prueba de oclusión necesita render gráfico:
 /Applications/Godot.app/Contents/MacOS/Godot --path godot --script tests/capas.gd
 ```
 
-En Apple M4 comprueba metal opaco delante, aberturas transparentes y Sota por delante de la trasera en ambos perfiles. `tests/escala.gd` comprueba suela en seis posiciones, centro equidistante, bases en cada borde y orden fijo. Importación, escena técnica y exportación Web correctas; [cuatro capturas nativas y tres de navegador](../trabajo/arte/revisiones/profundidad_v1/README.md). Helium/Chromium muestra ambas barandillas, perfiles y cambio a solo trasera por clic, sin errores registrados. Safari/Firefox, movimiento/colisiones y valoración del montaje nuevo pendientes.
+En Apple M4 comprueba metal opaco delante, aberturas transparentes y Sota por delante de la trasera en ambos perfiles. `tests/escala.gd` comprueba suela en seis posiciones, centro equidistante, bases en cada borde y orden fijo. Importación, escena técnica y exportación Web correctas; [cuatro capturas nativas y tres de navegador](../trabajo/arte/revisiones/profundidad_v1/README.md). Helium/Chromium muestra ambas barandillas, perfiles y cambio a solo trasera por clic, sin errores registrados. El autor valora positivamente la perspectiva del montaje nuevo y la fija como criterio esencial. Safari/Firefox y movimiento/colisiones pendientes.
 
 Sota usa `assets/personajes/sota/perfiles_base_v1.png` y su JSON; v7 sigue disponible para comparar. `contraluz.gdshader` calcula el borde alfa de la base; `silueta.gdshader` conserva la solución anterior para v7. La barandilla se recorta con AtlasTexture y `metal_opaco.gdshader` evita residuos/metal semitransparente.
 
