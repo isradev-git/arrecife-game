@@ -92,10 +92,18 @@ La carpeta `build/` y la caché `.godot/` se pueden regenerar y están excluidas
 
 Siguiente trabajo: [plan de migración y criterios de cierre](../proceso/PLAN_GODOT.md). Estado general: [continuidad](../proceso/ESTADO_DEL_PROYECTO.md).
 
-**Recepción T07.6 vigente:** [tres recursos y prompts](../trabajo/arte/entornos/velvet/recepcion_v1/README.md), [cinco capturas nativas y siete Web](../trabajo/arte/revisiones/recepcion_v1/README.md). Parche actual x = 1210–1488, y = 440–675; figurante z = −4, mostrador z = −3, equipo z = −2, Sota z = 0 y barandilla delantera z = +5. Figurante de perfil, 244 de alto y pies y = 675; base del equipo y = 538. Interruptores Figurante/Equipo independientes. Base sin neón y contraluz manual del entorno; pendientes fuentes espaciales y animación. Pruebas GPU del cuerpo detrás del mostrador y Sota delante en ambos perfiles correctas; visibilidad por clic Web sin errores. Arte nuevo pendiente de valoración.
+**Recepción T07.6, base conservada:** [tres recursos y prompts](../trabajo/arte/entornos/velvet/recepcion_v1/README.md), [cinco capturas nativas y siete Web](../trabajo/arte/revisiones/recepcion_v1/README.md). Parche actual x = 1210–1488, y = 440–675; figurante z = −4, mostrador z = −3, equipo z = −2, Sota z = 0 y barandilla delantera z = +5. Figurante de perfil, 244 de alto y pies y = 675; base del equipo y = 538. Interruptores Figurante/Equipo independientes. Base sin neón y contraluz manual del entorno; pendientes fuentes espaciales y animación. Pruebas GPU del cuerpo detrás del mostrador y Sota delante en ambos perfiles correctas; visibilidad por clic Web sin errores. Arte nuevo pendiente de valoración.
 
 ```sh
 /Applications/Godot.app/Contents/MacOS/Godot --path godot --script tests/recepcion.gd
+```
+
+Añadir `-- --capturas` regenera las cinco capturas nativas; necesita render gráfico, sin `--headless`.
+
+**Acceso T07.7 vigente:** [recursos, corrección y prompts](../trabajo/arte/entornos/velvet/acceso_v1/README.md), [diez capturas nativas/Web](../trabajo/arte/revisiones/acceso_v1/README.md). Persona con mochila de perfil derecho, altura 236, apoyo y = 675 y z = −4; Sota z = 0 y barandilla delantera z = +5. Parche x = 1510–1606, y = 430–675. Controles Acceso/Junto al acceso (Sota x = 1560). Material propio con contraluz manual del entorno; sin animación ni luces espaciales. Alfa/apoyo, parche fuera idéntico y oclusiones GPU correctos; pruebas anteriores y clic Web sin errores. Recurso nuevo pendiente de valoración. Persona contigua del acceso sigue en el fondo.
+
+```sh
+/Applications/Godot.app/Contents/MacOS/Godot --path godot --script tests/acceso.gd
 ```
 
 Añadir `-- --capturas` regenera las cinco capturas nativas; necesita render gráfico, sin `--headless`.

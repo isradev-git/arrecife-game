@@ -1,0 +1,8 @@
+Use case: precise-object-edit
+Asset type: repaired background patch for Godot layer separation.
+Edit target: supplied horizontal Velvet scene, same full 1672x941 canvas and framing.
+Primary request: remove ONLY the nearer adult with the small backpack, standing at the foot of the stairs at the far right (approximately x1515-1600 y437-674), the LEFT person of the two at that entrance. Remove that person's head, jacket, backpack, arms, trousers, boots and colored edge completely. Reconstruct the stairs, warm/red-lit stair treads, dark risers and doorway surfaces hidden behind that one person, with the original side-view geometry.
+Crucial: KEEP the taller dark-coated companion at the far RIGHT (head x1605+, coat extending to x1656, feet on the walkway). Do not remove or redesign the companion or merge any of the removed person's limbs into them. Preserve any visible companion arm or boot inside the edit zone. Keep the neon patterned doorway, stairs, stair handrail and wall numbering.
+Edit zone used by implementation: x1510-1606 y430-675. Leave everything outside it unchanged wherever possible. This is a background repair, no replacement person or new props.
+Invariants: do NOT alter reception, counter, city, other people, VELVET lettering, smoke or light. Main pedestrian deck must remain absolutely horizontal, back edge y675 and front edge y735, with the same depth and reflections. No main walkway railing, no changed scale/perspective.
+Style: identical coarse cinematic pixel art and dark red/amber lighting. Keep stairs diagonal as stairs, while walkway stays flat. No blurring, no smooth painting, no extra scene elements, no new text. Full opaque 1672x941 scene.

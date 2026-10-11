@@ -1,0 +1,5 @@
+Use case: identity-preserve
+Asset type: correction of a transparent full-body pixel-art NPC sprite.
+Edit target: supplied isolated adult with plum jacket, rust-red backpack, charcoal cargo trousers and dark boots, facing right.
+Change ONLY the hairstyle: REMOVE the protruding round bun at upper left of the head. Replace it with short dark slightly tousled hair close to the skull, as in the original small figure in Velvet. Keep the hair length short at the nape and no ponytail or topknot. Preserve the adult identity and coarse square pixel clusters.
+Everything else must remain as close as possible: exact full-body right-facing side pose, face's barely visible eye without portrait detail, clothing, backpack, hands, body proportions, boots, framing and transparent alpha. Do not beautify the face, add details or introduce a colored light contour. No floor, glow, black matte, text, scenery or extra characters. Preserve genuine transparency. Same portrait canvas.

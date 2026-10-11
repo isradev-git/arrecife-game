@@ -9,6 +9,9 @@ const COUNTER = preload("res://assets/entornos/velvet/mostrador_v1.png")
 const COUNTER_BACKGROUND = preload("res://assets/entornos/velvet/fondo_recepcion_reparado_v1.png")
 const STAFF = preload("res://assets/entornos/velvet/figurante_recepcion_v1.png")
 const EQUIPMENT = preload("res://assets/entornos/velvet/equipo_recepcion_v1.png")
+const ACCESS_PERSON = preload("res://assets/entornos/velvet/figurante_acceso_v2.png")
+const ACCESS_BACKGROUND = preload("res://assets/entornos/velvet/fondo_acceso_reparado_v1.png")
+const ACCESS_PATCH_RECT = Rect2(1510, 430, 96, 245)
 const COUNTER_RECT = Rect2(1210, 538, 278, 137)
 const COUNTER_PATCH_RECT = Rect2(1210, 440, 278, 235)
 const CUTOUT = preload("res://assets/personajes/sota/silueta.gdshader")
@@ -35,6 +38,8 @@ var counter := Sprite2D.new()
 var counter_patch := Sprite2D.new()
 var staff := Sprite2D.new()
 var equipment := Sprite2D.new()
+var access_person := Sprite2D.new()
+var access_patch := Sprite2D.new()
 
 
 func _ready() -> void:
@@ -55,6 +60,16 @@ func _ready() -> void:
 	counter_patch.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
 	counter_patch.z_index = -19
 	add_child(counter_patch)
+	var access_patch_texture := AtlasTexture.new()
+	access_patch_texture.atlas = ACCESS_BACKGROUND
+	access_patch_texture.region = ACCESS_PATCH_RECT
+	access_patch_texture.filter_clip = true
+	access_patch.texture = access_patch_texture
+	access_patch.centered = false
+	access_patch.position = ACCESS_PATCH_RECT.position
+	access_patch.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
+	access_patch.z_index = -19
+	add_child(access_patch)
 	# shortcut: módulos repetidos conservan la luz del recurso; variar acabados al separar luces en T09.
 	var rail_texture := AtlasTexture.new()
 	rail_texture.atlas = RAILING
@@ -103,6 +118,18 @@ func _ready() -> void:
 	staff.material = staff_material
 	staff.z_index = -4
 	add_child(staff)
+	var access_texture := AtlasTexture.new()
+	access_texture.atlas = ACCESS_PERSON
+	access_texture.region = Rect2(323, 116, 399, 1345)
+	access_texture.filter_clip = true
+	access_person.texture = access_texture
+	access_person.centered = false
+	access_person.position = Vector2(1522, BACK_EDGE_Y - 236.0)
+	access_person.scale = Vector2.ONE * (236.0 / 1345.0)
+	access_person.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
+	access_person.material = staff_material.duplicate()
+	access_person.z_index = -4
+	add_child(access_person)
 	var counter_texture := AtlasTexture.new()
 	counter_texture.atlas = COUNTER
 	counter_texture.region = Rect2(575, 323, 990, 445)
@@ -213,7 +240,7 @@ func build_controls() -> void:
 	column.add_theme_constant_override("separation", 8)
 	margin.add_child(column)
 	var title := Label.new()
-	title.text = "VELVET · Recepción por capas"
+	title.text = "VELVET · Figuración por capas"
 	title.add_theme_font_size_override("font_size", 24)
 	column.add_child(title)
 	var art := HBoxContainer.new()
@@ -250,12 +277,13 @@ func build_controls() -> void:
 	add_button(reception, "Frente al mostrador", set_ground.bind(1345.0))
 	var actors := HBoxContainer.new()
 	column.add_child(actors)
-	for entry in [["Figurante", staff], ["Equipo", equipment]]:
+	for entry in [["Figurante", staff], ["Equipo", equipment], ["Acceso", access_person]]:
 		var toggle := CheckButton.new()
 		toggle.text = entry[0]
 		toggle.button_pressed = true
 		toggle.toggled.connect(entry[1].set_visible)
 		actors.add_child(toggle)
+	add_button(actors, "Junto al acceso", set_ground.bind(1560.0))
 	column.add_child(status)
 	poses.get_child(0).grab_focus()
 

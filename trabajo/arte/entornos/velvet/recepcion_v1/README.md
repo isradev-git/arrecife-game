@@ -35,3 +35,5 @@ Solo se toma del nuevo fondo el parche x = 1210–1488, y = 440–675 (278 × 23
 Controles Figurante y Equipo independientes de Mostrador visible/Ocultar mostrador. Es una revisión técnica: ocultar el mostrador con equipo visible deja los props suspendidos deliberadamente para inspeccionar planos; no es comportamiento del juego final.
 
 [Capturas nativas/Web y pruebas](../../../revisiones/recepcion_v1/README.md). Quedan restantes figurantes y objetos, arquitectura/ciudad, retícula definitiva, luces espaciales, atmósfera, animación y movimiento/colisiones.
+
+**Continuación T07.7:** [figura del acceso](../acceso_v1/README.md). Recursos de recepción conservados e integrados sin modificaciones. El autor valora positivamente el progreso general y pide seguir con calma; no consta aprobación individual nueva de cada recurso.

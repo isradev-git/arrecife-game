@@ -33,3 +33,5 @@ Sin `--capturas` solo comprueba; no usar `--headless` para las pruebas GPU. Un p
 Agent-browser en sesión propia `arrecife-recepcion-20261011`, ejecutable Helium y WebGL 2.0: carga, perfiles, posición frente al mostrador/Galería y visibilidad independiente por clic observados. Sin errores de página/consola registrados. Automatización cerrada; Godot actualizado y URL abiertos en aplicaciones visibles. Servidor local existente respondió en `http://127.0.0.1:8766/godot/build/web/`; comprobar que sigue activo al retomar.
 
 Sin caminar, respiración, colisiones ni interacción narrativa. El equipo es un grupo, el contraluz es manual, generación con variaciones de detalle. Resto de figurantes, arquitectura, ciudad, humo/luz, Safari/Firefox, rendimiento y juego completo pendientes.
+
+**Continuación T07.7:** [figura del acceso y escalera reconstruida](../acceso_v1/README.md). Estas capturas conservan el montaje de recepción, que sigue integrado; la nueva figura se revisa en su propia entrega.
