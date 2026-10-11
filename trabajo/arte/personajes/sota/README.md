@@ -1,5 +1,7 @@
 # Sota · Referencia de producción
 
+**Entrega vigente · 11 de octubre:** [primer pase pixel art, versiones y prompts](pixel_v1/README.md), integrado en la [comparación Godot](../../revisiones/escala_v3/README.md). Dos perfiles propios, transparencia y apoyos comprobados. Pendiente valoración del autor; las aprobaciones descritas debajo corresponden al diseño y a la iteración anterior.
+
 **Decisión vigente · 10 de octubre:** el autor aprueba cómo queda en Velvet y elige solo los perfiles derecho e izquierdo. Frontal y tres cuartos se conservan en el atlas por historial, pero no se muestran en Godot ni se producirán sus animaciones. El reposo, la respiración y las conversaciones serán de perfil. [Revisión vigente](../../revisiones/escala_v2/README.md). Las secciones siguientes documentan la entrega original.
 
 **Cambio de acabado · 10 de octubre:** el autor pide recursos más pixel art y cercanos a REPLACED. T03 debe producir nuevas versiones de ambos perfiles, conservando identidad, vestuario y lado físico del equipo, para revisarlas en T02. La referencia v3 y las capturas actuales son la base anterior, no el acabado final de este pase. Conservar imágenes y prompts; aplicar la [dirección artística vigente](../../../direccion_artistica.md).

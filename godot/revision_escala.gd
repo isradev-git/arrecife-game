@@ -1,12 +1,15 @@
 extends Node2D
 
-const ATLAS = preload("res://assets/personajes/sota/referencia_v3.png")
-const BACKGROUND = preload("res://assets/fiebre_velvet_v1.png")
+const ATLASES = [preload("res://assets/personajes/sota/referencia_v3.png"), preload("res://assets/personajes/sota/perfiles_pixel_v2.png")]
+const METADATA = ["res://assets/personajes/sota/referencia_v3.json", "res://assets/personajes/sota/perfiles_pixel_v2.json"]
+const ART_LABELS = ["Arte anterior", "Pixel art"]
+const BACKGROUND = preload("res://assets/fiebre_velvet_pixel_v1.png")
 const CUTOUT = preload("res://assets/personajes/sota/silueta.gdshader")
 const LABELS = ["Perfil derecho", "Perfil izquierdo"]
 const HEIGHTS = [232.0, 252.0, 272.0]
 
 var views: Array
+var art_index := 1
 var pose_index := 0
 var character_height := 252.0
 var ground := Vector2(780, 710)
@@ -15,14 +18,14 @@ var status := Label.new()
 
 
 func _ready() -> void:
-	views = JSON.parse_string(FileAccess.get_file_as_string("res://assets/personajes/sota/referencia_v3.json"))["vistas"].slice(0, 2)
+	load_views()
 	var background := Sprite2D.new()
 	background.texture = BACKGROUND
 	background.centered = false
-	background.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR
+	background.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
 	add_child(background)
 	sota.centered = false
-	sota.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR
+	sota.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
 	var material := ShaderMaterial.new()
 	material.shader = CUTOUT
 	sota.material = material
@@ -31,13 +34,24 @@ func _ready() -> void:
 	show_pose(0)
 
 
+func load_views() -> void:
+	views = JSON.parse_string(FileAccess.get_file_as_string(METADATA[art_index]))["vistas"].slice(0, 2)
+
+
+func set_art(index: int) -> void:
+	art_index = index
+	load_views()
+	sota.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST if index == 1 else CanvasItem.TEXTURE_FILTER_LINEAR
+	show_pose(pose_index)
+
+
 func show_pose(index: int) -> void:
 	pose_index = index
 	var view: Dictionary = views[index]
 	var cell: Array = view["region"]
 	var bounds: Array = view["limites_alfa_10_por_ciento"]
 	var texture := AtlasTexture.new()
-	texture.atlas = ATLAS
+	texture.atlas = ATLASES[art_index]
 	texture.region = Rect2(cell[0] + bounds[0], cell[1] + bounds[1], bounds[2], bounds[3])
 	texture.filter_clip = true
 	sota.texture = texture
@@ -45,7 +59,7 @@ func show_pose(index: int) -> void:
 	sota.scale = Vector2(ratio, ratio)
 	sota.offset = Vector2(-float(bounds[2]) / 2.0, -float(bounds[3]))
 	sota.position = ground
-	status.text = "%s · Altura %d · %s" % [LABELS[index], character_height, "Suave" if sota.texture_filter == CanvasItem.TEXTURE_FILTER_LINEAR else "Nítido"]
+	status.text = "%s · %s · Altura %d · %s" % [ART_LABELS[art_index], LABELS[index], character_height, "Suave" if sota.texture_filter == CanvasItem.TEXTURE_FILTER_LINEAR else "Nítido"]
 
 
 func set_height(value: float) -> void:
@@ -80,6 +94,10 @@ func build_controls() -> void:
 	title.text = "VELVET · Revisión de Sota"
 	title.add_theme_font_size_override("font_size", 24)
 	column.add_child(title)
+	var art := HBoxContainer.new()
+	column.add_child(art)
+	for index in range(ART_LABELS.size()):
+		add_button(art, ART_LABELS[index], set_art.bind(index))
 	var poses := HBoxContainer.new()
 	column.add_child(poses)
 	for index in range(LABELS.size()):

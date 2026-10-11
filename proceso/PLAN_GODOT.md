@@ -8,7 +8,7 @@ Actualización: el orden y estado de ejecución se mantienen en [task.md](../tas
 
 **GitHub · 10 de octubre:** el autor autoriza subir el proyecto completo, canon y documentos internos incluidos, a `isradev-git/arrecife-game` pese a que el repositorio es público; indica que lo hará privado después. Esta autorización sustituye la exclusión del canon para esta subida de desarrollo. Sigue vigente separar fuentes internas de los paquetes distribuidos a jugadores.
 
-**Cambio de acabado · 10 de octubre:** renovar sprites, modelos, personajes, objetos, animaciones y todas las capas de entorno hacia un pixel art más cercano a REPLACED. Los recursos actuales son una iteración previa. [Dirección artística vigente](../trabajo/direccion_artistica.md); la sustitución y revisión se incorporan a las tareas existentes. Se conserva el proyecto 2D y la identidad del universo; todavía no hay recursos nuevos de este pase.
+**Cambio de acabado · 10 de octubre:** renovar sprites, modelos, personajes, objetos, animaciones y todas las capas de entorno hacia un pixel art más cercano a REPLACED. Los recursos actuales son una iteración previa. [Dirección artística vigente](../trabajo/direccion_artistica.md); la sustitución y revisión se incorporan a las tareas existentes. Se conserva el proyecto 2D y la identidad del universo; el 11 de octubre se entrega el [primer pase de Sota y comparación en Velvet](../trabajo/arte/revisiones/escala_v3/README.md), pendiente de valoración del autor. El resto de recursos, capas y animaciones siguen pendientes.
 
 ## Diagnóstico
 

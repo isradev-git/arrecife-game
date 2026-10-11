@@ -1,5 +1,7 @@
 # Velvet · Sota solo de perfil
 
+**Revisión histórica:** se conserva esta entrega; la comparación actual con el primer pase pixel art está en [escala_v3](../escala_v3/README.md), todavía pendiente de valoración del autor.
+
 10 de octubre de 2026. El autor aprueba cómo queda Sota en escena y decide que solo se verá de perfil. Descarta frontal y tres cuartos: reposo, conversación, respiración y cambios de dirección deberán mantener perfil derecho o izquierdo.
 
 **Nueva dirección posterior:** el autor solicita un acabado más pixel art, cercano a REPLACED. Estas capturas conservan la iteración aprobada anterior; no acreditan la renovación, que sigue pendiente en T02/T03. Escala, retícula y filtrado se revisarán con recursos nuevos según la [dirección vigente](../../../direccion_artistica.md).
