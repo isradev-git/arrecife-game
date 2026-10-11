@@ -1,6 +1,6 @@
 # EL ARRECIFE · PASE PENDIENTE · Continuidad del proyecto
 
-Última actualización: **10 de octubre de 2026**. Caso ejecutable de referencia: **v0.2.0 (JavaScript)**. Motor elegido: **Godot 4.7.2**, con base técnica y exportación Web verificadas; caso todavía sin migrar.
+Última actualización: **11 de octubre de 2026**. Caso ejecutable de referencia: **v0.2.0 (JavaScript)**. Motor elegido: **Godot 4.7.2**, con base técnica y exportación Web verificadas; caso todavía sin migrar.
 Este es el punto de entrada para retomar el trabajo en otro chat. Contiene decisiones, resultados y pendientes; los archivos enlazados conservan el detalle. No es una transcripción literal ni modifica el canon literario. Contiene la solución del misterio.
 
 ## 1. Por dónde vamos
@@ -12,6 +12,8 @@ La última entrega del caso fue **movimiento v0.2**: caminar y correr con hojas 
 **Estado de aprobación:** el autor aprobó expresamente el concepto visual **Fiebre v8**, especialmente Sota. Ahora valora que **movimiento y entorno siguen «MUY MUY verdes»** y decide usar Godot. No consta una partida completa suya documentada ni aprobación del acabado de v0.2. Una entrega del asistente no equivale a aprobación del autor.
 
 **Nueva dirección artística · 10 de octubre:** el autor pide cambiar sprites, modelos y demás recursos para que sean más pixel art y más cercanos al estilo de REPLACED. Abarca personajes, animaciones, objetos, escenarios y todas sus capas. [Dirección vigente](../trabajo/direccion_artistica.md). La decisión está aprobada por el autor; la renovación todavía no se ha producido ni probado. Los PNG y capturas actuales muestran la iteración anterior. Se conservan identidad de Sota, presentación solo de perfil, Velvet, originales y prompts; Godot continúa en 2D.
+
+**Referencias aprobadas · 11 de octubre:** el autor aporta [dos imágenes y fija su estilo para todo el juego](../trabajo/arte/referencias/pixel_art_v1/README.md). Se conservan los PNG originales: Velvet para acabado de entorno y la segunda imagen para tratamiento de personajes. Son ahora la referencia principal de acabado; no sustituyen la identidad ni la presentación solo de perfil de Sota. Copias idénticas a los adjuntos y enlaces comprobados. Todavía no se han convertido en capas, sprites ni animaciones ni se han integrado en Godot.
 
 **Entregado en esta revisión:** Godot estándar 4.7.2 en `/Applications/Godot.app`, plantillas Web de la misma versión y proyecto independiente en `godot/`. La primera escena técnica se probó en Safari. La principal actual es una revisión estática de escala con Sota: dos perfiles, tres alturas y dos ubicaciones; no contiene todavía movimiento ni el caso. Se conservan `juego/`, arte y prompts anteriores. Diagnóstico y propuesta de producción en [PLAN_GODOT.md](PLAN_GODOT.md); comandos y límites de la instalación en [godot/README.md](../godot/README.md).
 
@@ -64,7 +66,7 @@ El Arrecife es una megaciudad vertical habitada, con torres, pasarelas, infraest
 
 **Sota** es una mujer adulta que verifica reclamaciones y localiza personas. No va armada. Pelo oscuro corto con pequeña mecha gris, chaqueta de trabajo marrón rojiza, pantalón oscuro, deck gastado con correa clara. En los sprites actuales el deck está en su cadera derecha. El nombre Inés está descartado. Marcus es otro personaje del libro; no es el protagonista de este juego.
 
-Referencia de identidad y composición: [Fiebre v8](../trabajo/arte/conceptos/fiebre_v8/fiebre_escena_v8.png), con su aprobación conservada. **El acabado vigente será más pixel art y cercano a REPLACED**, por decisión del autor del 10 de octubre. Se autoriza redibujar sprites y demás recursos conservando diseños reconocibles. La preferencia anterior por el píxel muy sutil de v1 y el rechazo del grano de v7 quedan en el historial; no impiden esta renovación. Resolución, retícula y filtrado se decidirán con recursos nuevos en escena; un filtro sobre el arte anterior no basta.
+Referencia de identidad y composición: [Fiebre v8](../trabajo/arte/conceptos/fiebre_v8/fiebre_escena_v8.png), con su aprobación conservada. **El acabado vigente será el de las [dos referencias aprobadas del 11 de octubre](../trabajo/arte/referencias/pixel_art_v1/README.md)**, que concretan la orientación hacia el pixel art de REPLACED solicitada el día anterior. Se autoriza redibujar sprites y demás recursos conservando diseños reconocibles. La preferencia anterior por el píxel muy sutil de v1 y el rechazo del grano de v7 quedan en el historial; no impiden esta renovación. Resolución, retícula y filtrado se decidirán con recursos nuevos en escena; un filtro sobre el arte anterior no basta.
 
 Referencias expresas: REPLACED para tratamiento del píxel, composición, luz y profundidad; Gibson, Cyberpunk 2077 y Edgerunners para identidad cyberpunk. Sin copiar personajes ni escenarios. El vestuario debe ser futurista, no ropa contemporánea rodeada de neón. Criterios completos en [dirección artística](../trabajo/direccion_artistica.md).
 
@@ -158,6 +160,7 @@ Todos los enlaces siguientes son relativos a este documento y pertenecen al proy
 | Arte y procedencia | [Recursos iniciales](../juego/arte/README.md), [revisión de movimiento](../juego/arte/movimiento_v2.md), [rótulo Velvet](../juego/arte/velvet_v1.md). PNG en `juego/assets/`; instrucciones en `juego/arte/prompts/`. |
 | Escala de Sota en Velvet | [Revisión vigente de perfiles y capturas](../trabajo/arte/revisiones/escala_v2/README.md); script `godot/revision_escala.gd`, comprobación `godot/tests/escala.gd`. |
 | Base recuperable y limpieza | [Registro y respaldo](RESPALDO_Y_LIMPIEZA.md). Git local y remoto sincronizados en main; subida y clonación verificadas, versiones anteriores conservadas. |
+| Estilo pixel art aprobado | [Referencias de entorno y personajes](../trabajo/arte/referencias/pixel_art_v1/README.md), aportadas por el autor el 11 de octubre; PNG originales conservados. |
 | Sota, referencia de producción | [Versiones, prompts, medidas y límites](../trabajo/arte/personajes/sota/README.md); PNG y JSON en `godot/assets/personajes/sota/`. |
 | Migración a Godot | [Diagnóstico y plan](PLAN_GODOT.md), [instalación y comprobación](../godot/README.md), [proyecto](../godot/project.godot), [exportación](../godot/export_presets.cfg). |
 | Tareas de producción | [task.md](../task.md) — orden, estado, entregas y criterios de cierre; una tarea cada vez. |
@@ -226,5 +229,7 @@ Las fechas solo se fijan donde están documentadas; el trabajo anterior al trasl
 | 10 oct · GitHub subido y verificado | Push completo a origin/main, configurado como rama predeterminada en isradev-git/arrecife-game. Clonación nueva desde GitHub verifica 129 archivos idénticos y los 7 commits hasta 5e8a2d7; se conservan canon, guion, arte/prompts y tareas. Se excluyen cachés, exportaciones y credenciales. Este cierre se sube en un commit adicional. Repositorio todavía público al comprobar; el autor se encarga de hacerlo privado. No se publica una versión jugable. |
 
 | 10 oct · nueva dirección pixel art | El autor pide cambiar sprites, modelos y demás recursos para acercarlos al pixel art de REPLACED y solicita commit/push. Se actualizan dirección artística, tareas, plan y entradas de recursos; se sustituyen criterios vigentes que priorizaban el píxel muy sutil. Revisión de diferencias y enlaces locales; solo documentación, sin alterar canon, código, imágenes ni prompts. Generación, integración y aprobación visual del nuevo acabado pendientes. |
+
+| 11 oct · referencias de pixel art aprobadas | El autor aporta dos imágenes y establece este estilo para todo el juego. Se guardan los PNG sin editar en trabajo/arte/referencias/pixel_art_v1, con procedencia, lectura visual y límites; se actualizan dirección, tareas y continuidad. Copias idénticas byte a byte y enlaces locales comprobados. Aprobación del acabado por el autor; generación de recursos separados e integración en Godot todavía pendientes. |
 
 Para futuras entradas: **fecha · petición o decisión · resultado y archivos · comprobación · pendiente**. Registrar el proceso por hitos; los intentos que expliquen una decisión o limitación merecen conservarse, el ruido de herramientas no.

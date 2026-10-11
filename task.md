@@ -1,6 +1,6 @@
 # EL ARRECIFE · Tareas del videojuego
 
-Actualizado: **10 de octubre de 2026**. **Título definitivo pendiente**: el autor ha descartado «Pase pendiente» para la versión final. Ese nombre permanece en los archivos anteriores como referencia histórica hasta elegir el nuevo.
+Actualizado: **11 de octubre de 2026**. **Título definitivo pendiente**: el autor ha descartado «Pase pendiente» para la versión final. Ese nombre permanece en los archivos anteriores como referencia histórica hasta elegir el nuevo.
 
 Objetivo: terminar un juego breve de investigación en Godot, con personajes y entornos cuidados, jugable en navegador y presentable como proyecto propio. Desarrollan y prueban el autor y el asistente.
 
@@ -8,7 +8,7 @@ Objetivo: terminar un juego breve de investigación en Godot, con personajes y e
 
 **Sota:** solo perfil derecho e izquierdo, decisión del autor del 10 de octubre. Reposo, respiración, conversación y cambios de dirección no muestran frontal ni tres cuartos. La escala de la entrega aprobada sirve de base; se revisará con los recursos nuevos.
 
-**Dirección artística vigente:** renovar sprites, modelos, personajes, objetos, animaciones y entornos por capas para un acabado más pixel art, más cercano a REPLACED. Los recursos actuales son una iteración previa; conservar identidad, universo, versiones y prompts. Criterios en [dirección artística](trabajo/direccion_artistica.md). La renovación se incorpora a las tareas existentes, una cada vez.
+**Dirección artística vigente:** renovar sprites, modelos, personajes, objetos, animaciones y entornos por capas para un acabado más pixel art, más cercano a REPLACED. Los recursos actuales son una iteración previa; conservar identidad, universo, versiones y prompts. El 11 de octubre el autor fija las [dos imágenes de estilo aprobadas](trabajo/arte/referencias/pixel_art_v1/README.md) como referencia principal para todo el juego: entorno y personajes. Criterios en [dirección artística](trabajo/direccion_artistica.md). La renovación se incorpora a las tareas existentes, una cada vez.
 
 **Tarea actual:** T02 · escala en escena, Entregada; valoración de la iteración anterior aprobada, nuevo acabado pixel art y navegador pendientes. T03 sigue Entregada; perfiles aprobados, renovación pixel art pendiente. **Completadas:** T00 y T01.
 
@@ -70,7 +70,7 @@ La ambición de calidad se concreta en estos criterios y en revisiones sobre res
 
 **Entrega:** nueva referencia pixel art coherente de ambos perfiles, con medidas de suelo/pivote y detalles de ropa, pelo, manos, correa y deck. Redibujar el recurso manteniendo la identidad aprobada y el nuevo criterio de acabado.
 
-**Cierre:** las vistas representan al mismo personaje, coinciden en proporciones y mantienen el lado del equipo; funcionan a la escala elegida. Guardar recurso, prompt y revisión.
+**Cierre:** las vistas representan al mismo personaje, coinciden en proporciones y mantienen el lado del equipo; funcionan a la escala elegida y siguen el acabado de las referencias aprobadas del 11 de octubre. Guardar recurso, prompt y comparación en escena.
 
 **Entrega T03:** [referencia y perfiles vigentes](trabajo/arte/personajes/sota/README.md), PNG importado en Godot, regiones y apoyos medidos. Perfil izquierdo propio, deck en el lado físico correcto. El autor aprueba los perfiles en escena y descarta las otras vistas para ejecución. Pendiente sustituirlos por nuevas versiones pixel art y revisar bordes, identidad y apoyos en T02; no se da por terminada la animación del personaje.
 
@@ -241,3 +241,4 @@ Al completar una tarea, añadir una fila breve y actualizar su estado arriba. Lo
 | Dirección de Sota | 10 oct 2026 | Solo perfiles en la revisión Godot; frontal y tres cuartos conservados como historial | Comprobación adaptada a dos vistas | Autor aprueba el aspecto en escena y descarta frontal; respiración y animaciones todavía pendientes |
 | GitHub | 10 oct 2026 | Proyecto e historial en isradev-git/arrecife-game, main | Clonación desde GitHub: 129 archivos idénticos y 7 commits hasta 5e8a2d7; cierre posterior adicional | Autor autoriza incluir canon y documentos; él lo hará privado |
 | Dirección pixel art | 10 oct 2026 | Dirección y criterios de T02/T03/T07 actualizados; cambio aplicable a toda la cola de recursos | Revisión documental; no se generan ni sustituyen recursos en esta entrega | Autor pide sprites/modelos y entornos más pixel art, cercanos a REPLACED; nuevas versiones y revisión en escena pendientes |
+| Referencias pixel art | 11 oct 2026 | [Dos PNG aportados por el autor](trabajo/arte/referencias/pixel_art_v1/README.md), guardados sin editar | Copias idénticas a los adjuntos y enlaces comprobados | Autor aprueba este acabado para todo el juego; sprites, capas y animaciones aún pendientes |
