@@ -1,0 +1,6 @@
+Use case: precise-object-edit
+Asset type: repaired background plate for a layered Godot pixel art game.
+Input image 1 is the edit target: the approved Velvet environment, 1672 x 941.
+Primary request: remove ONLY the CENTRAL railing section in the rectangle x=470 through x=935, y=548 through y=678 (coordinates in the original 1672x941 canvas). Remove the red top handrail, black horizontal bars and vertical railing posts within that rectangle. Reconstruct the distant blue city, building windows and violet steam visible behind those removed bars. This repaired section must contain no railing at all, so a separate transparent railing layer can later be placed over it.
+Preserve the rest of the entire image, including all adult fully clothed people, storefronts, signs, reception, wet floor and foreground pipes. Preserve the full composition and original framing; no crop, no zoom, no change of viewpoint. Keep the strong chunky cinematic pixel art, dense dark industrial architecture, blue distance and red/amber lights. Do not add characters or foreground objects.
+Output: full opaque landscape image with the same 1672x941 framing and dimensions as the source. This is a clean plate, not a newly designed scene.

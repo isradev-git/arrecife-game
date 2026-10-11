@@ -6,11 +6,13 @@ La producción definitiva utiliza **Godot 4.7.2, GDScript y 2D Compatibility**, 
 
 **Dirección artística · 10 de octubre:** vamos a renovar sprites, modelos, personajes, objetos, animaciones y entornos por capas para que sean más pixel art, más cercanos al estilo de REPLACED. Se conserva la identidad de Sota y su presentación solo de perfil. [Criterios vigentes](trabajo/direccion_artistica.md); renovación pendiente en [task.md](task.md). Pase corregido de Sota, con píxel más intenso y rostro con ojos apenas insinuados y sin rasgos detallados, integrado con el Velvet aportado por el autor; [comparación del retoque](trabajo/arte/revisiones/escala_v5/README.md). El autor aprueba el estilo vigente. La escena compara ese atlas con una [base sin neón e iluminación separada](trabajo/arte/revisiones/luz_v2/README.md), con color, intensidad y dirección controlables. Esta variante nueva está pendiente de valoración.
 
-![Sota pixel art de perfil en Velvet](trabajo/arte/revisiones/luz_v2/velvet_0.png)
+**Capas · 11 de octubre:** primera barandilla central separada, con fondo reparado y comparación delante/detrás/ocultar. [Recursos y prompts](trabajo/arte/entornos/velvet/capas_v1/README.md); [capturas y prueba GPU](trabajo/arte/revisiones/capas_v1/README.md). El autor prioriza objetos por profundidad, movimiento del fondo, humo y luz; el resto sigue pendiente en T07/T09.
+
+![Sota de perfil detrás de la barandilla de Velvet](trabajo/arte/revisiones/capas_v1/delante_0.png)
 
 ## Abrir el proyecto
 
-Clonar el repositorio e importar `godot/project.godot` desde Godot 4.7.2. Ejecutar con F5. La escena actual compara la referencia aprobada de Sota y la base con iluminación separada, ambos perfiles, alturas, ubicación, filtrado y color del contorno; todavía no contiene desplazamiento ni diálogos.
+Clonar el repositorio e importar `godot/project.godot` desde Godot 4.7.2. Ejecutar con F5. La escena actual compara la referencia aprobada de Sota y la base con iluminación separada, ambos perfiles, alturas, ubicación, filtrado y color del contorno. En **Galería**, alternar **Barandilla delante / Detrás / Ocultar** para comprobar la primera oclusión. Todavía no contiene desplazamiento ni diálogos.
 
 Instalación, plantillas y exportación: [godot/README.md](godot/README.md).
 

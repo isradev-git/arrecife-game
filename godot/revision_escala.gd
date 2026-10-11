@@ -4,6 +4,8 @@ const ATLASES = [preload("res://assets/personajes/sota/perfiles_pixel_v7.png"), 
 const METADATA = ["res://assets/personajes/sota/perfiles_pixel_v7.json", "res://assets/personajes/sota/perfiles_base_v1.json"]
 const ART_LABELS = ["Referencia aprobada", "Base e iluminación"]
 const BACKGROUND = preload("res://assets/fiebre_velvet_pixel_v1.png")
+const CLEAN_BACKGROUND = preload("res://assets/entornos/velvet/fondo_reparado_v1.png")
+const RAILING = preload("res://assets/entornos/velvet/barandilla_v1.png")
 const CUTOUT = preload("res://assets/personajes/sota/silueta.gdshader")
 const RIM_LIGHT = preload("res://assets/personajes/sota/contraluz.gdshader")
 const LABELS = ["Perfil derecho", "Perfil izquierdo"]
@@ -19,6 +21,7 @@ var character_height := 252.0
 var ground := Vector2(780, 710)
 var sota := Sprite2D.new()
 var status := Label.new()
+var railing := Sprite2D.new()
 
 
 func _ready() -> void:
@@ -27,7 +30,36 @@ func _ready() -> void:
 	background.texture = BACKGROUND
 	background.centered = false
 	background.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
+	background.z_index = -20
 	add_child(background)
+	# shortcut: solo se separa el tramo central; completar el resto antes del recorrido jugable.
+	var repaired := Sprite2D.new()
+	var patch := AtlasTexture.new()
+	patch.atlas = CLEAN_BACKGROUND
+	var width_ratio := float(CLEAN_BACKGROUND.get_width()) / BACKGROUND.get_width()
+	patch.region = Rect2(450 * width_ratio, 548, 485 * width_ratio, 130)
+	patch.filter_clip = true
+	repaired.texture = patch
+	repaired.centered = false
+	repaired.position = Vector2(450, 548)
+	repaired.scale.x = 1.0 / width_ratio
+	repaired.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
+	repaired.z_index = -19
+	add_child(repaired)
+	var rail_texture := AtlasTexture.new()
+	rail_texture.atlas = RAILING
+	rail_texture.region = Rect2(382, 506, 910, 186)
+	rail_texture.filter_clip = true
+	railing.texture = rail_texture
+	railing.centered = false
+	railing.position = Vector2(450, 552)
+	railing.scale = Vector2(485.0 / 910.0, 126.0 / 186.0)
+	railing.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
+	var rail_material := ShaderMaterial.new()
+	rail_material.shader = preload("res://assets/entornos/velvet/metal_opaco.gdshader")
+	railing.material = rail_material
+	railing.z_index = 5
+	add_child(railing)
 	sota.centered = false
 	sota.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
 	var material := ShaderMaterial.new()
@@ -95,6 +127,11 @@ func toggle_filter() -> void:
 	show_pose(pose_index)
 
 
+func set_railing(depth: int) -> void:
+	railing.visible = depth != 0
+	railing.z_index = depth
+
+
 func build_controls() -> void:
 	var layer := CanvasLayer.new()
 	add_child(layer)
@@ -109,7 +146,7 @@ func build_controls() -> void:
 	column.add_theme_constant_override("separation", 8)
 	margin.add_child(column)
 	var title := Label.new()
-	title.text = "VELVET · Revisión de Sota"
+	title.text = "VELVET · Sota y primera capa"
 	title.add_theme_font_size_override("font_size", 24)
 	column.add_child(title)
 	var art := HBoxContainer.new()
@@ -131,6 +168,11 @@ func build_controls() -> void:
 	column.add_child(lighting)
 	for index in range(LIGHT_LABELS.size()):
 		add_button(lighting, LIGHT_LABELS[index], set_lighting.bind(index))
+	var depths := HBoxContainer.new()
+	column.add_child(depths)
+	add_button(depths, "Barandilla delante", set_railing.bind(5))
+	add_button(depths, "Detrás", set_railing.bind(-5))
+	add_button(depths, "Ocultar", set_railing.bind(0))
 	column.add_child(status)
 	poses.get_child(0).grab_focus()
 

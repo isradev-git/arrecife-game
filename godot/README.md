@@ -17,7 +17,7 @@ Abrir Godot e importar `project.godot`, o ejecutar desde la raíz del repositori
 /Applications/Godot.app/Contents/MacOS/Godot --editor --path godot
 ```
 
-F5 ejecuta la revisión de escala. Los botones cambian vista, altura, ubicación, filtrado y color del contorno; todavía no hay desplazamiento. [Comparación vigente y capturas](../trabajo/arte/revisiones/luz_v2/README.md). El proyecto usa GDScript y Compatibility; la exportación Web desactiva hilos y extensiones. No necesita .NET ni complementos.
+F5 ejecuta la revisión. Los botones cambian vista, altura, ubicación, filtrado y color del contorno; todavía no hay desplazamiento. En **Galería**, alternar **Barandilla delante / Detrás / Ocultar** para comprobar la primera capa y el fondo reconstruido. [Oclusión vigente y capturas](../trabajo/arte/revisiones/capas_v1/README.md); [comparación de luz](../trabajo/arte/revisiones/luz_v2/README.md). El proyecto usa GDScript y Compatibility; la exportación Web desactiva hilos y extensiones. No necesita .NET ni complementos.
 
 ## Repetir la comprobación y exportar
 
@@ -65,7 +65,17 @@ Decisión del 10 de octubre: el autor aprueba el aspecto de Sota en escena y eli
 
 ## Recursos y continuidad
 
-La revisión actual usa `assets/fiebre_velvet_pixel_v1.png`, copia idéntica de la [imagen 1 aprobada](../trabajo/arte/referencias/pixel_art_v1/README.md), y `assets/personajes/sota/perfiles_base_v1.png` con medidas en su JSON; v7 se usa como referencia aprobada para comparar. `contraluz.gdshader` calcula la máscara del borde de la base; `silueta.gdshader` conserva la solución anterior para v7. El fondo sigue aplanado. Se conservan el atlas anterior para comparar y `assets/fiebre_velvet_v1.png` para la escena técnica; este último es copia del recurso del prototipo con el neón renombrado a **VELVET** por decisión del autor. [Procedencia y valoración](../juego/arte/velvet_v1.md); [prompt](../juego/arte/prompts/velvet_rotulo_v1.txt). La versión anterior se conserva en `juego/assets/fiebre_fondo_v1.png`; se retiró su copia inactiva de Godot durante la limpieza.
+**Primera separación de capas:** `assets/entornos/velvet/` contiene fondo reparado y barandilla transparente. Solo se integra el parche central; AtlasTexture conserva el original fuera de él. `metal_opaco.gdshader` elimina residuos de alfa y hace opaco el metal. [Procedencia y prompts](../trabajo/arte/entornos/velvet/capas_v1/README.md). Los botones cambian el orden de dibujo u ocultan la pieza. Es una prueba estática de profundidad; ciudad, humo, luces y restantes objetos siguen aplanados. T07 continúa en curso.
+
+La prueba de esta capa necesita render gráfico:
+
+```sh
+/Applications/Godot.app/Contents/MacOS/Godot --path godot --script tests/capas.gd
+```
+
+En Apple M4 comprueba metal opaco delante, Sota visible entre barrotes y orden inverso en ambos perfiles. Pasan escala, escena técnica, importación y exportación Web; seis capturas nativas revisadas por el asistente. Visual Web y valoración del autor pendientes.
+
+La revisión actual usa `assets/fiebre_velvet_pixel_v1.png`, copia idéntica de la [imagen 1 aprobada](../trabajo/arte/referencias/pixel_art_v1/README.md), con el parche central descrito arriba, y `assets/personajes/sota/perfiles_base_v1.png` con medidas en su JSON; v7 se usa como referencia aprobada para comparar. `contraluz.gdshader` calcula la máscara del borde de la base; `silueta.gdshader` conserva la solución anterior para v7. Se conservan el atlas anterior para comparar y `assets/fiebre_velvet_v1.png` para la escena técnica; este último es copia del recurso del prototipo con el neón renombrado a **VELVET** por decisión del autor. [Procedencia y valoración](../juego/arte/velvet_v1.md); [prompt](../juego/arte/prompts/velvet_rotulo_v1.txt). La versión anterior se conserva en `juego/assets/fiebre_fondo_v1.png`; se retiró su copia inactiva de Godot durante la limpieza.
 
 La carpeta `build/` y la caché `.godot/` se pueden regenerar y están excluidas del control de versiones. Los archivos de importación y UID junto a recursos/scripts sí forman parte del proyecto reproducible. No distribuir canon, guion de moderación o documentos de proceso como parte del paquete Web.
 

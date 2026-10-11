@@ -10,7 +10,7 @@ Objetivo: terminar un juego breve de investigación en Godot, con personajes y e
 
 **Dirección artística vigente:** renovar sprites, modelos, personajes, objetos, animaciones y entornos por capas para un acabado más pixel art, más cercano a REPLACED. Los recursos actuales son una iteración previa; conservar identidad, universo, versiones y prompts. El 11 de octubre el autor fija las [dos imágenes de estilo aprobadas](trabajo/arte/referencias/pixel_art_v1/README.md) como referencia principal para todo el juego: entorno y personajes. Criterios en [dirección artística](trabajo/direccion_artistica.md). La renovación se incorpora a las tareas existentes, una cada vez.
 
-**Tarea actual:** T03 · base de Sota sin neón fijo — Entregada. [Base, prompt](trabajo/arte/personajes/sota/base_v1/README.md) y [comparación con v7 en Godot](trabajo/arte/revisiones/luz_v2/README.md). Contraluz separado mediante máscara del borde alfa, con color/intensidad/dirección controlables; la base nueva queda pendiente de valoración del autor. T02 sigue Entregada; retícula, conexión con luces del escenario y visual Web pendientes. **Completadas:** T00 y T01.
+**Tarea actual:** T07 · Velvet por capas — En curso, adelantada por la petición del autor del 11 de octubre. Primera entrega T07.1: [barandilla central, fondo reparado y prompts](trabajo/arte/entornos/velvet/capas_v1/README.md), [seis capturas y prueba de oclusión](trabajo/arte/revisiones/capas_v1/README.md). Delante/detrás/ocultar disponibles en Godot. Faltan el resto de objetos, planos de ciudad y atmósfera; no se cierra T07. T02/T03 siguen Entregadas, con retícula, luz espacial y visual Web pendientes. **Completadas:** T00 y T01.
 
 El autor pide priorizar generación de recursos tras la limpieza. Se adelanta la referencia de T03; su cierre técnico seguirá necesitando T02. El primer pase fue rechazado; el autor aprueba el estilo de la propuesta v7 con ojos sutiles. Resolver iluminación y escala/retícula antes de producir el resto en serie.
 
@@ -92,9 +92,15 @@ La ambición de calidad se concreta en estos criterios y en revisiones sobre res
 
 **Cierre:** ambas direcciones y todas las transiciones son continuas, conservan identidad y equipo y mantienen los apoyos. Movimiento reducido funciona. Registrar revisión visual del autor.
 
-### T07 · Construir Velvet por capas — Pendiente
+### T07 · Construir Velvet por capas — En curso
 
 **Entrega:** fondo distante, arquitectura, suelo, recepción y elementos de primer plano separados donde haga falta. Reconstruir zonas ocultas al extraer personajes u objetos del fondo existente.
+
+**Prioridad del autor · 11 de octubre:** barandillas y objetos deben quedar delante o detrás del personaje según el espacio; elementos móviles del fondo, humo y luz necesitan planos propios. Se adelanta T07 sin abrir varias tareas a la vez.
+
+**T07.1 — Entregada:** tramo central separado y parche reconstruido, comparación de profundidad en ambos perfiles. PNG originales y prompts conservados; recorte de alfa hace opaco el metal. Prueba GPU de oclusión, escala, escena técnica, importación y exportación Web correctas. [Entrega y límites](trabajo/arte/entornos/velvet/capas_v1/README.md). Pendientes valoración, resto del recorrido y visual Web.
+
+**Siguientes entregas de T07:** completar oclusores del recorrido y separar arquitectura/ciudad; reservar humo de cada profundidad y piezas móviles para su producción en T09. Cada extracción debe incluir fondo reconstruido y revisión integrada antes de seguir.
 
 **Cierre:** Sota recorre la escena con perspectiva, suelo y oclusiones correctos; todas las capas siguen el nuevo acabado pixel art cercano a REPLACED, coherente con los personajes, y no revelan huecos. El movimiento de cámara, si lo hay, conserva la composición y permite comprobar profundidad.
 
@@ -106,7 +112,7 @@ La ambición de calidad se concreta en estos criterios y en revisiones sobre res
 
 ### T09 · Dar actividad a la Fiebre — Pendiente
 
-**Entrega:** figuración necesaria y actividad de infraestructura: personas con acciones diferenciadas, luces, ventilación, humedad y vapor. Separar del fondo los secundarios que deban animarse.
+**Entrega:** figuración necesaria y actividad de infraestructura: personas con acciones diferenciadas, luces, ventilación, humedad y vapor. Separar del fondo los secundarios que deban animarse. Elementos móviles de ciudad en su plano de profundidad; emisores de humo detrás/delante separados, sin teñir globalmente la escena. Luz y reflejos ligados a fuentes del entorno y a sus oclusiones. Reparar la imagen subyacente antes de animar cada elemento extraído.
 
 **Cierre:** observar la escena durante un minuto: los ciclos no distraen ni se sincronizan de forma evidente, la ciudad parece habitada y los puntos del caso siguen legibles. Comprobar movimiento reducido y coste de renderizado en Web.
 
@@ -248,3 +254,4 @@ Al completar una tarea, añadir una fila breve y actualizar su estado arriba. Lo
 | T02 · color de luz | 11 oct 2026 | [Shader y ocho capturas](trabajo/arte/revisiones/luz_v1/README.md), PNG v7 conservado | Neón recoloreable, alfa invariante, muestras de cara/ojos/ropa/equipo conservadas y restauración idéntica del render original; pruebas, importación y exportación correctas | Autor aprueba el estilo y pide resolver rosa fijo; prueba de color pendiente de valoración, sin iluminación espacial terminada ni visual Web |
 | Criterio de iluminación | 11 oct 2026 | Dirección y revisión de luz actualizadas | Revisión documental; sin cambios de código ni recursos | Autor aprueba conservar el contraluz de color coincidiendo con el entorno; integración automática y luz espacial todavía pendientes |
 | T03 · base sin neón | 11 oct 2026 | [Base, prompt](trabajo/arte/personajes/sota/base_v1/README.md) y [diez capturas](trabajo/arte/revisiones/luz_v2/README.md), v7 conservada | Importación, perfiles/alturas/apoyos/alfa/filtros, material y render GPU correctos; color/dirección separados e intensidad cero restaura la base; exportación Web correcta | Autor autoriza continuar; variante entregada, pendiente de valoración, retícula, luz de escenario, visual Web y animación |
+| T07.1 · primera capa | 11 oct 2026 | [Barandilla, fondo y prompts](trabajo/arte/entornos/velvet/capas_v1/README.md), [seis capturas](trabajo/arte/revisiones/capas_v1/README.md) | GPU: metal opaco delante, Sota visible entre barrotes y orden inverso correcto en ambos perfiles; escala, escena técnica, importación y exportación Web correctas | Autor prioriza profundidad y elementos móviles/humo/luz; entrega parcial pendiente de valoración. Resto de capas, movimiento y visual Web pendientes |
