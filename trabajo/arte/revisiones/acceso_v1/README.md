@@ -29,3 +29,5 @@ Añadir `-- --capturas` regenera las cinco capturas nativas. Las pruebas GPU req
 Agent-browser, sesión propia `arrecife-acceso-20261012`, ejecutable Helium y WebGL 2.0: carga/recarga, Junto al acceso, perfiles, ocultación/activación de Acceso y Solo trasera por clic comprobados. Sin errores de página/consola registrados. Automatización cerrada; Godot actualizado y URL abiertos en aplicaciones visibles. Servidor existente en `http://127.0.0.1:8766/godot/build/web/` respondió; comprobar que sigue activo al retomar.
 
 Sin animación, caminar, colisiones ni historia nueva. Contraluz manual y retícula definitiva pendientes. Figura y reparación generativas con variaciones; persona contigua aún en el fondo. Safari/Firefox, rendimiento y juego completo sin comprobar.
+
+**Continuación T07.8:** [acompañante y ambas personas independientes](../acompanante_v1/README.md). Estas diez imágenes conservan T07.7. El script actual amplía el parche y usa `--acompanante` para la segunda figura; `--capturas` ahora guarda la revisión T07.8 en su propia carpeta.

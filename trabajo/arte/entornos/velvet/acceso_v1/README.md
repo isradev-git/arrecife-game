@@ -34,3 +34,5 @@ Solo se integra el parche x = 1510–1606, y = 430–675 (96 × 245) del fondo r
 Controles **Acceso** para visibilidad y **Junto al acceso** para colocar a Sota en x = 1560. Permiten inspeccionar el fondo y el cruce; no implementan caminar ni diálogo.
 
 [Diez capturas nativas/Web y pruebas](../../../revisiones/acceso_v1/README.md). Quedan persona contigua, restantes figurantes/objetos, arquitectura/ciudad, atmósfera, luces espaciales, retícula definitiva y movimiento/colisiones.
+
+**Continuación T07.8:** [acompañante independiente y fondo común ampliado](../acompanante_v1/README.md). PNG de mochila y versiones anteriores conservados; el parche de entrada vigente pasa a 154 × 261. El autor aprueba el criterio de separación y propone posibles diálogos, sin textos implementados todavía.

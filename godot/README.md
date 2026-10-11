@@ -100,10 +100,18 @@ Siguiente trabajo: [plan de migración y criterios de cierre](../proceso/PLAN_GO
 
 Añadir `-- --capturas` regenera las cinco capturas nativas; necesita render gráfico, sin `--headless`.
 
-**Acceso T07.7 vigente:** [recursos, corrección y prompts](../trabajo/arte/entornos/velvet/acceso_v1/README.md), [diez capturas nativas/Web](../trabajo/arte/revisiones/acceso_v1/README.md). Persona con mochila de perfil derecho, altura 236, apoyo y = 675 y z = −4; Sota z = 0 y barandilla delantera z = +5. Parche x = 1510–1606, y = 430–675. Controles Acceso/Junto al acceso (Sota x = 1560). Material propio con contraluz manual del entorno; sin animación ni luces espaciales. Alfa/apoyo, parche fuera idéntico y oclusiones GPU correctos; pruebas anteriores y clic Web sin errores. Recurso nuevo pendiente de valoración. Persona contigua del acceso sigue en el fondo.
+**Acceso T07.7, revisión conservada:** [recursos, corrección y prompts](../trabajo/arte/entornos/velvet/acceso_v1/README.md), [diez capturas nativas/Web](../trabajo/arte/revisiones/acceso_v1/README.md). Persona con mochila de perfil derecho, altura 236, apoyo y = 675 y z = −4; Sota z = 0 y barandilla delantera z = +5. Parche x = 1510–1606, y = 430–675. Controles Acceso/Junto al acceso (Sota x = 1560). Material propio con contraluz manual del entorno; sin animación ni luces espaciales. Alfa/apoyo, parche fuera idéntico y oclusiones GPU correctos; pruebas anteriores y clic Web sin errores. Recurso nuevo pendiente de valoración. Persona contigua del acceso sigue en el fondo.
 
 ```sh
 /Applications/Godot.app/Contents/MacOS/Godot --path godot --script tests/acceso.gd
 ```
 
-Añadir `-- --capturas` regenera las cinco capturas nativas; necesita render gráfico, sin `--headless`.
+Las cinco capturas originales se conservan; el modo de capturas actual guarda en la revisión T07.8 siguiente.
+
+**Acompañante T07.8 vigente:** [dos recursos y prompts](../trabajo/arte/entornos/velvet/acompanante_v1/README.md), [catorce capturas](../trabajo/arte/revisiones/acompanante_v1/README.md). Perfil izquierdo, altura 248, x = 1594, apoyo y = 675 y z = −4. Ambas personas del acceso independientes; parche común actual x = 1510–1664, y = 414–675. Materiales propios, controles Acompañante/Junto al acompañante (Sota x = 1625). Dos modos de la prueba de acceso y regresiones anteriores correctos; clic Web sin errores. Posibilidad de diálogos anotada en T11; sin conversaciones ni animación todavía.
+
+```sh
+/Applications/Godot.app/Contents/MacOS/Godot --path godot --script tests/acceso.gd -- --acompanante
+```
+
+Añadir `--capturas` tras `--` guarda siete capturas actuales en `acompanante_v1`, sin sobrescribir T07.7. La prueba GPU requiere render gráfico, sin `--headless`; sin `--acompanante` prueba la figura de mochila.

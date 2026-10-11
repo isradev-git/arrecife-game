@@ -10,8 +10,9 @@ const COUNTER_BACKGROUND = preload("res://assets/entornos/velvet/fondo_recepcion
 const STAFF = preload("res://assets/entornos/velvet/figurante_recepcion_v1.png")
 const EQUIPMENT = preload("res://assets/entornos/velvet/equipo_recepcion_v1.png")
 const ACCESS_PERSON = preload("res://assets/entornos/velvet/figurante_acceso_v2.png")
-const ACCESS_BACKGROUND = preload("res://assets/entornos/velvet/fondo_acceso_reparado_v1.png")
-const ACCESS_PATCH_RECT = Rect2(1510, 430, 96, 245)
+const ACCESS_BACKGROUND = preload("res://assets/entornos/velvet/fondo_acceso_reparado_v2.png")
+const ACCESS_COMPANION = preload("res://assets/entornos/velvet/acompanante_acceso_v1.png")
+const ACCESS_PATCH_RECT = Rect2(1510, 414, 154, 261)
 const COUNTER_RECT = Rect2(1210, 538, 278, 137)
 const COUNTER_PATCH_RECT = Rect2(1210, 440, 278, 235)
 const CUTOUT = preload("res://assets/personajes/sota/silueta.gdshader")
@@ -40,6 +41,7 @@ var staff := Sprite2D.new()
 var equipment := Sprite2D.new()
 var access_person := Sprite2D.new()
 var access_patch := Sprite2D.new()
+var access_companion := Sprite2D.new()
 
 
 func _ready() -> void:
@@ -130,6 +132,18 @@ func _ready() -> void:
 	access_person.material = staff_material.duplicate()
 	access_person.z_index = -4
 	add_child(access_person)
+	var companion_texture := AtlasTexture.new()
+	companion_texture.atlas = ACCESS_COMPANION
+	companion_texture.region = Rect2(389, 141, 374, 1329)
+	companion_texture.filter_clip = true
+	access_companion.texture = companion_texture
+	access_companion.centered = false
+	access_companion.position = Vector2(1594, BACK_EDGE_Y - 248.0)
+	access_companion.scale = Vector2.ONE * (248.0 / 1329.0)
+	access_companion.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
+	access_companion.material = staff_material.duplicate()
+	access_companion.z_index = -4
+	add_child(access_companion)
 	var counter_texture := AtlasTexture.new()
 	counter_texture.atlas = COUNTER
 	counter_texture.region = Rect2(575, 323, 990, 445)
@@ -284,6 +298,14 @@ func build_controls() -> void:
 		toggle.toggled.connect(entry[1].set_visible)
 		actors.add_child(toggle)
 	add_button(actors, "Junto al acceso", set_ground.bind(1560.0))
+	var companions := HBoxContainer.new()
+	column.add_child(companions)
+	var companion_toggle := CheckButton.new()
+	companion_toggle.text = "Acompañante"
+	companion_toggle.button_pressed = true
+	companion_toggle.toggled.connect(access_companion.set_visible)
+	companions.add_child(companion_toggle)
+	add_button(companions, "Junto al acompañante", set_ground.bind(1625.0))
 	column.add_child(status)
 	poses.get_child(0).grab_focus()
 
