@@ -73,7 +73,15 @@ La prueba de oclusión necesita render gráfico:
 /Applications/Godot.app/Contents/MacOS/Godot --path godot --script tests/capas.gd
 ```
 
-En Apple M4 comprueba largueros sin huecos en dos filas del ancho completo y oclusión GPU en ocho combinaciones de posición/perfil, incluidas uniones y extremos. Escala, suelas, bases, cobertura y ocultación de todos los módulos correctas; importación, escena técnica y exportación correctas. [Cuatro capturas nativas y cinco Web](../trabajo/arte/revisiones/recorrido_v1/README.md): Helium muestra cuatro ubicaciones, ambos perfiles y retirada conjunta de todas las extensiones por clic, sin errores registrados. El autor valora la perspectiva de T07.3; extensión T07.4 pendiente de valoración. Acabado/luz repetidos del módulo, resto de capas, Safari/Firefox y movimiento/colisiones pendientes.
+En Apple M4 comprueba largueros sin huecos en dos filas del ancho completo y oclusión GPU en ocho combinaciones de posición/perfil, incluidas uniones y extremos. Escala, suelas, bases, cobertura y ocultación de todos los módulos correctas; importación, escena técnica y exportación correctas. [Cuatro capturas nativas y cinco Web](../trabajo/arte/revisiones/recorrido_v1/README.md): Helium muestra cuatro ubicaciones, ambos perfiles y retirada conjunta de todas las extensiones por clic, sin errores registrados. El autor valora la perspectiva de T07.3; barandillas de T07.4 aprobadas visualmente, incluida trasera junto a la gente. Acabado/luz repetidos del módulo, resto de capas, Safari/Firefox y movimiento/colisiones pendientes.
+
+**Mostrador por capas T07.5:** [recursos y prompts](../trabajo/arte/entornos/velvet/mostrador_v1/README.md) y [ocho capturas](../trabajo/arte/revisiones/mostrador_v1/README.md). Parche de fondo x = 1210–1488, y = 532–675 y mostrador independiente en z = −3, base y = 675. Sota pasa por delante en el centro y = 705. Botones Frente al mostrador, Mostrador visible y Ocultar mostrador; variante nueva pendiente de valoración. Sin interacción ni movimiento. Prueba GPU adicional, sin --headless:
+
+```sh
+/Applications/Godot.app/Contents/MacOS/Godot --path godot --script tests/mostrador.gd
+```
+
+Confirma alfa/apoyos/orden, Sota por delante en ambos perfiles y render idéntico fuera del parche. Mostrar/ocultar y perfiles comprobados también por clic en Helium, sin errores registrados.
 
 Sota usa `assets/personajes/sota/perfiles_base_v1.png` y su JSON; v7 sigue disponible para comparar. `contraluz.gdshader` calcula el borde alfa de la base; `silueta.gdshader` conserva la solución anterior para v7. La barandilla se recorta con AtlasTexture y `metal_opaco.gdshader` evita residuos/metal semitransparente.
 

@@ -1,0 +1,7 @@
+Use case: precise-object-edit.
+Asset type: repaired background plate for a layered Godot 2D pixel art scene.
+Input: the Velvet background with horizontal wet walkway, 1672x941.
+Primary request: remove ONLY the rusty reception counter at x=1212..1482, y=538..670. Reconstruct what it hides: the lower portion of the same dark reception interior, worn vertical wall/cabinet panels and the receptionist's dark lower clothing behind it. Retain her visible upper body, head, arms and posture at the same coordinates, including the hands immediately above the former counter. Keep the existing small equipment to the left, lamp, shelves, steps, door access and all other people unchanged. Do not create a new counter, table, railing, screen, partition or a different piece of furniture inside the cleared rectangle.
+Preserve the entire canvas and perspective. Keep the wet horizontal deck exactly at the same height: rear edge y=675, front edge y=735; do not bend or slope the floor. Keep city, towers, VELVET sign and letters, adverts, all other architecture, fog and lighting unchanged. Only reconstruct pixels formerly covered by the counter, not the whole scene.
+Style: match the approved chunky cinematic pixel art, deep dark shadow and restrained amber/red light. Dark plausible unobtrusive hidden interior that can be revealed when the counter sprite is hidden. No polished realistic textures, no new readable writing.
+Output: same 1672x941 framing, opaque background image. No transparency, no border or explanatory diagram.

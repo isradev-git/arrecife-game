@@ -5,6 +5,10 @@ const METADATA = ["res://assets/personajes/sota/perfiles_pixel_v7.json", "res://
 const ART_LABELS = ["Referencia aprobada", "Base e iluminación"]
 const BACKGROUND = preload("res://assets/entornos/velvet/fondo_suelo_recto_v1.png")
 const RAILING = preload("res://assets/entornos/velvet/barandilla_v1.png")
+const COUNTER = preload("res://assets/entornos/velvet/mostrador_v1.png")
+const COUNTER_BACKGROUND = preload("res://assets/entornos/velvet/fondo_mostrador_reparado_v1.png")
+const COUNTER_RECT = Rect2(1210, 538, 278, 137)
+const COUNTER_PATCH_RECT = Rect2(1210, 532, 278, 143)
 const CUTOUT = preload("res://assets/personajes/sota/silueta.gdshader")
 const RIM_LIGHT = preload("res://assets/personajes/sota/contraluz.gdshader")
 const LABELS = ["Perfil derecho", "Perfil izquierdo"]
@@ -25,6 +29,8 @@ var sota := Sprite2D.new()
 var status := Label.new()
 var railing := Sprite2D.new()
 var back_railing := Sprite2D.new()
+var counter := Sprite2D.new()
+var counter_patch := Sprite2D.new()
 
 
 func _ready() -> void:
@@ -35,6 +41,16 @@ func _ready() -> void:
 	background.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
 	background.z_index = -20
 	add_child(background)
+	var patch_texture := AtlasTexture.new()
+	patch_texture.atlas = COUNTER_BACKGROUND
+	patch_texture.region = COUNTER_PATCH_RECT
+	patch_texture.filter_clip = true
+	counter_patch.texture = patch_texture
+	counter_patch.centered = false
+	counter_patch.position = COUNTER_PATCH_RECT.position
+	counter_patch.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
+	counter_patch.z_index = -19
+	add_child(counter_patch)
 	# shortcut: módulos repetidos conservan la luz del recurso; variar acabados al separar luces en T09.
 	var rail_texture := AtlasTexture.new()
 	rail_texture.atlas = RAILING
@@ -66,6 +82,19 @@ func _ready() -> void:
 	back_railing.material = rail_material
 	back_railing.z_index = -5
 	add_child(back_railing)
+	# shortcut: equipo y figurante siguen aplanados; separarlos al continuar T07.
+	var counter_texture := AtlasTexture.new()
+	counter_texture.atlas = COUNTER
+	counter_texture.region = Rect2(575, 323, 990, 445)
+	counter_texture.filter_clip = true
+	counter.texture = counter_texture
+	counter.centered = false
+	counter.position = COUNTER_RECT.position
+	counter.scale = COUNTER_RECT.size / counter_texture.get_size()
+	counter.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
+	counter.material = rail_material
+	counter.z_index = -3
+	add_child(counter)
 	sota.centered = false
 	sota.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
 	var material := ShaderMaterial.new()
@@ -152,7 +181,7 @@ func build_controls() -> void:
 	column.add_theme_constant_override("separation", 8)
 	margin.add_child(column)
 	var title := Label.new()
-	title.text = "VELVET · Barandillas del recorrido"
+	title.text = "VELVET · Recepción por capas"
 	title.add_theme_font_size_override("font_size", 24)
 	column.add_child(title)
 	var art := HBoxContainer.new()
@@ -182,6 +211,11 @@ func build_controls() -> void:
 	add_button(depths, "Solo trasera", set_railings.bind(true, false))
 	add_button(depths, "Solo delantera", set_railings.bind(false, true))
 	add_button(depths, "Sin barandillas", set_railings.bind(false, false))
+	var reception := HBoxContainer.new()
+	column.add_child(reception)
+	add_button(reception, "Mostrador visible", counter.show)
+	add_button(reception, "Ocultar mostrador", counter.hide)
+	add_button(reception, "Frente al mostrador", set_ground.bind(1345.0))
 	column.add_child(status)
 	poses.get_child(0).grab_focus()
 
