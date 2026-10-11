@@ -75,7 +75,7 @@ La prueba de oclusión necesita render gráfico:
 
 En Apple M4 comprueba largueros sin huecos en dos filas del ancho completo y oclusión GPU en ocho combinaciones de posición/perfil, incluidas uniones y extremos. Escala, suelas, bases, cobertura y ocultación de todos los módulos correctas; importación, escena técnica y exportación correctas. [Cuatro capturas nativas y cinco Web](../trabajo/arte/revisiones/recorrido_v1/README.md): Helium muestra cuatro ubicaciones, ambos perfiles y retirada conjunta de todas las extensiones por clic, sin errores registrados. El autor valora la perspectiva de T07.3; barandillas de T07.4 aprobadas visualmente, incluida trasera junto a la gente. Acabado/luz repetidos del módulo, resto de capas, Safari/Firefox y movimiento/colisiones pendientes.
 
-**Mostrador por capas T07.5:** [recursos y prompts](../trabajo/arte/entornos/velvet/mostrador_v1/README.md) y [ocho capturas](../trabajo/arte/revisiones/mostrador_v1/README.md). Parche de fondo x = 1210–1488, y = 532–675 y mostrador independiente en z = −3, base y = 675. Sota pasa por delante en el centro y = 705. Botones Frente al mostrador, Mostrador visible y Ocultar mostrador; variante nueva pendiente de valoración. Sin interacción ni movimiento. Prueba GPU adicional, sin --headless:
+**Mostrador por capas T07.5, revisión conservada:** [recursos y prompts](../trabajo/arte/entornos/velvet/mostrador_v1/README.md) y [ocho capturas](../trabajo/arte/revisiones/mostrador_v1/README.md). Parche de fondo x = 1210–1488, y = 532–675 y mostrador independiente en z = −3, base y = 675. Sota pasa por delante en el centro y = 705. Botones Frente al mostrador, Mostrador visible y Ocultar mostrador; variante nueva pendiente de valoración. Sin interacción ni movimiento. Prueba GPU adicional, sin --headless:
 
 ```sh
 /Applications/Godot.app/Contents/MacOS/Godot --path godot --script tests/mostrador.gd
@@ -91,3 +91,11 @@ Versiones conservadas: [primera separación y fondo reparado](../trabajo/arte/en
 La carpeta `build/` y la caché `.godot/` se pueden regenerar y están excluidas del control de versiones. Los archivos de importación y UID junto a recursos/scripts sí forman parte del proyecto reproducible. No distribuir canon, guion de moderación o documentos de proceso como parte del paquete Web.
 
 Siguiente trabajo: [plan de migración y criterios de cierre](../proceso/PLAN_GODOT.md). Estado general: [continuidad](../proceso/ESTADO_DEL_PROYECTO.md).
+
+**Recepción T07.6 vigente:** [tres recursos y prompts](../trabajo/arte/entornos/velvet/recepcion_v1/README.md), [cinco capturas nativas y siete Web](../trabajo/arte/revisiones/recepcion_v1/README.md). Parche actual x = 1210–1488, y = 440–675; figurante z = −4, mostrador z = −3, equipo z = −2, Sota z = 0 y barandilla delantera z = +5. Figurante de perfil, 244 de alto y pies y = 675; base del equipo y = 538. Interruptores Figurante/Equipo independientes. Base sin neón y contraluz manual del entorno; pendientes fuentes espaciales y animación. Pruebas GPU del cuerpo detrás del mostrador y Sota delante en ambos perfiles correctas; visibilidad por clic Web sin errores. Arte nuevo pendiente de valoración.
+
+```sh
+/Applications/Godot.app/Contents/MacOS/Godot --path godot --script tests/recepcion.gd
+```
+
+Añadir `-- --capturas` regenera las cinco capturas nativas; necesita render gráfico, sin `--headless`.

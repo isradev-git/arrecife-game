@@ -29,3 +29,5 @@ Solo se integra el parche reparado x = 1210–1488, y = 532–675. El margen sup
 El mostrador queda detrás de Sota, pegado al borde posterior, sin invadir su línea central. Mostrarlo y ocultarlo no altera las barandillas ni el apoyo. Botón Frente al mostrador coloca a Sota en x = 1345 para revisar el solapamiento. No se implementa caminar, cambiar de plano ni interacción narrativa.
 
 [Ocho capturas Godot/Web y comprobaciones](../../../revisiones/mostrador_v1/README.md). Recurso nuevo entregado por el asistente, pendiente de valoración del autor. Barandillas previas aprobadas visualmente; resto de objetos/figurantes, arquitectura, atmósfera, iluminación espacial y movimiento pendientes en T07 y tareas relacionadas.
+
+**Continuación T07.6:** [figurante, equipo y parche ampliado](../recepcion_v1/README.md). Esta revisión y sus prompts se conservan; el mostrador sigue integrado, pero el parche de interior vigente es el nuevo de recepción. Autoriza continuar, sin aprobación estética nueva documentada del mostrador.

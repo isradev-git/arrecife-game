@@ -6,9 +6,11 @@ const ART_LABELS = ["Referencia aprobada", "Base e iluminación"]
 const BACKGROUND = preload("res://assets/entornos/velvet/fondo_suelo_recto_v1.png")
 const RAILING = preload("res://assets/entornos/velvet/barandilla_v1.png")
 const COUNTER = preload("res://assets/entornos/velvet/mostrador_v1.png")
-const COUNTER_BACKGROUND = preload("res://assets/entornos/velvet/fondo_mostrador_reparado_v1.png")
+const COUNTER_BACKGROUND = preload("res://assets/entornos/velvet/fondo_recepcion_reparado_v1.png")
+const STAFF = preload("res://assets/entornos/velvet/figurante_recepcion_v1.png")
+const EQUIPMENT = preload("res://assets/entornos/velvet/equipo_recepcion_v1.png")
 const COUNTER_RECT = Rect2(1210, 538, 278, 137)
-const COUNTER_PATCH_RECT = Rect2(1210, 532, 278, 143)
+const COUNTER_PATCH_RECT = Rect2(1210, 440, 278, 235)
 const CUTOUT = preload("res://assets/personajes/sota/silueta.gdshader")
 const RIM_LIGHT = preload("res://assets/personajes/sota/contraluz.gdshader")
 const LABELS = ["Perfil derecho", "Perfil izquierdo"]
@@ -31,6 +33,8 @@ var railing := Sprite2D.new()
 var back_railing := Sprite2D.new()
 var counter := Sprite2D.new()
 var counter_patch := Sprite2D.new()
+var staff := Sprite2D.new()
+var equipment := Sprite2D.new()
 
 
 func _ready() -> void:
@@ -82,7 +86,23 @@ func _ready() -> void:
 	back_railing.material = rail_material
 	back_railing.z_index = -5
 	add_child(back_railing)
-	# shortcut: equipo y figurante siguen aplanados; separarlos al continuar T07.
+	var staff_texture := AtlasTexture.new()
+	staff_texture.atlas = STAFF
+	staff_texture.region = Rect2(233, 142, 557, 1318)
+	staff_texture.filter_clip = true
+	staff.texture = staff_texture
+	staff.centered = false
+	staff.position = Vector2(1328, BACK_EDGE_Y - 244.0)
+	staff.scale = Vector2.ONE * (244.0 / 1318.0)
+	staff.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
+	# shortcut: contraluz manual de recepción; conectar fuentes espaciales en T09.
+	var staff_material := ShaderMaterial.new()
+	staff_material.shader = RIM_LIGHT
+	staff_material.set_shader_parameter("left_color", Color(1.0, 0.42, 0.04))
+	staff_material.set_shader_parameter("right_color", Color(1.0, 0.04, 0.18))
+	staff.material = staff_material
+	staff.z_index = -4
+	add_child(staff)
 	var counter_texture := AtlasTexture.new()
 	counter_texture.atlas = COUNTER
 	counter_texture.region = Rect2(575, 323, 990, 445)
@@ -95,6 +115,18 @@ func _ready() -> void:
 	counter.material = rail_material
 	counter.z_index = -3
 	add_child(counter)
+	var equipment_texture := AtlasTexture.new()
+	equipment_texture.atlas = EQUIPMENT
+	equipment_texture.region = Rect2(208, 121, 1374, 654)
+	equipment_texture.filter_clip = true
+	equipment.texture = equipment_texture
+	equipment.centered = false
+	equipment.position = Vector2(1218, COUNTER_RECT.position.y - 59.0)
+	equipment.scale = Vector2.ONE * (59.0 / 654.0)
+	equipment.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
+	equipment.material = rail_material
+	equipment.z_index = -2
+	add_child(equipment)
 	sota.centered = false
 	sota.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
 	var material := ShaderMaterial.new()
@@ -216,6 +248,14 @@ func build_controls() -> void:
 	add_button(reception, "Mostrador visible", counter.show)
 	add_button(reception, "Ocultar mostrador", counter.hide)
 	add_button(reception, "Frente al mostrador", set_ground.bind(1345.0))
+	var actors := HBoxContainer.new()
+	column.add_child(actors)
+	for entry in [["Figurante", staff], ["Equipo", equipment]]:
+		var toggle := CheckButton.new()
+		toggle.text = entry[0]
+		toggle.button_pressed = true
+		toggle.toggled.connect(entry[1].set_visible)
+		actors.add_child(toggle)
 	column.add_child(status)
 	poses.get_child(0).grab_focus()
 

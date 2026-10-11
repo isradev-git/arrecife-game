@@ -24,3 +24,5 @@ Pasan importación, escala/materiales/apoyos, escena técnica, oclusión GPU de 
 Web por HTTP local: http://127.0.0.1:8766/godot/build/web/. agent-browser 0.39.0 y Helium/Chromium 154 en sesión headless aislada, WebGL 2.0. Ambos perfiles, botón Frente al mostrador y ocultar/mostrar comprobados por clic, sin errores de página/consola registrados. Se cierra la sesión automatizada y se abre la URL en Helium visible. Servidor activo al comprobar; verificarlo al retomar. Godot actualizado queda abierto.
 
 El autor aprueba visualmente [T07.4](../recorrido_v1/README.md), destacando la trasera junto a la gente. Esta entrega nueva está pendiente de su valoración. Mostrador reconstruido con variaciones generativas; figurantes/equipo/interior aún aplanados. Sin movimiento, colisiones ni caso migrado; Safari/Firefox, accesibilidad y rendimiento no comprobados aquí. T07 continúa en curso; versiones y prompts anteriores conservados.
+
+**Revisión actual:** [T07.6, recepción independiente](../recepcion_v1/README.md). Estas ocho capturas conservan T07.5; el mostrador sigue integrado con figurante/equipo separados y nuevo parche de interior.
