@@ -12,4 +12,6 @@ Para repetir la revisión: ejecutar `godot/project.godot` con F5, pulsar **Galer
 
 `godot/tests/capas.gd`, ejecutado sin `--headless`, comprueba el render de las mismas posiciones: 290/223 píxeles de Sota ocultos por metal opaco y 4079/3796 visibles en las aberturas en perfiles derecho/izquierdo. Al invertir el orden, el personaje vuelve a cubrir el metal en las muestras opacas. Se detectó metal semitransparente en el PNG generado y se resolvió con recorte de alfa en shader; las capturas aquí reflejan esa corrección.
 
-Importación, pruebas de escala/materiales/apoyos y escena técnica, prueba GPU de oclusión y exportación Web correctas. Revisión visual del asistente de ambos perfiles y fondo reparado. **No se ha comprobado esta entrega visualmente en navegador ni animada.** Solo se separa el tramo central; humo, luces, figurantes y ciudad permanecen pintados en el fondo. Sin aprobación estética nueva del autor todavía.
+Importación, pruebas de escala/materiales/apoyos y escena técnica, prueba GPU de oclusión y exportación Web correctas. Revisión visual del asistente de ambos perfiles y fondo reparado. **No se ha comprobado esta entrega visualmente en navegador ni animada.** Solo se separa el tramo central; humo, luces, figurantes y ciudad permanecen pintados en el fondo.
+
+Valoración posterior del autor: «está muy bien hecho», con petición de corregir el suelo para que vaya siempre recto. Estas capturas se conservan; [revisión vigente del suelo horizontal](../suelo_v1/README.md).

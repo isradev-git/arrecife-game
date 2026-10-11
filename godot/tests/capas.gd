@@ -45,7 +45,7 @@ func check() -> void:
 		var behind := await frame()
 		var covered := 0
 		var openings := 0
-		for y in range(552, 678):
+		for y in range(int(scene.railing.position.y), int(scene.GROUND_Y)):
 			for x in range(450, 935):
 				var point := Vector2i(x, y)
 				if person.get_pixelv(point) == empty.get_pixelv(point):

@@ -27,4 +27,4 @@ La edición generativa reconstruye detalles y cambia posiciones/proporciones de 
 
 Separar el resto de barandillas y objetos que crucen el recorrido. Después, arquitectura y ciudad distante, elementos móviles y atmósfera por profundidad. Humo detrás y delante de Sota necesita emisores/capas distintos; luces, reflejos y sus oclusiones deben responder a las fuentes del entorno. Reconstruir lo oculto antes de animar cualquier pieza, para no revelar siluetas duplicadas ni agujeros. Mantener accesos, pistas y personajes legibles y una opción de movimiento reducido.
 
-Prueba parcial entregada y revisada por el asistente. Pendientes valoración del autor, retícula/acabado final, resto de capas, movimiento y visual Web; exportación Web correcta.
+Valoración posterior del autor · 11 de octubre: «está muy bien hecho». Pide corregir la geometría del suelo para que el recorrido sea recto. Esta versión queda conservada como historial; [T07.2](../suelo_v1/README.md) integra el suelo horizontal y recoloca los apoyos. Resto de capas, movimiento, retícula y visual Web pendientes.

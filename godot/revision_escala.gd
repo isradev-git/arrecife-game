@@ -3,8 +3,7 @@ extends Node2D
 const ATLASES = [preload("res://assets/personajes/sota/perfiles_pixel_v7.png"), preload("res://assets/personajes/sota/perfiles_base_v1.png")]
 const METADATA = ["res://assets/personajes/sota/perfiles_pixel_v7.json", "res://assets/personajes/sota/perfiles_base_v1.json"]
 const ART_LABELS = ["Referencia aprobada", "Base e iluminación"]
-const BACKGROUND = preload("res://assets/fiebre_velvet_pixel_v1.png")
-const CLEAN_BACKGROUND = preload("res://assets/entornos/velvet/fondo_reparado_v1.png")
+const BACKGROUND = preload("res://assets/entornos/velvet/fondo_suelo_recto_v1.png")
 const RAILING = preload("res://assets/entornos/velvet/barandilla_v1.png")
 const CUTOUT = preload("res://assets/personajes/sota/silueta.gdshader")
 const RIM_LIGHT = preload("res://assets/personajes/sota/contraluz.gdshader")
@@ -12,13 +11,14 @@ const LABELS = ["Perfil derecho", "Perfil izquierdo"]
 const HEIGHTS = [232.0, 252.0, 272.0]
 const LIGHT_LABELS = ["Luz de Velvet", "Sin neón", "Azul", "Ámbar"]
 const RIM_COLORS = [Color.WHITE, Color(0.18, 0.16, 0.15), Color(0.08, 0.55, 0.9), Color(0.95, 0.55, 0.12)]
+const GROUND_Y = 675.0
 
 var views: Array
 var art_index := 1
 var pose_index := 0
 var light_index := 0
 var character_height := 252.0
-var ground := Vector2(780, 710)
+var ground := Vector2(780, GROUND_Y)
 var sota := Sprite2D.new()
 var status := Label.new()
 var railing := Sprite2D.new()
@@ -32,27 +32,14 @@ func _ready() -> void:
 	background.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
 	background.z_index = -20
 	add_child(background)
-	# shortcut: solo se separa el tramo central; completar el resto antes del recorrido jugable.
-	var repaired := Sprite2D.new()
-	var patch := AtlasTexture.new()
-	patch.atlas = CLEAN_BACKGROUND
-	var width_ratio := float(CLEAN_BACKGROUND.get_width()) / BACKGROUND.get_width()
-	patch.region = Rect2(450 * width_ratio, 548, 485 * width_ratio, 130)
-	patch.filter_clip = true
-	repaired.texture = patch
-	repaired.centered = false
-	repaired.position = Vector2(450, 548)
-	repaired.scale.x = 1.0 / width_ratio
-	repaired.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
-	repaired.z_index = -19
-	add_child(repaired)
+	# shortcut: solo hay barandilla independiente en el tramo central; completar el resto en T07.
 	var rail_texture := AtlasTexture.new()
 	rail_texture.atlas = RAILING
 	rail_texture.region = Rect2(382, 506, 910, 186)
 	rail_texture.filter_clip = true
 	railing.texture = rail_texture
 	railing.centered = false
-	railing.position = Vector2(450, 552)
+	railing.position = Vector2(450, GROUND_Y - 126.0)
 	railing.scale = Vector2(485.0 / 910.0, 126.0 / 186.0)
 	railing.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
 	var rail_material := ShaderMaterial.new()
@@ -146,7 +133,7 @@ func build_controls() -> void:
 	column.add_theme_constant_override("separation", 8)
 	margin.add_child(column)
 	var title := Label.new()
-	title.text = "VELVET · Sota y primera capa"
+	title.text = "VELVET · Suelo horizontal y capas"
 	title.add_theme_font_size_override("font_size", 24)
 	column.add_child(title)
 	var art := HBoxContainer.new()

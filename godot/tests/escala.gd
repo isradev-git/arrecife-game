@@ -37,7 +37,13 @@ func check_scene() -> void:
 		assert(image.get_pixel(image.get_width() - 1, y).a == 0.0)
 	scene.set_art(1)
 	scene.set_ground(1160.0)
-	assert(scene.sota.position == Vector2(1160,710))
+	assert(scene.sota.position == Vector2(1160, scene.GROUND_Y))
+	for x in [160.0, 450.0, 780.0, 935.0, 1160.0, 1500.0]:
+		scene.set_ground(x)
+		assert(scene.sota.position == Vector2(x, scene.GROUND_Y))
+		var sole: Vector2 = scene.sota.position + (scene.sota.offset + Vector2(scene.sota.texture.get_width() / 2.0, scene.sota.texture.get_height())) * scene.sota.scale
+		assert(sole.is_equal_approx(Vector2(x, scene.GROUND_Y)))
+	assert(is_equal_approx(scene.railing.position.y + scene.railing.texture.get_height() * scene.railing.scale.y, scene.GROUND_Y))
 	scene.toggle_filter()
 	assert(scene.sota.texture_filter == CanvasItem.TEXTURE_FILTER_LINEAR)
 	scene.toggle_filter()
