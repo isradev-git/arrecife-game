@@ -108,10 +108,18 @@ Añadir `-- --capturas` regenera las cinco capturas nativas; necesita render gr�
 
 Las cinco capturas originales se conservan; el modo de capturas actual guarda en la revisión T07.8 siguiente.
 
-**Acompañante T07.8 vigente:** [dos recursos y prompts](../trabajo/arte/entornos/velvet/acompanante_v1/README.md), [catorce capturas](../trabajo/arte/revisiones/acompanante_v1/README.md). Perfil izquierdo, altura 248, x = 1594, apoyo y = 675 y z = −4. Ambas personas del acceso independientes; parche común actual x = 1510–1664, y = 414–675. Materiales propios, controles Acompañante/Junto al acompañante (Sota x = 1625). Dos modos de la prueba de acceso y regresiones anteriores correctos; clic Web sin errores. Posibilidad de diálogos anotada en T11; sin conversaciones ni animación todavía.
+**Acompañante T07.8, base conservada:** [dos recursos y prompts](../trabajo/arte/entornos/velvet/acompanante_v1/README.md), [catorce capturas](../trabajo/arte/revisiones/acompanante_v1/README.md). Perfil izquierdo, altura 248, x = 1594, apoyo y = 675 y z = −4. Ambas personas del acceso independientes; parche común actual x = 1510–1664, y = 414–675. Materiales propios, controles Acompañante/Junto al acompañante (Sota x = 1625). Dos modos de la prueba de acceso y regresiones anteriores correctos; clic Web sin errores. Posibilidad de diálogos anotada en T11; sin conversaciones ni animación todavía.
 
 ```sh
 /Applications/Godot.app/Contents/MacOS/Godot --path godot --script tests/acceso.gd -- --acompanante
 ```
 
 Añadir `--capturas` tras `--` guarda siete capturas actuales en `acompanante_v1`, sin sobrescribir T07.7. La prueba GPU requiere render gráfico, sin `--headless`; sin `--acompanante` prueba la figura de mochila.
+
+**Guardia y cabina T07.9 vigentes:** [tres PNG originales y prompts](../trabajo/arte/entornos/velvet/cabina_v1/README.md), [catorce capturas Godot/Web](../trabajo/arte/revisiones/cabina_v1/README.md). Interior reconstruido en x = 149–278, y = 389–675; guardia de perfil derecho, 260 de alto y apoyo y = 675, z = −8; frontal con ventanilla transparente, base y = 675, z = −7. Sota pasa delante en z = 0, centro y = 705; barandillas/recepción/acceso conservados. Controles Guardia/Cabina independientes y Frente al guardia (Sota x = 300). El panel se aparta a x = 480 para posiciones x ≤ 340 y retorna a x = 24 en el resto.
+
+```sh
+/Applications/Godot.app/Contents/MacOS/Godot --path godot --script tests/cabina.gd
+```
+
+Prueba GPU sin `--headless`; añadir `-- --capturas` guarda siete renders en `cabina_v1`. Pasan ventanilla/frontal/cuerpo, terminal azul visible, Sota delante en ambos perfiles, fondo fuera del parche idéntico, controles/panel, regresiones, importación y exportación. Helium: perfiles/visibilidad/posición/retorno por clic sin errores. Funciones decididas por el autor: hablar con el guardia (T11) y viajar a otra cota (T19). Todavía sin diálogo, viajes, animación ni luz espacial; señalización por revisar al integrar el recorrido.

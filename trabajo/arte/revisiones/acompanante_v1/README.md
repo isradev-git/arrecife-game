@@ -34,3 +34,5 @@ Añadir `--capturas` tras `--` regenera las siete capturas nativas en esta carpe
 Agent-browser, sesión propia `arrecife-acompanante-20261012`, ejecutable Helium y WebGL 2.0. Carga, ambos perfiles, Junto al acompañante, Galería, visibilidad de cada persona y Solo trasera por clic observados sin errores de página/consola. Automatización cerrada; Godot y URL actualizados abiertos. Servidor local existente respondió en `http://127.0.0.1:8766/godot/build/web/`; comprobar que siga activo al retomar.
 
 El autor ha aprobado el criterio de separación y propuesto posibles diálogos. No se han implementado conversaciones, animación ni movimiento/colisiones; luz manual. Arte nuevo con variaciones generativas; Safari/Firefox, rendimiento y juego completo pendientes.
+
+Continuación T07.9: [guardia y cabina independientes](../cabina_v1/README.md). Recursos, prompts y capturas de esta versión conservados.

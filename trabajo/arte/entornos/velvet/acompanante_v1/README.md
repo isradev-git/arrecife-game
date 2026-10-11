@@ -20,3 +20,5 @@ El nuevo parche común ocupa x = 1510–1664, y = 414–675 (154 × 261), sustit
 Controles **Acceso** para la mochila y **Acompañante** para el nuevo sprite. **Junto al acceso** coloca a Sota en x = 1560; **Junto al acompañante**, en x = 1625. Son controles de revisión, sin movimiento ni conversación.
 
 [Catorce capturas y pruebas Godot/Web](../../../revisiones/acompanante_v1/README.md). Diálogos de figurantes posibles en T11: selección y textos pendientes, cotejados con canon/guion; no se convierten automáticamente en personajes o pruebas del caso. Separar las siguientes personas según actividad/interacción; las distantes decorativas pueden seguir aplanadas. Arquitectura/ciudad, atmósfera, retícula, animación, movimiento y luz espacial pendientes.
+
+Continuación T07.9: [guardia y cabina independientes](../cabina_v1/README.md). Recursos, prompts y capturas de esta versión conservados.

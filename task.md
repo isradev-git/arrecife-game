@@ -10,7 +10,7 @@ Objetivo: terminar un juego breve de investigación en Godot, con personajes y e
 
 **Dirección artística vigente:** renovar sprites, modelos, personajes, objetos, animaciones y entornos por capas para un acabado más pixel art, más cercano a REPLACED. Los recursos actuales son una iteración previa; conservar identidad, universo, versiones y prompts. El 11 de octubre el autor fija las [dos imágenes de estilo aprobadas](trabajo/arte/referencias/pixel_art_v1/README.md) como referencia principal para todo el juego: entorno y personajes. Criterios en [dirección artística](trabajo/direccion_artistica.md). La renovación se incorpora a las tareas existentes, una cada vez.
 
-**Tarea actual:** T07 · Velvet por capas — En curso. El autor aprueba separar personas para actividad/interacción y abre la posibilidad de diálogos en esta escena; seguimos con calma, pieza a pieza. **T07.8 Entregada:** [acompañante y entrada vacía](trabajo/arte/entornos/velvet/acompanante_v1/README.md), [catorce capturas Godot/Web](trabajo/arte/revisiones/acompanante_v1/README.md). Ambas personas del acceso independientes detrás de Sota; recepción/pasarela/barandillas conservadas. Arte nuevo pendiente de valoración; restantes objetos/personas según necesidad, arquitectura/ciudad, diálogos, movimiento y otros navegadores pendientes. T02/T03 siguen Entregadas; **Completadas:** T00 y T01.
+**Tarea actual:** T07 · Velvet por capas — En curso. Continuamos con calma, pieza a pieza. **T07.9 Entregada:** [guardia, frontal e interior de cabina](trabajo/arte/entornos/velvet/cabina_v1/README.md), [catorce capturas Godot/Web](trabajo/arte/revisiones/cabina_v1/README.md). Perspectiva y recursos anteriores conservados. El autor establece que la cabina sirve para hablar con el guardia y viajar a otra cota; se registra en T11/T19, todavía sin implementar. Arte nuevo pendiente de valoración; restantes personas/objetos, arquitectura, diálogos y movimiento pendientes. T02/T03 siguen Entregadas; **Completadas:** T00 y T01.
 
 El autor pide priorizar generación de recursos tras la limpieza. Se adelanta la referencia de T03; su cierre técnico seguirá necesitando T02. El primer pase fue rechazado; el autor aprueba el estilo de la propuesta v7 con ojos sutiles. Resolver iluminación y escala/retícula antes de producir el resto en serie.
 
@@ -114,6 +114,8 @@ La ambición de calidad se concreta en estos criterios y en revisiones sobre res
 
 **T07.8 — Entregada:** acompañante de abrigo oscuro de perfil izquierdo, altura 248 y apoyo y = 675, z = −4; [PNG, fondo sin ambas personas y prompts](trabajo/arte/entornos/velvet/acompanante_v1/README.md). Parche común ampliado a 154 × 261, materiales/visibilidad independientes y posición de Sota x = 1625. [Catorce capturas](trabajo/arte/revisiones/acompanante_v1/README.md). Prueba de acceso reutilizada para ambas figuras: pasan alfa, apoyo, contraluz propio, parche fuera idéntico, barandilla delante y Sota delante en ambos perfiles; pruebas previas y Web correctos. Arte nuevo pendiente de valoración; diálogos todavía sin implementar.
 
+**T07.9 — Entregada:** guardia de perfil derecho con deck azul, frontal transparente e interior reconstruido; [tres PNG y prompts](trabajo/arte/entornos/velvet/cabina_v1/README.md). Parche limitado a 129 × 286; guardia de 260 y apoyo y = 675 detrás del frontal, ambos detrás de Sota. Controles Guardia/Cabina y Frente al guardia; panel se aparta al revisar el extremo izquierdo. [Catorce capturas](trabajo/arte/revisiones/cabina_v1/README.md). Pasan alfa/apoyos, GPU de ventanilla/frontal/Sota, parche fuera idéntico, pruebas anteriores, importación/exportación y clic Web. Arte nuevo pendiente de valoración; personajes estáticos y contraluz manual. Funciones de conversación y cambio de cota decididas por el autor, anotadas en T11/T19.
+
 **Criterio de separación · 12 de octubre:** aprobado por el autor para personas que tendrán actividad, interacción o necesiten un plano propio. No separar por sistema toda la figuración distante decorativa. El autor propone posibles diálogos con personas de Velvet; selección/textos al integrar T11.
 
 **Siguientes entregas de T07:** priorizar restantes objetos/personas según actividad o interacción, después arquitectura/ciudad; reservar humo de cada profundidad y piezas móviles para su producción en T09. Cada extracción debe incluir fondo reconstruido y revisión integrada antes de seguir.
@@ -143,6 +145,8 @@ La ambición de calidad se concreta en estos criterios y en revisiones sobre res
 **Entrega:** versión Web del primer tramo con personaje, entorno, actividad, encargo y documento funcionando juntos.
 
 **Posibilidad autorizada · 12 de octubre:** conversar con algunas personas de esta escena. Seleccionar cuáles y preparar diálogos breves compatibles con canon/guion; no convertir a toda la figuración en conversaciones obligatorias ni añadir automáticamente pruebas del caso. Textos e interacción pendientes.
+
+**Cabina y guardia · decisión del autor, 12 de octubre:** incorporar «Hablar con el guardia» como interacción propia, además de la función de viajar de T19. Consultar canon y guion antes de redactar; sin inventar pruebas, identidad o un bloqueo de acreditación para Sota. Revisar la antigua puesta en escena de vigilancia/salida de personal para que comunique también el nuevo acceso entre cotas. Arte preparado en T07.9, conversación pendiente.
 
 **Cierre:** el autor prueba caminar, correr, cambios entre perfiles, interacción y lectura. Registrar problemas concretos y corregir los que afecten al estándar visual o de control. Cerrar con valoración del conjunto antes de extenderlo a las otras pantallas.
 
@@ -193,6 +197,8 @@ La ambición de calidad se concreta en estos criterios y en revisiones sobre res
 ### T19 · Terminar libreta, recorrido y deducciones — Pendiente
 
 **Entrega:** documentos completos, comparación, conclusiones, mapa, ayudas graduales y alternativa «Explorar», integrados con las cuatro pantallas.
+
+**Cambio de cota · decisión del autor, 12 de octubre:** la cabina del guardia de Velvet será un punto de viaje. Ofrecer «Cambiar de cota» separado de «Hablar»; conectar destinos descubiertos con permisos y retorno coherentes con canon/guion. Bajar es fácil y subir exige autorización; el encargo ya acredita a Sota, sin añadir un trámite artificial. Preparar señalización legible y transición al integrar las otras pantallas. T07.9 solo aporta las capas visuales; viaje pendiente.
 
 **Cierre:** leer tablas y fechas, comparar pruebas, equivocarse, pedir ayuda y resolver D2 más tarde sin perder progreso. Viajes se habilitan al leer direcciones. Comprobar foco, tamaño de texto y lectura asistida; registrar los límites reales de accesibilidad.
 

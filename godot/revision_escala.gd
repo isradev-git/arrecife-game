@@ -13,6 +13,11 @@ const ACCESS_PERSON = preload("res://assets/entornos/velvet/figurante_acceso_v2.
 const ACCESS_BACKGROUND = preload("res://assets/entornos/velvet/fondo_acceso_reparado_v2.png")
 const ACCESS_COMPANION = preload("res://assets/entornos/velvet/acompanante_acceso_v1.png")
 const ACCESS_PATCH_RECT = Rect2(1510, 414, 154, 261)
+const GUARD = preload("res://assets/entornos/velvet/guardia_cabina_v1.png")
+const BOOTH_FRONT = preload("res://assets/entornos/velvet/frontal_cabina_v1.png")
+const BOOTH_BACKGROUND = preload("res://assets/entornos/velvet/fondo_cabina_reparado_v1.png")
+const BOOTH_RECT = Rect2(151, 396, 126, 279)
+const BOOTH_PATCH_RECT = Rect2(149, 389, 129, 286)
 const COUNTER_RECT = Rect2(1210, 538, 278, 137)
 const COUNTER_PATCH_RECT = Rect2(1210, 440, 278, 235)
 const CUTOUT = preload("res://assets/personajes/sota/silueta.gdshader")
@@ -42,6 +47,10 @@ var equipment := Sprite2D.new()
 var access_person := Sprite2D.new()
 var access_patch := Sprite2D.new()
 var access_companion := Sprite2D.new()
+var guard := Sprite2D.new()
+var booth_front := Sprite2D.new()
+var booth_patch := Sprite2D.new()
+var review_panel := PanelContainer.new()
 
 
 func _ready() -> void:
@@ -72,6 +81,16 @@ func _ready() -> void:
 	access_patch.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
 	access_patch.z_index = -19
 	add_child(access_patch)
+	var booth_patch_texture := AtlasTexture.new()
+	booth_patch_texture.atlas = BOOTH_BACKGROUND
+	booth_patch_texture.region = BOOTH_PATCH_RECT
+	booth_patch_texture.filter_clip = true
+	booth_patch.texture = booth_patch_texture
+	booth_patch.centered = false
+	booth_patch.position = BOOTH_PATCH_RECT.position
+	booth_patch.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
+	booth_patch.z_index = -19
+	add_child(booth_patch)
 	# shortcut: módulos repetidos conservan la luz del recurso; variar acabados al separar luces en T09.
 	var rail_texture := AtlasTexture.new()
 	rail_texture.atlas = RAILING
@@ -144,6 +163,30 @@ func _ready() -> void:
 	access_companion.material = staff_material.duplicate()
 	access_companion.z_index = -4
 	add_child(access_companion)
+	var guard_texture := AtlasTexture.new()
+	guard_texture.atlas = GUARD
+	guard_texture.region = Rect2(300, 107, 540, 1383)
+	guard_texture.filter_clip = true
+	guard.texture = guard_texture
+	guard.centered = false
+	guard.position = Vector2(166, BACK_EDGE_Y - 260.0)
+	guard.scale = Vector2.ONE * (260.0 / 1383.0)
+	guard.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
+	guard.material = staff_material.duplicate()
+	guard.z_index = -8
+	add_child(guard)
+	var booth_texture := AtlasTexture.new()
+	booth_texture.atlas = BOOTH_FRONT
+	booth_texture.region = Rect2(80, 122, 673, 1637)
+	booth_texture.filter_clip = true
+	booth_front.texture = booth_texture
+	booth_front.centered = false
+	booth_front.position = BOOTH_RECT.position
+	booth_front.scale = BOOTH_RECT.size / booth_texture.get_size()
+	booth_front.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
+	booth_front.material = rail_material
+	booth_front.z_index = -7
+	add_child(booth_front)
 	var counter_texture := AtlasTexture.new()
 	counter_texture.atlas = COUNTER
 	counter_texture.region = Rect2(575, 323, 990, 445)
@@ -227,6 +270,8 @@ func set_height(value: float) -> void:
 
 func set_ground(x: float) -> void:
 	ground.x = x
+	# Despejar la cabina al revisar el extremo izquierdo.
+	review_panel.position.x = 480.0 if x <= 340.0 else 24.0
 	show_pose(pose_index)
 
 
@@ -243,7 +288,7 @@ func set_railings(back_visible: bool, front_visible: bool) -> void:
 func build_controls() -> void:
 	var layer := CanvasLayer.new()
 	add_child(layer)
-	var panel := PanelContainer.new()
+	var panel := review_panel
 	panel.position = Vector2(24, 24)
 	layer.add_child(panel)
 	var margin := MarginContainer.new()
@@ -306,6 +351,15 @@ func build_controls() -> void:
 	companion_toggle.toggled.connect(access_companion.set_visible)
 	companions.add_child(companion_toggle)
 	add_button(companions, "Junto al acompañante", set_ground.bind(1625.0))
+	var booth := HBoxContainer.new()
+	column.add_child(booth)
+	for entry in [["Guardia", guard], ["Cabina", booth_front]]:
+		var toggle := CheckButton.new()
+		toggle.text = entry[0]
+		toggle.button_pressed = true
+		toggle.toggled.connect(entry[1].set_visible)
+		booth.add_child(toggle)
+	add_button(booth, "Frente al guardia", set_ground.bind(300.0))
 	column.add_child(status)
 	poses.get_child(0).grab_focus()
 

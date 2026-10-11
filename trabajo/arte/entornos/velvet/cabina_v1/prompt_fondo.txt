@@ -1,0 +1,8 @@
+Use case: precise-object-edit
+Asset type: repaired empty guard booth interior for separated Godot 2D layers.
+Edit target: supplied horizontal Velvet scene, exact 1672x941 canvas/framing.
+Edit ONLY the small guard booth area beneath the PERSONAL sign, approximately x149-278 y389-675. Remove the guard COMPLETELY, including head, hands, blue handheld screen and hidden body. Also remove ONLY the front window frame, counter sill and opaque lower front panel/control stickers of that narrow booth, because a separate foreground facade will be rendered over it.
+Reconstruct the warm dark industrial interior BEHIND them: subdued charcoal/rust back wall panels, simple seams, a few cables and warm ambient shadows, an empty unobstructed interior continuing down to the level threshold at y675. No new guard, foreground frame/counter, desk, floating equipment or replacement objects. Keep the interior dark enough for the independent guard to read.
+KEEP the PERSONAL / SALIDA AUTORIZADA sign above this region, its hanging lamp, the left outer building pillar and the adjoining door to the RIGHT intact. Do not remove or alter the two people standing nearby (x280+). Leave all pixels outside x149-278 y389-675 unchanged wherever possible; implementation only uses that crop.
+Invariants: same side-view perspective, no shifted buildings/city/people/reception, no new signs or readable text, no extra foreground railing. Main walkway always horizontal, rear edge y675 and front edge y735, same depth, floor and wet reflections.
+Style: identical coarse cinematic pixel-art clusters and restrained amber/red illumination. No blur or smooth painting. Output a full opaque 1672x941 scene.
