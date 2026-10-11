@@ -17,7 +17,7 @@ Abrir Godot e importar `project.godot`, o ejecutar desde la raíz del repositori
 /Applications/Godot.app/Contents/MacOS/Godot --editor --path godot
 ```
 
-F5 ejecuta la revisión. Los botones cambian vista, altura, ubicación, filtrado y color del contorno; todavía no hay desplazamiento. En **Galería**, alternar **Barandilla delante / Detrás / Ocultar** para comprobar la primera capa y el fondo reconstruido. [Suelo horizontal y oclusión vigentes](../trabajo/arte/revisiones/suelo_v1/README.md); [comparación de luz](../trabajo/arte/revisiones/luz_v2/README.md). El proyecto usa GDScript y Compatibility; la exportación Web desactiva hilos y extensiones. No necesita .NET ni complementos.
+F5 ejecuta la revisión. Los botones cambian vista, altura, ubicación, filtrado y color del contorno; todavía no hay desplazamiento. En **Galería**, alternar **Ambas barandillas / Solo trasera / Solo delantera / Sin barandillas** para comprobar ambos bordes y sus oclusiones. [Centro de pasarela y capas vigentes](../trabajo/arte/revisiones/profundidad_v1/README.md); [comparación de luz](../trabajo/arte/revisiones/luz_v2/README.md). El proyecto usa GDScript y Compatibility; la exportación Web desactiva hilos y extensiones. No necesita .NET ni complementos.
 
 ## Repetir la comprobación y exportar
 
@@ -65,7 +65,7 @@ Decisión del 10 de octubre: el autor aprueba el aspecto de Sota en escena y eli
 
 ## Recursos y continuidad
 
-**Suelo horizontal y capas vigentes:** `assets/entornos/velvet/fondo_suelo_recto_v1.png` contiene la pasarela recta sin barandillas pintadas. `GROUND_Y = 675` fija el apoyo de Sota y la barandilla central independiente; ya no se usa el parche anterior. [Fondo, intentos y prompts](../trabajo/arte/entornos/velvet/suelo_v1/README.md). Los botones cambian el orden de dibujo u ocultan la pieza. Ciudad, humo, luces y mobiliario/figurantes restantes siguen aplanados. T07 continúa en curso.
+**Suelo horizontal y capas vigentes:** `assets/entornos/velvet/fondo_suelo_recto_v1.png` conserva el recorrido horizontal y el ancho visible de la pasarela. `BACK_EDGE_Y = 675`, `GROUND_Y = 705` y `FRONT_EDGE_Y = 735` distinguen borde trasero, centro transitable y borde delantero. Dos instancias del recurso de barandilla ocupan sus bordes, con z = −5 y +5 respecto a Sota (z = 0); los botones controlan su visibilidad, sin invertir su orden. [Fondo, intentos y prompts](../trabajo/arte/entornos/velvet/suelo_v1/README.md). Solo se cubre el tramo central; ciudad, humo, luces y mobiliario/figurantes restantes siguen aplanados. T07 continúa en curso.
 
 La prueba de oclusión necesita render gráfico:
 
@@ -73,7 +73,7 @@ La prueba de oclusión necesita render gráfico:
 /Applications/Godot.app/Contents/MacOS/Godot --path godot --script tests/capas.gd
 ```
 
-En Apple M4 comprueba metal opaco delante, aberturas transparentes y orden inverso en ambos perfiles. `tests/escala.gd` comprueba también suela en seis posiciones y base de barandilla en la misma y. Importación, escena técnica y exportación Web correctas; [seis capturas nuevas](../trabajo/arte/revisiones/suelo_v1/README.md). [Visual Web de T07.2 comprobada en Helium/Chromium](../trabajo/arte/revisiones/suelo_web_v1/README.md): carga, recarga, ambos perfiles y cambio delante/detrás por clic, sin errores registrados. Safari/Firefox, movimiento/colisiones y valoración del entorno corregido pendientes.
+En Apple M4 comprueba metal opaco delante, aberturas transparentes y Sota por delante de la trasera en ambos perfiles. `tests/escala.gd` comprueba suela en seis posiciones, centro equidistante, bases en cada borde y orden fijo. Importación, escena técnica y exportación Web correctas; [cuatro capturas nativas y tres de navegador](../trabajo/arte/revisiones/profundidad_v1/README.md). Helium/Chromium muestra ambas barandillas, perfiles y cambio a solo trasera por clic, sin errores registrados. Safari/Firefox, movimiento/colisiones y valoración del montaje nuevo pendientes.
 
 Sota usa `assets/personajes/sota/perfiles_base_v1.png` y su JSON; v7 sigue disponible para comparar. `contraluz.gdshader` calcula el borde alfa de la base; `silueta.gdshader` conserva la solución anterior para v7. La barandilla se recorta con AtlasTexture y `metal_opaco.gdshader` evita residuos/metal semitransparente.
 

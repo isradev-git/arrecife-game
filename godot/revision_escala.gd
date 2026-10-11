@@ -11,7 +11,9 @@ const LABELS = ["Perfil derecho", "Perfil izquierdo"]
 const HEIGHTS = [232.0, 252.0, 272.0]
 const LIGHT_LABELS = ["Luz de Velvet", "Sin neón", "Azul", "Ámbar"]
 const RIM_COLORS = [Color.WHITE, Color(0.18, 0.16, 0.15), Color(0.08, 0.55, 0.9), Color(0.95, 0.55, 0.12)]
-const GROUND_Y = 675.0
+const BACK_EDGE_Y = 675.0
+const FRONT_EDGE_Y = 735.0
+const GROUND_Y = (BACK_EDGE_Y + FRONT_EDGE_Y) / 2.0
 
 var views: Array
 var art_index := 1
@@ -22,6 +24,7 @@ var ground := Vector2(780, GROUND_Y)
 var sota := Sprite2D.new()
 var status := Label.new()
 var railing := Sprite2D.new()
+var back_railing := Sprite2D.new()
 
 
 func _ready() -> void:
@@ -32,14 +35,14 @@ func _ready() -> void:
 	background.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
 	background.z_index = -20
 	add_child(background)
-	# shortcut: solo hay barandilla independiente en el tramo central; completar el resto en T07.
+	# shortcut: dos tramos centrales usan el mismo recurso; completar el recorrido en T07.
 	var rail_texture := AtlasTexture.new()
 	rail_texture.atlas = RAILING
 	rail_texture.region = Rect2(382, 506, 910, 186)
 	rail_texture.filter_clip = true
 	railing.texture = rail_texture
 	railing.centered = false
-	railing.position = Vector2(450, GROUND_Y - 126.0)
+	railing.position = Vector2(450, FRONT_EDGE_Y - 126.0)
 	railing.scale = Vector2(485.0 / 910.0, 126.0 / 186.0)
 	railing.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
 	var rail_material := ShaderMaterial.new()
@@ -47,6 +50,14 @@ func _ready() -> void:
 	railing.material = rail_material
 	railing.z_index = 5
 	add_child(railing)
+	back_railing.texture = rail_texture
+	back_railing.centered = false
+	back_railing.position = Vector2(450, BACK_EDGE_Y - 126.0)
+	back_railing.scale = railing.scale
+	back_railing.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
+	back_railing.material = rail_material
+	back_railing.z_index = -5
+	add_child(back_railing)
 	sota.centered = false
 	sota.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
 	var material := ShaderMaterial.new()
@@ -114,9 +125,9 @@ func toggle_filter() -> void:
 	show_pose(pose_index)
 
 
-func set_railing(depth: int) -> void:
-	railing.visible = depth != 0
-	railing.z_index = depth
+func set_railings(back_visible: bool, front_visible: bool) -> void:
+	back_railing.visible = back_visible
+	railing.visible = front_visible
 
 
 func build_controls() -> void:
@@ -133,7 +144,7 @@ func build_controls() -> void:
 	column.add_theme_constant_override("separation", 8)
 	margin.add_child(column)
 	var title := Label.new()
-	title.text = "VELVET · Suelo horizontal y capas"
+	title.text = "VELVET · Centro y bordes de pasarela"
 	title.add_theme_font_size_override("font_size", 24)
 	column.add_child(title)
 	var art := HBoxContainer.new()
@@ -157,9 +168,10 @@ func build_controls() -> void:
 		add_button(lighting, LIGHT_LABELS[index], set_lighting.bind(index))
 	var depths := HBoxContainer.new()
 	column.add_child(depths)
-	add_button(depths, "Barandilla delante", set_railing.bind(5))
-	add_button(depths, "Detrás", set_railing.bind(-5))
-	add_button(depths, "Ocultar", set_railing.bind(0))
+	add_button(depths, "Ambas barandillas", set_railings.bind(true, true))
+	add_button(depths, "Solo trasera", set_railings.bind(true, false))
+	add_button(depths, "Solo delantera", set_railings.bind(false, true))
+	add_button(depths, "Sin barandillas", set_railings.bind(false, false))
 	column.add_child(status)
 	poses.get_child(0).grab_focus()
 

@@ -43,7 +43,12 @@ func check_scene() -> void:
 		assert(scene.sota.position == Vector2(x, scene.GROUND_Y))
 		var sole: Vector2 = scene.sota.position + (scene.sota.offset + Vector2(scene.sota.texture.get_width() / 2.0, scene.sota.texture.get_height())) * scene.sota.scale
 		assert(sole.is_equal_approx(Vector2(x, scene.GROUND_Y)))
-	assert(is_equal_approx(scene.railing.position.y + scene.railing.texture.get_height() * scene.railing.scale.y, scene.GROUND_Y))
+	assert(scene.BACK_EDGE_Y < scene.GROUND_Y and scene.GROUND_Y < scene.FRONT_EDGE_Y)
+	assert(is_equal_approx(scene.GROUND_Y - scene.BACK_EDGE_Y, scene.FRONT_EDGE_Y - scene.GROUND_Y))
+	assert(is_equal_approx(scene.railing.position.y + scene.railing.texture.get_height() * scene.railing.scale.y, scene.FRONT_EDGE_Y))
+	assert(is_equal_approx(scene.back_railing.position.y + scene.back_railing.texture.get_height() * scene.back_railing.scale.y, scene.BACK_EDGE_Y))
+	assert(scene.back_railing.z_index < scene.sota.z_index and scene.sota.z_index < scene.railing.z_index)
+	assert(scene.back_railing.visible and scene.railing.visible)
 	scene.toggle_filter()
 	assert(scene.sota.texture_filter == CanvasItem.TEXTURE_FILTER_LINEAR)
 	scene.toggle_filter()

@@ -1,5 +1,7 @@
 # Velvet · Capturas de la exportación Web
 
+**Versión histórica:** el autor corrige después el apoyo y el orden de la barandilla. [T07.3 vigente: Sota en el centro y barandillas en ambos bordes](../profundidad_v1/README.md). Capturas anteriores conservadas sin cambios.
+
 11 de octubre de 2026. Exportación Godot 4.7.2 de T07.2, servida por HTTP local en `http://127.0.0.1:8766/godot/build/web/`. Capturas reales del navegador, sin edición, con viewport y canvas 1672 × 941; no son renders nativos ni imágenes generadas.
 
 Herramienta `agent-browser` 0.39.0, sesión aislada y ejecutable instalado `/Applications/Helium.app/Contents/MacOS/Helium` en modo headless. Chromium 154 según user-agent, WebGL 2.0; consola de Godot confirma Compatibility, Emscripten 4.0.20, sin hilos ni extensiones. Safari no pudo controlarse por `cgWindowNotFound`; no se presenta esta prueba como validación de Safari.

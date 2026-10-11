@@ -1,5 +1,7 @@
 # Revisión · Suelo horizontal de Velvet
 
+**Versión histórica:** el autor corrige después el apoyo y el orden de la barandilla. [T07.3 vigente: Sota en el centro y barandillas en ambos bordes](../profundidad_v1/README.md). Capturas anteriores conservadas sin cambios.
+
 11 de octubre de 2026. Render nativo Godot 4.7.2, Apple M4. Sota altura 252, apoyo y = 675 constante, luz de Velvet. [Recurso, variantes y prompts](../../entornos/velvet/suelo_v1/README.md).
 
 | Comparación | Perfil derecho | Perfil izquierdo |
