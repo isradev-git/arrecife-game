@@ -1,6 +1,6 @@
 # Sota · Referencia de producción
 
-**Entrega vigente · 11 de octubre:** el autor pide píxel intenso y rostro sin detalle, pero con ojos muy poco visibles, sin cara vacía. [Nueva propuesta de ojos sutiles](pixel_v3/README.md), integrada en la [comparación Godot](../../revisiones/escala_v5/README.md). Dos perfiles propios, transparencia y apoyos comprobados; pendiente valoración del autor. Las aprobaciones descritas debajo corresponden al diseño y a la iteración anterior.
+**Entrega vigente · 11 de octubre:** el autor valora positivamente el estilo con píxel intenso y ojos muy poco visibles. Se conserva el [atlas v7 y sus prompts](pixel_v3/README.md); la [prueba Godot de color de contorno](../../revisiones/luz_v1/README.md) permite neutralizar o cambiar su neón, sin editar el PNG. Dos perfiles propios y apoyos comprobados. Pendientes valoración del nuevo control de luz, retícula, iluminación espacial y animación.
 
 **Decisión vigente · 10 de octubre:** el autor aprueba cómo queda en Velvet y elige solo los perfiles derecho e izquierdo. Frontal y tres cuartos se conservan en el atlas por historial, pero no se muestran en Godot ni se producirán sus animaciones. El reposo, la respiración y las conversaciones serán de perfil. [Revisión vigente](../../revisiones/escala_v2/README.md). Las secciones siguientes documentan la entrega original.
 

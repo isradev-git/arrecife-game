@@ -2,7 +2,7 @@
 
 Preparación técnica del 9 de octubre de 2026. **Todavía no contiene el caso jugable ni el movimiento de Sota.** La escena principal actual permite revisar ambos perfiles de Sota en Velvet, su altura y filtrado. La escena técnica anterior se conserva en `verificacion.tscn`.
 
-**Entrega pixel art · 11 de octubre:** tras rechazar el primer atlas por cara definida y píxel fino, el autor precisa ojos muy poco visibles, sin cara vacía. La propuesta v7 conserva el píxel intenso y añade una pequeña marca oscura de ojo a ambos perfiles. La escena alterna v3 anterior y v7 retocada sobre el Velvet del autor; nearest inicial para ambas. [Comparación nativa y límites](../trabajo/arte/revisiones/escala_v5/README.md). Importación, pruebas y exportación correctas; pendientes valoración del autor, retícula, luz y comprobación visual Web. [Dirección vigente](../trabajo/direccion_artistica.md).
+**Entrega pixel art · 11 de octubre:** tras rechazar el primer atlas por cara definida y píxel fino, el autor precisa ojos muy poco visibles, sin cara vacía. La propuesta v7 conserva el píxel intenso y añade una pequeña marca oscura de ojo a ambos perfiles. La escena alterna v3 anterior y v7 retocada sobre el Velvet del autor; nearest inicial para ambas. [Comparación nativa y límites](../trabajo/arte/revisiones/escala_v5/README.md). Importación, pruebas y exportación correctas; el autor ha valorado positivamente el estilo. [Prueba posterior de color de luz](../trabajo/arte/revisiones/luz_v1/README.md): neón original, neutralizado, azul o ámbar, sin modificar el atlas. El nuevo control de luz, la retícula y la comprobación visual Web siguen pendientes de valoración/verificación. [Dirección vigente](../trabajo/direccion_artistica.md).
 
 ## Instalación comprobada
 
@@ -17,7 +17,7 @@ Abrir Godot e importar `project.godot`, o ejecutar desde la raíz del repositori
 /Applications/Godot.app/Contents/MacOS/Godot --editor --path godot
 ```
 
-F5 ejecuta la revisión de escala. Los botones cambian vista, altura, ubicación y filtrado; todavía no hay desplazamiento. [Comparación vigente y capturas](../trabajo/arte/revisiones/escala_v5/README.md). El proyecto usa GDScript y Compatibility; la exportación Web desactiva hilos y extensiones. No necesita .NET ni complementos.
+F5 ejecuta la revisión de escala. Los botones cambian vista, altura, ubicación, filtrado y color del contorno; todavía no hay desplazamiento. [Comparación vigente y capturas](../trabajo/arte/revisiones/luz_v1/README.md). El proyecto usa GDScript y Compatibility; la exportación Web desactiva hilos y extensiones. No necesita .NET ni complementos.
 
 ## Repetir la comprobación y exportar
 
@@ -47,6 +47,14 @@ Durante la verificación de esta entrega se sirvió la raíz completa del proyec
 | Safari por HTTP local | Fondo, interfaz, respuesta al clic, recarga y activación con Enter comprobados visualmente. |
 
 No se ha validado aquí guardado, audio, lectores de pantalla, móvil, otros navegadores ni rendimiento del juego completo. El árbol de accesibilidad de Safari expone esta prueba principalmente como un canvas: los controles nativos de Godot no heredan automáticamente la accesibilidad HTML del prototipo. Hay que comprobarla expresamente al migrar la libreta.
+
+Prueba posterior de color de contorno: `tests/escala.gd` incluye los cuatro modos. `tests/iluminacion.gd` necesita renderizado gráfico y se ejecuta **sin `--headless`**:
+
+```sh
+/Applications/Godot.app/Contents/MacOS/Godot --path godot --script tests/iluminacion.gd
+```
+
+En Apple M4 comprueba alfa invariante, muestras de cara/ojos/ropa/equipo sin cambios, desaparición del rosa intenso y restauración idéntica del aspecto original. No demuestra dirección física de la luz ni comportamiento en navegador.
 
 Cambio posterior del mismo día: el fondo activo pasa a Velvet. Importación, comprobación automática y exportación Web repetidas con resultado correcto; la prueba visual en Safari de la tabla corresponde a la entrega anterior.
 

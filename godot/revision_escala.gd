@@ -7,10 +7,13 @@ const BACKGROUND = preload("res://assets/fiebre_velvet_pixel_v1.png")
 const CUTOUT = preload("res://assets/personajes/sota/silueta.gdshader")
 const LABELS = ["Perfil derecho", "Perfil izquierdo"]
 const HEIGHTS = [232.0, 252.0, 272.0]
+const LIGHT_LABELS = ["Velvet original", "Sin neón", "Azul", "Ámbar"]
+const RIM_COLORS = [Color.WHITE, Color(0.18, 0.16, 0.15), Color(0.08, 0.55, 0.9), Color(0.95, 0.55, 0.12)]
 
 var views: Array
 var art_index := 1
 var pose_index := 0
+var light_index := 0
 var character_height := 252.0
 var ground := Vector2(780, 710)
 var sota := Sprite2D.new()
@@ -59,7 +62,15 @@ func show_pose(index: int) -> void:
 	sota.scale = Vector2(ratio, ratio)
 	sota.offset = Vector2(-float(bounds[2]) / 2.0, -float(bounds[3]))
 	sota.position = ground
-	status.text = "%s · %s · Altura %d · %s" % [ART_LABELS[art_index], LABELS[index], character_height, "Suave" if sota.texture_filter == CanvasItem.TEXTURE_FILTER_LINEAR else "Nítido"]
+	status.text = "%s · %s · Altura %d · %s · %s" % [ART_LABELS[art_index], LABELS[index], character_height, "Suave" if sota.texture_filter == CanvasItem.TEXTURE_FILTER_LINEAR else "Nítido", LIGHT_LABELS[light_index]]
+
+
+func set_lighting(index: int) -> void:
+	light_index = index
+	sota.material.set_shader_parameter("recolor_rim", index != 0)
+	sota.material.set_shader_parameter("pink_rim", RIM_COLORS[index])
+	sota.material.set_shader_parameter("warm_rim", RIM_COLORS[index])
+	show_pose(pose_index)
 
 
 func set_height(value: float) -> void:
@@ -109,6 +120,10 @@ func build_controls() -> void:
 	add_button(options, "Galería", set_ground.bind(780.0))
 	add_button(options, "Recepción", set_ground.bind(1160.0))
 	add_button(options, "Suave / nítido", toggle_filter)
+	var lighting := HBoxContainer.new()
+	column.add_child(lighting)
+	for index in range(LIGHT_LABELS.size()):
+		add_button(lighting, LIGHT_LABELS[index], set_lighting.bind(index))
 	column.add_child(status)
 	poses.get_child(0).grab_focus()
 

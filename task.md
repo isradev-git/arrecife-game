@@ -10,9 +10,9 @@ Objetivo: terminar un juego breve de investigación en Godot, con personajes y e
 
 **Dirección artística vigente:** renovar sprites, modelos, personajes, objetos, animaciones y entornos por capas para un acabado más pixel art, más cercano a REPLACED. Los recursos actuales son una iteración previa; conservar identidad, universo, versiones y prompts. El 11 de octubre el autor fija las [dos imágenes de estilo aprobadas](trabajo/arte/referencias/pixel_art_v1/README.md) como referencia principal para todo el juego: entorno y personajes. Criterios en [dirección artística](trabajo/direccion_artistica.md). La renovación se incorpora a las tareas existentes, una cada vez.
 
-**Tarea actual:** T03 · ojos apenas visibles — Entregada, pendiente de valoración del autor; se conserva el píxel intenso. El autor exige rostros sin detalle de retrato, pero precisa que la cara no debe quedar vacía. T02 sigue Entregada; [comparación del retoque en Godot](trabajo/arte/revisiones/escala_v5/README.md) realizada, navegador y retícula final pendientes. **Completadas:** T00 y T01.
+**Tarea actual:** T02 · luz de contorno adaptable — Entregada. El autor aprueba el estilo vigente y señala el rosa fijo del personaje como problema entre escenarios. [Prueba en Godot y capturas](trabajo/arte/revisiones/luz_v1/README.md): aspecto original, contorno sin neón, azul y ámbar. T03 mantiene el atlas v7, con acabado valorado positivamente; siguen pendientes retícula, integración de luz/dirección y animación. **Completadas:** T00 y T01.
 
-El autor pide priorizar generación de recursos tras la limpieza. Se adelanta la referencia de T03; su cierre técnico seguirá necesitando T02. El primer pase ha sido rechazado; la propuesta corregida de píxel intenso ya se puede revisar en Velvet; resolver su valoración y escala/retícula antes de producir el resto en serie.
+El autor pide priorizar generación de recursos tras la limpieza. Se adelanta la referencia de T03; su cierre técnico seguirá necesitando T02. El primer pase fue rechazado; el autor aprueba el estilo de la propuesta v7 con ojos sutiles. Resolver iluminación y escala/retícula antes de producir el resto en serie.
 
 ## Cómo trabajar esta lista
 
@@ -34,7 +34,7 @@ Este archivo es la fuente del orden y estado de las tareas. [PLAN_GODOT.md](proc
 | Personajes | Identidad, anatomía, ropa y equipo coherentes entre vistas y fotogramas; silueta legible; escala y presencia propias. Sota conserva la identidad aprobada en v8 y el deck en la cadera derecha. |
 | Animación | Apoyos y peso creíbles, pies acordes al avance, pivote estable, cambios de dirección y velocidad continuos. Revisar a velocidad normal y fotograma a fotograma. |
 | Entornos | Espacio transitable comprensible, perspectiva y escala consistentes, arquitectura vertical, materiales usados y reparados, luz con jerarquía y profundidad por capas. Rótulos, tecnología y vestuario sostienen el universo. |
-| Integración | Personajes apoyados en el suelo, sin halos o recortes visibles; sombras y elementos delante/detrás coherentes. Revisar con la cámara, los controles y la iluminación reales del juego. |
+| Integración | Luz de escenario separada del color propio del personaje; evitar neón fijo entre localizaciones. Personajes apoyados en el suelo, sin halos o recortes visibles; sombras y elementos delante/detrás coherentes. Revisar con la cámara, los controles y la iluminación reales del juego. |
 | Actividad de ciudad | Secundarios e infraestructura con acciones y ritmos propios; vapor, lluvia, luces y sonido ayudan a leer el lugar. La atmósfera deja visibles personajes, accesos y pistas. |
 | Investigación | Se entiende qué observar, preguntar y contrastar. Los documentos conservan sus datos; el consentimiento y la autonomía de Iria sostienen el cierre. |
 | Uso | Texto legible, teclado y ratón, foco visible, alternativas a buscar puntos pequeños, movimiento reducido y guardado comprobado. |
@@ -64,7 +64,7 @@ La ambición de calidad se concreta en estos criterios y en revisiones sobre res
 
 **Cierre:** Sota tiene proporciones creíbles junto a puertas y personas; el recorrido se entiende y la ciudad mantiene su escala. Revisar el nuevo acabado pixel art integrado, registrar la opción elegida y la valoración del autor. La aprobación de la iteración anterior no cierra esta renovación; los 1280 × 720 de la prueba técnica no constituyen una decisión artística.
 
-**Entrega T02 vigente:** [comparación antes/después del retoque de ojos y capturas](trabajo/arte/revisiones/escala_v5/README.md), sobre el Velvet aportado por el autor. Composición 1672 × 941, propuesta de altura 252, dos perfiles con apoyo normalizado y nearest inicial para ambas versiones; se conservan alturas, ubicación y filtros alternativos. Prueba automática, render nativo y exportación Web correctos. La aprobación anterior no se traslada al atlas nuevo: pendientes valoración del autor, retícula final y comprobación visual en navegador.
+**Entrega T02 vigente:** [prueba de iluminación y ocho capturas](trabajo/arte/revisiones/luz_v1/README.md). Shader que neutraliza o recolorea el neón del atlas aprobado; no modifica el PNG. Conserva comparación de recursos, dos perfiles, alturas, ubicaciones y filtros. Pruebas automáticas, render nativo y exportación Web correctos. El autor aprueba el estilo; el control de luz es una entrega nueva pendiente de valoración. Retícula, dirección/intensidad físicas, máscara explícita de producción y visual Web siguen pendientes.
 
 ### T03 · Preparar a Sota para producción — Entregada
 
@@ -72,7 +72,7 @@ La ambición de calidad se concreta en estos criterios y en revisiones sobre res
 
 **Cierre:** las vistas representan al mismo personaje, coinciden en proporciones y mantienen el lado del equipo; funcionan a la escala elegida y siguen el acabado de las referencias aprobadas del 11 de octubre. Guardar recurso, prompt y comparación en escena.
 
-**Entrega T03 vigente:** [ojos sutiles y prompts](trabajo/arte/personajes/sota/pixel_v3/README.md). Atlas v7 de dos perfiles: pequeña marca oscura de ojo, píxel intenso, transparencia real, regiones y apoyos medidos e importación correcta. Versiones e intentos previos conservados; comparación con v3 en Godot. Pendientes valoración estética del autor, revisión fina de luz/silueta/equipo y cierre técnico de T02; no hay respiración ni locomoción nueva.
+**Entrega T03 vigente:** [ojos sutiles y prompts](trabajo/arte/personajes/sota/pixel_v3/README.md). Atlas v7 de dos perfiles: pequeña marca oscura de ojo, píxel intenso, transparencia real, regiones y apoyos medidos e importación correcta. Versiones e intentos previos conservados; comparación con v3 en Godot. El autor valora positivamente el estilo vigente; pendientes revisión fina de luz/silueta/equipo y cierre técnico de T02; no hay respiración ni locomoción nueva.
 
 ### T04 · Construir el desplazamiento en Godot — Pendiente
 
@@ -245,3 +245,4 @@ Al completar una tarea, añadir una fila breve y actualizar su estado arriba. Lo
 | T03/T02 · pase pixel art | 11 oct 2026 | [Atlas, prompts](trabajo/arte/personajes/sota/pixel_v1/README.md) y [cuatro capturas nativas](trabajo/arte/revisiones/escala_v3/README.md); comparación anterior/nuevo en Godot | Importación, prueba de ambas versiones/transparencia/apoyos, escena técnica y exportación Web correctas | Asistente revisa el render; pendientes valoración del autor, retícula/luz y visual Web (control Safari falla) |
 | T03 · corrección de acabado | 11 oct 2026 | [Atlas v3 y prompt](trabajo/arte/personajes/sota/pixel_v2/README.md), [comparación nativa](trabajo/arte/revisiones/escala_v4/README.md) | Importación, perfiles/alturas/apoyos/alfa/filtros, escena técnica y exportación correctas | Autor rechaza v2 y exige píxel intenso y caras sin definición para todas las personas; v3 pendiente de valoración |
 | T03 · ojos sutiles | 11 oct 2026 | [Atlas v7 y prompts](trabajo/arte/personajes/sota/pixel_v3/README.md), [comparación nativa](trabajo/arte/revisiones/escala_v5/README.md) | Importación, perfiles/alturas/apoyos/alfa/filtros, escena técnica y exportación Web correctas | Autor precisa ojos muy poco visibles, sin cara vacía; propuesta pendiente de valoración, retícula, luz y visual Web |
+| T02 · color de luz | 11 oct 2026 | [Shader y ocho capturas](trabajo/arte/revisiones/luz_v1/README.md), PNG v7 conservado | Neón recoloreable, alfa invariante, muestras de cara/ojos/ropa/equipo conservadas y restauración idéntica del render original; pruebas, importación y exportación correctas | Autor aprueba el estilo y pide resolver rosa fijo; prueba de color pendiente de valoración, sin iluminación espacial terminada ni visual Web |

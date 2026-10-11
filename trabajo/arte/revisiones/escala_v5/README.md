@@ -1,5 +1,7 @@
 # Velvet · Ojos sutiles de Sota
 
+**Revisión posterior:** el autor aprueba el estilo vigente y pide resolver el rosa fijo entre escenarios. [Prueba actual de iluminación](../luz_v1/README.md); este registro y sus capturas conservan la entrega del retoque de ojos.
+
 11 de octubre de 2026. El autor pide ojos muy poco visibles, sin dejar la cara vacía. **Retoque entregado por el asistente, pendiente de valoración del autor.**
 
 La escena Godot compara «Antes del retoque» (atlas v3) con «Ojos sutiles» (atlas v7). Mismo fondo Velvet aprobado, altura 252, apoyo (780, 710) y nearest inicial. Se mantienen ambos perfiles, alturas 232/252/272, ubicación galería/recepción y filtro; sin frontal, tres cuartos ni reflejo de las vistas.
