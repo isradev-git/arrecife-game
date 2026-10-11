@@ -1,5 +1,7 @@
 # Sota · Píxel intenso y rostro simplificado
 
+**Entrega histórica:** el autor precisa después ojos muy poco visibles, sin dejar la cara vacía. [Retoque vigente y prompts](../pixel_v3/README.md); se conserva esta versión sin ojos como comparación.
+
 11 de octubre de 2026. Corrección solicitada por el autor: el primer pase se rechaza por píxel demasiado fino y cara demasiado definida. El nuevo criterio se aplica a **todas las personas** del juego: bloques más intensos y rostros sin rasgos dibujados, tomando la imagen de personajes aportada por el autor como referencia principal.
 
 **Nueva propuesta del asistente, pendiente de valoración del autor.** Generada con imagegen integrado. Se usa la imagen de personajes primero para el estilo y la referencia original de Sota solo para silueta, ropa y equipo; se pide expresamente no heredar su cara detallada.

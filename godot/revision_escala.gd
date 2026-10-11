@@ -1,8 +1,8 @@
 extends Node2D
 
-const ATLASES = [preload("res://assets/personajes/sota/perfiles_pixel_v2.png"), preload("res://assets/personajes/sota/perfiles_pixel_v3.png")]
-const METADATA = ["res://assets/personajes/sota/perfiles_pixel_v2.json", "res://assets/personajes/sota/perfiles_pixel_v3.json"]
-const ART_LABELS = ["Versión rechazada", "Píxel intenso"]
+const ATLASES = [preload("res://assets/personajes/sota/perfiles_pixel_v3.png"), preload("res://assets/personajes/sota/perfiles_pixel_v7.png")]
+const METADATA = ["res://assets/personajes/sota/perfiles_pixel_v3.json", "res://assets/personajes/sota/perfiles_pixel_v7.json"]
+const ART_LABELS = ["Antes del retoque", "Ojos sutiles"]
 const BACKGROUND = preload("res://assets/fiebre_velvet_pixel_v1.png")
 const CUTOUT = preload("res://assets/personajes/sota/silueta.gdshader")
 const LABELS = ["Perfil derecho", "Perfil izquierdo"]

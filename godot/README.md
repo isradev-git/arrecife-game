@@ -2,7 +2,7 @@
 
 Preparación técnica del 9 de octubre de 2026. **Todavía no contiene el caso jugable ni el movimiento de Sota.** La escena principal actual permite revisar ambos perfiles de Sota en Velvet, su altura y filtrado. La escena técnica anterior se conserva en `verificacion.tscn`.
 
-**Entrega pixel art · 11 de octubre:** el autor rechaza el primer atlas por cara definida y píxel fino. La propuesta v3 conserva dos perfiles propios, con píxel más intenso y cara resuelta en manchas, sobre el Velvet aportado por el autor. La escena alterna entre rechazado y nuevo; nearest inicial para ambos. [Comparación nativa y límites](../trabajo/arte/revisiones/escala_v4/README.md). Importación, pruebas y exportación correctas; pendientes valoración del autor, retícula, luz y comprobación visual Web. [Dirección vigente](../trabajo/direccion_artistica.md).
+**Entrega pixel art · 11 de octubre:** tras rechazar el primer atlas por cara definida y píxel fino, el autor precisa ojos muy poco visibles, sin cara vacía. La propuesta v7 conserva el píxel intenso y añade una pequeña marca oscura de ojo a ambos perfiles. La escena alterna v3 anterior y v7 retocada sobre el Velvet del autor; nearest inicial para ambas. [Comparación nativa y límites](../trabajo/arte/revisiones/escala_v5/README.md). Importación, pruebas y exportación correctas; pendientes valoración del autor, retícula, luz y comprobación visual Web. [Dirección vigente](../trabajo/direccion_artistica.md).
 
 ## Instalación comprobada
 
@@ -17,7 +17,7 @@ Abrir Godot e importar `project.godot`, o ejecutar desde la raíz del repositori
 /Applications/Godot.app/Contents/MacOS/Godot --editor --path godot
 ```
 
-F5 ejecuta la revisión de escala. Los botones cambian vista, altura, ubicación y filtrado; todavía no hay desplazamiento. [Comparación vigente y capturas](../trabajo/arte/revisiones/escala_v4/README.md). El proyecto usa GDScript y Compatibility; la exportación Web desactiva hilos y extensiones. No necesita .NET ni complementos.
+F5 ejecuta la revisión de escala. Los botones cambian vista, altura, ubicación y filtrado; todavía no hay desplazamiento. [Comparación vigente y capturas](../trabajo/arte/revisiones/escala_v5/README.md). El proyecto usa GDScript y Compatibility; la exportación Web desactiva hilos y extensiones. No necesita .NET ni complementos.
 
 ## Repetir la comprobación y exportar
 
@@ -52,11 +52,11 @@ Cambio posterior del mismo día: el fondo activo pasa a Velvet. Importación, co
 
 Revisión de escala posterior: cuatro vistas y tres alturas verificadas por prueba automática y capturas nativas. La exportación Web se regenera correctamente. La prueba en Safari de la tabla corresponde a la escena técnica anterior: no se ha observado todavía la revisión nueva en navegador.
 
-Decisión del 10 de octubre: el autor aprueba el aspecto de Sota en escena y elige solo perfiles. Los controles actuales ya no ofrecen frontal ni tres cuartos; el atlas original se conserva. [Revisión vigente](../trabajo/arte/revisiones/escala_v2/README.md). Respiración, carrera y cambios de dirección animados siguen pendientes.
+Decisión del 10 de octubre: el autor aprueba el aspecto de Sota en escena y elige solo perfiles. Los controles actuales ya no ofrecen frontal ni tres cuartos; el atlas original se conserva. [Revisión histórica de solo perfiles](../trabajo/arte/revisiones/escala_v2/README.md). Respiración, carrera y cambios de dirección animados siguen pendientes.
 
 ## Recursos y continuidad
 
-La revisión actual usa `assets/fiebre_velvet_pixel_v1.png`, copia idéntica de la [imagen 1 aprobada](../trabajo/arte/referencias/pixel_art_v1/README.md), y `assets/personajes/sota/perfiles_pixel_v3.png` con medidas en su JSON. El fondo sigue aplanado. Se conservan el atlas anterior para comparar y `assets/fiebre_velvet_v1.png` para la escena técnica; este último es copia del recurso del prototipo con el neón renombrado a **VELVET** por decisión del autor. [Procedencia y valoración](../juego/arte/velvet_v1.md); [prompt](../juego/arte/prompts/velvet_rotulo_v1.txt). La versión anterior se conserva en `juego/assets/fiebre_fondo_v1.png`; se retiró su copia inactiva de Godot durante la limpieza.
+La revisión actual usa `assets/fiebre_velvet_pixel_v1.png`, copia idéntica de la [imagen 1 aprobada](../trabajo/arte/referencias/pixel_art_v1/README.md), y `assets/personajes/sota/perfiles_pixel_v7.png` con medidas en su JSON; v3 se usa para comparar antes del retoque. El fondo sigue aplanado. Se conservan el atlas anterior para comparar y `assets/fiebre_velvet_v1.png` para la escena técnica; este último es copia del recurso del prototipo con el neón renombrado a **VELVET** por decisión del autor. [Procedencia y valoración](../juego/arte/velvet_v1.md); [prompt](../juego/arte/prompts/velvet_rotulo_v1.txt). La versión anterior se conserva en `juego/assets/fiebre_fondo_v1.png`; se retiró su copia inactiva de Godot durante la limpieza.
 
 La carpeta `build/` y la caché `.godot/` se pueden regenerar y están excluidas del control de versiones. Los archivos de importación y UID junto a recursos/scripts sí forman parte del proyecto reproducible. No distribuir canon, guion de moderación o documentos de proceso como parte del paquete Web.
 

@@ -1,5 +1,7 @@
 # Velvet · Corrección del píxel de Sota
 
+**Comparación histórica:** la revisión vigente compara el retoque de ojos apenas visibles en [escala_v5](../escala_v5/README.md). Estas capturas y el registro original se conservan.
+
 11 de octubre de 2026. El autor rechaza el primer pase pixel art: exige píxel mucho más intenso y cara sin definición, como en su imagen de personajes. **La nueva propuesta todavía no está aprobada.**
 
 La escena actual compara «Versión rechazada» (atlas v2) con «Píxel intenso» (atlas v3). Ambas usan nearest inicialmente, mismo fondo, altura 252 y apoyo (780, 710). Se conservan los botones para cambiar perfil, alturas 232/252/272, galería/recepción y filtro. No se muestran frontal ni tres cuartos ni se reflejan las vistas.
