@@ -1,13 +1,14 @@
 extends Node2D
 
-const ATLASES = [preload("res://assets/personajes/sota/perfiles_pixel_v3.png"), preload("res://assets/personajes/sota/perfiles_pixel_v7.png")]
-const METADATA = ["res://assets/personajes/sota/perfiles_pixel_v3.json", "res://assets/personajes/sota/perfiles_pixel_v7.json"]
-const ART_LABELS = ["Antes del retoque", "Ojos sutiles"]
+const ATLASES = [preload("res://assets/personajes/sota/perfiles_pixel_v7.png"), preload("res://assets/personajes/sota/perfiles_base_v1.png")]
+const METADATA = ["res://assets/personajes/sota/perfiles_pixel_v7.json", "res://assets/personajes/sota/perfiles_base_v1.json"]
+const ART_LABELS = ["Referencia aprobada", "Base e iluminación"]
 const BACKGROUND = preload("res://assets/fiebre_velvet_pixel_v1.png")
 const CUTOUT = preload("res://assets/personajes/sota/silueta.gdshader")
+const RIM_LIGHT = preload("res://assets/personajes/sota/contraluz.gdshader")
 const LABELS = ["Perfil derecho", "Perfil izquierdo"]
 const HEIGHTS = [232.0, 252.0, 272.0]
-const LIGHT_LABELS = ["Velvet original", "Sin neón", "Azul", "Ámbar"]
+const LIGHT_LABELS = ["Luz de Velvet", "Sin neón", "Azul", "Ámbar"]
 const RIM_COLORS = [Color.WHITE, Color(0.18, 0.16, 0.15), Color(0.08, 0.55, 0.9), Color(0.95, 0.55, 0.12)]
 
 var views: Array
@@ -30,11 +31,11 @@ func _ready() -> void:
 	sota.centered = false
 	sota.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
 	var material := ShaderMaterial.new()
-	material.shader = CUTOUT
+	material.shader = RIM_LIGHT
 	sota.material = material
 	add_child(sota)
 	build_controls()
-	show_pose(0)
+	set_lighting(0)
 
 
 func load_views() -> void:
@@ -45,7 +46,8 @@ func set_art(index: int) -> void:
 	art_index = index
 	load_views()
 	sota.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
-	show_pose(pose_index)
+	sota.material.shader = CUTOUT if index == 0 else RIM_LIGHT
+	set_lighting(light_index)
 
 
 func show_pose(index: int) -> void:
@@ -67,9 +69,14 @@ func show_pose(index: int) -> void:
 
 func set_lighting(index: int) -> void:
 	light_index = index
-	sota.material.set_shader_parameter("recolor_rim", index != 0)
-	sota.material.set_shader_parameter("pink_rim", RIM_COLORS[index])
-	sota.material.set_shader_parameter("warm_rim", RIM_COLORS[index])
+	if art_index == 0:
+		sota.material.set_shader_parameter("recolor_rim", index != 0)
+		sota.material.set_shader_parameter("pink_rim", RIM_COLORS[index])
+		sota.material.set_shader_parameter("warm_rim", RIM_COLORS[index])
+	else:
+		sota.material.set_shader_parameter("rim_strength", 0.0 if index == 1 else 0.7)
+		sota.material.set_shader_parameter("left_color", Color(1.0, 0.04, 0.18) if index == 0 else RIM_COLORS[index])
+		sota.material.set_shader_parameter("right_color", Color(1.0, 0.42, 0.04) if index == 0 else RIM_COLORS[index])
 	show_pose(pose_index)
 
 

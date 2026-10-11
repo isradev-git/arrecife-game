@@ -1,6 +1,6 @@
 # Sota · Referencia de producción
 
-**Entrega vigente · 11 de octubre:** el autor valora positivamente el estilo con píxel intenso y ojos muy poco visibles. Se conserva el [atlas v7 y sus prompts](pixel_v3/README.md); la [prueba Godot de color de contorno](../../revisiones/luz_v1/README.md) permite neutralizar o cambiar su neón, sin editar el PNG. Dos perfiles propios y apoyos comprobados. Pendientes valoración del nuevo control de luz, retícula, iluminación espacial y animación.
+**Entrega vigente · 11 de octubre:** [base_v1 sin neón y prompt](base_v1/README.md), derivada de v7 mediante imagegen. Se conserva el atlas aprobado y se compara con la nueva base e iluminación separada en la [revisión Godot](../../revisiones/luz_v2/README.md). Dos perfiles propios, píxel intenso y ojos sutiles; alfa/apoyos y shader comprobados. Variante nueva pendiente de valoración del autor, retícula, conexión con luces de escenario y animación.
 
 **Decisión vigente · 10 de octubre:** el autor aprueba cómo queda en Velvet y elige solo los perfiles derecho e izquierdo. Frontal y tres cuartos se conservan en el atlas por historial, pero no se muestran en Godot ni se producirán sus animaciones. El reposo, la respiración y las conversaciones serán de perfil. [Revisión vigente](../../revisiones/escala_v2/README.md). Las secciones siguientes documentan la entrega original.
 

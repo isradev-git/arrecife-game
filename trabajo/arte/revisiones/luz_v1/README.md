@@ -1,5 +1,7 @@
 # Sota · Color de luz adaptable
 
+**Revisión histórica:** la escena vigente compara v7 con una [base sin neón y máscara del contorno alfa](../luz_v2/README.md). Se conserva esta prueba de selección por colores y sus capturas.
+
 11 de octubre de 2026. El autor valora positivamente el estilo vigente y advierte que el rosa del personaje podría desentonar al cambiar de escenario. **El estilo y el criterio de hacer coincidir el contraluz del personaje con la luz del entorno están aprobados por el autor.** Esta decisión no aprueba individualmente todos los colores de demostración ni acredita iluminación espacial terminada.
 
 El rosa y el naranja están pintados en el atlas. Se conserva el PNG v7 y se controla su neón al dibujarlo con el [shader de Godot](../../../../godot/assets/personajes/sota/silueta.gdshader). No se regenera a Sota, no se modifica el archivo ni se añaden prompts. El modo inicial «Velvet original» mantiene exactamente el aspecto aprobado.

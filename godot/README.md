@@ -2,7 +2,7 @@
 
 Preparación técnica del 9 de octubre de 2026. **Todavía no contiene el caso jugable ni el movimiento de Sota.** La escena principal actual permite revisar ambos perfiles de Sota en Velvet, su altura y filtrado. La escena técnica anterior se conserva en `verificacion.tscn`.
 
-**Entrega pixel art · 11 de octubre:** tras rechazar el primer atlas por cara definida y píxel fino, el autor precisa ojos muy poco visibles, sin cara vacía. La propuesta v7 conserva el píxel intenso y añade una pequeña marca oscura de ojo a ambos perfiles. La escena alterna v3 anterior y v7 retocada sobre el Velvet del autor; nearest inicial para ambas. [Comparación nativa y límites](../trabajo/arte/revisiones/escala_v5/README.md). Importación, pruebas y exportación correctas; el autor ha valorado positivamente el estilo. [Prueba posterior de color de luz](../trabajo/arte/revisiones/luz_v1/README.md): neón original, neutralizado, azul o ámbar, sin modificar el atlas. El nuevo control de luz, la retícula y la comprobación visual Web siguen pendientes de valoración/verificación. [Dirección vigente](../trabajo/direccion_artistica.md).
+**Entrega pixel art · 11 de octubre:** el autor aprueba el estilo con píxel intenso y ojos sutiles, y el contraluz acorde al entorno. Se compara el atlas v7 aprobado con una [base sin neón y contraluz separado](../trabajo/arte/revisiones/luz_v2/README.md). La máscara de contorno se calcula desde el alfa; color, intensidad y dirección son parámetros independientes. La variante nueva está entregada, pendiente de valoración. Importación, pruebas, render nativo y exportación correctos; retícula, luces del escenario y visual Web pendientes. [Dirección vigente](../trabajo/direccion_artistica.md).
 
 ## Instalación comprobada
 
@@ -17,7 +17,7 @@ Abrir Godot e importar `project.godot`, o ejecutar desde la raíz del repositori
 /Applications/Godot.app/Contents/MacOS/Godot --editor --path godot
 ```
 
-F5 ejecuta la revisión de escala. Los botones cambian vista, altura, ubicación, filtrado y color del contorno; todavía no hay desplazamiento. [Comparación vigente y capturas](../trabajo/arte/revisiones/luz_v1/README.md). El proyecto usa GDScript y Compatibility; la exportación Web desactiva hilos y extensiones. No necesita .NET ni complementos.
+F5 ejecuta la revisión de escala. Los botones cambian vista, altura, ubicación, filtrado y color del contorno; todavía no hay desplazamiento. [Comparación vigente y capturas](../trabajo/arte/revisiones/luz_v2/README.md). El proyecto usa GDScript y Compatibility; la exportación Web desactiva hilos y extensiones. No necesita .NET ni complementos.
 
 ## Repetir la comprobación y exportar
 
@@ -48,13 +48,14 @@ Durante la verificación de esta entrega se sirvió la raíz completa del proyec
 
 No se ha validado aquí guardado, audio, lectores de pantalla, móvil, otros navegadores ni rendimiento del juego completo. El árbol de accesibilidad de Safari expone esta prueba principalmente como un canvas: los controles nativos de Godot no heredan automáticamente la accesibilidad HTML del prototipo. Hay que comprobarla expresamente al migrar la libreta.
 
-Prueba posterior de color de contorno: `tests/escala.gd` incluye los cuatro modos. `tests/iluminacion.gd` necesita renderizado gráfico y se ejecuta **sin `--headless`**:
+Prueba posterior de color de contorno: `tests/escala.gd` incluye los cuatro modos. `tests/iluminacion.gd` conserva la comprobación sobre v7; `tests/contraluz.gd` comprueba la base nueva. Ambos necesitan renderizado gráfico y se ejecutan **sin `--headless`**:
 
 ```sh
 /Applications/Godot.app/Contents/MacOS/Godot --path godot --script tests/iluminacion.gd
+/Applications/Godot.app/Contents/MacOS/Godot --path godot --script tests/contraluz.gd
 ```
 
-En Apple M4 comprueba alfa invariante, muestras de cara/ojos/ropa/equipo sin cambios, desaparición del rosa intenso y restauración idéntica del aspecto original. No demuestra dirección física de la luz ni comportamiento en navegador.
+En Apple M4 comprueba alfa invariante, muestras de cara/ojos/ropa/equipo sin cambios, desaparición del rosa intenso y restauración idéntica del aspecto original. La prueba nueva verifica además intensidad cero idéntica a la base y desplazamiento de la luz al lado opuesto en ambos perfiles al invertir su dirección. No demuestra conexión con lámparas/oclusiones del escenario ni comportamiento en navegador.
 
 Cambio posterior del mismo día: el fondo activo pasa a Velvet. Importación, comprobación automática y exportación Web repetidas con resultado correcto; la prueba visual en Safari de la tabla corresponde a la entrega anterior.
 
@@ -64,7 +65,7 @@ Decisión del 10 de octubre: el autor aprueba el aspecto de Sota en escena y eli
 
 ## Recursos y continuidad
 
-La revisión actual usa `assets/fiebre_velvet_pixel_v1.png`, copia idéntica de la [imagen 1 aprobada](../trabajo/arte/referencias/pixel_art_v1/README.md), y `assets/personajes/sota/perfiles_pixel_v7.png` con medidas en su JSON; v3 se usa para comparar antes del retoque. El fondo sigue aplanado. Se conservan el atlas anterior para comparar y `assets/fiebre_velvet_v1.png` para la escena técnica; este último es copia del recurso del prototipo con el neón renombrado a **VELVET** por decisión del autor. [Procedencia y valoración](../juego/arte/velvet_v1.md); [prompt](../juego/arte/prompts/velvet_rotulo_v1.txt). La versión anterior se conserva en `juego/assets/fiebre_fondo_v1.png`; se retiró su copia inactiva de Godot durante la limpieza.
+La revisión actual usa `assets/fiebre_velvet_pixel_v1.png`, copia idéntica de la [imagen 1 aprobada](../trabajo/arte/referencias/pixel_art_v1/README.md), y `assets/personajes/sota/perfiles_base_v1.png` con medidas en su JSON; v7 se usa como referencia aprobada para comparar. `contraluz.gdshader` calcula la máscara del borde de la base; `silueta.gdshader` conserva la solución anterior para v7. El fondo sigue aplanado. Se conservan el atlas anterior para comparar y `assets/fiebre_velvet_v1.png` para la escena técnica; este último es copia del recurso del prototipo con el neón renombrado a **VELVET** por decisión del autor. [Procedencia y valoración](../juego/arte/velvet_v1.md); [prompt](../juego/arte/prompts/velvet_rotulo_v1.txt). La versión anterior se conserva en `juego/assets/fiebre_fondo_v1.png`; se retiró su copia inactiva de Godot durante la limpieza.
 
 La carpeta `build/` y la caché `.godot/` se pueden regenerar y están excluidas del control de versiones. Los archivos de importación y UID junto a recursos/scripts sí forman parte del proyecto reproducible. No distribuir canon, guion de moderación o documentos de proceso como parte del paquete Web.
 

@@ -1,5 +1,7 @@
 # Sota · Ojos apenas visibles
 
+**Referencia aprobada conservada:** la entrega posterior prepara una [base sin neón fijo](../base_v1/README.md), comparada con este atlas sin modificarlo.
+
 11 de octubre de 2026. El autor precisa: «los ojos deben verse muy poco no pintar solo la cara vacía». Se mantiene el píxel intenso y el rostro en masas de sombra; se añade una pequeña marca oscura de ojo a cada perfil, sin blancos ni iris detallados. Este criterio se incorpora a la dirección de todas las personas; en esta entrega solo se retoca Sota.
 
 **El autor valora positivamente el estilo en la revisión posterior.** El atlas se conserva; [control de color del neón en Godot](../../../revisiones/luz_v1/README.md), entregado después, pendiente de valoración. El cierre de producción sigue pendiente. Ediciones con imagegen integrado, conservando intentos y prompts. La edición generativa puede variar otros píxeles; no se afirma conservación exacta del cuerpo.

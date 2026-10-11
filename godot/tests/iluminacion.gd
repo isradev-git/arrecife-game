@@ -24,7 +24,7 @@ func check() -> void:
 	root.add_child(viewport)
 	var sprite := Sprite2D.new()
 	sprite.centered = false
-	sprite.texture = SCENE.ATLASES[1]
+	sprite.texture = SCENE.ATLASES[0]
 	sprite.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
 	var material := ShaderMaterial.new()
 	material.shader = SCENE.CUTOUT

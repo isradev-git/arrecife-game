@@ -44,13 +44,21 @@ func check_scene() -> void:
 	assert(scene.sota.texture_filter == CanvasItem.TEXTURE_FILTER_NEAREST)
 	scene.set_height(252.0)
 	scene.show_pose(0)
-	for lighting in range(scene.LIGHT_LABELS.size()):
-		scene.set_lighting(lighting)
-		assert(scene.light_index == lighting)
-		assert(scene.sota.material.get_shader_parameter("recolor_rim") == (lighting != 0))
-		assert(scene.sota.material.get_shader_parameter("pink_rim") == scene.RIM_COLORS[lighting])
-		assert(scene.sota.material.get_shader_parameter("warm_rim") == scene.RIM_COLORS[lighting])
-		assert(scene.sota.position == scene.ground)
+	for art in range(2):
+		scene.set_art(art)
+		for lighting in range(scene.LIGHT_LABELS.size()):
+			scene.set_lighting(lighting)
+			assert(scene.light_index == lighting)
+			if art == 0:
+				assert(scene.sota.material.shader == scene.CUTOUT)
+				assert(scene.sota.material.get_shader_parameter("recolor_rim") == (lighting != 0))
+			else:
+				assert(scene.sota.material.shader == scene.RIM_LIGHT)
+				assert(is_equal_approx(scene.sota.material.get_shader_parameter("rim_strength"), 0.0 if lighting == 1 else 0.7))
+				if lighting > 1:
+					assert(scene.sota.material.get_shader_parameter("left_color") == scene.RIM_COLORS[lighting])
+					assert(scene.sota.material.get_shader_parameter("right_color") == scene.RIM_COLORS[lighting])
+			assert(scene.sota.position == scene.ground)
 	scene.set_lighting(0)
 	assert(scene.art_index == 1 and scene.pose_index == 0)
 	print("OK: dos versiones, solo perfiles, tres alturas, apoyo estable, transparencia, filtros y color del contorno.")
