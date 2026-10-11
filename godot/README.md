@@ -2,7 +2,7 @@
 
 Preparación técnica del 9 de octubre de 2026. **Todavía no contiene el caso jugable ni el movimiento de Sota.** La escena principal actual permite revisar ambos perfiles de Sota en Velvet, su altura y filtrado. La escena técnica anterior se conserva en `verificacion.tscn`.
 
-**Entrega pixel art · 11 de octubre:** el autor aprueba el estilo con píxel intenso y ojos sutiles, y el contraluz acorde al entorno. Se compara el atlas v7 aprobado con una [base sin neón y contraluz separado](../trabajo/arte/revisiones/luz_v2/README.md). La máscara de contorno se calcula desde el alfa; color, intensidad y dirección son parámetros independientes. La variante nueva está entregada, pendiente de valoración. Importación, pruebas, render nativo y exportación correctos; retícula, luces del escenario y visual Web pendientes. [Dirección vigente](../trabajo/direccion_artistica.md).
+**Entrega pixel art · 11 de octubre:** el autor aprueba el estilo con píxel intenso y ojos sutiles, y el contraluz acorde al entorno. Se compara el atlas v7 aprobado con una [base sin neón y contraluz separado](../trabajo/arte/revisiones/luz_v2/README.md). La máscara de contorno se calcula desde el alfa; color, intensidad y dirección son parámetros independientes. La variante nueva está entregada, pendiente de valoración. Importación, pruebas, render nativo y exportación correctos. La escena actual se comprueba después en Helium/Chromium; retícula, luces del escenario y otros navegadores pendientes. [Dirección vigente](../trabajo/direccion_artistica.md).
 
 ## Instalación comprobada
 
@@ -73,7 +73,7 @@ La prueba de oclusión necesita render gráfico:
 /Applications/Godot.app/Contents/MacOS/Godot --path godot --script tests/capas.gd
 ```
 
-En Apple M4 comprueba metal opaco delante, aberturas transparentes y orden inverso en ambos perfiles. `tests/escala.gd` comprueba también suela en seis posiciones y base de barandilla en la misma y. Importación, escena técnica y exportación Web correctas; [seis capturas nuevas](../trabajo/arte/revisiones/suelo_v1/README.md). Visual Web, movimiento/colisiones y valoración del entorno corregido pendientes.
+En Apple M4 comprueba metal opaco delante, aberturas transparentes y orden inverso en ambos perfiles. `tests/escala.gd` comprueba también suela en seis posiciones y base de barandilla en la misma y. Importación, escena técnica y exportación Web correctas; [seis capturas nuevas](../trabajo/arte/revisiones/suelo_v1/README.md). [Visual Web de T07.2 comprobada en Helium/Chromium](../trabajo/arte/revisiones/suelo_web_v1/README.md): carga, recarga, ambos perfiles y cambio delante/detrás por clic, sin errores registrados. Safari/Firefox, movimiento/colisiones y valoración del entorno corregido pendientes.
 
 Sota usa `assets/personajes/sota/perfiles_base_v1.png` y su JSON; v7 sigue disponible para comparar. `contraluz.gdshader` calcula el borde alfa de la base; `silueta.gdshader` conserva la solución anterior para v7. La barandilla se recorta con AtlasTexture y `metal_opaco.gdshader` evita residuos/metal semitransparente.
 

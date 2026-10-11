@@ -22,3 +22,5 @@ Suelo transitable horizontal y continuo. Los recursos independientes del mismo p
 [Seis capturas nativas](../../../revisiones/suelo_v1/README.md). Godot: importación, pruebas de escala/apoyos en seis posiciones, base de barandilla, dos perfiles, materiales, escena técnica y prueba GPU de oclusión correctas; exportación Web correcta. Suelo revisado visualmente por el asistente. El ajuste geométrico es una propuesta entregada, pendiente de valoración del autor.
 
 Mobiliario, figurantes, ciudad, humo y luces siguen en el fondo; sus apoyos definitivos y oclusiones necesitan recursos independientes. La primera barandilla solo cubre el tramo central. Sin controlador, colisiones ni prueba visual Web; T07 continúa en curso.
+
+**Comprobación posterior del mismo día:** [versión Web y capturas reales](../../../revisiones/suelo_web_v1/README.md). Helium/Chromium muestra el fondo, ambos perfiles y la oclusión; carga, recarga y clic comprobados sin errores registrados. Safari/Firefox, movimiento y validación completa pendientes.

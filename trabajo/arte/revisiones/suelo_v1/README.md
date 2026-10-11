@@ -11,3 +11,5 @@
 La pasarela conserva altura y espesor visual de izquierda a derecha. La ciudad mantiene profundidad. Barandilla y Sota comparten línea de apoyo. Capturas anteriores de [T07.1](../capas_v1/README.md) conservadas para comparar.
 
 `tests/escala.gd` comprueba pivote/suela en seis posiciones x y base de barandilla en y = 675, además de vistas, alturas, alfa y materiales. `tests/capas.gd` confirma 144/191 píxeles ocultos por metal y 4241/3900 visibles entre barrotes, según perfil, e inversión del orden. Importación, escena técnica y exportación Web correctas. Revisión visual del asistente; no son una prueba de locomoción, de todos los objetos ni de navegador.
+
+**Comprobación posterior del mismo día:** [versión Web y capturas reales](../suelo_web_v1/README.md). Helium/Chromium muestra el fondo, ambos perfiles y la oclusión; carga, recarga y clic comprobados sin errores registrados. Safari/Firefox, movimiento y validación completa pendientes.
