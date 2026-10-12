@@ -10,7 +10,7 @@ Objetivo: terminar un juego breve de investigación en Godot, con personajes y e
 
 **Dirección artística vigente:** renovar sprites, modelos, personajes, objetos, animaciones y entornos por capas para un acabado más pixel art, más cercano a REPLACED. Los recursos actuales son una iteración previa; conservar identidad, universo, versiones y prompts. El 11 de octubre el autor fija las [dos imágenes de estilo aprobadas](trabajo/arte/referencias/pixel_art_v1/README.md) como referencia principal para todo el juego: entorno y personajes. Criterios en [dirección artística](trabajo/direccion_artistica.md). La renovación se incorpora a las tareas existentes, una cada vez.
 
-**Última tarea entregada:** T04 · Desplazamiento provisional en Godot. [Pruebas y capturas](trabajo/arte/revisiones/recorrido_jugable_v1/README.md). Teclado/clic, caminar/correr, aceleración/frenada, colisiones, límites y puntos de acercamiento comprobados; valoración del control por el autor pendiente. El autor aprueba **Sota a 252 de altura** el 13 de octubre, con v7 como dibujo vigente. Esa aprobación no cierra toda T02: retícula artística e iluminación siguen abiertas. **Siguiente:** T05 · ciclo de caminar, ambos perfiles y pies sincronizados con el desplazamiento. T07/T08 conservan sus pendientes por capas y actividad. **Completadas:** T00 y T01.
+**Última tarea entregada:** T04 · Desplazamiento provisional en Godot. [Pruebas y capturas](trabajo/arte/revisiones/recorrido_jugable_v1/README.md). Teclado/clic, caminar, aceleración/frenada, colisiones, límites y puntos de acercamiento comprobados; valoración del control por el autor pendiente. El autor aprueba **Sota a 252 de altura** el 13 de octubre, con v7 como dibujo vigente. Esa aprobación no cierra toda T02: retícula artística e iluminación siguen abiertas. **Siguiente:** T05 · ciclo de caminar, ambos perfiles y pies sincronizados con el desplazamiento. T07/T08 conservan sus pendientes por capas y actividad. **Completadas:** T00 y T01.
 
 **Preferencia de Sota · 12 de octubre:** el autor compara en navegador y prefiere **Referencia aprobada (v7)** frente a Base e iluminación. [V7 predeterminada y comprobada](trabajo/arte/revisiones/preferencia_sota_v1/README.md); PNG intactos y alternativa conservada. Próximas revisiones de luz deben conservar ese dibujo; T02/T03 siguen abiertas técnicamente para retícula, iluminación y animación.
 
@@ -78,7 +78,7 @@ La ambición de calidad se concreta en estos criterios y en revisiones sobre res
 
 ### T04 · Construir el desplazamiento en Godot — Entregada
 
-**Entrega:** Sota provisional en Velvet con teclado, clic, correr, aceleración, frenada, límites/colisiones y puntos de llegada propios para cada interacción.
+**Entrega:** Sota provisional en Velvet con teclado, clic, aceleración, frenada, límites/colisiones y puntos de llegada propios para cada interacción.
 
 **Resultado · 13 de octubre:** `recorrido.tscn` es el arranque; reutiliza el montaje aprobado de `revision_escala.gd`. V7 a 252, pies y = 705 y planos conservados. Acercamientos: guardia x = 300, Jefa 1260, mochila 1480 y acompañante 1580. Límites físicos x = 128–1632. `tests/movimiento.gd` comprueba control y un obstáculo real añadido solo en la prueba; en Velvet los muebles del fondo no bloquean el centro transitable. Exportación y entradas/foco probados en Helium. Sprite estático provisional, sin animación de pasos ni conversaciones. [Registro](trabajo/arte/revisiones/recorrido_jugable_v1/README.md); falta valoración del autor sobre velocidades/frenada.
 
@@ -86,13 +86,17 @@ La ambición de calidad se concreta en estos criterios y en revisiones sobre res
 
 ### T05 · Terminar el ciclo de caminar — Pendiente
 
-**Entrega:** ciclo consistente en ambos sentidos, integrado en el controlador y sincronizado con la distancia recorrida.
+**Entrega:** ciclo completo de dos pasos, consistente en ambos sentidos, con sprites propios por fotograma, integrado en el controlador y sincronizado con la distancia recorrida.
+
+**Decisión del autor · 13 de octubre:** solo caminar. La carrera no se necesita por el tamaño de los escenarios y se elimina de T04/T06 y de los criterios de revisión. El autor exige un andar natural y completo, con dibujos de las fases del movimiento.
+
+**Producción T05:** primero ocho poses clave por perfil: contacto, amortiguación/apoyo, cruce y elevación/impulso, repetidas con la pierna contraria. Después añadir intermedios según la revisión del ciclo; ocho poses no fijan el número final de fotogramas. Cada perfil tiene dibujos propios: no reflejar el atlas ni animar solo desplazando/deformando la pose estática. Conservar pelo, mecha, chaqueta, correa y lado físico del deck. Brazos en oposición a las piernas, peso y flexión de articulaciones coherentes, ropa/equipo con movimiento contenido. Celdas iguales y pivote común; una escala basada en los 252 de reposo, sin normalizar por separado la altura de cada fotograma ni eliminar la oscilación natural. El pie apoyado debe mantenerse en el suelo mientras el cuerpo avanza; ajustar distancia del ciclo y velocidad al probarlo en Velvet. Revisar poses y bucle antes de darlo por aprobado.
 
 **Cierre:** revisar apoyos, transferencia de peso, articulaciones, manos, ropa y deck; sin saltos de tamaño, pivote o postura al cerrar el ciclo. Ajustar zancada y velocidad viendo el resultado en escena.
 
-### T06 · Terminar carrera, cambios de dirección y reposo — Pendiente
+### T06 · Terminar arranque, parada, cambios de dirección y reposo — Pendiente
 
-**Entrega:** carrera propia, cambios caminar/correr, parada, cambio entre perfiles y reposo con respiración y gestos sutiles. No mostrar frontal ni tres cuartos, tampoco durante conversaciones o transiciones.
+**Entrega:** inicio de marcha, transición caminar/parar, cambio entre perfiles y reposo con respiración y gestos sutiles. Carrera descartada por el autor el 13 de octubre. No mostrar frontal ni tres cuartos, tampoco durante conversaciones o transiciones.
 
 **Cierre:** ambas direcciones y todas las transiciones son continuas, conservan identidad y equipo y mantienen los apoyos. Movimiento reducido funciona. Registrar revisión visual del autor.
 
@@ -160,7 +164,7 @@ La ambición de calidad se concreta en estos criterios y en revisiones sobre res
 
 **Cabina y guardia · decisión del autor, 12 de octubre:** incorporar «Hablar con el guardia» como interacción propia, además de la función de viajar de T19. Consultar canon y guion antes de redactar; sin inventar pruebas, identidad o un bloqueo de acreditación para Sota. Revisar la antigua puesta en escena de vigilancia/salida de personal para que comunique también el nuevo acceso entre cotas. Arte preparado en T07.9, conversación pendiente.
 
-**Cierre:** el autor prueba caminar, correr, cambios entre perfiles, interacción y lectura. Registrar problemas concretos y corregir los que afecten al estándar visual o de control. Cerrar con valoración del conjunto antes de extenderlo a las otras pantallas.
+**Cierre:** el autor prueba caminar, arrancar/parar, cambios entre perfiles, interacción y lectura. Registrar problemas concretos y corregir los que afecten al estándar visual o de control. Cerrar con valoración del conjunto antes de extenderlo a las otras pantallas.
 
 ## Completar personajes, entornos y caso
 
@@ -306,3 +310,5 @@ Al completar una tarea, añadir una fila breve y actualizar su estado arriba. Lo
 | T02.1 · escala junto a Jefa y cabina | 12 oct 2026 | [Lámina y capturas](trabajo/arte/revisiones/escala_produccion_v1/README.md) | Tres alturas/dos perfiles/dos posiciones, Jefa invariable, apoyos y nearest, GPU de comparación, exportación/clic Web y lámina HTML correctos | Autor autoriza comparar; propuesta del asistente 252/244 y raster actual, valoración pendiente. T02 no completada; movimiento después |
 
 | T04 · altura aprobada y recorrido provisional | 13 oct 2026 | [Código, capturas y comprobaciones](trabajo/arte/revisiones/recorrido_jugable_v1/README.md) | Control, 14 llegadas sin sobrepasar, límites, colisión física, foco, perfiles/planos, Godot nativo y Web | Autor aprueba 252; controlador entregado para valorar. Sin animación ni diálogos; siguiente T05 |
+
+| T04 · retirada de carrera y criterio de T05 | 13 oct 2026 | [Solo caminar](trabajo/arte/revisiones/solo_caminar_v1/README.md) | Controlador/pruebas/panel sin carrera; exportación y Web comprobadas | Autor descarta correr y exige sprites por fase de marcha. T05 pendiente de producción/revisión del ciclo |

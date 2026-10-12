@@ -1,6 +1,6 @@
 # PASE PENDIENTE · Base Godot
 
-Base técnica del 9 de octubre, actualizada el **13 de octubre de 2026**. **Todavía no contiene el caso completo.** La escena principal `recorrido.tscn` permite caminar/correr por Velvet con el sprite v7 provisional y altura 252 aprobada por el autor. `revision_escala.tscn` conserva la revisión de arte; `verificacion.tscn` la escena técnica original.
+Base técnica del 9 de octubre, actualizada el **13 de octubre de 2026**. **Todavía no contiene el caso completo.** La escena principal `recorrido.tscn` permite caminar por Velvet con el sprite v7 provisional y altura 252 aprobada por el autor. `revision_escala.tscn` conserva la revisión de arte; `verificacion.tscn` la escena técnica original.
 
 **Entrega pixel art · 11 de octubre:** el autor aprueba el estilo con píxel intenso y ojos sutiles, y el contraluz acorde al entorno. Se compara el atlas v7 aprobado con una [base sin neón y contraluz separado](../trabajo/arte/revisiones/luz_v2/README.md). La máscara de contorno se calcula desde el alfa; color, intensidad y dirección son parámetros independientes. La variante nueva está entregada, pendiente de valoración. Importación, pruebas, render nativo y exportación correctos. La escena actual se comprueba después en Helium/Chromium; retícula, luces del escenario y otros navegadores pendientes. [Dirección vigente](../trabajo/direccion_artistica.md).
 
@@ -17,7 +17,7 @@ Abrir Godot e importar `project.godot`, o ejecutar desde la raíz del repositori
 /Applications/Godot.app/Contents/MacOS/Godot --editor --path godot
 ```
 
-F5 ejecuta el recorrido. **Flechas o A/D:** caminar; **Mayús:** correr; **clic en suelo:** destino caminando; **doble clic:** destino corriendo; **Esc:** parar. También hay casilla Correr y botones de acercamiento. Clic en mostrador, cabina o personas del acceso selecciona su punto de llegada; no abre todavía diálogos ni viajes. Revisión visual permite comparar perfiles, alturas, lugares, planos y luz; Probar recorrido vuelve al controlador.
+F5 ejecuta el recorrido. **Flechas o A/D:** caminar; **clic en suelo:** destino caminando; **Esc:** parar. También hay botones de acercamiento. La carrera se retira por decisión del autor el 13 de octubre; Mayús y doble clic no aumentan la velocidad. Clic en mostrador, cabina o personas del acceso selecciona su punto de llegada; no abre todavía diálogos ni viajes. Revisión visual permite comparar perfiles, alturas, lugares, planos y luz; Probar recorrido vuelve al controlador.
 
 El centro transitable permanece en y = 705, con límites x = 128–1632 y colisión física de pies. Se conserva el orden de capas. [Registro T04](../trabajo/arte/revisiones/recorrido_jugable_v1/README.md). El sprite aún no anima los pasos. GDScript y Compatibility; Web sin hilos ni extensiones, sin .NET ni complementos.
 
@@ -64,7 +64,7 @@ Cambio posterior del mismo día: el fondo activo pasa a Velvet. Importación, co
 
 Revisión de escala posterior: cuatro vistas y tres alturas verificadas por prueba automática y capturas nativas. La exportación Web se regenera correctamente. La prueba en Safari de la tabla corresponde a la escena técnica anterior: no se ha observado todavía la revisión nueva en navegador.
 
-Decisión del 10 de octubre: el autor aprueba el aspecto de Sota en escena y elige solo perfiles. Los controles actuales ya no ofrecen frontal ni tres cuartos; el atlas original se conserva. [Revisión histórica de solo perfiles](../trabajo/arte/revisiones/escala_v2/README.md). Respiración, carrera y cambios de dirección animados siguen pendientes.
+Decisión del 10 de octubre: el autor aprueba el aspecto de Sota en escena y elige solo perfiles. Los controles actuales ya no ofrecen frontal ni tres cuartos; el atlas original se conserva. [Revisión histórica de solo perfiles](../trabajo/arte/revisiones/escala_v2/README.md). Respiración y cambios de dirección animados siguen pendientes; la carrera se descarta después por decisión del autor.
 
 ## Recursos y continuidad
 
@@ -148,3 +148,5 @@ Prueba GPU sin `--headless`; añadir `-- --capturas` guarda siete renders en `ca
 ```
 
 Helium/Chromium: teclado/clic, Mayús, aceleración/frenada, extremos, acercamientos, pérdida/recuperación de foco y retorno a revisión visual comprobados. No acredita Safari/Firefox/móvil ni acabado de animación.
+
+**Solo caminar · decisión del autor, 13 de octubre:** retirada completa de carrera en el controlador y panel Godot. Prueba adaptada: siete llegadas, frenada/inversión, límites, colisión, foco y Mayús sin acelerar. Las capturas anteriores de T04 se conservan como historial; el modo `--capturas` guarda ahora en [solo_caminar_v1](../trabajo/arte/revisiones/solo_caminar_v1/README.md). T05 producirá sprites propios por fotograma, con ciclo de dos pasos en ambos perfiles; T06 cubre arranque/parada, giro y reposo, sin carrera.

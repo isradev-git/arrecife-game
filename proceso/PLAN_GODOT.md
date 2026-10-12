@@ -50,20 +50,22 @@ Antes de iniciar producción, añadir control de versiones local y una copia de 
 
 ### 1. Una escena que se sienta bien: Velvet
 
+**Decisión posterior del autor · 13 de octubre:** solo caminar, por el tamaño de los escenarios. Carrera retirada en Godot. El ciclo requiere sprites propios por fase, dos pasos completos, ambos perfiles sin reflejo y distancia/velocidad sincronizadas; ocho poses clave de partida y después intermedios según revisión.
+
 Este es el siguiente trabajo recomendado. Primera entrega pequeña: Sota recorre la galería, se detiene ante la jefa, inicia el encargo y puede abrir el primer documento. Se ejecuta ya en navegador.
 
 Orden interno:
 
 1. Revisar primero el nuevo acabado pixel art de Sota en Velvet: v8 conserva identidad y composición; REPLACED orienta el tratamiento visual vigente. Fijar escala, plano de suelo, resolución, retícula y filtrado con recursos nuevos a tamaño real antes de extender la producción. Los 1280 × 720 de la prueba de instalación no son una retícula artística aprobada.
 2. Construir movimiento con límites/colisiones y puntos de llegada por interacción. Conservar teclado y clic; impedir movimiento mientras se lee o conversa. No añadir salto, combate ni plataformas.
-3. Calibrar el ciclo de caminar: apoyos, transferencia de peso, distancia de zancada y pivote común. Corregir la consistencia de los fotogramas antes de aumentar su número. Revisar después carrera, frenada, cambio entre perfiles y reposo con respiración sutil; preparar izquierda propia para conservar el deck.
+3. Calibrar el ciclo de caminar: apoyos, transferencia de peso, distancia de zancada y pivote común. Corregir la consistencia de los fotogramas antes de aumentar su número. Revisar después arranque, frenada, cambio entre perfiles y reposo con respiración sutil; preparar izquierda propia para conservar el deck.
 4. Comprobar qué debe quedar delante y detrás de Sota. Separar los elementos necesarios del fondo y reconstruir lo oculto por ellos. Guardar nuevas versiones y prompts. Godot no separa automáticamente los personajes de una ilustración.
 5. Añadir profundidad y actividad discreta: capas con parallax donde haya movimiento de cámara, vapor, reflejos, luces y algún secundario independiente. La cámara debe servir a la composición; un fondo fijo no gana profundidad solo por usar un nodo de parallax.
 6. Encargo y primer documento con controles de Godot, foco de teclado, texto cómodo y movimiento reducido. Evaluar el conjunto con el autor.
 
 **Diálogos · decisión del autor, 12 de octubre:** escena oscurecida, retrato de Sota a la izquierda, interlocutor a la derecha y texto entre ambos. [Retratos de Sota/Jefa guardados](../trabajo/arte/personajes/retratos_v1/README.md). Implementar con el primer encargo en T10/T11; composición decidida, tamaños/opciones/foco y transiciones pendientes. La escena lateral conserva sprites de perfil y rostro pixelado; los retratos ilustrados son recursos de interfaz.
 
-**Cierre del hito:** caminar y correr en ambos sentidos, parar, invertir dirección, llegar y hablar sin saltos de escala, atravesar objetos ni perder el foco; texto legible; escena ejecutable en navegador. Registrar por separado errores comprobados y valoración estética del autor. Si Sota sigue pareciendo deslizarse o cambiar de cuerpo, el hito sigue abierto.
+**Cierre del hito:** caminar en ambos sentidos, parar, invertir dirección, llegar y hablar sin saltos de escala, atravesar objetos ni perder el foco; texto legible; escena ejecutable en navegador. Registrar por separado errores comprobados y valoración estética del autor. Si Sota sigue pareciendo deslizarse o cambiar de cuerpo, el hito sigue abierto.
 
 ### 2. Pasar el caso completo
 

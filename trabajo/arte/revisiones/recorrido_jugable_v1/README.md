@@ -1,5 +1,7 @@
 # T04 · Recorrido provisional en Velvet
 
+**Registro de la entrega inicial:** los controles con carrera descritos aquí se conservan como historial. El autor descarta correr después; [controles vigentes, solo caminar](../solo_caminar_v1/README.md). No regenerar estas capturas para sustituir su contenido.
+
 Entrega del asistente · **13 de octubre de 2026**. El autor aprueba **Sota a 252 de altura**; la sensación del controlador queda para su valoración. V7, Jefa y todos los PNG/JSON/prompts anteriores conservados sin editar. No cambia historia.
 
 F5 abre `godot/recorrido.tscn`. También se puede probar la exportación local en `http://127.0.0.1:8766/godot/build/web/` mientras siga activo el servidor de esta sesión. [Instrucciones reproducibles](../../../../godot/README.md).
@@ -47,4 +49,4 @@ Las otras capturas Web son de 1672 × 941; teclado/foco también tiene una captu
 
 ## Pendientes
 
-El sprite todavía se desliza de pie: **T05 añadirá el ciclo de caminar sincronizado con la distancia**; T06 carrera, parada y reposo. No se presenta esto como acabado final. Falta valoración del autor sobre control/velocidades, fuentes de luz espaciales, diálogos/viajes, caso completo y Safari/Firefox/móvil. La interfaz superior es un panel de prueba. La altura 252 aprobada no cierra la retícula artística común de T02.
+El sprite todavía se desliza de pie: **T05 añadirá el ciclo de caminar sincronizado con la distancia**; T06 cubría inicialmente carrera, parada y reposo; después se descarta carrera y se conserva arranque/parada/reposo. No se presenta esto como acabado final. Falta valoración del autor sobre control/velocidades, fuentes de luz espaciales, diálogos/viajes, caso completo y Safari/Firefox/móvil. La interfaz superior es un panel de prueba. La altura 252 aprobada no cierra la retícula artística común de T02.

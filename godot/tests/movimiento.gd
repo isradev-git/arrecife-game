@@ -9,54 +9,50 @@ func _initialize() -> void:
 
 func check() -> void:
 	var walking := MOTION.new()
-	var running := MOTION.new()
 	var walk_x := 780.0
-	var run_x := 780.0
-	walk_x = walking.step(walk_x, 1.0 / 60.0, 1.0, false)
+	walk_x = walking.step(walk_x, 1.0 / 60.0, 1.0)
 	assert(walking.velocity > 0.0 and walking.velocity < MOTION.WALK_SPEED)
 	for index in range(60):
-		walk_x = walking.step(walk_x, 1.0 / 60.0, 1.0, false)
-		run_x = running.step(run_x, 1.0 / 60.0, 1.0, true)
-	assert(run_x - walk_x > 100.0 and running.velocity == MOTION.RUN_SPEED)
-	var reversed := walking.step(walk_x, 1.0 / 60.0, -1.0, false)
+		walk_x = walking.step(walk_x, 1.0 / 60.0, 1.0)
+	assert(walking.velocity == MOTION.WALK_SPEED)
+	var reversed := walking.step(walk_x, 1.0 / 60.0, -1.0)
 	assert(reversed > walk_x)
 	for index in range(40):
-		reversed = walking.step(reversed, 1.0 / 60.0, -1.0, false)
+		reversed = walking.step(reversed, 1.0 / 60.0, -1.0)
 	assert(walking.velocity < 0.0)
 	for index in range(30):
-		reversed = walking.step(reversed, 1.0 / 60.0, 0.0, false)
+		reversed = walking.step(reversed, 1.0 / 60.0, 0.0)
 	assert(walking.velocity == 0.0)
-	for sprint in [false, true]:
-		for destination in [128.0, 779.99, 780.01, 800.0, 1260.0, 1480.0, 1632.0]:
-			var motion := MOTION.new()
-			var x := 780.0
-			assert(motion.go_to(destination, sprint))
-			for index in range(600):
-				x = motion.step(x, 1.0 / 60.0, 0.0, false)
-				assert(x >= minf(780.0, destination) and x <= maxf(780.0, destination))
-				if motion.arrived:
-					break
-			assert(motion.arrived and x == destination and motion.velocity == 0.0 and motion.target == null)
+	for destination in [128.0, 779.99, 780.01, 800.0, 1260.0, 1480.0, 1632.0]:
+		var motion := MOTION.new()
+		var x := 780.0
+		assert(motion.go_to(destination))
+		for index in range(600):
+			x = motion.step(x, 1.0 / 60.0, 0.0)
+			assert(x >= minf(780.0, destination) and x <= maxf(780.0, destination))
+			if motion.arrived:
+				break
+		assert(motion.arrived and x == destination and motion.velocity == 0.0 and motion.target == null)
 	var clamped := MOTION.new()
 	assert(not clamped.go_to(NAN))
 	assert(clamped.go_to(-999.0) and clamped.target == MOTION.MIN_X)
 	assert(clamped.go_to(9999.0) and clamped.target == MOTION.MAX_X)
 	var x := 780.0
 	for index in range(600):
-		x = clamped.step(x, 1.0 / 60.0, -1.0, true)
+		x = clamped.step(x, 1.0 / 60.0, -1.0)
 	assert(x == MOTION.MIN_X and clamped.velocity == 0.0 and clamped.target == null)
 	for index in range(600):
-		x = clamped.step(x, 1.0 / 60.0, 1.0, true)
+		x = clamped.step(x, 1.0 / 60.0, 1.0)
 	assert(x == MOTION.MAX_X and clamped.velocity == 0.0)
 	var positions: Array[float] = []
 	for fps in [30, 60]:
 		var motion := MOTION.new()
 		x = 780.0
 		for index in range(fps):
-			x = motion.step(x, 1.0 / fps, 1.0, false)
+			x = motion.step(x, 1.0 / fps, 1.0)
 		positions.append(x)
 	assert(absf(positions[0] - positions[1]) < 4.0)
-	print("OK: aceleración, carrera, frenada, inversión, 14 llegadas sin sobrepasar, límites, destinos inválidos y pasos 30/60.")
+	print("OK: aceleración, caminar sin carrera, frenada, inversión, 7 llegadas sin sobrepasar, límites, destinos inválidos y pasos 30/60.")
 	await check_scene()
 	quit()
 
@@ -72,18 +68,18 @@ func check_scene() -> void:
 	assert(scene.body.get_child_count() == 2)
 	scene.go_to(1260.0, 0, "Jefa")
 	for index in range(400):
-		scene.advance(1.0 / 60.0, 0.0, false)
+		scene.advance(1.0 / 60.0, 0.0)
 	assert(is_equal_approx(scene.body.position.x, 1260.0) and scene.motion.velocity == 0.0 and scene.pose_index == 0)
-	scene.go_to(300.0, 1, "guardia", true)
+	scene.go_to(300.0, 1, "guardia")
 	for index in range(400):
-		scene.advance(1.0 / 60.0, 0.0, false)
+		scene.advance(1.0 / 60.0, 0.0)
 	assert(is_equal_approx(scene.body.position.x, 300.0) and scene.pose_index == 1)
 	var sole: Vector2 = scene.sota.to_global((scene.sota.offset + Vector2(scene.sota.texture.get_width() / 2.0, scene.sota.texture.get_height())))
 	assert(sole.is_equal_approx(Vector2(300, 705)))
 	assert(scene.back_railing.z_index < scene.body.z_index and scene.body.z_index < scene.railing.z_index)
 	for intent in [-1.0, 1.0]:
 		for index in range(600):
-			scene.advance(1.0 / 60.0, intent, true)
+			scene.advance(1.0 / 60.0, intent)
 		assert(scene.body.position.x >= MOTION.MIN_X - 0.2 and scene.body.position.x <= MOTION.MAX_X + 0.2)
 		assert(scene.body.position.y == 705.0)
 	# Un obstáculo real del plano transitable debe detener el cuerpo, aunque el destino esté detrás.
@@ -99,9 +95,9 @@ func check_scene() -> void:
 	scene.cancel_movement()
 	await physics_frame
 	await process_frame
-	scene.go_to(1480.0, 0, "acceso", true)
+	scene.go_to(1480.0, 0, "acceso")
 	for index in range(400):
-		scene.advance(1.0 / 60.0, 0.0, false)
+		scene.advance(1.0 / 60.0, 0.0)
 	assert(scene.body.position.x < 1080.1 and scene.body.position.x > 1079.0)
 	assert(scene.motion.target == null and scene.motion.velocity == 0.0)
 	obstacle.queue_free()
@@ -109,12 +105,11 @@ func check_scene() -> void:
 	await physics_frame
 	scene.go_to(1260.0)
 	scene.pressed_keys[KEY_D] = true
-	scene.run_toggle.button_pressed = true
 	scene.get_window().focus_exited.emit()
 	var stopped: Vector2 = scene.body.position
 	for index in range(30):
 		scene._physics_process(1.0 / 60.0)
-	assert(scene.body.position == stopped and scene.pressed_keys.is_empty() and scene.motion.target == null and not scene.run_toggle.button_pressed)
+	assert(scene.body.position == stopped and scene.pressed_keys.is_empty() and scene.motion.target == null)
 	var event := InputEventKey.new()
 	event.physical_keycode = KEY_D
 	event.pressed = true
@@ -134,7 +129,7 @@ func check_scene() -> void:
 	scene._input(event)
 	for index in range(20):
 		scene._physics_process(1.0 / 60.0)
-	assert(scene.motion.velocity == MOTION.RUN_SPEED)
+	assert(scene.motion.velocity == MOTION.WALK_SPEED and KEY_SHIFT not in scene.pressed_keys)
 	shift.pressed = false
 	scene._input(shift)
 	for index in range(20):
@@ -150,15 +145,15 @@ func check_scene() -> void:
 	event.echo = true
 	scene._input(event)
 	assert(scene.pressed_keys.is_empty() and scene.motion.velocity == 0.0 and scene.motion.target == null)
-	print("OK: escena 252/v7, pies 705, planos, puntos Jefa/guardia, colisiones físicas, pérdida de foco, nueva pulsación y liberación.")
+	print("OK: escena 252/v7, pies 705, planos, puntos Jefa/guardia, colisiones físicas, pérdida de foco, nueva pulsación, liberación y Mayús sin aumento de velocidad.")
 	if "--capturas" in OS.get_cmdline_user_args() and DisplayServer.get_name() != "headless":
 		for sample in [[1260.0, 0, "jefa"], [300.0, 1, "guardia"]]:
 			scene.go_to(sample[0], sample[1], sample[2])
 			for index in range(600):
-				scene.advance(1.0 / 60.0, 0.0, false)
+				scene.advance(1.0 / 60.0, 0.0)
 			for index in range(4):
 				await process_frame
 			await RenderingServer.frame_post_draw
-			assert(root.get_texture().get_image().save_png("res://../trabajo/arte/revisiones/recorrido_jugable_v1/nativo_%s.png" % sample[2]) == OK)
+			assert(root.get_texture().get_image().save_png("res://../trabajo/arte/revisiones/solo_caminar_v1/nativo_%s.png" % sample[2]) == OK)
 	scene.queue_free()
 	await process_frame
