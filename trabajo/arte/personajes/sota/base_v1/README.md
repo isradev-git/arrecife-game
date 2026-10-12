@@ -1,5 +1,7 @@
 # Sota · Base sin neón fijo
 
+**Preferencia posterior · 12 de octubre:** el autor compara en navegador y prefiere v7 (Referencia aprobada), ahora predeterminada. Esta variante se conserva para comparación; no adquiere la aprobación de v7. [Registro](../../../revisiones/preferencia_sota_v1/README.md).
+
 11 de octubre de 2026. T03 adelantada: el autor autoriza continuar tras aprobar el estilo de Sota v7 y que el contraluz coincida con la luz del entorno. Se prepara una variante de ambos perfiles sin el neón rosa/naranja pintado, conservando la referencia aprobada.
 
 **Entrega del asistente, pendiente de valoración del autor.** Edición con imagegen integrado; no se retoca el PNG por código.

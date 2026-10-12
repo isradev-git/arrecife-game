@@ -32,7 +32,7 @@ const FRONT_EDGE_Y = 735.0
 const GROUND_Y = (BACK_EDGE_Y + FRONT_EDGE_Y) / 2.0
 
 var views: Array
-var art_index := 1
+var art_index := 0
 var pose_index := 0
 var light_index := 0
 var character_height := 252.0
@@ -229,7 +229,7 @@ func _ready() -> void:
 	sota.centered = false
 	sota.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
 	var material := ShaderMaterial.new()
-	material.shader = RIM_LIGHT
+	material.shader = CUTOUT
 	sota.material = material
 	add_child(sota)
 	build_controls()

@@ -9,7 +9,10 @@ func check_scene() -> void:
 	var scene = load("res://revision_escala.tscn").instantiate()
 	root.add_child(scene)
 	assert(scene.LABELS.size() == 2)
-	assert(scene.art_index == 1)
+	assert(scene.art_index == 0)
+	assert(scene.sota.texture.atlas == scene.ATLASES[0])
+	assert(scene.sota.material.shader == scene.CUTOUT)
+	assert(scene.sota.material.get_shader_parameter("recolor_rim") == false)
 	assert(scene.sota.texture_filter == CanvasItem.TEXTURE_FILTER_NEAREST)
 	for art in range(2):
 		scene.set_art(art)
