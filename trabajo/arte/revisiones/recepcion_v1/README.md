@@ -35,3 +35,5 @@ Agent-browser en sesión propia `arrecife-recepcion-20261011`, ejecutable Helium
 Sin caminar, respiración, colisiones ni interacción narrativa. El equipo es un grupo, el contraluz es manual, generación con variaciones de detalle. Resto de figurantes, arquitectura, ciudad, humo/luz, Safari/Firefox, rendimiento y juego completo pendientes.
 
 **Continuación T07.7:** [figura del acceso y escalera reconstruida](../acceso_v1/README.md). Estas capturas conservan el montaje de recepción, que sigue integrado; la nueva figura se revisa en su propia entrega.
+
+**Continuación T08.1 · 12 de octubre:** el autor identifica a la persona del mostrador como Jefa de la Nómina y aporta su retrato. [Sprite adaptado](../../personajes/jefa/pixel_v1/README.md); la antigua figurante anónima y estas capturas se conservan. La prueba de recepción actual guarda nuevas capturas en `jefa_v1`, no en esta revisión histórica.

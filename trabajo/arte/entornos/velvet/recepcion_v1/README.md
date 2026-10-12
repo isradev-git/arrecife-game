@@ -37,3 +37,5 @@ Controles Figurante y Equipo independientes de Mostrador visible/Ocultar mostrad
 [Capturas nativas/Web y pruebas](../../../revisiones/recepcion_v1/README.md). Quedan restantes figurantes y objetos, arquitectura/ciudad, retícula definitiva, luces espaciales, atmósfera, animación y movimiento/colisiones.
 
 **Continuación T07.7:** [figura del acceso](../acceso_v1/README.md). Recursos de recepción conservados e integrados sin modificaciones. El autor valora positivamente el progreso general y pide seguir con calma; no consta aprobación individual nueva de cada recurso.
+
+**Continuación T08.1 · 12 de octubre:** el autor identifica a la persona del mostrador como Jefa de la Nómina y aporta su retrato. [Sprite adaptado](../../../personajes/jefa/pixel_v1/README.md); la antigua figurante anónima y estas capturas se conservan. La prueba de recepción actual guarda nuevas capturas en `jefa_v1`, no en esta revisión histórica.

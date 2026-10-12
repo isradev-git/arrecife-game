@@ -61,6 +61,8 @@ Orden interno:
 5. Añadir profundidad y actividad discreta: capas con parallax donde haya movimiento de cámara, vapor, reflejos, luces y algún secundario independiente. La cámara debe servir a la composición; un fondo fijo no gana profundidad solo por usar un nodo de parallax.
 6. Encargo y primer documento con controles de Godot, foco de teclado, texto cómodo y movimiento reducido. Evaluar el conjunto con el autor.
 
+**Diálogos · decisión del autor, 12 de octubre:** escena oscurecida, retrato de Sota a la izquierda, interlocutor a la derecha y texto entre ambos. [Retratos de Sota/Jefa guardados](../trabajo/arte/personajes/retratos_v1/README.md). Implementar con el primer encargo en T10/T11; composición decidida, tamaños/opciones/foco y transiciones pendientes. La escena lateral conserva sprites de perfil y rostro pixelado; los retratos ilustrados son recursos de interfaz.
+
 **Cierre del hito:** caminar y correr en ambos sentidos, parar, invertir dirección, llegar y hablar sin saltos de escala, atravesar objetos ni perder el foco; texto legible; escena ejecutable en navegador. Registrar por separado errores comprobados y valoración estética del autor. Si Sota sigue pareciendo deslizarse o cambiar de cuerpo, el hito sigue abierto.
 
 ### 2. Pasar el caso completo

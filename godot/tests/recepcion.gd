@@ -36,6 +36,7 @@ func check() -> void:
 	assert(scene.counter.z_index < scene.equipment.z_index and scene.equipment.z_index < scene.sota.z_index)
 	assert(is_equal_approx(scene.staff.position.y + scene.staff.texture.get_height() * scene.staff.scale.y, scene.BACK_EDGE_Y))
 	assert(is_equal_approx(scene.equipment.position.y + scene.equipment.texture.get_height() * scene.equipment.scale.y, scene.counter.position.y))
+	var staff_right := ceili(scene.staff.position.x + scene.staff.texture.get_width() * scene.staff.scale.x)
 	scene.sota.hide()
 	scene.set_railings(false, false)
 	scene.counter.hide()
@@ -46,7 +47,7 @@ func check() -> void:
 	var worker := await frame()
 	var changed_staff := 0
 	for y in range(431, 675):
-		for x in range(1328, 1432):
+		for x in range(1328, staff_right):
 			if worker.get_pixel(x, y) != empty.get_pixel(x, y):
 				changed_staff += 1
 	assert(changed_staff > 3000)
@@ -58,7 +59,7 @@ func check() -> void:
 	var person: Image = scene.staff.texture.get_image()
 	var metal: Image = scene.counter.texture.get_image()
 	for y in range(538, 675):
-		for x in range(1328, 1432):
+		for x in range(1328, staff_right):
 			var point := Vector2(x + 0.5, y + 0.5)
 			var local: Vector2 = scene.staff.to_local(point)
 			if local.x >= person.get_width() or local.y >= person.get_height():
@@ -90,7 +91,7 @@ func check() -> void:
 		var preserved := 0
 		var sota_image: Image = scene.sota.texture.get_image()
 		for y in range(450, 675):
-			for x in range(1328, 1432):
+			for x in range(1328, staff_right):
 				var local: Vector2 = scene.sota.to_local(Vector2(x + 0.5, y + 0.5)) - scene.sota.offset
 				if local.x < 0 or local.y < 0 or local.x >= sota_image.get_width() or local.y >= sota_image.get_height():
 					continue
@@ -102,12 +103,13 @@ func check() -> void:
 		assert(preserved > 1500)
 		print("OK perfil ", pose, ": ", preserved, " muestras de Sota delante de recepción.")
 		scene.staff.hide()
-	print("OK: figurante ", changed_staff, "; equipo ", changed_equipment, "; cuerpo oculto por mostrador ", covered, ". Alfa, apoyos y planos correctos.")
+	print("OK: jefa ", changed_staff, "; equipo ", changed_equipment, "; cuerpo oculto por mostrador ", covered, ". Alfa, apoyos y planos correctos.")
 	if "--capturas" in OS.get_cmdline_user_args():
 		scene.set_ground(1345.0)
 		scene.set_railings(true, true)
-		var directory := ProjectSettings.globalize_path("res://../trabajo/arte/revisiones/recepcion_v1/")
-		for entry in [["completa_0", true, true, true, 0], ["completa_1", true, true, true, 1], ["sin_figurante", true, false, true, 0], ["sin_equipo", true, true, false, 0], ["interior", false, false, false, 0]]:
+		var directory := ProjectSettings.globalize_path("res://../trabajo/arte/revisiones/jefa_v1/")
+		for entry in [["galeria", true, true, true, 0, 780.0], ["completa_0", true, true, true, 0, 1345.0], ["completa_1", true, true, true, 1, 1345.0], ["sin_jefa", true, false, true, 0, 1345.0], ["sin_equipo", true, true, false, 0, 1345.0], ["interior", false, false, false, 0, 1345.0]]:
+			scene.set_ground(entry[5])
 			scene.counter.visible = entry[1]
 			scene.staff.visible = entry[2]
 			scene.equipment.visible = entry[3]

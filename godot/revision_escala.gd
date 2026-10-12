@@ -7,7 +7,7 @@ const BACKGROUND = preload("res://assets/entornos/velvet/fondo_suelo_recto_v1.pn
 const RAILING = preload("res://assets/entornos/velvet/barandilla_v1.png")
 const COUNTER = preload("res://assets/entornos/velvet/mostrador_v1.png")
 const COUNTER_BACKGROUND = preload("res://assets/entornos/velvet/fondo_recepcion_reparado_v1.png")
-const STAFF = preload("res://assets/entornos/velvet/figurante_recepcion_v1.png")
+const STAFF = preload("res://assets/personajes/jefa/perfil_mostrador_v1.png")
 const EQUIPMENT = preload("res://assets/entornos/velvet/equipo_recepcion_v1.png")
 const ACCESS_PERSON = preload("res://assets/entornos/velvet/figurante_acceso_v2.png")
 const ACCESS_BACKGROUND = preload("res://assets/entornos/velvet/fondo_acceso_reparado_v2.png")
@@ -124,12 +124,12 @@ func _ready() -> void:
 	add_child(back_railing)
 	var staff_texture := AtlasTexture.new()
 	staff_texture.atlas = STAFF
-	staff_texture.region = Rect2(233, 142, 557, 1318)
+	staff_texture.region = Rect2(234, 120, 634, 1339)
 	staff_texture.filter_clip = true
 	staff.texture = staff_texture
 	staff.centered = false
 	staff.position = Vector2(1328, BACK_EDGE_Y - 244.0)
-	staff.scale = Vector2.ONE * (244.0 / 1318.0)
+	staff.scale = Vector2.ONE * (244.0 / 1339.0)
 	staff.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
 	# shortcut: contraluz manual de recepción; conectar fuentes espaciales en T09.
 	var staff_material := ShaderMaterial.new()
@@ -336,7 +336,7 @@ func build_controls() -> void:
 	add_button(reception, "Frente al mostrador", set_ground.bind(1345.0))
 	var actors := HBoxContainer.new()
 	column.add_child(actors)
-	for entry in [["Figurante", staff], ["Equipo", equipment], ["Acceso", access_person]]:
+	for entry in [["Jefa", staff], ["Equipo", equipment], ["Acceso", access_person]]:
 		var toggle := CheckButton.new()
 		toggle.text = entry[0]
 		toggle.button_pressed = true
