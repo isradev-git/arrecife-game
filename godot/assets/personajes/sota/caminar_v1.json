@@ -1,0 +1,211 @@
+{
+  "nota": "T05.1: ocho poses clave por perfil, propuesta pendiente de valoración/intermedios. PNG intactos. Recortes medidos por alfa 0.1, margen lógico común; no reescalado por fotograma. Izquierda pose 6 procede de v4 porque conserva la pierna correcta.",
+  "marco": [
+    512,
+    544
+  ],
+  "pivote": [
+    256,
+    510
+  ],
+  "altura_referencia": 470,
+  "distancia_ciclo": 192.0,
+  "perfiles": [
+    [
+      {
+        "fase": "contacto A",
+        "atlas": 0,
+        "region": [
+          79,
+          27,
+          298,
+          470
+        ],
+        "cadera_x": 221,
+        "pixeles_alfa": 56841
+      },
+      {
+        "fase": "apoyo A",
+        "atlas": 0,
+        "region": [
+          443,
+          27,
+          243,
+          470
+        ],
+        "cadera_x": 577,
+        "pixeles_alfa": 53222
+      },
+      {
+        "fase": "cruce A",
+        "atlas": 0,
+        "region": [
+          862,
+          27,
+          180,
+          470
+        ],
+        "cadera_x": 950,
+        "pixeles_alfa": 48371
+      },
+      {
+        "fase": "impulso A",
+        "atlas": 0,
+        "region": [
+          1173,
+          27,
+          310,
+          471
+        ],
+        "cadera_x": 1320,
+        "pixeles_alfa": 55344
+      },
+      {
+        "fase": "contacto B",
+        "atlas": 0,
+        "region": [
+          48,
+          526,
+          347,
+          465
+        ],
+        "cadera_x": 220,
+        "pixeles_alfa": 57623
+      },
+      {
+        "fase": "apoyo B",
+        "atlas": 0,
+        "region": [
+          453,
+          526,
+          233,
+          466
+        ],
+        "cadera_x": 575,
+        "pixeles_alfa": 52967
+      },
+      {
+        "fase": "cruce B",
+        "atlas": 0,
+        "region": [
+          829,
+          526,
+          200,
+          466
+        ],
+        "cadera_x": 949,
+        "pixeles_alfa": 51700
+      },
+      {
+        "fase": "impulso B",
+        "atlas": 0,
+        "region": [
+          1150,
+          526,
+          347,
+          466
+        ],
+        "cadera_x": 1320,
+        "pixeles_alfa": 59833
+      }
+    ],
+    [
+      {
+        "fase": "contacto A",
+        "atlas": 1,
+        "region": [
+          50,
+          21,
+          309,
+          474
+        ],
+        "cadera_x": 213,
+        "pixeles_alfa": 58722
+      },
+      {
+        "fase": "apoyo A",
+        "atlas": 1,
+        "region": [
+          464,
+          21,
+          262,
+          474
+        ],
+        "cadera_x": 576,
+        "pixeles_alfa": 55151
+      },
+      {
+        "fase": "cruce A",
+        "atlas": 1,
+        "region": [
+          821,
+          21,
+          208,
+          474
+        ],
+        "cadera_x": 944,
+        "pixeles_alfa": 52855
+      },
+      {
+        "fase": "impulso A",
+        "atlas": 1,
+        "region": [
+          1140,
+          21,
+          348,
+          475
+        ],
+        "cadera_x": 1340,
+        "pixeles_alfa": 59388
+      },
+      {
+        "fase": "contacto B",
+        "atlas": 1,
+        "region": [
+          40,
+          520,
+          327,
+          458
+        ],
+        "cadera_x": 214,
+        "pixeles_alfa": 58826
+      },
+      {
+        "fase": "apoyo B",
+        "atlas": 1,
+        "region": [
+          478,
+          520,
+          262,
+          458
+        ],
+        "cadera_x": 583,
+        "pixeles_alfa": 53563
+      },
+      {
+        "fase": "cruce B",
+        "atlas": 2,
+        "region": [
+          832,
+          519,
+          224,
+          461
+        ],
+        "cadera_x": 938,
+        "pixeles_alfa": 55956
+      },
+      {
+        "fase": "impulso B",
+        "atlas": 1,
+        "region": [
+          1145,
+          520,
+          349,
+          458
+        ],
+        "cadera_x": 1336,
+        "pixeles_alfa": 59193
+      }
+    ]
+  ]
+}

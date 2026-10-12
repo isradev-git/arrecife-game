@@ -64,3 +64,5 @@ Antes de retomar, leer [ESTADO_DEL_PROYECTO.md](proceso/ESTADO_DEL_PROYECTO.md).
 Las cachés de Godot, exportaciones generadas, metadatos de Finder y credenciales de exportación se excluyen de Git. Se conservan los archivos `.import` y `.uid` necesarios para reproducir el proyecto. El editor y las plantillas se instalan aparte; no forman parte del repositorio.
 
 Este repositorio contiene el proyecto de desarrollo. Todavía no hay una publicación del juego para jugadores.
+
+**Poses de caminar T05.1 · 13 de octubre:** [ocho poses por perfil y láminas](trabajo/arte/revisiones/marcha_poses_v1/README.md). Activar Pasos en prueba para ver la secuencia mientras se camina; la Sota v7 aprobada sigue al arrancar/en reposo. Recursos nuevos pendientes de valoración; intermedios y calibración posteriores.

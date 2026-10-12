@@ -1,16 +1,23 @@
 extends "res://revision_escala.gd"
 
 const MOTION = preload("res://movimiento.gd")
+const WALK = preload("res://animacion_marcha.gd")
 
 var motion := MOTION.new()
 var body := CharacterBody2D.new()
 var pressed_keys: Dictionary = {}
 var arrival_pose := -1
 var destination_name := ""
+var walk := WALK.new()
+var step_preview := CheckButton.new()
+var walked_distance := 0.0
+var walk_frame := -1
+var rest_material: ShaderMaterial
 
 
 func _ready() -> void:
 	super._ready()
+	rest_material = sota.material
 	body.position = ground
 	add_child(body)
 	var footprint := CollisionShape2D.new()
@@ -35,8 +42,11 @@ func _ready() -> void:
 
 
 func show_pose(index: int) -> void:
-	# shortcut: perfiles estáticos para validar el control; T05 añadirá pasos sincronizados.
+	if rest_material != null:
+		sota.material = rest_material
 	super.show_pose(index)
+	walk_frame = -1
+	walked_distance = 0.0
 	if sota.get_parent() == body:
 		sota.position = Vector2.ZERO
 
@@ -62,7 +72,21 @@ func build_controls() -> void:
 	add_button(row, "Junto al guardia", go_to.bind(300.0, 1, "guardia"))
 	add_button(row, "Junto al acceso", go_to.bind(1480.0, 0, "acceso"))
 	add_button(row, "Revisión visual", get_tree().change_scene_to_file.bind("res://revision_escala.tscn"))
+	step_preview.text = "Pasos en prueba"
+	step_preview.toggled.connect(set_step_preview)
+	row.add_child(step_preview)
 	column.add_child(status)
+
+
+func set_step_preview(_enabled: bool) -> void:
+	show_pose(pose_index)
+	update_status()
+
+
+func show_walk_frame(index: int) -> void:
+	walk_frame = index
+	walk.apply(sota, pose_index, index, character_height)
+	update_status()
 
 
 func go_to(x: float, facing: int = -1, label: String = "") -> void:
@@ -138,6 +162,14 @@ func advance(delta: float, intent: float) -> void:
 			show_pose(facing)
 	if motion.arrived and arrival_pose >= 0:
 		show_pose(arrival_pose)
+	# shortcut: ocho poses clave en revisión; T05 añadirá intermedios y afinará apoyos/zancada.
+	if step_preview.button_pressed and motion.velocity != 0.0:
+		walked_distance += absf(body.position.x - previous)
+		var frame := walk.frame_at(walked_distance)
+		if frame != walk_frame:
+			show_walk_frame(frame)
+	elif walk_frame >= 0:
+		show_pose(pose_index)
 	if motion.velocity == 0.0:
 		body.velocity = Vector2.ZERO
 	update_status()
@@ -147,4 +179,5 @@ func update_status() -> void:
 	var state := "Detenida" if motion.velocity == 0.0 else "Caminando"
 	if destination_name != "":
 		state += " · " + ("Junto a " if motion.target == null else "Hacia ") + destination_name
-	status.text = "%s · x %.0f · Altura 252 · Sprite provisional sin animación" % [state, ground.x]
+	var art := "Poses clave · %d/8" % (walk_frame + 1) if walk_frame >= 0 else "Referencia de reposo v7"
+	status.text = "%s · x %.0f · Altura 252 · %s" % [state, ground.x, art]

@@ -10,7 +10,7 @@ Objetivo: terminar un juego breve de investigación en Godot, con personajes y e
 
 **Dirección artística vigente:** renovar sprites, modelos, personajes, objetos, animaciones y entornos por capas para un acabado más pixel art, más cercano a REPLACED. Los recursos actuales son una iteración previa; conservar identidad, universo, versiones y prompts. El 11 de octubre el autor fija las [dos imágenes de estilo aprobadas](trabajo/arte/referencias/pixel_art_v1/README.md) como referencia principal para todo el juego: entorno y personajes. Criterios en [dirección artística](trabajo/direccion_artistica.md). La renovación se incorpora a las tareas existentes, una cada vez.
 
-**Última tarea entregada:** T04 · Desplazamiento provisional en Godot. [Pruebas y capturas](trabajo/arte/revisiones/recorrido_jugable_v1/README.md). Teclado/clic, caminar, aceleración/frenada, colisiones, límites y puntos de acercamiento comprobados; valoración del control por el autor pendiente. El autor aprueba **Sota a 252 de altura** el 13 de octubre, con v7 como dibujo vigente. Esa aprobación no cierra toda T02: retícula artística e iluminación siguen abiertas. **Siguiente:** T05 · ciclo de caminar, ambos perfiles y pies sincronizados con el desplazamiento. T07/T08 conservan sus pendientes por capas y actividad. **Completadas:** T00 y T01.
+**Última tarea entregada:** T04 · Desplazamiento provisional en Godot. [Pruebas y capturas](trabajo/arte/revisiones/recorrido_jugable_v1/README.md). Teclado/clic, caminar, aceleración/frenada, colisiones, límites y puntos de acercamiento comprobados; valoración del control por el autor pendiente. El autor aprueba **Sota a 252 de altura** el 13 de octubre, con v7 como dibujo vigente. Esa aprobación no cierra toda T02: retícula artística e iluminación siguen abiertas. **Actual:** T05 · ciclo de caminar, T05.1 entregada con dieciséis poses clave para revisar; intermedios y calibración pendientes. T07/T08 conservan sus pendientes por capas y actividad. **Completadas:** T00 y T01.
 
 **Preferencia de Sota · 12 de octubre:** el autor compara en navegador y prefiere **Referencia aprobada (v7)** frente a Base e iluminación. [V7 predeterminada y comprobada](trabajo/arte/revisiones/preferencia_sota_v1/README.md); PNG intactos y alternativa conservada. Próximas revisiones de luz deben conservar ese dibujo; T02/T03 siguen abiertas técnicamente para retícula, iluminación y animación.
 
@@ -84,7 +84,9 @@ La ambición de calidad se concreta en estos criterios y en revisiones sobre res
 
 **Cierre:** llegar sin sobrepasar el destino, detenerse, invertir dirección y perder/recuperar el foco sin movimiento atascado. Comprobar entradas y límites con una prueba pequeña; verificar también la exportación Web. El recurso provisional permite evaluar el control, no cerrar el arte.
 
-### T05 · Terminar el ciclo de caminar — Pendiente
+### T05 · Terminar el ciclo de caminar — En curso
+
+**T05.1 · Entregada:** [dieciséis poses clave y prueba opcional](trabajo/arte/revisiones/marcha_poses_v1/README.md). Ocho por perfil, intentos/prompts conservados, montaje con marco/pivote/escala comunes y ciclo por distancia; Pasos en prueba desactivado de inicio, v7 para reposo. Dibujos nuevos pendientes de valoración. **T05.2 pendiente:** intermedios, calibración de pies/zancada/tiempos, encuadre de extremos y coherencia de manos/ropa/equipo. T05 no completada.
 
 **Entrega:** ciclo completo de dos pasos, consistente en ambos sentidos, con sprites propios por fotograma, integrado en el controlador y sincronizado con la distancia recorrida.
 
@@ -312,3 +314,5 @@ Al completar una tarea, añadir una fila breve y actualizar su estado arriba. Lo
 | T04 · altura aprobada y recorrido provisional | 13 oct 2026 | [Código, capturas y comprobaciones](trabajo/arte/revisiones/recorrido_jugable_v1/README.md) | Control, 14 llegadas sin sobrepasar, límites, colisión física, foco, perfiles/planos, Godot nativo y Web | Autor aprueba 252; controlador entregado para valorar. Sin animación ni diálogos; siguiente T05 |
 
 | T04 · retirada de carrera y criterio de T05 | 13 oct 2026 | [Solo caminar](trabajo/arte/revisiones/solo_caminar_v1/README.md) | Controlador/pruebas/panel sin carrera; exportación y Web comprobadas | Autor descarta correr y exige sprites por fase de marcha. T05 pendiente de producción/revisión del ciclo |
+
+| T05.1 · poses clave de marcha | 13 oct 2026 | [Originales/prompts](trabajo/arte/personajes/sota/caminar_v1/README.md), [láminas y prueba](trabajo/arte/revisiones/marcha_poses_v1/README.md) | Marco/pivote/escala/alfa, fases por distancia, ambos perfiles, retorno v7, controlador y Godot/Web comprobados | Propuesta nueva pendiente de valoración; intermedios y calibración T05.2, T05 en curso |
