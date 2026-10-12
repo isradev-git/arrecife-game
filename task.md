@@ -1,6 +1,6 @@
 # EL ARRECIFE · Tareas del videojuego
 
-Actualizado: **11 de octubre de 2026**. **Título definitivo pendiente**: el autor ha descartado «Pase pendiente» para la versión final. Ese nombre permanece en los archivos anteriores como referencia histórica hasta elegir el nuevo.
+Actualizado: **13 de octubre de 2026**. **Título definitivo pendiente**: el autor ha descartado «Pase pendiente» para la versión final. Ese nombre permanece en los archivos anteriores como referencia histórica hasta elegir el nuevo.
 
 Objetivo: terminar un juego breve de investigación en Godot, con personajes y entornos cuidados, jugable en navegador y presentable como proyecto propio. Desarrollan y prueban el autor y el asistente.
 
@@ -10,7 +10,7 @@ Objetivo: terminar un juego breve de investigación en Godot, con personajes y e
 
 **Dirección artística vigente:** renovar sprites, modelos, personajes, objetos, animaciones y entornos por capas para un acabado más pixel art, más cercano a REPLACED. Los recursos actuales son una iteración previa; conservar identidad, universo, versiones y prompts. El 11 de octubre el autor fija las [dos imágenes de estilo aprobadas](trabajo/arte/referencias/pixel_art_v1/README.md) como referencia principal para todo el juego: entorno y personajes. Criterios en [dirección artística](trabajo/direccion_artistica.md). La renovación se incorpora a las tareas existentes, una cada vez.
 
-**Tarea actual:** T02 · Comparación de escala/píxel — Entregada T02.1 por autorización del autor. [Lámina y pruebas](trabajo/arte/revisiones/escala_produccion_v1/README.md): tres alturas de Sota v7 junto a Jefa/cabina, ambos perfiles, raster actual frente a píxel 2×2. Propuesta del asistente: Sota 252, Jefa 244 y render actual nearest; valoración visual pendiente, T02 no completada. Dibujos aprobados intactos. Después, T04 movimiento; T08 mantiene pendientes reposo/acción y T07 otras capas. **Completadas:** T00 y T01.
+**Última tarea entregada:** T04 · Desplazamiento provisional en Godot. [Pruebas y capturas](trabajo/arte/revisiones/recorrido_jugable_v1/README.md). Teclado/clic, caminar/correr, aceleración/frenada, colisiones, límites y puntos de acercamiento comprobados; valoración del control por el autor pendiente. El autor aprueba **Sota a 252 de altura** el 13 de octubre, con v7 como dibujo vigente. Esa aprobación no cierra toda T02: retícula artística e iluminación siguen abiertas. **Siguiente:** T05 · ciclo de caminar, ambos perfiles y pies sincronizados con el desplazamiento. T07/T08 conservan sus pendientes por capas y actividad. **Completadas:** T00 y T01.
 
 **Preferencia de Sota · 12 de octubre:** el autor compara en navegador y prefiere **Referencia aprobada (v7)** frente a Base e iluminación. [V7 predeterminada y comprobada](trabajo/arte/revisiones/preferencia_sota_v1/README.md); PNG intactos y alternativa conservada. Próximas revisiones de luz deben conservar ese dibujo; T02/T03 siguen abiertas técnicamente para retícula, iluminación y animación.
 
@@ -66,7 +66,7 @@ La ambición de calidad se concreta en estos criterios y en revisiones sobre res
 
 **Cierre:** Sota tiene proporciones creíbles junto a puertas y personas; el recorrido se entiende y la ciudad mantiene su escala. Revisar el nuevo acabado pixel art integrado, registrar la opción elegida y la valoración del autor. La aprobación de la iteración anterior no cierra esta renovación; los 1280 × 720 de la prueba técnica no constituyen una decisión artística.
 
-**Entrega T02 vigente · T02.1, 12 de octubre:** [comparación de escala y raster](trabajo/arte/revisiones/escala_produccion_v1/README.md), [lámina](trabajo/arte/revisiones/escala_produccion_v1/comparacion.png). Sota v7 aprobada a 232/252/272 junto a Jefa/cabina, ambos perfiles; Jefa aprobada de 244 intacta. Render 1672 × 941 frente a 836 × 471 ampliado 2×. Propuesta: conservar 252/244 y nearest actual; sin aplicar el raster alternativo a la escena. Control Comparar Jefa (x = 1260). Pasan pruebas de escala/renders, exportación y clic Web; valoración pendiente. La retícula común de render no implica que los PNG generativos compartan una retícula artística ni que el escalado a toda ventana esté resuelto. [Comparación anterior de luz conservada](trabajo/arte/revisiones/luz_v2/README.md); fuentes espaciales/reflejos/sombra siguen pendientes.
+**Entrega T02 vigente · T02.1, 12 de octubre:** [comparación de escala y raster](trabajo/arte/revisiones/escala_produccion_v1/README.md), [lámina](trabajo/arte/revisiones/escala_produccion_v1/comparacion.png). Sota v7 aprobada a 232/252/272 junto a Jefa/cabina, ambos perfiles; Jefa aprobada de 244 intacta. Render 1672 × 941 frente a 836 × 471 ampliado 2×. Propuesta: conservar 252/244 y nearest actual; sin aplicar el raster alternativo a la escena. Control Comparar Jefa (x = 1260). Pasan pruebas de escala/renders, exportación y clic Web; el autor aprueba 252 el 13 de octubre, sin cerrar el resto de T02. La retícula común de render no implica que los PNG generativos compartan una retícula artística ni que el escalado a toda ventana esté resuelto. [Comparación anterior de luz conservada](trabajo/arte/revisiones/luz_v2/README.md); fuentes espaciales/reflejos/sombra siguen pendientes.
 
 ### T03 · Preparar a Sota para producción — Entregada
 
@@ -74,11 +74,13 @@ La ambición de calidad se concreta en estos criterios y en revisiones sobre res
 
 **Cierre:** las vistas representan al mismo personaje, coinciden en proporciones y mantienen el lado del equipo; funcionan a la escala elegida y siguen el acabado de las referencias aprobadas del 11 de octubre. Guardar recurso, prompt y comparación en escena.
 
-**Entrega T03 vigente:** [v7 preferida por el autor](trabajo/arte/revisiones/preferencia_sota_v1/README.md), dos perfiles propios, píxel intenso y ojos mínimos; atlas/JSON intactos. [Base sin neón y prompt](trabajo/arte/personajes/sota/base_v1/README.md) conservados como alternativa. Próxima separación de luz debe mantener el dibujo aprobado. T02.1 compara escala/píxel para fijar referencia; valoración y escalado final pendientes. Sin respiración ni locomoción nueva.
+**Entrega T03 vigente:** [v7 preferida por el autor](trabajo/arte/revisiones/preferencia_sota_v1/README.md), dos perfiles propios, píxel intenso y ojos mínimos; atlas/JSON intactos. [Base sin neón y prompt](trabajo/arte/personajes/sota/base_v1/README.md) conservados como alternativa. Próxima separación de luz debe mantener el dibujo aprobado. T02.1 compara escala/píxel para fijar referencia; altura 252 aprobada, retícula y escalado final pendientes. Sin respiración ni locomoción nueva.
 
-### T04 · Construir el desplazamiento en Godot — Pendiente
+### T04 · Construir el desplazamiento en Godot — Entregada
 
 **Entrega:** Sota provisional en Velvet con teclado, clic, correr, aceleración, frenada, límites/colisiones y puntos de llegada propios para cada interacción.
+
+**Resultado · 13 de octubre:** `recorrido.tscn` es el arranque; reutiliza el montaje aprobado de `revision_escala.gd`. V7 a 252, pies y = 705 y planos conservados. Acercamientos: guardia x = 300, Jefa 1260, mochila 1480 y acompañante 1580. Límites físicos x = 128–1632. `tests/movimiento.gd` comprueba control y un obstáculo real añadido solo en la prueba; en Velvet los muebles del fondo no bloquean el centro transitable. Exportación y entradas/foco probados en Helium. Sprite estático provisional, sin animación de pasos ni conversaciones. [Registro](trabajo/arte/revisiones/recorrido_jugable_v1/README.md); falta valoración del autor sobre velocidades/frenada.
 
 **Cierre:** llegar sin sobrepasar el destino, detenerse, invertir dirección y perder/recuperar el foco sin movimiento atascado. Comprobar entradas y límites con una prueba pequeña; verificar también la exportación Web. El recurso provisional permite evaluar el control, no cerrar el arte.
 
@@ -302,3 +304,5 @@ Al completar una tarea, añadir una fila breve y actualizar su estado arriba. Lo
 | T08.2 · aprobación de Jefa y libro | 12 oct 2026 | [Libro y prompt](trabajo/arte/personajes/jefa/libro_v1/README.md), [catorce capturas](trabajo/arte/revisiones/libro_v1/README.md) | Alfa/apoyo/orden, GPU de páginas/manos/Sota, escala/capas/mostrador, importación/exportación y clic Web correctos | Autor aprueba sprite pixel art de Jefa; PNG intacto. Libro nuevo pendiente de valoración; reposo/acción e interfaz pendientes |
 | Preferencia de Sota v7 | 12 oct 2026 | [Registro y tres capturas Web](trabajo/arte/revisiones/preferencia_sota_v1/README.md) | Atlas/shader inicial, ambas variantes, perfiles/alturas/luz, GPU de capas/recepción, exportación y clic Web correctos | Autor prefiere v7 tras comparar en navegador; queda predeterminada. Luz adaptable debe conservar el dibujo; PNG anteriores intactos |
 | T02.1 · escala junto a Jefa y cabina | 12 oct 2026 | [Lámina y capturas](trabajo/arte/revisiones/escala_produccion_v1/README.md) | Tres alturas/dos perfiles/dos posiciones, Jefa invariable, apoyos y nearest, GPU de comparación, exportación/clic Web y lámina HTML correctos | Autor autoriza comparar; propuesta del asistente 252/244 y raster actual, valoración pendiente. T02 no completada; movimiento después |
+
+| T04 · altura aprobada y recorrido provisional | 13 oct 2026 | [Código, capturas y comprobaciones](trabajo/arte/revisiones/recorrido_jugable_v1/README.md) | Control, 14 llegadas sin sobrepasar, límites, colisión física, foco, perfiles/planos, Godot nativo y Web | Autor aprueba 252; controlador entregado para valorar. Sin animación ni diálogos; siguiente T05 |

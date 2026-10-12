@@ -1,6 +1,6 @@
 # PASE PENDIENTE · Base Godot
 
-Preparación técnica del 9 de octubre de 2026. **Todavía no contiene el caso jugable ni el movimiento de Sota.** La escena principal actual permite revisar ambos perfiles de Sota en Velvet, su altura y filtrado. La escena técnica anterior se conserva en `verificacion.tscn`.
+Base técnica del 9 de octubre, actualizada el **13 de octubre de 2026**. **Todavía no contiene el caso completo.** La escena principal `recorrido.tscn` permite caminar/correr por Velvet con el sprite v7 provisional y altura 252 aprobada por el autor. `revision_escala.tscn` conserva la revisión de arte; `verificacion.tscn` la escena técnica original.
 
 **Entrega pixel art · 11 de octubre:** el autor aprueba el estilo con píxel intenso y ojos sutiles, y el contraluz acorde al entorno. Se compara el atlas v7 aprobado con una [base sin neón y contraluz separado](../trabajo/arte/revisiones/luz_v2/README.md). La máscara de contorno se calcula desde el alfa; color, intensidad y dirección son parámetros independientes. La variante nueva está entregada, pendiente de valoración. Importación, pruebas, render nativo y exportación correctos. La escena actual se comprueba después en Helium/Chromium; retícula, luces del escenario y otros navegadores pendientes. [Dirección vigente](../trabajo/direccion_artistica.md).
 
@@ -17,7 +17,9 @@ Abrir Godot e importar `project.godot`, o ejecutar desde la raíz del repositori
 /Applications/Godot.app/Contents/MacOS/Godot --editor --path godot
 ```
 
-F5 ejecuta la revisión. Los botones cambian vista, altura, ubicación, filtrado y color del contorno; todavía no hay desplazamiento. Elegir **Galería / Recepción / Personal / Extremo** y alternar **Ambas barandillas / Solo trasera / Solo delantera / Sin barandillas** para comprobar ambos bordes y sus oclusiones. [Centro de pasarela y capas vigentes](../trabajo/arte/revisiones/recorrido_v1/README.md); [comparación de luz](../trabajo/arte/revisiones/luz_v2/README.md). El proyecto usa GDScript y Compatibility; la exportación Web desactiva hilos y extensiones. No necesita .NET ni complementos.
+F5 ejecuta el recorrido. **Flechas o A/D:** caminar; **Mayús:** correr; **clic en suelo:** destino caminando; **doble clic:** destino corriendo; **Esc:** parar. También hay casilla Correr y botones de acercamiento. Clic en mostrador, cabina o personas del acceso selecciona su punto de llegada; no abre todavía diálogos ni viajes. Revisión visual permite comparar perfiles, alturas, lugares, planos y luz; Probar recorrido vuelve al controlador.
+
+El centro transitable permanece en y = 705, con límites x = 128–1632 y colisión física de pies. Se conserva el orden de capas. [Registro T04](../trabajo/arte/revisiones/recorrido_jugable_v1/README.md). El sprite aún no anima los pasos. GDScript y Compatibility; Web sin hilos ni extensiones, sin .NET ni complementos.
 
 ## Repetir la comprobación y exportar
 
@@ -27,6 +29,7 @@ Desde la raíz `el-arrecife/`:
 /Applications/Godot.app/Contents/MacOS/Godot --headless --path godot --editor --import
 /Applications/Godot.app/Contents/MacOS/Godot --headless --path godot --script tests/verificacion.gd
 /Applications/Godot.app/Contents/MacOS/Godot --headless --path godot --script tests/escala.gd
+/Applications/Godot.app/Contents/MacOS/Godot --headless --path godot --script tests/movimiento.gd
 mkdir -p godot/build/web
 /Applications/Godot.app/Contents/MacOS/Godot --headless --path godot --export-release Web
 python3 -m http.server 8766 --bind 127.0.0.1 --directory godot/build/web
@@ -83,7 +86,7 @@ En Apple M4 comprueba largueros sin huecos en dos filas del ancho completo y ocl
 
 Confirma alfa/apoyos/orden, Sota por delante en ambos perfiles y render idéntico fuera del parche. Mostrar/ocultar y perfiles comprobados también por clic en Helium, sin errores registrados.
 
-Sota usa `assets/personajes/sota/perfiles_base_v1.png` y su JSON; v7 sigue disponible para comparar. `contraluz.gdshader` calcula el borde alfa de la base; `silueta.gdshader` conserva la solución anterior para v7. La barandilla se recorta con AtlasTexture y `metal_opaco.gdshader` evita residuos/metal semitransparente.
+Sota usa v7 como predeterminada; `assets/personajes/sota/perfiles_base_v1.png` y su JSON se conservan como alternativa para comparar. `contraluz.gdshader` calcula el borde alfa de la base; `silueta.gdshader` conserva la solución anterior para v7. La barandilla se recorta con AtlasTexture y `metal_opaco.gdshader` evita residuos/metal semitransparente.
 
 Versiones conservadas: [primera separación y fondo reparado](../trabajo/arte/entornos/velvet/capas_v1/README.md), `assets/fiebre_velvet_pixel_v1.png` idéntico a la referencia del autor, y `assets/fiebre_velvet_v1.png` para la escena técnica histórica. [Procedencia del rótulo](../juego/arte/velvet_v1.md); [prompt](../juego/arte/prompts/velvet_rotulo_v1.txt). No se alteran las capturas anteriores.
 
@@ -136,4 +139,12 @@ Prueba GPU sin `--headless`; añadir `-- --capturas` guarda siete renders en `ca
 **Sota predeterminada · 12 de octubre:** el autor prefiere el modelo **Referencia aprobada (v7)** tras comparar en navegador. La escena arranca con ese atlas y `silueta.gdshader`; Base e iluminación sigue disponible. PNG intactos. [Tres capturas y pruebas](../trabajo/arte/revisiones/preferencia_sota_v1/README.md): escala comprueba selección inicial y ambas variantes; GPU de capas/recepción, exportación y clic Web correctos. La adaptación de luz por entorno debe conservar el dibujo de v7; fuentes espaciales y animación pendientes.
 
 
-**Comparación T02.1:** [lámina y pruebas](../trabajo/arte/revisiones/escala_produccion_v1/README.md). Control Comparar Jefa (Sota x = 1260), tres alturas 232/252/272 y ambos perfiles frente a Jefa/cabina. `tests/escala_produccion.gd` necesita GPU; `-- --capturas` guarda doce renders normales y uno a 836 × 471, sin alterar la configuración principal 1672 × 941/canvas_items. [Comparación HTML](../trabajo/arte/revisiones/escala_produccion_v1/comparacion.html): recortes a tamaño real y raster alternativo ampliado 2× con nearest. Propuesta 252/244 y render actual, pendiente de valoración; no cierra retícula artística de originales ni escalado final a toda ventana. Pruebas de escala, render GPU, exportación y clic Web correctos; arte aprobado intacto, sin animación/movimiento.
+**Comparación T02.1:** [lámina y pruebas](../trabajo/arte/revisiones/escala_produccion_v1/README.md). Control Comparar Jefa (Sota x = 1260), tres alturas 232/252/272 y ambos perfiles frente a Jefa/cabina. `tests/escala_produccion.gd` necesita GPU; `-- --capturas` guarda doce renders normales y uno a 836 × 471, sin alterar la configuración principal 1672 × 941/canvas_items. [Comparación HTML](../trabajo/arte/revisiones/escala_produccion_v1/comparacion.html): recortes a tamaño real y raster alternativo ampliado 2× con nearest. Propuesta 252/244 y render actual; el autor aprueba Sota 252 el 13 de octubre, no cierra retícula artística de originales ni escalado final a toda ventana. Pruebas de escala, render GPU, exportación y clic Web correctos; arte aprobado intacto, sin animación/movimiento.
+
+**T04 · 13 de octubre:** controlador y pruebas en `movimiento.gd`, `recorrido.gd` y `tests/movimiento.gd`. Las capturas nativas se regeneran con:
+
+```sh
+/Applications/Godot.app/Contents/MacOS/Godot --path godot --script tests/movimiento.gd -- --capturas
+```
+
+Helium/Chromium: teclado/clic, Mayús, aceleración/frenada, extremos, acercamientos, pérdida/recuperación de foco y retorno a revisión visual comprobados. No acredita Safari/Firefox/móvil ni acabado de animación.

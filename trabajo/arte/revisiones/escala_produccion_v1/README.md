@@ -43,3 +43,5 @@ Añadir `-- --capturas` guarda los 13 renders nativos en esta carpeta. Requiere 
 Agent-browser, sesión propia `arrecife-escala-produccion-20261012`, Helium/WebGL 2.0: Comparar Jefa, las tres alturas y ambos perfiles por clic, sin errores de página/consola. Lámina HTML revisada visualmente, sus cinco imágenes cargadas con dimensiones correctas y enlaces locales comprobados. Automatización cerrada; Godot y comparación abiertos. HTTP local en `http://127.0.0.1:8766/`; comprobar servidor al retomar.
 
 Sin generación ni edición de arte. Pendientes valoración de esta propuesta, escalado final a otras ventanas/DPR, movimiento, animación, luz espacial y otros navegadores. La aprobación previa de los dibujos no equivale a aprobación de toda esta comparación.
+
+**Decisión posterior · 13 de octubre:** el autor dice «252 mucho mejor» y aprueba esa altura de Sota. Se mantiene v7 y Jefa 244. No se interpreta como aprobación de toda la retícula/raster ni de iluminación; T02 permanece abierta técnicamente. Continúa T04 con el sprite provisional.

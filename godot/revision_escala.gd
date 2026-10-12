@@ -381,6 +381,9 @@ func build_controls() -> void:
 		toggle.toggled.connect(entry[1].set_visible)
 		booth.add_child(toggle)
 	add_button(booth, "Frente al guardia", set_ground.bind(300.0))
+	var play := HBoxContainer.new()
+	column.add_child(play)
+	add_button(play, "Probar recorrido", get_tree().change_scene_to_file.bind("res://recorrido.tscn"))
 	column.add_child(status)
 	poses.get_child(0).grab_focus()
 
