@@ -1,6 +1,6 @@
 # Velvet · Jefa adaptada al retrato T08.1
 
-12 de octubre de 2026. [Sprite, procedencia y prompt](../../personajes/jefa/pixel_v1/README.md); [retratos originales y decisión de diálogo](../../personajes/retratos_v1/README.md). Identidad y composición aportadas por el autor; adaptación nueva entregada por el asistente, pendiente de valoración.
+12 de octubre de 2026. [Sprite, procedencia y prompt](../../personajes/jefa/pixel_v1/README.md); [retratos originales y decisión de diálogo](../../personajes/retratos_v1/README.md). Identidad y composición aportadas por el autor; adaptación entregada por el asistente y **aprobada visualmente por el autor el 12 de octubre**.
 
 Seis renders nativos sin panel y seis capturas reales de Helium/Chromium, todos a 1672 × 941. Guardia/cabina, acceso y barandillas conservados. Sota de 252 con pies y = 705; Jefa de 244 con apoyo y = 675.
 
@@ -26,3 +26,5 @@ Añadir `-- --capturas` guarda los seis renders actuales en esta carpeta; no sob
 Agent-browser, sesión propia `arrecife-jefa-20261012`, Helium/WebGL 2.0: carga, Frente al mostrador, ambos perfiles y visibilidad de Jefa/equipo/mostrador por clic comprobados sin errores de página/consola. Automatización cerrada, Godot/URL actualizados abiertos; HTTP local comprobado en `http://127.0.0.1:8766/godot/build/web/`.
 
 Todavía sin animación ni interfaz de diálogo; contraluz manual. Retratos guardados para su integración posterior. Safari/Firefox, rendimiento sostenido y juego completo no comprobados en esta entrega.
+
+Continuación T08.2: [libro independiente y nuevas capturas](../libro_v1/README.md). Estas imágenes se conservan; la prueba de recepción guarda ahora siete renders en `libro_v1`.

@@ -27,7 +27,7 @@ func check() -> void:
 	for child in scene.get_children():
 		if child is CanvasLayer:
 			child.visible = false
-	for sprite in [scene.staff, scene.equipment]:
+	for sprite in [scene.staff, scene.equipment, scene.ledger]:
 		assert(sprite.texture.atlas.get_image().detect_alpha() != Image.ALPHA_NONE)
 		assert(sprite.texture.atlas.get_image().get_pixel(0, 0).a == 0.0)
 		assert(sprite.texture_filter == CanvasItem.TEXTURE_FILTER_NEAREST)
@@ -36,9 +36,41 @@ func check() -> void:
 	assert(scene.counter.z_index < scene.equipment.z_index and scene.equipment.z_index < scene.sota.z_index)
 	assert(is_equal_approx(scene.staff.position.y + scene.staff.texture.get_height() * scene.staff.scale.y, scene.BACK_EDGE_Y))
 	assert(is_equal_approx(scene.equipment.position.y + scene.equipment.texture.get_height() * scene.equipment.scale.y, scene.counter.position.y))
+	assert(scene.counter_patch.z_index < scene.ledger.z_index and scene.ledger.z_index < scene.staff.z_index)
+	assert(is_equal_approx(scene.ledger.position.y + 408.0 * scene.ledger.scale.y, scene.counter.position.y))
 	var staff_right := ceili(scene.staff.position.x + scene.staff.texture.get_width() * scene.staff.scale.x)
 	scene.sota.hide()
 	scene.set_railings(false, false)
+	scene.staff.hide()
+	scene.equipment.hide()
+	scene.ledger.hide()
+	var bare := await frame()
+	scene.ledger.show()
+	var book := await frame()
+	scene.staff.show()
+	var hands_and_book := await frame()
+	scene.ledger.hide()
+	var hands := await frame()
+	var book_image: Image = scene.ledger.texture.get_image()
+	var staff_image: Image = scene.staff.texture.get_image()
+	var book_visible := 0
+	var hands_preserved := 0
+	for y in range(floori(scene.ledger.position.y), ceili(scene.ledger.position.y + scene.ledger.texture.get_height() * scene.ledger.scale.y)):
+		for x in range(floori(scene.ledger.position.x), ceili(scene.ledger.position.x + scene.ledger.texture.get_width() * scene.ledger.scale.x)):
+			var point := Vector2(x + 0.5, y + 0.5)
+			var local: Vector2 = scene.ledger.to_local(point)
+			if local.x < 0 or local.x >= book_image.get_width() or local.y < 0 or local.y >= book_image.get_height() or book_image.get_pixelv(Vector2i(local)).a < 0.5:
+				continue
+			var staff_local: Vector2 = scene.staff.to_local(point)
+			var alpha := staff_image.get_pixelv(Vector2i(staff_local)).a if staff_local.x >= 0.0 else 0.0
+			if alpha >= 0.95:
+				var delta := hands_and_book.get_pixel(x,y) - hands.get_pixel(x,y)
+				assert(maxf(absf(delta.r), maxf(absf(delta.g), absf(delta.b))) <= 1.0 - alpha + 2.0 / 255.0)
+				hands_preserved += 1
+			elif alpha < 0.1 and book.get_pixel(x,y) != bare.get_pixel(x,y):
+				assert(hands_and_book.get_pixel(x,y) == book.get_pixel(x,y))
+				book_visible += 1
+	assert(hands_preserved > 10 and book_visible > 30)
 	scene.counter.hide()
 	scene.staff.hide()
 	scene.equipment.hide()
@@ -84,6 +116,7 @@ func check() -> void:
 		scene.counter.hide()
 		scene.equipment.hide()
 		var sota_only := await frame()
+		scene.ledger.show()
 		scene.staff.show()
 		scene.counter.show()
 		scene.equipment.show()
@@ -103,13 +136,16 @@ func check() -> void:
 		assert(preserved > 1500)
 		print("OK perfil ", pose, ": ", preserved, " muestras de Sota delante de recepción.")
 		scene.staff.hide()
+		scene.ledger.hide()
 	print("OK: jefa ", changed_staff, "; equipo ", changed_equipment, "; cuerpo oculto por mostrador ", covered, ". Alfa, apoyos y planos correctos.")
+	print("OK: libro visible ", book_visible, "; manos delante ", hands_preserved, "; tapa apoyada en mostrador.")
 	if "--capturas" in OS.get_cmdline_user_args():
 		scene.set_ground(1345.0)
 		scene.set_railings(true, true)
-		var directory := ProjectSettings.globalize_path("res://../trabajo/arte/revisiones/jefa_v1/")
-		for entry in [["galeria", true, true, true, 0, 780.0], ["completa_0", true, true, true, 0, 1345.0], ["completa_1", true, true, true, 1, 1345.0], ["sin_jefa", true, false, true, 0, 1345.0], ["sin_equipo", true, true, false, 0, 1345.0], ["interior", false, false, false, 0, 1345.0]]:
+		var directory := ProjectSettings.globalize_path("res://../trabajo/arte/revisiones/libro_v1/")
+		for entry in [["galeria", true, true, true, 0, 780.0, true], ["completa_0", true, true, true, 0, 1345.0, true], ["completa_1", true, true, true, 1, 1345.0, true], ["sin_libro", true, true, true, 0, 780.0, false], ["sin_jefa", true, false, true, 0, 780.0, true], ["sin_equipo", true, true, false, 0, 780.0, true], ["interior", false, false, false, 0, 780.0, false]]:
 			scene.set_ground(entry[5])
+			scene.ledger.visible = entry[6]
 			scene.counter.visible = entry[1]
 			scene.staff.visible = entry[2]
 			scene.equipment.visible = entry[3]

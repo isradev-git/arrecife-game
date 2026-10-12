@@ -8,6 +8,7 @@ const RAILING = preload("res://assets/entornos/velvet/barandilla_v1.png")
 const COUNTER = preload("res://assets/entornos/velvet/mostrador_v1.png")
 const COUNTER_BACKGROUND = preload("res://assets/entornos/velvet/fondo_recepcion_reparado_v1.png")
 const STAFF = preload("res://assets/personajes/jefa/perfil_mostrador_v1.png")
+const LEDGER = preload("res://assets/personajes/jefa/libro_nomina_v1.png")
 const EQUIPMENT = preload("res://assets/entornos/velvet/equipo_recepcion_v1.png")
 const ACCESS_PERSON = preload("res://assets/entornos/velvet/figurante_acceso_v2.png")
 const ACCESS_BACKGROUND = preload("res://assets/entornos/velvet/fondo_acceso_reparado_v2.png")
@@ -43,6 +44,7 @@ var back_railing := Sprite2D.new()
 var counter := Sprite2D.new()
 var counter_patch := Sprite2D.new()
 var staff := Sprite2D.new()
+var ledger := Sprite2D.new()
 var equipment := Sprite2D.new()
 var access_person := Sprite2D.new()
 var access_patch := Sprite2D.new()
@@ -139,6 +141,19 @@ func _ready() -> void:
 	staff.material = staff_material
 	staff.z_index = -4
 	add_child(staff)
+	var ledger_texture := AtlasTexture.new()
+	ledger_texture.atlas = LEDGER
+	ledger_texture.region = Rect2(123, 142, 1926, 456)
+	ledger_texture.filter_clip = true
+	ledger.texture = ledger_texture
+	ledger.centered = false
+	ledger.scale = Vector2(56.0 / 1926.0, 18.0 / 456.0)
+	# Apoyo de la tapa; el marcador cuelga un poco sobre el borde.
+	ledger.position = Vector2(1318, COUNTER_RECT.position.y - 408.0 * ledger.scale.y)
+	ledger.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
+	ledger.material = rail_material
+	ledger.z_index = -5
+	add_child(ledger)
 	var access_texture := AtlasTexture.new()
 	access_texture.atlas = ACCESS_PERSON
 	access_texture.region = Rect2(323, 116, 399, 1345)
@@ -342,6 +357,11 @@ func build_controls() -> void:
 		toggle.button_pressed = true
 		toggle.toggled.connect(entry[1].set_visible)
 		actors.add_child(toggle)
+	var ledger_toggle := CheckButton.new()
+	ledger_toggle.text = "Libro"
+	ledger_toggle.button_pressed = true
+	ledger_toggle.toggled.connect(ledger.set_visible)
+	actors.add_child(ledger_toggle)
 	add_button(actors, "Junto al acceso", set_ground.bind(1560.0))
 	var companions := HBoxContainer.new()
 	column.add_child(companions)
