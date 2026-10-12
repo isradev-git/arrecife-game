@@ -41,7 +41,7 @@ func check_scene() -> void:
 	scene.set_art(1)
 	scene.set_ground(1160.0)
 	assert(scene.sota.position == Vector2(1160, scene.GROUND_Y))
-	for x in [160.0, 450.0, 780.0, 935.0, 1160.0, 1500.0]:
+	for x in [160.0, 450.0, 780.0, 935.0, 1160.0, 1260.0, 1500.0]:
 		scene.set_ground(x)
 		assert(scene.sota.position == Vector2(x, scene.GROUND_Y))
 		var sole: Vector2 = scene.sota.position + (scene.sota.offset + Vector2(scene.sota.texture.get_width() / 2.0, scene.sota.texture.get_height())) * scene.sota.scale

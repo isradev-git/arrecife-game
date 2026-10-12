@@ -12,6 +12,8 @@ La producción definitiva utiliza **Godot 4.7.2, GDScript y 2D Compatibility**, 
 
 ![Velvet con Jefa y libro propio](trabajo/arte/revisiones/libro_v1/godot_galeria.png)
 
+**Comparación de escala T02.1:** [lámina de alturas y píxel](trabajo/arte/revisiones/escala_produccion_v1/comparacion.png), [comparación HTML](trabajo/arte/revisiones/escala_produccion_v1/comparacion.html) y [pruebas](trabajo/arte/revisiones/escala_produccion_v1/README.md). Propuesta: Sota v7 252, Jefa 244 y render actual nearest; valoración pendiente. **Comparar Jefa** permite ver ambas sin solaparse y alternar 232/252/272. Dibujos intactos, movimiento posterior.
+
 ## Abrir el proyecto
 
 Clonar el repositorio e importar `godot/project.godot` desde Godot 4.7.2. Ejecutar con F5. La escena actual compara la referencia aprobada de Sota y la base con iluminación separada, ambos perfiles, alturas, ubicación, filtrado y color del contorno. Elegir **Galería / Recepción / Personal / Extremo** y alternar **Ambas barandillas / Solo trasera / Solo delantera / Sin barandillas** para comprobar los dos bordes y sus oclusiones. **Frente al mostrador** permite revisar el mueble independiente con **Mostrador visible / Ocultar mostrador**. Los interruptores **Jefa / Equipo / Acceso / Libro** controlan esos planos por separado. **Junto al acceso** coloca a Sota frente a la figura de la mochila; **Acompañante / Junto al acompañante** permiten revisar la segunda persona. **Guardia / Cabina** permiten alternar esos planos; **Frente al guardia** aparta el panel para revisar la ventanilla. Todavía no contiene desplazamiento, diálogos ni viajes entre cotas.

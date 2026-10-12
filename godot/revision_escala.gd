@@ -349,6 +349,7 @@ func build_controls() -> void:
 	add_button(reception, "Mostrador visible", counter.show)
 	add_button(reception, "Ocultar mostrador", counter.hide)
 	add_button(reception, "Frente al mostrador", set_ground.bind(1345.0))
+	add_button(reception, "Comparar Jefa", set_ground.bind(1260.0))
 	var actors := HBoxContainer.new()
 	column.add_child(actors)
 	for entry in [["Jefa", staff], ["Equipo", equipment], ["Acceso", access_person]]:

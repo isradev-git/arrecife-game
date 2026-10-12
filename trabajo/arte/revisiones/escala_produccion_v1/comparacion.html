@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="es">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Velvet · Comparación de escala y píxel</title>
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; padding: 28px; color: #ece5dc; background: #12171d; font: 16px/1.5 system-ui, sans-serif; }
+  main { max-width: 1300px; margin: auto; }
+  h1 { margin: 0 0 8px; font-size: 28px; } h2 { margin: 24px 0 12px; font-size: 22px; }
+  p { margin: 8px 0 16px; max-width: 1000px; } a { color: #f6bb72; }
+  .grid { display: flex; flex-wrap: wrap; gap: 16px; }
+  figure { margin: 0; padding: 10px; background: #20272e; border: 1px solid #3e4852; }
+  .recommended { border-color: #f6bb72; }
+  figcaption { margin: 0 0 8px; font-weight: 650; }
+  .crop { position: relative; overflow: hidden; width: 400px; height: 350px; }
+  .crop img { position: absolute; left: -1110px; top: -400px; width: 1672px; height: 941px; max-width: none; image-rendering: pixelated; }
+  .coarse img { height: 942px; }
+  figure > a { display: inline-block; margin-top: 8px; }
+  :focus-visible { outline: 3px solid #f6bb72; outline-offset: 3px; }
+  .scroll { overflow-x: auto; }
+</style>
+<main>
+  <h1>Velvet · Escala de personajes</h1>
+  <p>Sota v7 y Jefa aprobada, con sus dibujos intactos. La Jefa mantiene 244 de altura y apoyo en el borde trasero; Sota pisa el centro de la pasarela. Las imágenes se muestran sin suavizado y a la misma escala.</p>
+  <div class="scroll"><div class="grid">
+    <figure><figcaption>Sota 232 · Jefa 244</figcaption><div class="crop"><img src="godot_jefa_232_0.png" alt="Sota de 232 junto a la Jefa detrás del mostrador"></div><a href="godot_jefa_232_0.png">Ver escena completa</a></figure>
+    <figure class="recommended"><figcaption>Sota 252 · Propuesta recomendada</figcaption><div class="crop"><img src="godot_jefa_252_0.png" alt="Sota de 252 junto a la Jefa detrás del mostrador"></div><a href="godot_jefa_252_0.png">Ver escena completa</a></figure>
+    <figure><figcaption>Sota 272 · Jefa 244</figcaption><div class="crop"><img src="godot_jefa_272_0.png" alt="Sota de 272 junto a la Jefa detrás del mostrador"></div><a href="godot_jefa_272_0.png">Ver escena completa</a></figure>
+  </div></div>
+  <h2>Detalle del píxel con Sota a 252</h2>
+  <div class="scroll"><div class="grid">
+    <figure class="recommended"><figcaption>Raster actual · Propuesta recomendada</figcaption><div class="crop"><img src="godot_jefa_252_0.png" alt="Detalle de Sota y la Jefa con render a resolución actual"></div><a href="godot_jefa_252_0.png">1672 × 941, sin suavizado</a></figure>
+    <figure><figcaption>Raster a mitad · Píxel de 2 × 2</figcaption><div class="crop coarse"><img src="godot_pixel_2.png" alt="Los mismos personajes renderizados a mitad de resolución y ampliados al doble"></div><a href="godot_pixel_2.png">836 × 471 ampliado al doble</a></figure>
+  </div></div>
+  <p>Recomiendo conservar Sota a 252, Jefa a 244 y el render actual: mantiene mejor los ojos mínimos, la correa y los detalles dorados. La variante de píxel 2 × 2 sirve para comparar; no se ha aplicado al juego. Esta propuesta espera valoración visual.</p>
+  <p><a href="README.md">Comprobaciones y todas las capturas</a> · <a href="../../../../godot/build/web/">Abrir revisión Godot</a></p>
+</main>
+</html>
