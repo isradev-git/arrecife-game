@@ -45,8 +45,12 @@ Entradas: extensión v4 desde v3 y master aprobado; impulso v2 desde impulso v1 
 
 La versión `cruce_impulso_v7` es un intento de extensión, no el reposo aprobado: este continúa siendo `perfiles_pixel_v7.png`. Las mangas nuevas se seleccionan solo para comparar; todavía no hay aprobación del autor ni prueba animada de continuidad tonal/dibujo.
 
-## Segundo medio paso derecho · continuación vigente
+## Segundo medio paso derecho · entrega anterior
 
 El autor autoriza continuar. [Cuatro poses de la pierna contraria, todos sus intentos y prompts](segundo_paso.md): contacto B v4, apoyo B v2, cruce B v6 e impulso B v4. Dibujos propios siempre de perfil derecho, con mangas/bolsillo/deck conservados, sin reflejar el primer paso. [Comparación nativa con v7 real y fases A/B](../../../revisiones/marcha_segundo_paso_v1/README.md). Recursos y modos anteriores intactos.
 
 Propuesta de **once posturas distintas del perfil derecho**, pendiente de valoración del autor. Objetivo inicial del asistente: 16 dibujos por ciclo completo y perfil, ajustable tras probarlo. Faltan cinco intermedios/transiciones, perfil izquierdo propio y cerrar coherencia de dibujo/paleta/proporciones, pivotes y apoyos; no hay ciclo natural demostrado ni marcha integrada. PNG, prompts y modelos anteriores conservados; archivos de esta corrección no están en los assets del juego. Oscuridad cercana no demuestra continuidad perfecta de anatomía/equipo.
+
+## Cinco enlaces · entrega actual para revisión
+
+[Originales, 12 intentos y prompts exactos](transiciones.md). Se añaden llegada B, carga B, despegue B, extensión B y llegada A: **16 propuestas distintas del perfil derecho**, ordenadas en [cuatro láminas Godot con medidas y alertas](../../../revisiones/marcha_ciclo_derecho_v1/README.md). Mangas bajo el codo y bolsillo único revisados; versiones previas intactas. Llegada B v3 sigue fuera del margen tonal (+15,98 %, límite +15 %); v4 descartada. Nueva revisión devuelve código 1, no supera el control tonal. Antes de integrar: corregir continuidad y probar bucle derecho aislado con pivotes/apoyos/cierre/ritmo; después perfil izquierdo propio. Recorrido/Web conservan v7; sin aprobación nueva.
