@@ -1,0 +1,63 @@
+{
+	"escala_comun": 0.289322617680827,
+	"medidas": [
+		{
+			"luminancia_srgb_media": 0.15152952767052,
+			"pixeles_opacos": 136228,
+			"region": [
+				362,
+				75,
+				240,
+				871
+			]
+		},
+		{
+			"luminancia_srgb_media": 0.14429725361248,
+			"pixeles_opacos": 147883,
+			"region": [
+				853,
+				85,
+				459,
+				854
+			]
+		},
+		{
+			"luminancia_srgb_media": 0.145914046348088,
+			"pixeles_opacos": 160739,
+			"region": [
+				866,
+				100,
+				485,
+				841
+			]
+		},
+		{
+			"luminancia_srgb_media": 0.155133637136065,
+			"pixeles_opacos": 146392,
+			"region": [
+				932,
+				76,
+				303,
+				865
+			]
+		},
+		{
+			"luminancia_srgb_media": 0.157195579287193,
+			"pixeles_opacos": 162219,
+			"region": [
+				825,
+				63,
+				524,
+				878
+			]
+		}
+	],
+	"nombres": [
+		"V7 original · reposo",
+		"Contacto",
+		"Apoyo",
+		"Cruce",
+		"Impulso"
+	],
+	"nota": "RGB sRGB codificado sobre alfa >= 0.95; promedio afectado por forma y cobertura. No prueba identidad, paleta exacta ni aprobación. Encuadre estático por contorno; pivote de locomoción pendiente."
+}
