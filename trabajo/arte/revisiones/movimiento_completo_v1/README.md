@@ -1,4 +1,6 @@
-# T05/T06 · Movimiento completo de Sota
+# T05/T06 · Entrega funcional anterior de Sota
+
+**Historial:** el autor rechaza después la naturalidad por aspecto robótico. El anclaje de la puntera fijaba también todo el cuerpo; la medición de pie inmóvil era insuficiente. [Corrección vigente y evidencia](../marcha_fluidez_v1/README.md), ciclo actual 224 px con cadencia por pose y cadera continua. Las cifras/capturas siguientes corresponden a la entrega anterior, conservada.
 
 13 de octubre de 2026. Entrega funcional integrada en Godot y Web, pendiente de valoración visual del autor. Caminar en ambos sentidos con **16 dibujos propios por perfil**, arranque, frenada/cierre del paso A o B, cambio de sentido sin frontal, reposo original y una respiración sutil; control Movimiento reducido. [PNG y prompts de imagegen integrado](../../personajes/sota/movimiento_v3/README.md). No correr.
 

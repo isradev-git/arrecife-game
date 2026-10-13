@@ -1,7 +1,7 @@
 extends RefCounted
 
 const DATA_PATH = "res://assets/personajes/sota/movimiento_v3/movimiento.json"
-const CYCLE_DISTANCE = 196.0
+const CYCLE_DISTANCE = 224.0
 const START_DISTANCE = 8.0
 const SETTLE_TIME = 0.24
 
@@ -14,9 +14,6 @@ var distance := 0.0
 var start_distance := 0.0
 var timer := 0.0
 var reduced_motion := false
-var plant_step := -1
-var plant_world_x := 0.0
-var visual_offset := 0.0
 var closing_step := 0
 
 
@@ -25,6 +22,9 @@ func _init() -> void:
 	assert(data.perfiles.size() == 2)
 	for view in data.perfiles:
 		assert(view.marcha.size() == 16)
+		assert(view.avance_poses.size() == 16 and view.avance_poses[0] == 0.0)
+		for index in range(1, 16):
+			assert(view.avance_poses[index] > view.avance_poses[index - 1] and view.avance_poses[index] < CYCLE_DISTANCE)
 		for pose in view.marcha + [view.reposo, view.preparar, view.cerrar_a, view.cerrar_b, view.respirar]:
 			var texture := AtlasTexture.new()
 			texture.atlas = load(pose.archivo)
@@ -35,7 +35,15 @@ func _init() -> void:
 
 
 func frame_at(travel: float) -> int:
-	return floori(fposmod(travel + CYCLE_DISTANCE / 4.0, CYCLE_DISTANCE) / (CYCLE_DISTANCE / 16.0))
+	var phase := fposmod(travel + CYCLE_DISTANCE / 4.0, CYCLE_DISTANCE)
+	var centers: Array = data.perfiles[profile].avance_poses
+	# Cada postura dura según el avance de su apoyo, no un dieciseisavo fijo del ciclo.
+	# shortcut: las poses discretas aún deslizan el pie; redibujarlas si la revisión animada no es suficiente.
+	for index in range(16):
+		var next: float = centers[index + 1] if index < 15 else CYCLE_DISTANCE
+		if phase < (float(centers[index]) + next) / 2.0:
+			return index
+	return 0
 
 
 func reset(facing: int) -> void:
@@ -45,11 +53,9 @@ func reset(facing: int) -> void:
 	distance = 0.0
 	start_distance = 0.0
 	timer = 0.0
-	plant_step = -1
-	visual_offset = 0.0
 
 
-func update(sprite: Sprite2D, world_x: float, moved: float, delta: float, facing: int) -> void:
+func update(sprite: Sprite2D, moved: float, delta: float, facing: int) -> void:
 	var dt := clampf(delta, 0.0, 0.05)
 	if absf(moved) > 0.0001:
 		var direction := 1.0 if moved > 0.0 else -1.0
@@ -68,13 +74,8 @@ func update(sprite: Sprite2D, world_x: float, moved: float, delta: float, facing
 		frame_index = frame_at(distance)
 		var view: Dictionary = data.perfiles[profile]
 		var pose: Dictionary = view.marcha[frame_index]
-		var step := floori((distance + CYCLE_DISTANCE / 4.0) / (CYCLE_DISTANCE / 2.0))
-		var foot_offset: float = (pose.apoyo_x - pose.cadera_x) * view.escala
-		if step != plant_step:
-			plant_step = step
-			plant_world_x = world_x + foot_offset
-		visual_offset = plant_world_x - world_x - foot_offset
-		apply(sprite, pose, visual_offset)
+		# El apoyo pertenece al dibujo; fijar el sprite completo congela la cadera entre poses.
+		apply(sprite, pose)
 		timer = 0.0
 		return
 	if state in ["marcha", "arranque"]:
@@ -83,8 +84,7 @@ func update(sprite: Sprite2D, world_x: float, moved: float, delta: float, facing
 		timer = 0.0
 	if state == "parada":
 		timer += dt
-		visual_offset = move_toward(visual_offset, 0.0, 100.0 * dt)
-		apply(sprite, data.perfiles[profile].cerrar_a if closing_step == 0 else data.perfiles[profile].cerrar_b, visual_offset)
+		apply(sprite, data.perfiles[profile].cerrar_a if closing_step == 0 else data.perfiles[profile].cerrar_b)
 		if timer < SETTLE_TIME:
 			return
 		reset(profile)
@@ -102,10 +102,10 @@ func update(sprite: Sprite2D, world_x: float, moved: float, delta: float, facing
 	apply(sprite, data.perfiles[profile].respirar if breathe else data.perfiles[profile].reposo)
 
 
-func apply(sprite: Sprite2D, pose: Dictionary, shift: float = 0.0) -> void:
+func apply(sprite: Sprite2D, pose: Dictionary) -> void:
 	sprite.texture = textures[pose.archivo + str(pose.celda[0])]
 	sprite.centered = false
 	sprite.offset = Vector2(-(pose.cadera_x - pose.celda[0]), -pose.suelo_y)
 	sprite.scale = Vector2.ONE * float(data.perfiles[profile].escala)
-	sprite.position = Vector2(shift, 0.0)
+	sprite.position = Vector2.ZERO
 	sprite.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST

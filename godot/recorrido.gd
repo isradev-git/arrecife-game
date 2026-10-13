@@ -24,7 +24,7 @@ func _ready() -> void:
 	sota.reparent(body)
 	sota.material.set_shader_parameter("alpha_threshold", 0.95)
 	walk.reset(pose_index)
-	walk.update(sota, body.position.x, 0.0, 0.0, pose_index)
+	walk.update(sota, 0.0, 0.0, pose_index)
 	# El centro de la pasarela es el plano transitable; el mobiliario del fondo no lo bloquea.
 	for x in [MOTION.MIN_X - 20.0, MOTION.MAX_X + 20.0]:
 		var wall := StaticBody2D.new()
@@ -43,7 +43,7 @@ func show_pose(index: int) -> void:
 	super.show_pose(index)
 	if sota.get_parent() == body:
 		walk.reset(index)
-		walk.update(sota, body.position.x, 0.0, 0.0, index)
+		walk.update(sota, 0.0, 0.0, index)
 
 
 func build_controls() -> void:
@@ -148,7 +148,7 @@ func advance(delta: float, intent: float) -> void:
 		pose_index = arrival_pose
 	if motion.velocity == 0.0:
 		body.velocity = Vector2.ZERO
-	walk.update(sota, body.position.x, body.position.x - previous, delta, pose_index)
+	walk.update(sota, body.position.x - previous, delta, pose_index)
 	update_status()
 
 

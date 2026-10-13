@@ -5,6 +5,8 @@ const DEST = "res://assets/personajes/sota/movimiento_v3/"
 const PHASES = ["contacto_a", "carga_a", "apoyo_a", "despegue_a", "cruce_a", "extension_a", "impulso_a", "llegada_b", "contacto_b", "carga_b", "apoyo_b", "despegue_b", "cruce_b", "extension_b", "impulso_b", "llegada_a"]
 const RIGHT = ["contacto_identidad_v1", "contacto_apoyo_v3", "apoyo_v1", "apoyo_cruce_v1", "cruce_v1", "cruce_impulso_v7", "impulso_v2", "impulso_a_contacto_b_v8", "contacto_b_v4", "contacto_b_apoyo_b_v1", "apoyo_b_v2", "apoyo_b_cruce_b_v3", "cruce_b_v6", "cruce_b_impulso_b_v2", "impulso_b_v4", "impulso_b_contacto_a_v2"]
 const LEFT_VERSIONS = [1, 1, 1, 3, 1, 3, 3, 3, 2, 2, 3, 3, 1, 1, 2, 1]
+# Distancia de cada postura, calibrada con la puntera respecto a la cadera; dos pasos de 112 px.
+const POSE_TRAVEL = [[0, 7, 14, 33, 61, 80, 98, 105, 112, 119, 126, 131, 158, 190, 203, 216], [0, 12, 18, 36, 61, 84, 98, 105, 112, 118, 124, 136, 169, 195, 205, 216]]
 
 
 func check() -> void:
@@ -17,7 +19,7 @@ func check() -> void:
 			copy(source, destination)
 			var forward_support := (1 if profile == 0 else -1) if index in [0, 1, 2, 8, 9, 10] else 0
 			frames.append(pose_data(destination, 700, true, forward_support, 1 if profile == 0 else -1))
-		var view := {"escala": 252.0 / (871.0 if profile == 0 else 868.0), "marcha": frames}
+		var view := {"escala": 252.0 / (871.0 if profile == 0 else 868.0), "marcha": frames, "avance_poses": POSE_TRAVEL[profile]}
 		view["reposo"] = pose_data("res://assets/personajes/sota/perfiles_pixel_v7.png", 0 if profile == 0 else 700, false)
 		view["escala"] = 252.0 / float(view.reposo.limites[3])
 		for transition in ["preparar", "cerrar_a", "cerrar_b", "respirar"]:
@@ -28,7 +30,7 @@ func check() -> void:
 		profiles.append(view)
 	var file := FileAccess.open(DEST + "movimiento.json", FileAccess.WRITE)
 	assert(file != null)
-	file.store_string(JSON.stringify({"perfiles": profiles, "distancia_ciclo": 196.0, "fases": PHASES, "alfa_render": 0.95, "nota": "PNG originales completos; marco836x1024, misma escala por perfil, apoyo medido al alfa de render. Sin reflejo ni normalización por fotograma."}, "\t"))
+	file.store_string(JSON.stringify({"perfiles": profiles, "distancia_ciclo": 224.0, "fases": PHASES, "alfa_render": 0.95, "nota": "PNG originales completos; marco836x1024, misma escala por perfil, apoyo medido al alfa de render. Sin reflejo ni normalización por fotograma. Cadencia por avance_poses y cadera continua; no fijar todo el sprite al pie."}, "\t"))
 	file.close()
 	print("Metadatos y copias originales de 32 fases y 4 transiciones preparados.")
 	quit()

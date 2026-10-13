@@ -23,9 +23,11 @@ func check() -> void:
 			var texture: AtlasTexture = walk.textures[pose.archivo + str(pose.celda[0])]
 			assert(texture.get_size() == Vector2(836, 1024) and texture.filter_clip)
 		assert(view.marcha[0].archivo != walk.data.perfiles[1 - profile].marcha[0].archivo)
-	for index in range(16):
-		assert(walk.frame_at(index * WALK.CYCLE_DISTANCE / 16.0) == (index + 4) % 16)
-	assert(walk.frame_at(WALK.CYCLE_DISTANCE) == walk.frame_at(0.0))
+	for profile in range(2):
+		walk.reset(profile)
+		for index in range(16):
+			assert(walk.frame_at(walk.data.perfiles[profile].avance_poses[index] - WALK.CYCLE_DISTANCE / 4.0) == index)
+		assert(walk.frame_at(WALK.CYCLE_DISTANCE) == walk.frame_at(0.0))
 	var scene = load("res://recorrido.tscn").instantiate()
 	root.add_child(scene)
 	scene.set_physics_process(false)
@@ -37,8 +39,6 @@ func check() -> void:
 		scene.show_pose(profile)
 		var direction := 1.0 if profile == 0 else -1.0
 		var seen: Dictionary = {}
-		var old_step := -1
-		var anchor := 0.0
 		for tick in range(180):
 			scene.advance(1.0 / 60.0, direction)
 			assert(scene.sota.scale.is_equal_approx(Vector2.ONE * float(scene.walk.data.perfiles[profile].escala)))
@@ -49,11 +49,7 @@ func check() -> void:
 			var pose: Dictionary = scene.walk.data.perfiles[profile].marcha[scene.walk.frame_index]
 			var sole: Vector2 = scene.sota.to_global(scene.sota.offset + Vector2(pose.apoyo_x - pose.celda[0], pose.suelo_y))
 			assert(is_equal_approx(sole.y, 705.0))
-			if scene.walk.plant_step == old_step:
-				assert(absf(sole.x - anchor) < 0.05, "Deslizamiento del pie plantado")
-			old_step = scene.walk.plant_step
-			anchor = sole.x
-			assert(absf(scene.walk.visual_offset) < 40.0, "Revisar pivote/zancada: perfil %d fase %d, offset %.2f" % [profile, scene.walk.frame_index, scene.walk.visual_offset])
+			assert(scene.sota.position == Vector2.ZERO, "La animación no debe desplazar la cadera respecto a la física")
 		assert(seen.size() == 16, "El recorrido no muestra todas las fases")
 		var stopped: Vector2 = scene.body.position
 		for tick in range(60):
@@ -92,7 +88,7 @@ func check() -> void:
 		await capture(scene)
 	scene.queue_free()
 	await process_frame
-	print("OK: 32 fases propias, escala común, paleta, pies 705 sin deslizamiento, bucle, ambos sentidos, reposo/respiración, reducción de movimiento e inversión.")
+	print("OK: 32 fases propias, escala común, paleta, plano de apoyo 705, cadera continua, bucle, ambos sentidos, reposo/respiración, reducción de movimiento e inversión.")
 	quit()
 
 

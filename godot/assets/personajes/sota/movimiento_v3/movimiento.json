@@ -1,6 +1,6 @@
 {
 	"alfa_render": 0.95,
-	"distancia_ciclo": 196.0,
+	"distancia_ciclo": 224.0,
 	"fases": [
 		"contacto_a",
 		"carga_a",
@@ -19,9 +19,27 @@
 		"impulso_b",
 		"llegada_a"
 	],
-	"nota": "PNG originales completos; marco836x1024, misma escala por perfil, apoyo medido al alfa de render. Sin reflejo ni normalización por fotograma.",
+	"nota": "PNG originales completos; marco836x1024, misma escala por perfil, apoyo medido al alfa de render. Sin reflejo ni normalización por fotograma. Cadencia por avance_poses y cadera continua; no fijar todo el sprite al pie.",
 	"perfiles": [
 		{
+			"avance_poses": [
+				0,
+				7,
+				14,
+				33,
+				61,
+				80,
+				98,
+				105,
+				112,
+				119,
+				126,
+				131,
+				158,
+				190,
+				203,
+				216
+			],
 			"cerrar_a": {
 				"apoyo_x": 486.5,
 				"archivo": "res://assets/personajes/sota/movimiento_v3/cerrar_a.png",
@@ -636,6 +654,24 @@
 			}
 		},
 		{
+			"avance_poses": [
+				0,
+				12,
+				18,
+				36,
+				61,
+				84,
+				98,
+				105,
+				112,
+				118,
+				124,
+				136,
+				169,
+				195,
+				205,
+				216
+			],
 			"cerrar_a": {
 				"apoyo_x": 1046.0,
 				"archivo": "res://assets/personajes/sota/movimiento_v3/cerrar_a.png",
