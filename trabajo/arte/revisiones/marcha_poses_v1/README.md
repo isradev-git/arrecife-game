@@ -1,5 +1,7 @@
 # T05.1 · Revisión de poses de marcha
 
+**RECHAZADA por el autor el 13 de octubre:** movimiento y reposo no se parecen; la marcha es más clara que v7. Se retira Pasos en prueba del juego. Este documento y sus capturas/prompts se conservan como archivo de la propuesta, no instrucciones vigentes. La corrección está en `caminar_v2` / `marcha_identidad_v2`.
+
 13 de octubre de 2026. Entrega del asistente: **16 poses clave**, ocho por perfil, con prueba opcional de marcha en Godot/Web. Autor ha aprobado v7 y altura de reposo 252; estos nuevos dibujos y la animación quedan pendientes de su valoración. [Originales, ocho prompts e intentos](../../personajes/sota/caminar_v1/README.md).
 
 ## Cómo probar

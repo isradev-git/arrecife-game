@@ -1,0 +1,33 @@
+{
+	"contacto_nuevo": {
+		"luminancia_srgb_media": 0.14429725361248,
+		"pixeles_opacos": 147883,
+		"region": [
+			853,
+			85,
+			459,
+			854
+		]
+	},
+	"contacto_rechazado": {
+		"luminancia_srgb_media": 0.222832617760123,
+		"pixeles_opacos": 53838,
+		"region": [
+			79,
+			27,
+			298,
+			470
+		]
+	},
+	"nota": "Promedio de luminancia sobre alfa >= 0.95; pesos sobre RGB codificado, no medición fotométrica. Diferencia de forma cambia distribución de colores: no prueba identidad ni aprobación.",
+	"v7_original": {
+		"luminancia_srgb_media": 0.15152952767052,
+		"pixeles_opacos": 136228,
+		"region": [
+			362,
+			75,
+			240,
+			871
+		]
+	}
+}

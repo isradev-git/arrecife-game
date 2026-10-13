@@ -65,4 +65,4 @@ Las cachés de Godot, exportaciones generadas, metadatos de Finder y credenciale
 
 Este repositorio contiene el proyecto de desarrollo. Todavía no hay una publicación del juego para jugadores.
 
-**Poses de caminar T05.1 · 13 de octubre:** [ocho poses por perfil y láminas](trabajo/arte/revisiones/marcha_poses_v1/README.md). Activar Pasos en prueba para ver la secuencia mientras se camina; la Sota v7 aprobada sigue al arrancar/en reposo. Recursos nuevos pendientes de valoración; intermedios y calibración posteriores.
+**Continuidad de caminar · 13 de octubre:** el autor rechaza la primera marcha por diferencia de dibujo/oscuridad frente al reposo. Se retira Pasos en prueba; el juego mantiene v7. [Una pose corregida desde la referencia y comparaciones](trabajo/arte/revisiones/marcha_identidad_v2/README.md), pendiente de valoración antes de rehacer el ciclo. Versiones/prompts anteriores conservados.

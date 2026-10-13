@@ -1,5 +1,7 @@
 extends RefCounted
 
+# Archivo T05.1 rechazado: solo lo usa la comprobación histórica, no el recorrido.
+
 const ATLASES = [preload("res://assets/personajes/sota/caminar_derecha_v4.png"), preload("res://assets/personajes/sota/caminar_izquierda_v3.png"), preload("res://assets/personajes/sota/caminar_izquierda_v4.png")]
 const DATA_PATH = "res://assets/personajes/sota/caminar_v1.json"
 

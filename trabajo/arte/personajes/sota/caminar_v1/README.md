@@ -1,5 +1,7 @@
 # Sota · Poses clave de caminar · T05.1
 
+**RECHAZADA por el autor el 13 de octubre:** movimiento y reposo no se parecen; la marcha es más clara que v7. Se retira Pasos en prueba del juego. Este documento y sus capturas/prompts se conservan como archivo de la propuesta, no instrucciones vigentes. La corrección está en `caminar_v2` / `marcha_identidad_v2`.
+
 13 de octubre de 2026. Producción con **imagegen integrado**, sin API/CLI de generación. Ocho poses propias por perfil: contacto, apoyo, cruce e impulso, con cada pierna, formando dos pasos. Propuesta del asistente, **pendiente de valoración del autor** y de intermedios/calibración; no cierra T05. La autorización de continuar no se registra como aprobación del resultado nuevo.
 
 Referencias observadas: [Sota v7 aprobada](../../../../../godot/assets/personajes/sota/perfiles_pixel_v7.png) y [personajes del autor](../../../referencias/pixel_art_v1/personajes_estilo.png). Solo perfiles, pelo/mecha, chaqueta, correa/deck y ojos mínimos. Sin correr ni cambios de historia. PNG originales y prompts anteriores intactos.
