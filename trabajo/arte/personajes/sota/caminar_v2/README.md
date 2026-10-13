@@ -54,3 +54,7 @@ Propuesta de **once posturas distintas del perfil derecho**, pendiente de valora
 ## Cinco enlaces · entrega actual para revisión
 
 [Originales, 12 intentos y prompts exactos](transiciones.md). Se añaden llegada B, carga B, despegue B, extensión B y llegada A: **16 propuestas distintas del perfil derecho**, ordenadas en [cuatro láminas Godot con medidas y alertas](../../../revisiones/marcha_ciclo_derecho_v1/README.md). Mangas bajo el codo y bolsillo único revisados; versiones previas intactas. Llegada B v3 sigue fuera del margen tonal (+15,98 %, límite +15 %); v4 descartada. Nueva revisión devuelve código 1, no supera el control tonal. Antes de integrar: corregir continuidad y probar bucle derecho aislado con pivotes/apoyos/cierre/ritmo; después perfil izquierdo propio. Recorrido/Web conservan v7; sin aprobación nueva.
+
+## Integración posterior · movimiento v3 vigente
+
+[Perfil izquierdo, transiciones y fuentes seleccionadas](../movimiento_v3/README.md); [pruebas/capturas/demo](../../../revisiones/movimiento_completo_v1/README.md). Llegada B derecha v5/v7 empeoran paleta y se conservan como descartadas; v6 parte de contacto B v4 pero roza límite, v8 edita solo su bota desde contacto B v4 y pasa el margen. Se conservan PNG/prompt_impulso_a_contacto_b_v5.txt a v8.txt. V8 sustituye el candidato v3 en producción; láminas/alerta previas se conservan sin sobrescribir. Recorrido ahora tiene 16 fases por perfil y transiciones; ya no solo v7 deslizándose. Entrega funcional del asistente, sin aprobación artística nueva.

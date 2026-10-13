@@ -1,12 +1,13 @@
 shader_type canvas_item;
 
 uniform bool recolor_rim = false;
+uniform float alpha_threshold = 0.1;
 uniform vec4 pink_rim : source_color = vec4(1.0);
 uniform vec4 warm_rim : source_color = vec4(1.0);
 
 void fragment() {
 	vec4 pixel = texture(TEXTURE, UV);
-	if (pixel.a < 0.1) {
+	if (pixel.a < alpha_threshold) {
 		discard;
 	}
 	// shortcut: selección de neón propia de Sota v7; usar máscara explícita al producir animaciones.

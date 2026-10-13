@@ -105,7 +105,7 @@ func capture_series(images: Array[Image], measures: Array[Dictionary], names: Ar
 	viewport.size = Vector2i(1672, 941)
 	viewport.render_target_update_mode = SubViewport.UPDATE_ALWAYS
 	root.add_child(viewport)
-	var scene = load("res://recorrido.tscn").instantiate()
+	var scene = load("res://revision_escala.tscn").instantiate()
 	viewport.add_child(scene)
 	scene.set_physics_process(false)
 	scene.sota.hide()

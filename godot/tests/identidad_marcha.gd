@@ -56,12 +56,10 @@ func capture(image: Image, measured: Dictionary) -> void:
 	viewport.size = Vector2i(1672, 941)
 	viewport.render_target_update_mode = SubViewport.UPDATE_ALWAYS
 	root.add_child(viewport)
-	var scene = load("res://recorrido.tscn").instantiate()
+	var scene = load("res://revision_escala.tscn").instantiate()
 	viewport.add_child(scene)
 	scene.set_physics_process(false)
-	scene.body.position = Vector2(660, 705)
-	scene.ground = scene.body.position
-	scene.update_status()
+	scene.set_ground(660.0)
 	var r: Array = measured.region
 	var texture := AtlasTexture.new()
 	texture.atlas = ImageTexture.create_from_image(image)

@@ -23,22 +23,5 @@ func check() -> void:
 			assert(walk.frame_at(index * walk.data.distancia_ciclo / 8.0) == index)
 	assert(walk.frame_at(walk.data.distancia_ciclo) == 0)
 	assert(walk.frames[0][0].atlas != walk.frames[1][0].atlas)
-	# Archivo de la propuesta rechazada: comprueba datos y retirada del recorrido, no aprobación artística.
-	var scene = load("res://recorrido.tscn").instantiate()
-	root.add_child(scene)
-	scene.set_physics_process(false)
-	await physics_frame
-	await process_frame
-	for profile in range(2):
-		scene.cancel_movement()
-		scene.body.position = Vector2(780, 705)
-		scene.show_pose(profile)
-		for tick in range(90):
-			scene.advance(1.0 / 60.0, 1.0 if profile == 0 else -1.0)
-			assert(scene.sota.texture.atlas == scene.ATLASES[0])
-			assert(scene.sota.material.shader == scene.CUTOUT)
-	print("OK: datos históricos de 16 poses conservados; recorrido usa únicamente v7 al moverse.")
-	scene.queue_free()
-	await process_frame
-	# Las capturas rechazadas se conservan; la corrección se renderiza con identidad_marcha.gd.
+	print("OK: datos históricos de 16 poses rechazadas conservados; animación vigente comprobada en movimiento_sota.gd.")
 	quit()

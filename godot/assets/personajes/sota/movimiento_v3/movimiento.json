@@ -1,0 +1,1253 @@
+{
+	"alfa_render": 0.95,
+	"distancia_ciclo": 196.0,
+	"fases": [
+		"contacto_a",
+		"carga_a",
+		"apoyo_a",
+		"despegue_a",
+		"cruce_a",
+		"extension_a",
+		"impulso_a",
+		"llegada_b",
+		"contacto_b",
+		"carga_b",
+		"apoyo_b",
+		"despegue_b",
+		"cruce_b",
+		"extension_b",
+		"impulso_b",
+		"llegada_a"
+	],
+	"nota": "PNG originales completos; marco836x1024, misma escala por perfil, apoyo medido al alfa de render. Sin reflejo ni normalización por fotograma.",
+	"perfiles": [
+		{
+			"cerrar_a": {
+				"apoyo_x": 486.5,
+				"archivo": "res://assets/personajes/sota/movimiento_v3/cerrar_a.png",
+				"cadera_x": 493.5,
+				"celda": [
+					0,
+					0,
+					836,
+					1024
+				],
+				"limites": [
+					369,
+					75,
+					229,
+					869
+				],
+				"marcha": false,
+				"medida": {
+					"luminancia_srgb_media": 0.171064627328367,
+					"pixeles_opacos": 125757,
+					"region": [
+						367,
+						73,
+						234,
+						872
+					]
+				},
+				"suelo_y": 944
+			},
+			"cerrar_b": {
+				"apoyo_x": 468.5,
+				"archivo": "res://assets/personajes/sota/movimiento_v3/cerrar_b.png",
+				"cadera_x": 479.0,
+				"celda": [
+					0,
+					0,
+					836,
+					1024
+				],
+				"limites": [
+					348,
+					65,
+					250,
+					881
+				],
+				"marcha": false,
+				"medida": {
+					"luminancia_srgb_media": 0.162272779043156,
+					"pixeles_opacos": 138082,
+					"region": [
+						346,
+						63,
+						253,
+						885
+					]
+				},
+				"suelo_y": 946
+			},
+			"escala": 0.289988492520138,
+			"marcha": [
+				{
+					"apoyo_x": 1310.0,
+					"archivo": "res://assets/personajes/sota/movimiento_v3/derecha_contacto_a.png",
+					"cadera_x": 1027.0,
+					"celda": [
+						700,
+						0,
+						836,
+						1024
+					],
+					"limites": [
+						855,
+						87,
+						456,
+						851
+					],
+					"marcha": true,
+					"medida": {
+						"luminancia_srgb_media": 0.14429725361248,
+						"pixeles_opacos": 147883,
+						"region": [
+							853,
+							85,
+							459,
+							854
+						]
+					},
+					"suelo_y": 931
+				},
+				{
+					"apoyo_x": 1334.0,
+					"archivo": "res://assets/personajes/sota/movimiento_v3/derecha_carga_a.png",
+					"cadera_x": 1075.5,
+					"celda": [
+						700,
+						0,
+						836,
+						1024
+					],
+					"limites": [
+						865,
+						90,
+						470,
+						850
+					],
+					"marcha": true,
+					"medida": {
+						"luminancia_srgb_media": 0.164299009982577,
+						"pixeles_opacos": 161328,
+						"region": [
+							863,
+							89,
+							473,
+							853
+						]
+					},
+					"suelo_y": 935
+				},
+				{
+					"apoyo_x": 1349.0,
+					"archivo": "res://assets/personajes/sota/movimiento_v3/derecha_apoyo_a.png",
+					"cadera_x": 1073.0,
+					"celda": [
+						700,
+						0,
+						836,
+						1024
+					],
+					"limites": [
+						867,
+						101,
+						483,
+						838
+					],
+					"marcha": true,
+					"medida": {
+						"luminancia_srgb_media": 0.145914046348088,
+						"pixeles_opacos": 160739,
+						"region": [
+							866,
+							100,
+							485,
+							841
+						]
+					},
+					"suelo_y": 937
+				},
+				{
+					"apoyo_x": 1235.0,
+					"archivo": "res://assets/personajes/sota/movimiento_v3/derecha_despegue_a.png",
+					"cadera_x": 1064.0,
+					"celda": [
+						700,
+						0,
+						836,
+						1024
+					],
+					"limites": [
+						886,
+						89,
+						350,
+						851
+					],
+					"marcha": true,
+					"medida": {
+						"luminancia_srgb_media": 0.160255591987878,
+						"pixeles_opacos": 142709,
+						"region": [
+							882,
+							87,
+							355,
+							854
+						]
+					},
+					"suelo_y": 940
+				},
+				{
+					"apoyo_x": 1148.0,
+					"archivo": "res://assets/personajes/sota/movimiento_v3/derecha_cruce_a.png",
+					"cadera_x": 1076.0,
+					"celda": [
+						700,
+						0,
+						836,
+						1024
+					],
+					"limites": [
+						933,
+						78,
+						301,
+						862
+					],
+					"marcha": true,
+					"medida": {
+						"luminancia_srgb_media": 0.155133637136065,
+						"pixeles_opacos": 146392,
+						"region": [
+							932,
+							76,
+							303,
+							865
+						]
+					},
+					"suelo_y": 940
+				},
+				{
+					"apoyo_x": 1091.0,
+					"archivo": "res://assets/personajes/sota/movimiento_v3/derecha_extension_a.png",
+					"cadera_x": 1083.5,
+					"celda": [
+						700,
+						0,
+						836,
+						1024
+					],
+					"limites": [
+						905,
+						72,
+						467,
+						867
+					],
+					"marcha": true,
+					"medida": {
+						"luminancia_srgb_media": 0.171563268929615,
+						"pixeles_opacos": 163506,
+						"region": [
+							904,
+							71,
+							469,
+							869
+						]
+					},
+					"suelo_y": 939
+				},
+				{
+					"apoyo_x": 980.0,
+					"archivo": "res://assets/personajes/sota/movimiento_v3/derecha_impulso_a.png",
+					"cadera_x": 1078.5,
+					"celda": [
+						700,
+						0,
+						836,
+						1024
+					],
+					"limites": [
+						827,
+						65,
+						520,
+						875
+					],
+					"marcha": true,
+					"medida": {
+						"luminancia_srgb_media": 0.171204219764685,
+						"pixeles_opacos": 166306,
+						"region": [
+							824,
+							64,
+							525,
+							878
+						]
+					},
+					"suelo_y": 940
+				},
+				{
+					"apoyo_x": 1000.0,
+					"archivo": "res://assets/personajes/sota/movimiento_v3/derecha_llegada_b.png",
+					"cadera_x": 1086.5,
+					"celda": [
+						700,
+						0,
+						836,
+						1024
+					],
+					"limites": [
+						835,
+						73,
+						529,
+						872
+					],
+					"marcha": true,
+					"medida": {
+						"luminancia_srgb_media": 0.17164694036158,
+						"pixeles_opacos": 180417,
+						"region": [
+							834,
+							71,
+							531,
+							875
+						]
+					},
+					"suelo_y": 945
+				},
+				{
+					"apoyo_x": 1343.0,
+					"archivo": "res://assets/personajes/sota/movimiento_v3/derecha_contacto_b.png",
+					"cadera_x": 1085.5,
+					"celda": [
+						700,
+						0,
+						836,
+						1024
+					],
+					"limites": [
+						835,
+						73,
+						524,
+						872
+					],
+					"marcha": true,
+					"medida": {
+						"luminancia_srgb_media": 0.16426668757175,
+						"pixeles_opacos": 182797,
+						"region": [
+							833,
+							72,
+							528,
+							874
+						]
+					},
+					"suelo_y": 945
+				},
+				{
+					"apoyo_x": 1343.0,
+					"archivo": "res://assets/personajes/sota/movimiento_v3/derecha_carga_b.png",
+					"cadera_x": 1078.0,
+					"celda": [
+						700,
+						0,
+						836,
+						1024
+					],
+					"limites": [
+						815,
+						78,
+						529,
+						869
+					],
+					"marcha": true,
+					"medida": {
+						"luminancia_srgb_media": 0.169638517256226,
+						"pixeles_opacos": 185376,
+						"region": [
+							814,
+							77,
+							531,
+							871
+						]
+					},
+					"suelo_y": 947
+				},
+				{
+					"apoyo_x": 1343.0,
+					"archivo": "res://assets/personajes/sota/movimiento_v3/derecha_apoyo_b.png",
+					"cadera_x": 1097.5,
+					"celda": [
+						700,
+						0,
+						836,
+						1024
+					],
+					"limites": [
+						834,
+						81,
+						510,
+						868
+					],
+					"marcha": true,
+					"medida": {
+						"luminancia_srgb_media": 0.168546777064366,
+						"pixeles_opacos": 182411,
+						"region": [
+							833,
+							80,
+							512,
+							870
+						]
+					},
+					"suelo_y": 949
+				},
+				{
+					"apoyo_x": 1314.0,
+					"archivo": "res://assets/personajes/sota/movimiento_v3/derecha_despegue_b.png",
+					"cadera_x": 1087.5,
+					"celda": [
+						700,
+						0,
+						836,
+						1024
+					],
+					"limites": [
+						912,
+						83,
+						407,
+						875
+					],
+					"marcha": true,
+					"medida": {
+						"luminancia_srgb_media": 0.170279834439008,
+						"pixeles_opacos": 171256,
+						"region": [
+							911,
+							82,
+							409,
+							877
+						]
+					},
+					"suelo_y": 958
+				},
+				{
+					"apoyo_x": 1122.0,
+					"archivo": "res://assets/personajes/sota/movimiento_v3/derecha_cruce_b.png",
+					"cadera_x": 1049.0,
+					"celda": [
+						700,
+						0,
+						836,
+						1024
+					],
+					"limites": [
+						889,
+						90,
+						476,
+						850
+					],
+					"marcha": true,
+					"medida": {
+						"luminancia_srgb_media": 0.173905482695759,
+						"pixeles_opacos": 161932,
+						"region": [
+							888,
+							89,
+							478,
+							852
+						]
+					},
+					"suelo_y": 940
+				},
+				{
+					"apoyo_x": 1090.0,
+					"archivo": "res://assets/personajes/sota/movimiento_v3/derecha_extension_b.png",
+					"cadera_x": 1113.5,
+					"celda": [
+						700,
+						0,
+						836,
+						1024
+					],
+					"limites": [
+						909,
+						71,
+						407,
+						870
+					],
+					"marcha": true,
+					"medida": {
+						"luminancia_srgb_media": 0.170599285955536,
+						"pixeles_opacos": 163346,
+						"region": [
+							908,
+							69,
+							409,
+							873
+						]
+					},
+					"suelo_y": 941
+				},
+				{
+					"apoyo_x": 1031.0,
+					"archivo": "res://assets/personajes/sota/movimiento_v3/derecha_impulso_b.png",
+					"cadera_x": 1084.5,
+					"celda": [
+						700,
+						0,
+						836,
+						1024
+					],
+					"limites": [
+						870,
+						72,
+						572,
+						872
+					],
+					"marcha": true,
+					"medida": {
+						"luminancia_srgb_media": 0.17382869048168,
+						"pixeles_opacos": 170894,
+						"region": [
+							869,
+							71,
+							574,
+							875
+						]
+					},
+					"suelo_y": 944
+				},
+				{
+					"apoyo_x": 1033.0,
+					"archivo": "res://assets/personajes/sota/movimiento_v3/derecha_llegada_a.png",
+					"cadera_x": 1122.5,
+					"celda": [
+						700,
+						0,
+						836,
+						1024
+					],
+					"limites": [
+						880,
+						86,
+						565,
+						855
+					],
+					"marcha": true,
+					"medida": {
+						"luminancia_srgb_media": 0.158237968767326,
+						"pixeles_opacos": 168050,
+						"region": [
+							878,
+							85,
+							568,
+							857
+						]
+					},
+					"suelo_y": 941
+				}
+			],
+			"preparar": {
+				"apoyo_x": 542.5,
+				"archivo": "res://assets/personajes/sota/movimiento_v3/preparar.png",
+				"cadera_x": 469.5,
+				"celda": [
+					0,
+					0,
+					836,
+					1024
+				],
+				"limites": [
+					341,
+					78,
+					331,
+					854
+				],
+				"marcha": false,
+				"medida": {
+					"luminancia_srgb_media": 0.16359052509251,
+					"pixeles_opacos": 141760,
+					"region": [
+						340,
+						77,
+						333,
+						856
+					]
+				},
+				"suelo_y": 932
+			},
+			"reposo": {
+				"apoyo_x": 457.5,
+				"archivo": "res://assets/personajes/sota/perfiles_pixel_v7.png",
+				"cadera_x": 493.5,
+				"celda": [
+					0,
+					0,
+					836,
+					1024
+				],
+				"limites": [
+					363,
+					76,
+					237,
+					869
+				],
+				"marcha": false,
+				"medida": {
+					"luminancia_srgb_media": 0.15152952767052,
+					"pixeles_opacos": 136228,
+					"region": [
+						362,
+						75,
+						240,
+						871
+					]
+				},
+				"suelo_y": 945
+			},
+			"respirar": {
+				"apoyo_x": 460.0,
+				"archivo": "res://assets/personajes/sota/movimiento_v3/respirar.png",
+				"cadera_x": 499.0,
+				"celda": [
+					0,
+					0,
+					836,
+					1024
+				],
+				"limites": [
+					371,
+					57,
+					232,
+					869
+				],
+				"marcha": false,
+				"medida": {
+					"luminancia_srgb_media": 0.169517368371409,
+					"pixeles_opacos": 130868,
+					"region": [
+						369,
+						54,
+						236,
+						873
+					]
+				},
+				"suelo_y": 926
+			}
+		},
+		{
+			"cerrar_a": {
+				"apoyo_x": 1046.0,
+				"archivo": "res://assets/personajes/sota/movimiento_v3/cerrar_a.png",
+				"cadera_x": 1034.0,
+				"celda": [
+					700,
+					0,
+					836,
+					1024
+				],
+				"limites": [
+					936,
+					76,
+					222,
+					868
+				],
+				"marcha": false,
+				"medida": {
+					"luminancia_srgb_media": 0.165420934302728,
+					"pixeles_opacos": 122745,
+					"region": [
+						934,
+						73,
+						225,
+						872
+					]
+				},
+				"suelo_y": 944
+			},
+			"cerrar_b": {
+				"apoyo_x": 1067.5,
+				"archivo": "res://assets/personajes/sota/movimiento_v3/cerrar_b.png",
+				"cadera_x": 1054.0,
+				"celda": [
+					700,
+					0,
+					836,
+					1024
+				],
+				"limites": [
+					939,
+					65,
+					249,
+					881
+				],
+				"marcha": false,
+				"medida": {
+					"luminancia_srgb_media": 0.157059353121906,
+					"pixeles_opacos": 137964,
+					"region": [
+						937,
+						63,
+						252,
+						885
+					]
+				},
+				"suelo_y": 946
+			},
+			"escala": 0.291329479768786,
+			"marcha": [
+				{
+					"apoyo_x": 819.0,
+					"archivo": "res://assets/personajes/sota/movimiento_v3/izquierda_contacto_a.png",
+					"cadera_x": 1062.5,
+					"celda": [
+						700,
+						0,
+						836,
+						1024
+					],
+					"limites": [
+						795,
+						84,
+						496,
+						846
+					],
+					"marcha": true,
+					"medida": {
+						"luminancia_srgb_media": 0.151575581718851,
+						"pixeles_opacos": 154264,
+						"region": [
+							792,
+							83,
+							501,
+							849
+						]
+					},
+					"suelo_y": 930
+				},
+				{
+					"apoyo_x": 863.0,
+					"archivo": "res://assets/personajes/sota/movimiento_v3/izquierda_carga_a.png",
+					"cadera_x": 1065.0,
+					"celda": [
+						700,
+						0,
+						836,
+						1024
+					],
+					"limites": [
+						863,
+						89,
+						436,
+						844
+					],
+					"marcha": true,
+					"medida": {
+						"luminancia_srgb_media": 0.160104509284636,
+						"pixeles_opacos": 156629,
+						"region": [
+							862,
+							88,
+							438,
+							846
+						]
+					},
+					"suelo_y": 933
+				},
+				{
+					"apoyo_x": 912.0,
+					"archivo": "res://assets/personajes/sota/movimiento_v3/izquierda_apoyo_a.png",
+					"cadera_x": 1102.0,
+					"celda": [
+						700,
+						0,
+						836,
+						1024
+					],
+					"limites": [
+						912,
+						91,
+						444,
+						842
+					],
+					"marcha": true,
+					"medida": {
+						"luminancia_srgb_media": 0.164326666277152,
+						"pixeles_opacos": 155605,
+						"region": [
+							910,
+							89,
+							447,
+							845
+						]
+					},
+					"suelo_y": 933
+				},
+				{
+					"apoyo_x": 891.0,
+					"archivo": "res://assets/personajes/sota/movimiento_v3/izquierda_despegue_a.png",
+					"cadera_x": 1009.5,
+					"celda": [
+						700,
+						0,
+						836,
+						1024
+					],
+					"limites": [
+						879,
+						75,
+						431,
+						859
+					],
+					"marcha": true,
+					"medida": {
+						"luminancia_srgb_media": 0.137038665387032,
+						"pixeles_opacos": 147328,
+						"region": [
+							873,
+							70,
+							440,
+							865
+						]
+					},
+					"suelo_y": 934
+				},
+				{
+					"apoyo_x": 1039.0,
+					"archivo": "res://assets/personajes/sota/movimiento_v3/izquierda_cruce_a.png",
+					"cadera_x": 1074.0,
+					"celda": [
+						700,
+						0,
+						836,
+						1024
+					],
+					"limites": [
+						919,
+						79,
+						316,
+						858
+					],
+					"marcha": true,
+					"medida": {
+						"luminancia_srgb_media": 0.157603601080067,
+						"pixeles_opacos": 148142,
+						"region": [
+							918,
+							77,
+							318,
+							862
+						]
+					},
+					"suelo_y": 937
+				},
+				{
+					"apoyo_x": 1129.0,
+					"archivo": "res://assets/personajes/sota/movimiento_v3/izquierda_extension_a.png",
+					"cadera_x": 1083.0,
+					"celda": [
+						700,
+						0,
+						836,
+						1024
+					],
+					"limites": [
+						785,
+						77,
+						509,
+						858
+					],
+					"marcha": true,
+					"medida": {
+						"luminancia_srgb_media": 0.143078020233626,
+						"pixeles_opacos": 162567,
+						"region": [
+							784,
+							75,
+							512,
+							861
+						]
+					},
+					"suelo_y": 935
+				},
+				{
+					"apoyo_x": 1164.0,
+					"archivo": "res://assets/personajes/sota/movimiento_v3/izquierda_impulso_a.png",
+					"cadera_x": 1088.5,
+					"celda": [
+						700,
+						0,
+						836,
+						1024
+					],
+					"limites": [
+						819,
+						72,
+						503,
+						862
+					],
+					"marcha": true,
+					"medida": {
+						"luminancia_srgb_media": 0.159619621403687,
+						"pixeles_opacos": 161764,
+						"region": [
+							817,
+							71,
+							506,
+							864
+						]
+					},
+					"suelo_y": 934
+				},
+				{
+					"apoyo_x": 1115.0,
+					"archivo": "res://assets/personajes/sota/movimiento_v3/izquierda_llegada_b.png",
+					"cadera_x": 1068.0,
+					"celda": [
+						700,
+						0,
+						836,
+						1024
+					],
+					"limites": [
+						785,
+						82,
+						487,
+						857
+					],
+					"marcha": true,
+					"medida": {
+						"luminancia_srgb_media": 0.140763050823778,
+						"pixeles_opacos": 161101,
+						"region": [
+							784,
+							81,
+							489,
+							859
+						]
+					},
+					"suelo_y": 939
+				},
+				{
+					"apoyo_x": 788.0,
+					"archivo": "res://assets/personajes/sota/movimiento_v3/izquierda_contacto_b.png",
+					"cadera_x": 1043.0,
+					"celda": [
+						700,
+						0,
+						836,
+						1024
+					],
+					"limites": [
+						787,
+						85,
+						492,
+						848
+					],
+					"marcha": true,
+					"medida": {
+						"luminancia_srgb_media": 0.166490431561366,
+						"pixeles_opacos": 156010,
+						"region": [
+							713,
+							0,
+							823,
+							1024
+						]
+					},
+					"suelo_y": 933
+				},
+				{
+					"apoyo_x": 818.0,
+					"archivo": "res://assets/personajes/sota/movimiento_v3/izquierda_carga_b.png",
+					"cadera_x": 1064.0,
+					"celda": [
+						700,
+						0,
+						836,
+						1024
+					],
+					"limites": [
+						818,
+						89,
+						717,
+						850
+					],
+					"marcha": true,
+					"medida": {
+						"luminancia_srgb_media": 0.145985636667402,
+						"pixeles_opacos": 155444,
+						"region": [
+							700,
+							0,
+							836,
+							1024
+						]
+					},
+					"suelo_y": 936
+				},
+				{
+					"apoyo_x": 900.0,
+					"archivo": "res://assets/personajes/sota/movimiento_v3/izquierda_apoyo_b.png",
+					"cadera_x": 1176.0,
+					"celda": [
+						700,
+						0,
+						836,
+						1024
+					],
+					"limites": [
+						900,
+						100,
+						515,
+						857
+					],
+					"marcha": true,
+					"medida": {
+						"luminancia_srgb_media": 0.16518067874885,
+						"pixeles_opacos": 179585,
+						"region": [
+							899,
+							99,
+							517,
+							859
+						]
+					},
+					"suelo_y": 949
+				},
+				{
+					"apoyo_x": 926.0,
+					"archivo": "res://assets/personajes/sota/movimiento_v3/izquierda_despegue_b.png",
+					"cadera_x": 1097.5,
+					"celda": [
+						700,
+						0,
+						836,
+						1024
+					],
+					"limites": [
+						914,
+						80,
+						426,
+						858
+					],
+					"marcha": true,
+					"medida": {
+						"luminancia_srgb_media": 0.140371023671609,
+						"pixeles_opacos": 154180,
+						"region": [
+							913,
+							79,
+							429,
+							861
+						]
+					},
+					"suelo_y": 938
+				},
+				{
+					"apoyo_x": 1018.0,
+					"archivo": "res://assets/personajes/sota/movimiento_v3/izquierda_cruce_b.png",
+					"cadera_x": 1077.5,
+					"celda": [
+						700,
+						0,
+						836,
+						1024
+					],
+					"limites": [
+						782,
+						75,
+						450,
+						861
+					],
+					"marcha": true,
+					"medida": {
+						"luminancia_srgb_media": 0.164226604950632,
+						"pixeles_opacos": 154083,
+						"region": [
+							781,
+							73,
+							452,
+							865
+						]
+					},
+					"suelo_y": 936
+				},
+				{
+					"apoyo_x": 1135.0,
+					"archivo": "res://assets/personajes/sota/movimiento_v3/izquierda_extension_b.png",
+					"cadera_x": 1102.5,
+					"celda": [
+						700,
+						0,
+						836,
+						1024
+					],
+					"limites": [
+						807,
+						80,
+						496,
+						847
+					],
+					"marcha": true,
+					"medida": {
+						"luminancia_srgb_media": 0.162202339964814,
+						"pixeles_opacos": 156047,
+						"region": [
+							806,
+							79,
+							498,
+							849
+						]
+					},
+					"suelo_y": 927
+				},
+				{
+					"apoyo_x": 1132.0,
+					"archivo": "res://assets/personajes/sota/movimiento_v3/izquierda_impulso_b.png",
+					"cadera_x": 1063.5,
+					"celda": [
+						700,
+						0,
+						836,
+						1024
+					],
+					"limites": [
+						777,
+						73,
+						508,
+						865
+					],
+					"marcha": true,
+					"medida": {
+						"luminancia_srgb_media": 0.15442321976381,
+						"pixeles_opacos": 168139,
+						"region": [
+							775,
+							50,
+							569,
+							889
+						]
+					},
+					"suelo_y": 938
+				},
+				{
+					"apoyo_x": 1093.0,
+					"archivo": "res://assets/personajes/sota/movimiento_v3/izquierda_llegada_a.png",
+					"cadera_x": 1028.5,
+					"celda": [
+						700,
+						0,
+						836,
+						1024
+					],
+					"limites": [
+						769,
+						81,
+						478,
+						851
+					],
+					"marcha": true,
+					"medida": {
+						"luminancia_srgb_media": 0.159951025941598,
+						"pixeles_opacos": 154250,
+						"region": [
+							768,
+							80,
+							480,
+							853
+						]
+					},
+					"suelo_y": 932
+				}
+			],
+			"preparar": {
+				"apoyo_x": 922.5,
+				"archivo": "res://assets/personajes/sota/movimiento_v3/preparar.png",
+				"cadera_x": 1045.5,
+				"celda": [
+					700,
+					0,
+					836,
+					1024
+				],
+				"limites": [
+					874,
+					81,
+					325,
+					854
+				],
+				"marcha": false,
+				"medida": {
+					"luminancia_srgb_media": 0.157059176401473,
+					"pixeles_opacos": 139602,
+					"region": [
+						873,
+						80,
+						327,
+						856
+					]
+				},
+				"suelo_y": 935
+			},
+			"reposo": {
+				"apoyo_x": 1060.0,
+				"archivo": "res://assets/personajes/sota/perfiles_pixel_v7.png",
+				"cadera_x": 1027.0,
+				"celda": [
+					700,
+					0,
+					836,
+					1024
+				],
+				"limites": [
+					947,
+					80,
+					216,
+					865
+				],
+				"marcha": false,
+				"medida": {
+					"luminancia_srgb_media": 0.146103737867968,
+					"pixeles_opacos": 124921,
+					"region": [
+						946,
+						79,
+						218,
+						868
+					]
+				},
+				"suelo_y": 945
+			},
+			"respirar": {
+				"apoyo_x": 1062.5,
+				"archivo": "res://assets/personajes/sota/movimiento_v3/respirar.png",
+				"cadera_x": 1023.5,
+				"celda": [
+					700,
+					0,
+					836,
+					1024
+				],
+				"limites": [
+					944,
+					60,
+					219,
+					866
+				],
+				"marcha": false,
+				"medida": {
+					"luminancia_srgb_media": 0.165397883278641,
+					"pixeles_opacos": 121902,
+					"region": [
+						943,
+						57,
+						222,
+						870
+					]
+				},
+				"suelo_y": 926
+			}
+		}
+	]
+}

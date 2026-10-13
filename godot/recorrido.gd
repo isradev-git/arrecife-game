@@ -1,8 +1,10 @@
 extends "res://revision_escala.gd"
 
 const MOTION = preload("res://movimiento.gd")
+const WALK = preload("res://movimiento_sota.gd")
 
 var motion := MOTION.new()
+var walk := WALK.new()
 var body := CharacterBody2D.new()
 var pressed_keys: Dictionary = {}
 var arrival_pose := -1
@@ -20,6 +22,9 @@ func _ready() -> void:
 	footprint.position.y = -7.0
 	body.add_child(footprint)
 	sota.reparent(body)
+	sota.material.set_shader_parameter("alpha_threshold", 0.95)
+	walk.reset(pose_index)
+	walk.update(sota, body.position.x, 0.0, 0.0, pose_index)
 	# El centro de la pasarela es el plano transitable; el mobiliario del fondo no lo bloquea.
 	for x in [MOTION.MIN_X - 20.0, MOTION.MAX_X + 20.0]:
 		var wall := StaticBody2D.new()
@@ -35,10 +40,10 @@ func _ready() -> void:
 
 
 func show_pose(index: int) -> void:
-	# shortcut: perfiles estáticos para validar el control; T05 añadirá pasos sincronizados.
 	super.show_pose(index)
 	if sota.get_parent() == body:
-		sota.position = Vector2.ZERO
+		walk.reset(index)
+		walk.update(sota, body.position.x, 0.0, 0.0, index)
 
 
 func build_controls() -> void:
@@ -62,6 +67,10 @@ func build_controls() -> void:
 	add_button(row, "Junto al guardia", go_to.bind(300.0, 1, "guardia"))
 	add_button(row, "Junto al acceso", go_to.bind(1480.0, 0, "acceso"))
 	add_button(row, "Revisión visual", get_tree().change_scene_to_file.bind("res://revision_escala.tscn"))
+	var reduced := CheckButton.new()
+	reduced.text = "Movimiento reducido"
+	reduced.toggled.connect(func(value: bool): walk.reduced_motion = value)
+	column.add_child(reduced)
 	column.add_child(status)
 
 
@@ -134,12 +143,12 @@ func advance(delta: float, intent: float) -> void:
 	ground = Vector2(body.position.x, GROUND_Y)
 	if not is_equal_approx(previous, body.position.x):
 		var facing := 0 if body.position.x > previous else 1
-		if facing != pose_index:
-			show_pose(facing)
+		pose_index = facing
 	if motion.arrived and arrival_pose >= 0:
-		show_pose(arrival_pose)
+		pose_index = arrival_pose
 	if motion.velocity == 0.0:
 		body.velocity = Vector2.ZERO
+	walk.update(sota, body.position.x, body.position.x - previous, delta, pose_index)
 	update_status()
 
 
@@ -147,4 +156,4 @@ func update_status() -> void:
 	var state := "Detenida" if motion.velocity == 0.0 else "Caminando"
 	if destination_name != "":
 		state += " · " + ("Junto a " if motion.target == null else "Hacia ") + destination_name
-	status.text = "%s · x %.0f · Altura 252 · Sprite provisional sin animación" % [state, ground.x]
+	status.text = "%s · x %.0f · %s" % [state, ground.x, walk.state.capitalize()]

@@ -23,7 +23,7 @@ func check() -> void:
 	for index in range(30):
 		reversed = walking.step(reversed, 1.0 / 60.0, 0.0)
 	assert(walking.velocity == 0.0)
-	for destination in [128.0, 779.99, 780.01, 800.0, 1260.0, 1480.0, 1632.0]:
+	for destination in [MOTION.MIN_X, 779.99, 780.01, 800.0, 1260.0, 1480.0, MOTION.MAX_X]:
 		var motion := MOTION.new()
 		var x := 780.0
 		assert(motion.go_to(destination))
@@ -74,7 +74,9 @@ func check_scene() -> void:
 	for index in range(400):
 		scene.advance(1.0 / 60.0, 0.0)
 	assert(is_equal_approx(scene.body.position.x, 300.0) and scene.pose_index == 1)
-	var sole: Vector2 = scene.sota.to_global((scene.sota.offset + Vector2(scene.sota.texture.get_width() / 2.0, scene.sota.texture.get_height())))
+	assert(scene.walk.state == "reposo" and scene.sota.position == Vector2.ZERO)
+	var rest: Dictionary = scene.walk.data.perfiles[1].reposo
+	var sole: Vector2 = scene.sota.to_global(scene.sota.offset + Vector2(rest.cadera_x - rest.celda[0], rest.suelo_y))
 	assert(sole.is_equal_approx(Vector2(300, 705)))
 	assert(scene.back_railing.z_index < scene.body.z_index and scene.body.z_index < scene.railing.z_index)
 	for intent in [-1.0, 1.0]:
