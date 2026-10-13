@@ -27,7 +27,7 @@ func check() -> void:
 		var motion := MOTION.new()
 		var x := 780.0
 		assert(motion.go_to(destination))
-		for index in range(600):
+		for index in range(1000):
 			x = motion.step(x, 1.0 / 60.0, 0.0)
 			assert(x >= minf(780.0, destination) and x <= maxf(780.0, destination))
 			if motion.arrived:
@@ -38,10 +38,10 @@ func check() -> void:
 	assert(clamped.go_to(-999.0) and clamped.target == MOTION.MIN_X)
 	assert(clamped.go_to(9999.0) and clamped.target == MOTION.MAX_X)
 	var x := 780.0
-	for index in range(600):
+	for index in range(1000):
 		x = clamped.step(x, 1.0 / 60.0, -1.0)
 	assert(x == MOTION.MIN_X and clamped.velocity == 0.0 and clamped.target == null)
-	for index in range(600):
+	for index in range(1000):
 		x = clamped.step(x, 1.0 / 60.0, 1.0)
 	assert(x == MOTION.MAX_X and clamped.velocity == 0.0)
 	var positions: Array[float] = []
@@ -67,20 +67,20 @@ func check_scene() -> void:
 	assert(scene.sota.get_parent() == scene.body and scene.sota.position == Vector2.ZERO)
 	assert(scene.body.get_child_count() == 2)
 	scene.go_to(1260.0, 0, "Jefa")
-	for index in range(400):
+	for index in range(650):
 		scene.advance(1.0 / 60.0, 0.0)
 	assert(is_equal_approx(scene.body.position.x, 1260.0) and scene.motion.velocity == 0.0 and scene.pose_index == 0)
 	scene.go_to(300.0, 1, "guardia")
-	for index in range(400):
+	for index in range(650):
 		scene.advance(1.0 / 60.0, 0.0)
 	assert(is_equal_approx(scene.body.position.x, 300.0) and scene.pose_index == 1)
 	assert(scene.walk.state == "reposo" and scene.sota.position == Vector2.ZERO)
 	var rest: Dictionary = scene.walk.data.perfiles[1].reposo
-	var sole: Vector2 = scene.sota.to_global(scene.sota.offset + Vector2(rest.cadera_x - rest.celda[0], rest.suelo_y))
+	var sole: Vector2 = scene.sota.to_global(scene.sota.offset + Vector2(rest.cadera_x - rest.celda[0], rest.suelo_y-rest.celda[1]))
 	assert(sole.is_equal_approx(Vector2(300, 705)))
 	assert(scene.back_railing.z_index < scene.body.z_index and scene.body.z_index < scene.railing.z_index)
 	for intent in [-1.0, 1.0]:
-		for index in range(600):
+		for index in range(1000):
 			scene.advance(1.0 / 60.0, intent)
 		assert(scene.body.position.x >= MOTION.MIN_X - 0.2 and scene.body.position.x <= MOTION.MAX_X + 0.2)
 		assert(scene.body.position.y == 705.0)
@@ -98,7 +98,7 @@ func check_scene() -> void:
 	await physics_frame
 	await process_frame
 	scene.go_to(1480.0, 0, "acceso")
-	for index in range(400):
+	for index in range(650):
 		scene.advance(1.0 / 60.0, 0.0)
 	assert(scene.body.position.x < 1080.1 and scene.body.position.x > 1079.0)
 	assert(scene.motion.target == null and scene.motion.velocity == 0.0)
@@ -151,7 +151,7 @@ func check_scene() -> void:
 	if "--capturas" in OS.get_cmdline_user_args() and DisplayServer.get_name() != "headless":
 		for sample in [[1260.0, 0, "jefa"], [300.0, 1, "guardia"]]:
 			scene.go_to(sample[0], sample[1], sample[2])
-			for index in range(600):
+			for index in range(1000):
 				scene.advance(1.0 / 60.0, 0.0)
 			for index in range(4):
 				await process_frame

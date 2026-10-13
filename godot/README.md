@@ -1,6 +1,6 @@
 # PASE PENDIENTE · Base Godot
 
-Base técnica del 9 de octubre, actualizada el **13 de octubre de 2026**. **Todavía no contiene el caso completo.** La escena principal `recorrido.tscn` permite caminar por Velvet con el sprite v7 provisional y altura 252 aprobada por el autor. `revision_escala.tscn` conserva la revisión de arte; `verificacion.tscn` la escena técnica original.
+Base técnica del 9 de octubre, actualizada el **13 de octubre de 2026**. **Todavía no contiene el caso completo.** La escena principal `recorrido.tscn` permite caminar por Velvet con sprites de marcha preparados desde v7 y altura de reposo 252 aprobada por el autor. `revision_escala.tscn` conserva la revisión de arte; `verificacion.tscn` la escena técnica original.
 
 **Entrega pixel art · 11 de octubre:** el autor aprueba el estilo con píxel intenso y ojos sutiles, y el contraluz acorde al entorno. Se compara el atlas v7 aprobado con una [base sin neón y contraluz separado](../trabajo/arte/revisiones/luz_v2/README.md). La máscara de contorno se calcula desde el alfa; color, intensidad y dirección son parámetros independientes. La variante nueva está entregada, pendiente de valoración. Importación, pruebas, render nativo y exportación correctos. La escena actual se comprueba después en Helium/Chromium; retícula, luces del escenario y otros navegadores pendientes. [Dirección vigente](../trabajo/direccion_artistica.md).
 
@@ -19,7 +19,7 @@ Abrir Godot e importar `project.godot`, o ejecutar desde la raíz del repositori
 
 F5 ejecuta el recorrido. **Flechas o A/D:** caminar; **clic en suelo:** destino caminando; **Esc:** parar. También hay botones de acercamiento. La carrera se retira por decisión del autor el 13 de octubre; Mayús y doble clic no aumentan la velocidad. Clic en mostrador, cabina o personas del acceso selecciona su punto de llegada; no abre todavía diálogos ni viajes. Revisión visual permite comparar perfiles, alturas, lugares, planos y luz; Probar recorrido vuelve al controlador.
 
-El centro transitable permanece en y = 705, con límites x = 128–1632 y colisión física de pies. Se conserva el orden de capas. [Registro T04](../trabajo/arte/revisiones/recorrido_jugable_v1/README.md). El sprite aún no anima los pasos. GDScript y Compatibility; Web sin hilos ni extensiones, sin .NET ni complementos.
+El centro transitable permanece en y = 705, con límites x = 128–1536 y colisión física de pies. Se conserva el orden de capas. [Registro T04](../trabajo/arte/revisiones/recorrido_jugable_v1/README.md). La marcha vigente se describe al final; los registros previos se conservan como historial. GDScript y Compatibility; Web sin hilos ni extensiones, sin .NET ni complementos.
 
 ## Repetir la comprobación y exportar
 
@@ -165,4 +165,20 @@ Helium/Chromium: teclado/clic, Mayús, aceleración/frenada, extremos, acercamie
 
 **Entrega anterior T05/T06 (naturalidad rechazada):** [Sota completa en ambos sentidos, transiciones y demo Web](../trabajo/arte/revisiones/movimiento_completo_v1/README.md), [fuentes/prompts](../trabajo/arte/personajes/sota/movimiento_v3/README.md). Recorrido integra movimiento_sota.gd con 16 fases propias por perfil, preparación/cierre A-B, giro de perfil y reposo v7/respiración; Movimiento reducido desactiva respiración. Ciclo por distancia 196 px, caminar 156 px/s, apoyo proyectado en y = 705 y límites 128–1536. Marco AtlasTexture 836 × 1024 y una escala por perfil desde reposo 252; máscara alfa 0,95 limpia residuos sin tocar RGB. tests/movimiento_sota.gd comprueba fases/paleta/escala/apoyos/inversión/reducción/extremos; --capturas necesita GPU. Preparación de copias/metadatos con tests/preparar_movimiento.gd, importación antes de exportar. Godot/controlador/escala/archivo histórico/Web comprobados; valoración visual del autor, otras plataformas y rendimiento pendientes. Los apartados anteriores de marcha estática/rechazada son historial.
 
-**Corrección vigente de fluidez T05:** [Diagnóstico y vídeos antes/después](../trabajo/arte/revisiones/marcha_fluidez_v1/README.md). El pie fijaba todo el sprite, congelando la cadera entre poses. Se elimina esa compensación; cuerpo visual y físico avanzan juntos. Cadencia por `avance_poses` de cada perfil, ciclo 224 px a 156 px/s, no reparto uniforme. PNG, escala 252, suelo 705, planos y controles intactos. Nueva prueba: `Godot --headless --path godot --script res://tests/fluidez_marcha.gd`; ambos perfiles/16 fases a 30/60 Hz, sin congelaciones/saltos extra y apoyo proyectado con desviación máxima ~23 px. Marcha/controlador/GPU/importación/exportación/Web comprobados. Corrección entregada, valoración y acabado artístico pendientes; no se afirma pie inmóvil ni naturalidad perfecta.
+**Corrección anterior de fluidez T05:** [Diagnóstico y vídeos antes/después](../trabajo/arte/revisiones/marcha_fluidez_v1/README.md). El pie fijaba todo el sprite, congelando la cadera entre poses. Se elimina esa compensación; cuerpo visual y físico avanzan juntos. Cadencia por `avance_poses` de cada perfil, ciclo 224 px a 156 px/s, no reparto uniforme. PNG, escala 252, suelo 705, planos y controles intactos. Nueva prueba: `Godot --headless --path godot --script res://tests/fluidez_marcha.gd`; ambos perfiles/16 fases a 30/60 Hz, sin congelaciones/saltos extra y apoyo proyectado con desviación máxima ~23 px. Marcha/controlador/GPU/importación/exportación/Web comprobados. Corrección entregada, valoración y acabado artístico pendientes; no se afirma pie inmóvil ni naturalidad perfecta.
+
+
+## Corrección vigente T05 · paleta y marcha v4
+
+El autor sigue viendo rigidez y cambios de color tras v1. [Resultado y pruebas v4](../trabajo/arte/revisiones/marcha_v4/README.md): `movimiento_sota.gd` consume `assets/personajes/sota/articulada_v1/movimiento.json`, cuatro atlas a resolución del juego (celda 256 × 320, escala 1), 32 fases por perfil, cuatro arranques y cuatro cierres por fase. Reposo/respiración usan v7. Sin reflejo, tintes por pose ni normalización individual. Ciclo 128 px a 104 px/s, aceleración 650/frenada 750. Planos, pies y = 705 y límites 128–1536 conservados.
+
+`tests/preparar_sota_articulada.gd` renderiza los sprites con GPU desde `sota_articulada.gd`: UV de piezas de v7 intacta, trayectorias/apoyos de pie y articulaciones. Es una alternativa articulada para valoración, no 32 redibujados manuales. `articulacion_v1.json` contiene contornos de botas medidos del alfa; el preparador los regenera. `opaque_cutout` solo se activa al preparar los atlas, para no mezclar los RGB originales; por defecto está desactivado en la revisión de arte. Importar después de preparar antes de probar/exportar.
+
+```sh
+/Applications/Godot.app/Contents/MacOS/Godot --path godot --script res://tests/preparar_sota_articulada.gd
+/Applications/Godot.app/Contents/MacOS/Godot --headless --path godot --editor --import
+/Applications/Godot.app/Contents/MacOS/Godot --headless --path godot --script res://tests/fluidez_marcha.gd
+/Applications/Godot.app/Contents/MacOS/Godot --path godot --script res://tests/movimiento_sota.gd -- --capturas
+```
+
+338 poses: región de cabeza comprobada idéntica al reposo rasterizado y 3.613.251 píxeles opacos con RGB exacto presente en v7; sin alfa parcial. Raíz continua y desviación de puntera proyectada 2,4–3,5 px en interior del apoyo a 30/60 Hz. Controlador/escala/shader histórico GPU/marcha GPU/exportación/Web Helium pasan. T05 sigue abierta: valoración artística, contornos/pliegues y transición al reposo pendientes; estas pruebas no demuestran naturalidad perfecta. Versiones anteriores y prompts intactos.

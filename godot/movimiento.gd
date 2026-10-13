@@ -2,9 +2,9 @@ extends RefCounted
 
 const MIN_X = 128.0
 const MAX_X = 1536.0
-const WALK_SPEED = 156.0
-const ACCELERATION = 1600.0
-const BRAKING = 2200.0
+const WALK_SPEED = 104.0
+const ACCELERATION = 650.0
+const BRAKING = 750.0
 
 var velocity := 0.0
 var target: Variant = null

@@ -1,0 +1,33 @@
+extends "res://recorrido.gd"
+
+const RIG = preload("res://sota_articulada.gd")
+var figures: Array = []
+var travel := 0.0
+var last_profile := -1
+
+func _ready() -> void:
+	super._ready()
+	for profile in range(2):
+		var figure = RIG.new()
+		body.add_child(figure)
+		figure.build(profile)
+		figure.hide()
+		figures.append(figure)
+
+func advance(delta: float, intent: float) -> void:
+	var old_x := body.position.x
+	super.advance(delta,intent)
+	var moved := body.position.x-old_x
+	if figures.is_empty(): return
+	for figure in figures: figure.hide()
+	if absf(moved) > 0.0001:
+		if last_profile != pose_index:
+			travel=0.0
+			last_profile=pose_index
+		travel+=absf(moved)
+		figures[pose_index].pose(travel/RIG.STRIDE+0.25)
+		figures[pose_index].show()
+		sota.hide()
+	else:
+		travel=0.0
+		sota.show()

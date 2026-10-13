@@ -1,0 +1,25 @@
+Use case: identity-preserve.
+Asset type: production pixel-art 16-frame walking animation sprite atlas for a Godot side-scrolling game.
+Input image 1 is the immutable identity, clothes, pixel size, darkness and color reference: approved Sota v7. Produce ONLY the requested walk atlas, not a comparison or reconstructed idle character.
+Composition: square transparent sprite sheet, EXACTLY 4 equal columns x 4 equal rows, 16 full-body sprites arranged chronological left-to-right then top-to-bottom. Each cell has the same dimensions, safe empty margin, pelvis centered on the same x, common horizontal ground baseline at 92% of cell height. Entire figure from hair through boots in every cell. Request a large 2048x2048 square. No headings, numbers, labels, grid, floor, shadow puddles, landscape or background glow.
+Character: SAME Sota as reference, adult woman with short dark bob, small barely visible eye in a shaded face, muted dark rust jacket over black top, grey diagonal shoulder strap, charcoal olive trousers, black heavy boots, small hip deck on her physical RIGHT side. BOTH sleeves stay long to elbow, rolled dark cuffs immediately below elbow; only forearms and hands bare. One cargo pocket on her physical RIGHT thigh, never on left thigh. Coarse intense pixel art with crisp clustered pixels, no antialiasing, no painterly gradients, no detailed facial portrait.
+Color invariants: one shared limited palette and fixed lighting for ALL SIXTEEN frames, identical reference jacket rust and shadow darkness, identical trousers/skin/hair/grey strap palette. Keep same hard dark shadow masses on face/head/chest; do NOT relight, brighten or recolor her when legs move. Thin magenta rim on screen-left/back and amber on screen-right/front, exactly the reference character, NO glow outside silhouette. Copy head design and face proportions consistently, no hair growth or shrinkage. Highlights subtle, reference stays dark.
+Motion: coherent anatomically credible relaxed HUMAN walk, two alternating steps, not a march, not a run, no exaggerated raised knees. Moderate stride, heel contact then sole loading then toe push off. The planted leg travels from ahead of hip to behind hip in equal distance increments across eight frames. Swinging leg flexes naturally at the knee for toe clearance and unfolds toward heel contact. Arms swing smoothly opposite their OWN legs, wrists relaxed, elbows softly bent. Weight transfers gently; pelvis dips at loading and rises at passing by only 2-3 pixels at output character height ~400. Head remains upright and consistent, subtle shoulder counterrotation. NO mannequin stiff arms, no identical repeated poses, no abruptly detached boots, no changing body height/leg length. These must be sequential in-betweens, NOT 16 unrelated poses or a costume sheet.
+16-frame chronological sequence:
+1 near leg forward heel contact, far leg trails on toe; near arm behind, far arm ahead.
+2 roll near heel toward sole, far heel pushes.
+3 near leg loaded with slightly bent knee, far foot begins lifting.
+4 near foot closer under hip, far knee folds forward.
+5 near support under hip, far knee passes gently ahead, arms passing neutral.
+6 near leg moving behind, far leg extends forward, near arm begins forward.
+7 near heel lifted for toe push, far heel approaches ground.
+8 near toe trails, far foot ready heel contact; near arm further forward.
+9 far leg forward heel contact, near leg trails toe; near arm forward, far arm behind.
+10 far heel rolls to sole, near heel pushes.
+11 far leg loaded slightly bent, near foot begins lifting.
+12 far foot closer under hip, near knee folds forward.
+13 far support under hip, near knee passes gently ahead, arms passing neutral.
+14 far leg moving behind, near leg extends forward, near arm begins back.
+15 far heel lifts for toe push, near heel approaches ground.
+16 far toe trails, near heel about to contact; near arm behind, seamlessly returns to frame 1.
+Views: ALL frames strict RIGHT-facing side profile. Only use the reference's right-facing woman. Near physical right thigh owns the single cargo pocket, near right upper sleeve owns grey badge, grey hair streak and deck visible on near hip. Never mirror or show front/three-quarter.

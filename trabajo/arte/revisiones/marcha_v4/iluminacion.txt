@@ -1,0 +1,7 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+OpenGL API 4.1 Metal - 90.5 - Compatibility - Using Device: Apple - Apple M4
+
+OK: 13994 píxeles de contorno modificados; alfa y muestras de cara, ojos, ropa y equipo conservados; rosa intenso restante: 0
+OK: 13994 píxeles de contorno modificados; alfa y muestras de cara, ojos, ropa y equipo conservados; rosa intenso restante: 0
+OK: 13994 píxeles de contorno modificados; alfa y muestras de cara, ojos, ropa y equipo conservados; rosa intenso restante: 0
+OK: restauración idéntica del aspecto original.
