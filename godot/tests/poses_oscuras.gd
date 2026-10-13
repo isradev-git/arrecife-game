@@ -7,10 +7,15 @@ const INBETWEEN_OUTPUT = "res://../trabajo/arte/revisiones/marcha_intermedios_v1
 const INBETWEEN_SOURCES = ["contacto_identidad_v1", "contacto_apoyo_v3", "apoyo_v1", "apoyo_cruce_v1", "cruce_v1", "cruce_impulso_v3", "impulso_v1"]
 const INBETWEEN_NAMES = ["V7 original · reposo", "01 · Contacto", "02 · Carga", "03 · Apoyo", "04 · Despegue", "05 · Cruce", "06 · Extensión", "07 · Impulso"]
 const SLEEVE_OUTPUT = "res://../trabajo/arte/revisiones/marcha_mangas_v1/"
+const SECOND_OUTPUT = "res://../trabajo/arte/revisiones/marcha_segundo_paso_v1/"
+const SECOND_SOURCES = ["contacto_b_v4", "apoyo_b_v2", "cruce_b_v6", "impulso_b_v4"]
+const SECOND_NAMES = ["V7 original · reposo", "B · Contacto", "B · Apoyo", "B · Cruce", "B · Impulso"]
 
 
 func check() -> void:
+	var with_second := "--segundo-paso" in OS.get_cmdline_user_args()
 	var with_sleeves := "--mangas" in OS.get_cmdline_user_args()
+	assert(not (with_second and with_sleeves), "Seleccionar una sola revisión")
 	var with_inbetweens := "--intermedios" in OS.get_cmdline_user_args() or with_sleeves
 	var sources: Array = INBETWEEN_SOURCES if with_inbetweens else SOURCES
 	var names: Array = INBETWEEN_NAMES if with_inbetweens else NAMES
@@ -20,6 +25,10 @@ func check() -> void:
 		sources[5] = "cruce_impulso_v7"
 		sources[6] = "impulso_v2"
 		output = SLEEVE_OUTPUT
+	if with_second:
+		sources = SECOND_SOURCES
+		names = SECOND_NAMES
+		output = SECOND_OUTPUT
 	assert(names.size() == sources.size() + 1)
 	var images: Array[Image] = [preload("res://assets/personajes/sota/perfiles_pixel_v7.png").get_image()]
 	var measures: Array[Dictionary] = [measure(images[0], Rect2i(0, 0, 768, 1024))]
@@ -51,6 +60,16 @@ func check() -> void:
 				comparison.append(images[sample[1]])
 				comparison_measures.append(measures[sample[1]])
 			await capture_series(comparison, comparison_measures, ["V7 original", "Extensión · antes", "Extensión · manga", "Impulso · antes", "Impulso · manga"], output + "detalle/")
+		if with_second:
+			var comparison: Array[Image] = []
+			var comparison_measures: Array[Dictionary] = []
+			for sample in [["contacto_identidad_v1", 1], ["apoyo_v1", 2], ["cruce_v1", 3], ["impulso_v2", 4]]:
+				var first := Image.load_from_file(ProjectSettings.globalize_path("res://../trabajo/arte/personajes/sota/caminar_v2/" + sample[0] + ".png"))
+				comparison.append(first)
+				comparison_measures.append(measure(first, Rect2i(768, 0, 768, 1024)))
+				comparison.append(images[sample[1]])
+				comparison_measures.append(measures[sample[1]])
+			await capture_series(comparison, comparison_measures, ["A · Contacto", "B · Contacto", "A · Apoyo", "B · Apoyo", "A · Cruce", "B · Cruce", "A · Impulso", "B · Impulso"], output + "comparacion_pasos/")
 	print("Poses oscuras: alfa, márgenes, dimensiones, altura y rango tonal comprobados. ", measures)
 	quit()
 

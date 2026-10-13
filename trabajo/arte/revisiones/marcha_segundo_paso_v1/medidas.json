@@ -1,0 +1,63 @@
+{
+	"escala_comun": 0.289322617680827,
+	"medidas": [
+		{
+			"luminancia_srgb_media": 0.15152952767052,
+			"pixeles_opacos": 136228,
+			"region": [
+				362,
+				75,
+				240,
+				871
+			]
+		},
+		{
+			"luminancia_srgb_media": 0.16426668757175,
+			"pixeles_opacos": 182797,
+			"region": [
+				833,
+				72,
+				528,
+				874
+			]
+		},
+		{
+			"luminancia_srgb_media": 0.168546777064366,
+			"pixeles_opacos": 182411,
+			"region": [
+				833,
+				80,
+				512,
+				870
+			]
+		},
+		{
+			"luminancia_srgb_media": 0.173905482695759,
+			"pixeles_opacos": 161932,
+			"region": [
+				888,
+				89,
+				478,
+				852
+			]
+		},
+		{
+			"luminancia_srgb_media": 0.17382869048168,
+			"pixeles_opacos": 170894,
+			"region": [
+				869,
+				71,
+				574,
+				875
+			]
+		}
+	],
+	"nombres": [
+		"V7 original · reposo",
+		"B · Contacto",
+		"B · Apoyo",
+		"B · Cruce",
+		"B · Impulso"
+	],
+	"nota": "RGB sRGB codificado sobre alfa >= 0.95; promedio afectado por forma y cobertura. No prueba identidad, paleta exacta ni aprobación. Encuadre estático por contorno; pivote de locomoción pendiente."
+}
