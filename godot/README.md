@@ -168,7 +168,7 @@ Helium/Chromium: teclado/clic, Mayús, aceleración/frenada, extremos, acercamie
 **Corrección anterior de fluidez T05:** [Diagnóstico y vídeos antes/después](../trabajo/arte/revisiones/marcha_fluidez_v1/README.md). El pie fijaba todo el sprite, congelando la cadera entre poses. Se elimina esa compensación; cuerpo visual y físico avanzan juntos. Cadencia por `avance_poses` de cada perfil, ciclo 224 px a 156 px/s, no reparto uniforme. PNG, escala 252, suelo 705, planos y controles intactos. Nueva prueba: `Godot --headless --path godot --script res://tests/fluidez_marcha.gd`; ambos perfiles/16 fases a 30/60 Hz, sin congelaciones/saltos extra y apoyo proyectado con desviación máxima ~23 px. Marcha/controlador/GPU/importación/exportación/Web comprobados. Corrección entregada, valoración y acabado artístico pendientes; no se afirma pie inmóvil ni naturalidad perfecta.
 
 
-## Corrección vigente T05 · paleta y marcha v4
+## Marcha v4 · movimiento aprobado después por el autor
 
 El autor sigue viendo rigidez y cambios de color tras v1. [Resultado y pruebas v4](../trabajo/arte/revisiones/marcha_v4/README.md): `movimiento_sota.gd` consume `assets/personajes/sota/articulada_v1/movimiento.json`, cuatro atlas a resolución del juego (celda 256 × 320, escala 1), 32 fases por perfil, cuatro arranques y cuatro cierres por fase. Reposo/respiración usan v7. Sin reflejo, tintes por pose ni normalización individual. Ciclo 128 px a 104 px/s, aceleración 650/frenada 750. Planos, pies y = 705 y límites 128–1536 conservados.
 
@@ -182,3 +182,12 @@ El autor sigue viendo rigidez y cambios de color tras v1. [Resultado y pruebas v
 ```
 
 338 poses: región de cabeza comprobada idéntica al reposo rasterizado y 3.613.251 píxeles opacos con RGB exacto presente en v7; sin alfa parcial. Raíz continua y desviación de puntera proyectada 2,4–3,5 px en interior del apoyo a 30/60 Hz. Controlador/escala/shader histórico GPU/marcha GPU/exportación/Web Helium pasan. T05 sigue abierta: valoración artística, contornos/pliegues y transición al reposo pendientes; estas pruebas no demuestran naturalidad perfecta. Versiones anteriores y prompts intactos.
+
+
+## Pulido vigente T05 · articulada_v2
+
+El autor aprueba expresamente la naturalidad de v4 y pide cerrar huecos/manos en pantalones; lo nota algo lento. [Antes/después, vídeo y pruebas](../trabajo/arte/revisiones/modelo_marcha_v5/README.md). `movimiento_sota.gd` consume ahora `assets/personajes/sota/articulada_v2/movimiento.json`. El preparador escribe esta versión nueva; `articulada_v1` y v7 quedan intactos. Los sprites nuevos corrigen recortes, reconstruyen tela oculta con UV originales, separan restos del deck de torso/muslo y cubren la unión pantalón-bota. No cambian el controlador, las trayectorias ni la cadencia.
+
+`tests/modelo_sota.gd` compara 328 poses contra el modelo v4 conservado y comprueba apoyo/ciclo/punteras idénticos. Con GPU reproduce 178 píxeles de piel incrustada en v4 y comprueba su eliminación y cobertura en torso/cintura/unión con botas para los 328 estados nuevos. Se ejecuta después de preparar/importar con `Godot --path godot --script res://tests/modelo_sota.gd`; headless solo compara transformaciones/datos. El test de marcha conserva la revisión de 338 poses/paleta/cabeza y cambia su salida de capturas a modelo_marcha_v5.
+
+Paleta exacta de v7 en 3.701.441 píxeles opacos, alfa binaria, cabeza comprobada idéntica, controlador/fluidez/GPU/importación/exportación y Web Helium pasan. Movimiento aprobado; pulido nuevo pendiente de valoración del autor. Velocidad algo lenta registrada y mantenida en 104 durante esta corrección. Revisión de contornos/pliegues y otras plataformas pendiente; las pruebas de cobertura examinan regiones concretas, no certifican acabado artístico perfecto.

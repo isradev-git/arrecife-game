@@ -2,6 +2,8 @@
 
 13 de octubre de 2026. El autor reconoce mejora de v1, pero sigue viendo movimiento robótico y cambios de color al andar. Esta es una corrección integrada para valoración, no aprobación artística ni cierre de T05.
 
+**Valoración posterior del autor:** aprueba expresamente la naturalidad de v4 («el movimiento está perfecto»), lo nota algo lento y pide pulir huecos/manos/restos de piezas. [Pulido posterior y pruebas](../modelo_marcha_v5/README.md); la aprobación del movimiento no equivale a aprobación del nuevo acabado.
+
 ## Resultado
 
 El recorrido usa cuatro atlas de [articulada_v1](../../../../godot/assets/personajes/sota/articulada_v1/). Se renderizan en Godot desde las dos vistas originales de Sota v7, conservadas intactas. Cada perfil tiene 32 posturas de marcha, cuatro de arranque, cuatro enlaces de cierre para cada postura, reposo y cuatro fases de respiración. No se refleja la figura. Son sprites completos preparados mediante articulación de piezas con UV del original; no son 32 dibujos nuevos realizados a mano. La propuesta busca resolver continuidad y mecánica; los contornos/uniones y pliegues de las articulaciones necesitan valoración artística, sin dar por satisfecho automáticamente el criterio de dibujos completos del autor.
