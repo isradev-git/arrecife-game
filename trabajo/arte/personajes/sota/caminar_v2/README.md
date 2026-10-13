@@ -18,4 +18,18 @@ El autor autoriza continuar; no se registra aprobación artística nueva. Se gen
 
 La figura derecha de cada hoja es la pose propuesta; izquierda contiene reposo reconstruido, no utilizado. Todas las poses se comparan con **v7 original real**: [láminas Godot y comprobaciones](../../../revisiones/marcha_poses_oscuras_v1/README.md). Mismo CUTOUT y escala 252/871, sin normalizar alturas por fotograma. Promedio tonal próximo al original, pendiente de revisar coherencia de dibujo y proporciones en movimiento.
 
-Propuesta de cuatro fases de un medio paso derecho, pendiente de valoración del autor. Falta el paso de la pierna contraria y el perfil izquierdo propio; no hay ciclo completo ni marcha integrada. PNG, prompts y modelos anteriores conservados; archivos de esta corrección no están en los assets del juego. Oscuridad cercana no demuestra continuidad perfecta de anatomía/equipo.
+## Intermedios solicitados por el autor
+
+El autor pide más posturas para que el andar sea más natural. Se producen tres intermedios entre las cuatro fases anteriores: **siete posturas en total de un medio paso derecho**. Siete llamadas a imagegen integrado incluyendo correcciones, sin retoque por código; todas las hojas y prompts conservados:
+
+| Transición | Propuesta seleccionada para comparación | Intentos y prompts |
+| --- | --- | --- |
+| Contacto → apoyo · carga | [contacto_apoyo_v3.png](contacto_apoyo_v3.png) | [v1](contacto_apoyo_v1.png) / [prompt v1](prompt_contacto_apoyo_v1.txt), [v2](contacto_apoyo_v2.png) / [prompt v2](prompt_contacto_apoyo_v2.txt), [prompt v3](prompt_contacto_apoyo_v3.txt). V1 pierde contraluz; v2 demasiado clara; v3 corrige paleta. |
+| Apoyo → cruce · despegue | [apoyo_cruce_v1.png](apoyo_cruce_v1.png) | [prompt v1](prompt_apoyo_cruce_v1.txt). |
+| Cruce → impulso · extensión | [cruce_impulso_v3.png](cruce_impulso_v3.png) | [v1](cruce_impulso_v1.png) / [prompt v1](prompt_cruce_impulso_v1.txt), [v2](cruce_impulso_v2.png) / [prompt v2](prompt_cruce_impulso_v2.txt), [prompt v3](prompt_cruce_impulso_v3.txt). V1 demasiado próxima al impulso; v2 corrige articulación pero queda más clara; v3 corrige paleta. |
+
+Entradas iniciales: v7 original y ambas poses contiguas (solo sus figuras derechas). Corrección de carga v2: intento v1, v7 y apoyo; extensión v2: intento v1, cruce e impulso. Correcciones de paleta v3: v7 original e intento v2 correspondiente. PNG íntegros 1536 × 1024 con alfa. La figura de reposo reconstruida a izquierda de cada hoja nunca sustituye al original.
+
+[Serie, comparación con v7 real, medidas y comprobaciones](../../../revisiones/marcha_intermedios_v1/README.md). Mismo shader y escala 252/871; las nuevas variantes tienen un promedio tonal entre +5,8 % y +8,4 % frente a v7. Coherencia completa de paleta/dibujo y naturalidad aún por comprobar en el ciclo.
+
+Propuesta de siete posturas de un medio paso derecho, pendiente de valoración del autor. Objetivo inicial del asistente: 16 dibujos por ciclo completo y perfil, ajustable tras probarlo. Faltan transición al contacto contrario, paso de la pierna contraria y perfil izquierdo propio; no hay ciclo completo ni marcha integrada. PNG, prompts y modelos anteriores conservados; archivos de esta corrección no están en los assets del juego. Oscuridad cercana no demuestra continuidad perfecta de anatomía/equipo.
