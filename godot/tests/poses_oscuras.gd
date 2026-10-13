@@ -6,13 +6,20 @@ const NAMES = ["V7 original · reposo", "Contacto", "Apoyo", "Cruce", "Impulso"]
 const INBETWEEN_OUTPUT = "res://../trabajo/arte/revisiones/marcha_intermedios_v1/"
 const INBETWEEN_SOURCES = ["contacto_identidad_v1", "contacto_apoyo_v3", "apoyo_v1", "apoyo_cruce_v1", "cruce_v1", "cruce_impulso_v3", "impulso_v1"]
 const INBETWEEN_NAMES = ["V7 original · reposo", "01 · Contacto", "02 · Carga", "03 · Apoyo", "04 · Despegue", "05 · Cruce", "06 · Extensión", "07 · Impulso"]
+const SLEEVE_OUTPUT = "res://../trabajo/arte/revisiones/marcha_mangas_v1/"
 
 
 func check() -> void:
-	var with_inbetweens := "--intermedios" in OS.get_cmdline_user_args()
+	var with_sleeves := "--mangas" in OS.get_cmdline_user_args()
+	var with_inbetweens := "--intermedios" in OS.get_cmdline_user_args() or with_sleeves
 	var sources: Array = INBETWEEN_SOURCES if with_inbetweens else SOURCES
 	var names: Array = INBETWEEN_NAMES if with_inbetweens else NAMES
 	var output: String = INBETWEEN_OUTPUT if with_inbetweens else OUTPUT
+	if with_sleeves:
+		sources = INBETWEEN_SOURCES.duplicate()
+		sources[5] = "cruce_impulso_v7"
+		sources[6] = "impulso_v2"
+		output = SLEEVE_OUTPUT
 	assert(names.size() == sources.size() + 1)
 	var images: Array[Image] = [preload("res://assets/personajes/sota/perfiles_pixel_v7.png").get_image()]
 	var measures: Array[Dictionary] = [measure(images[0], Rect2i(0, 0, 768, 1024))]
@@ -34,6 +41,16 @@ func check() -> void:
 	file.close()
 	if DisplayServer.get_name() != "headless" and "--capturas" in OS.get_cmdline_user_args():
 		await capture_series(images, measures, names, output)
+		if with_sleeves:
+			var comparison: Array[Image] = [images[0]]
+			var comparison_measures: Array[Dictionary] = [measures[0]]
+			for sample in [["cruce_impulso_v3", 6], ["impulso_v1", 7]]:
+				var old := Image.load_from_file(ProjectSettings.globalize_path("res://../trabajo/arte/personajes/sota/caminar_v2/" + sample[0] + ".png"))
+				comparison.append(old)
+				comparison_measures.append(measure(old, Rect2i(768, 0, 768, 1024)))
+				comparison.append(images[sample[1]])
+				comparison_measures.append(measures[sample[1]])
+			await capture_series(comparison, comparison_measures, ["V7 original", "Extensión · antes", "Extensión · manga", "Impulso · antes", "Impulso · manga"], output + "detalle/")
 	print("Poses oscuras: alfa, márgenes, dimensiones, altura y rango tonal comprobados. ", measures)
 	quit()
 

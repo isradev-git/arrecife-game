@@ -32,4 +32,17 @@ Entradas iniciales: v7 original y ambas poses contiguas (solo sus figuras derech
 
 [Serie, comparación con v7 real, medidas y comprobaciones](../../../revisiones/marcha_intermedios_v1/README.md). Mismo shader y escala 252/871; las nuevas variantes tienen un promedio tonal entre +5,8 % y +8,4 % frente a v7. Coherencia completa de paleta/dibujo y naturalidad aún por comprobar en el ciclo.
 
+## Corrección de mangas · vigente
+
+El autor advierte una diferencia de manga en extensión/impulso. La manga adelantada se había acortado; ambas deben cubrir hasta el codo con el mismo puño oscuro remangado justo por debajo, exponiendo solo antebrazo/mano. Cinco ediciones con **imagegen integrado**, sin retoque por código:
+
+| Fase | Propuesta corregida | Intentos / prompts exactos |
+| --- | --- | --- |
+| Extensión | [cruce_impulso_v7.png](cruce_impulso_v7.png) | [v4](cruce_impulso_v4.png) / [prompt v4](prompt_cruce_impulso_v4.txt): manga corregida, falta contraluz; [v5](cruce_impulso_v5.png) / [prompt v5](prompt_cruce_impulso_v5.txt): contraluz pero fondo parcialmente opaco; [v6](cruce_impulso_v6.png) / [prompt v6](prompt_cruce_impulso_v6.txt): alfa limpio pero demasiado clara; [prompt v7](prompt_cruce_impulso_v7.txt): paleta corregida. |
+| Impulso | [impulso_v2.png](impulso_v2.png) | [prompt v2](prompt_impulso_v2.txt): manga adelantada larga remangada. |
+
+Entradas: extensión v4 desde v3 y master aprobado; impulso v2 desde impulso v1 y master. Extensión v5 desde v4/v3 e impulso v2; v6 desde v5; v7 desde master, v6 y v3. PNG íntegros 1536 × 1024 con alfa; v5 conserva el fallo de transparencia como intento descartado. Versiones y prompts anteriores intactos. [Recorte del autor, antes/después y comprobaciones](../../../revisiones/marcha_mangas_v1/README.md).
+
+La versión `cruce_impulso_v7` es un intento de extensión, no el reposo aprobado: este continúa siendo `perfiles_pixel_v7.png`. Las mangas nuevas se seleccionan solo para comparar; todavía no hay aprobación del autor ni prueba animada de continuidad tonal/dibujo.
+
 Propuesta de siete posturas de un medio paso derecho, pendiente de valoración del autor. Objetivo inicial del asistente: 16 dibujos por ciclo completo y perfil, ajustable tras probarlo. Faltan transición al contacto contrario, paso de la pierna contraria y perfil izquierdo propio; no hay ciclo completo ni marcha integrada. PNG, prompts y modelos anteriores conservados; archivos de esta corrección no están en los assets del juego. Oscuridad cercana no demuestra continuidad perfecta de anatomía/equipo.
