@@ -2,7 +2,7 @@ extends SceneTree
 
 const RIG = preload("res://sota_articulada.gd")
 const PREVIOUS = "res://../trabajo/arte/revisiones/modelo_marcha_v5/articulacion_antes.gd.txt"
-const OUTPUT = "res://../trabajo/arte/revisiones/modelo_marcha_v6/"
+const OUTPUT = "res://../trabajo/arte/revisiones/modelo_marcha_v7/"
 
 func _initialize() -> void:
 	call_deferred("check")
@@ -31,19 +31,22 @@ func check() -> void:
 			current.pose(value[0],value[1])
 			assert(previous.body.transform.is_equal_approx(current.body.transform))
 			assert(previous.hip_center.is_equal_approx(current.hip_center))
-			for name in ["torso","head","thigh0","thigh1","shin0","shin1","boot0","boot1","sleeve0","sleeve1","hand0","hand1","deck"]:
+			for name in ["torso","head","boot0","boot1","sleeve1","hand1","deck"]:
 				assert(previous.parts[name].transform.is_equal_approx(current.parts[name].transform),"Trayectoria modificada: "+name)
 			for leg in range(2): assert(previous.legs[leg].hull==current.legs[leg].hull)
+			if value[1]==1.0:
+				assert(absf(current.parts.sleeve0.position.x-current.parts.sleeve1.position.x)<=3.01)
+				assert(absf(current.legs[0].thigh.position.x-current.legs[1].thigh.position.x)<=3.01)
 		previous.queue_free()
 		current.queue_free()
 	await process_frame
 	var before: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://assets/personajes/sota/articulada_v1/movimiento.json"))
-	var after: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://assets/personajes/sota/articulada_v3/movimiento.json"))
+	var after: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://assets/personajes/sota/articulada_v4/movimiento.json"))
 	assert(before.distancia_ciclo==after.distancia_ciclo)
 	for profile in range(2):
 		for phase in range(32):
 			assert(before.perfiles[profile].marcha[phase].punteras==after.perfiles[profile].marcha[phase].punteras)
-	print("OK: 328 poses articuladas conservan exactamente transformaciones y contornos; ciclo y punteras preparados idénticos a v4.")
+	print("OK: 328 poses conservan cabeza/cuerpo/brazo cercano/raíces de botas y contornos; hombro y cadera lejanos corregidos; ciclo y punteras preparados idénticos a v4.")
 	if DisplayServer.get_name()=="headless":
 		quit()
 		return
@@ -110,6 +113,7 @@ func check_coverage() -> bool:
 			for n in range(3): await process_frame
 			await RenderingServer.frame_post_draw
 			var image := vp.get_texture().get_image()
+			assert(image.save_png(OUTPUT+"cobertura_%d_%d.png" % [profile,batch])==OK)
 			for slot in range(figures.size()):
 				var cell := Vector2i((slot%8)*256,(slot/8)*320)
 				var figure: Node2D = figures[slot]
@@ -134,15 +138,14 @@ func check_coverage() -> bool:
 						var normal := Vector2(axis.y,-axis.x)
 						for across in range(-3,4):
 							var point: Vector2 = figure.body.to_global(knee+axis*along+normal*across)
-							assert(image.get_pixel(int(point.x),int(point.y)).a>0.95,"Interrupción en rodilla: perfil %d pose %d" % [profile,batch*56+slot])
-					var corners: PackedVector2Array = leg.lining.polygon
-					var top_center := (corners[0]+corners[1])*0.5
-					var bottom_center := (corners[2]+corners[3])*0.5
-					for step in range(1,10):
-						var point: Vector2 = leg.lining.to_global(top_center.lerp(bottom_center,step/10.0))
-						assert(image.get_pixel(int(point.x),int(point.y)).a>0.95,"Hueco entre pantalón y bota: perfil %d pose %d pixel %s" % [profile,batch*56+slot,str(point-Vector2(cell))])
+							assert(image.get_pixel(int(point.x),int(point.y)).a>0.95,"Interrupción en rodilla: perfil %d pose %d, pierna %s punto %s, longitudinal %d lateral %d" % [profile,batch*56+slot,str(leg.hip),str(point-Vector2(cell)),along,across])
+					for step in range(-23,5):
+						var axis: Vector2 = (leg.boot.position-knee).normalized()
+						var normal := Vector2(axis.y,-axis.x)
+						for across in range(-2,3):
+							var point: Vector2 = figure.body.to_global(leg.boot.position+axis*step+normal*across)
+							assert(image.get_pixel(int(point.x),int(point.y)).a>0.95,"Hueco entre pantalón y bota: perfil %d pose %d, pierna %s punto %s, paso %d lateral %d" % [profile,batch*56+slot,str(leg.hip),str(point-Vector2(cell)),step,across])
 				checked+=1
-			assert(image.save_png(OUTPUT+"cobertura_%d_%d.png" % [profile,batch])==OK)
 			vp.queue_free()
 			await process_frame
 	assert(skin_total==0,"Piel incrustada en pantalones sin los brazos")

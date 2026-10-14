@@ -20,12 +20,12 @@ func check() -> void:
 		var node: Polygon2D = figure.parts[name]
 		for y in range(HAND.position.y,HAND.end.y):
 			for x in range(HAND.position.x,HAND.end.x):
-				if Geometry2D.is_point_in_polygon(Vector2(x,y),node.uv) and image.get_pixel(x,y).a>=0.95: wrong+=1
+				if in_surface(Vector2(x,y),node) and image.get_pixel(x,y).a>=0.95: wrong+=1
 	var cuffs := 0
 	for leg in figure.legs:
 		for y in range(794,810):
 			for x in range(940,1170):
-				if Geometry2D.is_point_in_polygon(Vector2(x,y),leg.boot.uv) and image.get_pixel(x,y).a>=0.95: cuffs+=1
+				if in_surface(Vector2(x,y),leg.boot) and image.get_pixel(x,y).a>=0.95: cuffs+=1
 	figure.queue_free()
 	var right = rig.new()
 	root.add_child(right)
@@ -71,3 +71,11 @@ func bag_overlap(rig: GDScript) -> int:
 	assert(opportunities>10,"La comprobación debe incluir cruces entre brazo y bolsa")
 	print("GPU: %d cruces opacos brazo/bolsa; píxeles donde bolsa tapa brazo: %d" % [opportunities,overlap])
 	return overlap
+
+func in_surface(point: Vector2, node: Polygon2D) -> bool:
+	if node.polygons.is_empty(): return Geometry2D.is_point_in_polygon(point,node.uv)
+	for indices in node.polygons:
+		var triangle := PackedVector2Array()
+		for index in indices: triangle.append(node.uv[index])
+		if Geometry2D.is_point_in_polygon(point,triangle): return true
+	return false
