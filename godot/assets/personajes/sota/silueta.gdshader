@@ -5,7 +5,6 @@ uniform float alpha_threshold = 0.1;
 uniform bool opaque_cutout = false;
 uniform vec4 pink_rim : source_color = vec4(1.0);
 uniform vec4 warm_rim : source_color = vec4(1.0);
-uniform vec4 pixel_tint : source_color = vec4(1.0);
 
 void fragment() {
 	vec4 pixel = texture(TEXTURE, UV);
@@ -25,5 +24,5 @@ void fragment() {
 			pixel.rgb = warm_rim.rgb * pixel.r;
 		}
 	}
-	COLOR = pixel * pixel_tint;
+	COLOR = pixel;
 }

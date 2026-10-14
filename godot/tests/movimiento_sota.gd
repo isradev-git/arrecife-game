@@ -1,7 +1,7 @@
 extends SceneTree
 
 const WALK = preload("res://movimiento_sota.gd")
-const OUTPUT = "res://../trabajo/arte/revisiones/modelo_marcha_v9/"
+const OUTPUT = "res://../trabajo/arte/revisiones/modelo_marcha_v8/"
 
 func _initialize() -> void:
 	call_deferred("check")
@@ -34,6 +34,10 @@ func check() -> void:
 					var sample:=image.get_pixel(pose.celda[0]+x,pose.celda[1]+y+shift)
 					var reference:=idle.get_pixel(view.reposo.celda[0]+x,view.reposo.celda[1]+y)
 					assert(sample.is_equal_approx(reference),"Cambio en cabeza: perfil %d, recurso %s celda %s, pixel %d,%d" % [profile,pose.archivo,str(pose.celda),x,y])
+	var source:=Image.load_from_file(ProjectSettings.globalize_path(walk.data.fuente)).get_data()
+	var palette: Dictionary={}
+	for i in range(0,source.size(),4):
+		if source[i+3]>=242: palette[int(source[i])|(int(source[i+1])<<8)|(int(source[i+2])<<16)]=true
 	var checked: Dictionary={}
 	var opaque:=0
 	for texture in walk.textures.values():
@@ -45,8 +49,8 @@ func check() -> void:
 			assert(pixels[i+3] in [0,255],"Transparencia parcial del personaje: "+path)
 			if pixels[i+3]==255:
 				opaque+=1
-	assert(walk.data.has("fuente_piernas"))
-	print("OK: %d píxeles opacos de marcha, inicio, cierre y respiración; alfa binaria y fuente de piernas registrada." % opaque)
+				assert(palette.has(int(pixels[i])|(int(pixels[i+1])<<8)|(int(pixels[i+2])<<16)),"Color nuevo ajeno a v7: "+path)
+	print("OK: %d píxeles opacos de marcha, inicio, cierre y respiración usan exactamente colores de v7; alfa binaria." % opaque)
 	var scene=load("res://recorrido.tscn").instantiate()
 	root.add_child(scene)
 	scene.set_physics_process(false)

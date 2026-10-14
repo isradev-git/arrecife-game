@@ -1,7 +1,6 @@
 extends Node2D
 
 const SOURCE = preload("res://assets/personajes/sota/perfiles_pixel_v7.png")
-const SEPARATE_LEGS = preload("res://assets/personajes/sota/articulada_v6/piernas_separadas_intento1.png")
 const CUTOUT = preload("res://assets/personajes/sota/silueta.gdshader")
 const STRIDE = 128.0
 # shortcut: tela oculta reconstruida con UV originales; redibujar pliegues si la revisión detecta repetición.
@@ -10,7 +9,7 @@ var facing := 0
 var parts: Dictionary = {}
 var legs: Array = []
 var hip_center := Vector2.ZERO
-var hull_cache: Array = JSON.parse_string(FileAccess.get_file_as_string("res://assets/personajes/sota/articulacion_v2.json")) if FileAccess.file_exists("res://assets/personajes/sota/articulacion_v2.json") else []
+var hull_cache: Array = JSON.parse_string(FileAccess.get_file_as_string("res://assets/personajes/sota/articulacion_v1.json")) if FileAccess.file_exists("res://assets/personajes/sota/articulacion_v1.json") else []
 var arms: Array = []
 var body := Node2D.new()
 var pixel_scale := 252.0 / 869.0
@@ -88,16 +87,8 @@ func piece(name: String, values: Array, pivot: Vector2, depth: int) -> Polygon2D
 	node.polygon = poly
 	node.set_meta("original_polygon", poly)
 	node.uv = uv
-	node.texture = SEPARATE_LEGS if name.begins_with("thigh") or name.begins_with("shin") or name.begins_with("boot") else SOURCE
-	if node.texture == SEPARATE_LEGS:
-		var cloth_material := ShaderMaterial.new()
-		cloth_material.shader = CUTOUT
-		cloth_material.set_shader_parameter("alpha_threshold",0.95)
-		cloth_material.set_shader_parameter("opaque_cutout",true)
-		cloth_material.set_shader_parameter("pixel_tint",Color(0.72,0.72,0.72,1.0))
-		node.material=cloth_material
-	else:
-		node.use_parent_material = true
+	node.texture = SOURCE
+	node.use_parent_material = true
 	node.z_index = depth
 	body.add_child(node)
 	parts[name] = node
@@ -123,11 +114,20 @@ func restore_covered_cloth() -> void:
 		cloth_patch(parts.torso, [[390,265],[467,265],[467,410],[399,410]], [[466,281],[500,281],[500,391],[466,391]], hip_source)
 		cloth_patch(parts.torso, [[399,409],[514,409],[514,435],[399,435]], [[1034,409],[1048,409],[1048,425],[1034,425]], hip_source)
 		cloth_patch(parts.torso, [[399,434],[514,434],[514,514],[402,514]], [[455,498],[486,498],[486,532],[455,532]], hip_source)
+		cloth_patch(parts.boot1, [[446,833],[470,874],[497,898],[487,910],[453,887],[440,855]], [[406,827],[433,827],[438,877],[436,898],[405,887],[403,850]], Vector2(425,885))
+		parts.boot1.get_child(0).show_behind_parent=false
+		cloth_patch(parts.thigh1, [[403,490],[500,489],[500,566],[406,575]], [[455,498],[486,498],[486,532],[455,532]], Vector2(465,514))
 	else:
 		cloth_patch(parts.torso, [[1034,270],[1116,270],[1133,409],[1046,409]], [[1019,275],[1043,275],[1043,342],[1019,342]], hip_source)
 		cloth_patch(parts.torso, [[1045,409],[1133,409],[1133,435],[1045,435]], [[1034,409],[1048,409],[1048,425],[1034,425]], hip_source)
 		cloth_patch(parts.torso, [[1045,434],[1118,434],[1125,468],[1115,498],[1092,525],[1045,514]], [[1018,444],[1045,444],[1045,461],[1038,478],[1030,491],[1018,491]], hip_source)
+		cloth_patch(parts.boot1, [[1023,873],[1065,873],[1065,940],[1023,940]], [[985,865],[1018,865],[1018,936],[985,936]], Vector2(1026,885))
+		parts.boot1.get_child(0).show_behind_parent=false
+		cloth_patch(parts.boot1, [[1006,800],[1046,800],[1046,870],[1010,870]], [[1035,819],[1055,819],[1055,866],[1035,866]], Vector2(1026,885))
+		cloth_patch(parts.thigh0, [[1062,489],[1114,489],[1126,522],[1126,577],[1063,577]], [[1018,444],[1037,444],[1042,462],[1042,491],[1018,491]], Vector2(1104,510))
+		cloth_patch(parts.thigh1, [[986,506],[1004,506],[1004,579],[986,579]], [[1018,444],[1035,444],[1035,491],[1018,491]], Vector2(1034,514))
 		cloth_patch(parts.torso, [[986,505],[1004,505],[1004,516],[986,516]], [[1018,444],[1035,444],[1035,456],[1018,456]], hip_source)
+		cloth_patch(parts.thigh1, [[1045,494],[1063,494],[1063,566],[1045,566]], [[1030,448],[1045,448],[1045,489],[1030,489]], Vector2(1034,514))
 
 
 func subdivide_surface(node: Polygon2D, outline: PackedVector2Array, pivot: Vector2) -> void:
@@ -166,10 +166,6 @@ func prepare_continuous_legs() -> void:
 		subdivide_surface(leg.thigh,cloth,hip_source+leg.hip/pixel_scale)
 		subdivide_surface(leg.boot,leg.boot.uv,hip_source+leg.neutral_ankle/pixel_scale)
 		leg.shin.hide()
-		if facing==1 and leg==legs[0]:
-			# En v7 la mano tapa el arranque de la pierna lejana.
-			var far_outline := points([[1065,494],[1135,494],[1138,589],[1142,653],[1138,715],[1146,810],[1066,810],[1061,715],[1060,643]])
-			subdivide_surface(leg.thigh,far_outline,hip_source+leg.hip/pixel_scale)
 		if facing==1 and leg==legs[1]:
 			# El original oculta media pierna: una superficie completa evita estirar la rendija visible.
 			var outline := points([[995,499],[1052,494],[1063,586],[1060,656],[1066,710],[1071,765],[1063,814],[986,814],[983,765],[988,710],[986,636]])
@@ -180,47 +176,6 @@ func prepare_continuous_legs() -> void:
 				var center := 1022.0 if y<650 else lerpf(1018.0,1026.0,clampf((y-650)/160,0,1))
 				clean_uv[i].x=maxf(1005.0,center+(clean_uv[i].x-1026.0)*0.65)
 			leg.thigh.uv=clean_uv
-		for node in [leg.thigh,leg.boot]:
-			var mapped := PackedVector2Array()
-			for source_point in node.uv:
-				mapped.append(leg_part_uv(source_point,leg))
-			node.uv=mapped
-		if hull_cache.is_empty():
-			var boot_image := SEPARATE_LEGS.get_image()
-			var solid := PackedVector2Array()
-			var ankle_source: Vector2 = hip_source+leg.neutral_ankle/pixel_scale
-			var area := Rect2i(Vector2i(ankle_source)-Vector2i(150,100),Vector2i(300,180))
-			for y in range(area.position.y,area.end.y):
-				for x in range(area.position.x,area.end.x):
-					var source_point := Vector2(x,y)
-					if not Geometry2D.is_point_in_polygon(source_point,leg.boot_outline): continue
-					var sample := Vector2i(leg_part_uv(source_point,leg))
-					if sample.x>=0 and sample.x<boot_image.get_width() and sample.y>=0 and sample.y<boot_image.get_height() and boot_image.get_pixelv(sample).a>=0.95:
-						solid.append((source_point-ankle_source)*pixel_scale)
-			assert(not solid.is_empty(),"La pieza de bota debe conservar una suela opaca")
-			leg.hull=Geometry2D.convex_hull(solid)
-
-
-func leg_part_uv(source_point: Vector2,leg: Dictionary) -> Vector2:
-	var near: bool = leg==legs[1]
-	var y := source_point.y
-	var old_center := 0.0
-	var new_center := 0.0
-	if facing==0:
-		if near:
-			old_center=lerpf(465.0,430.0,clampf((y-500.0)/350.0,0.0,1.0))
-			new_center=275.0
-		else:
-			old_center=lerpf(520.0,530.0,clampf((y-500.0)/440.0,0.0,1.0))
-			new_center=610.0
-	else:
-		if near:
-			old_center=lerpf(1034.0,1010.0,clampf((y-500.0)/440.0,0.0,1.0))
-			new_center=942.0
-		else:
-			old_center=lerpf(1104.0,1110.0,clampf((y-500.0)/440.0,0.0,1.0))
-			new_center=1265.0+30.0*smoothstep(780.0,900.0,y)
-	return Vector2(new_center+(source_point.x-old_center)*1.6,120.0+(y-500.0)*1.77)
 
 
 func stretched(point: Vector2, axis: Vector2, length: float) -> Vector2:
@@ -265,7 +220,7 @@ func deform_leg(leg: Dictionary, hip: Vector2, knee: Vector2, ankle: Vector2) ->
 
 func add_leg(joints: Array, thigh: Array, shin: Array, boot: Array, ground_y: float, depth: int) -> void:
 	var n := str(legs.size())
-	var leg := {"thigh":piece("thigh"+n, thigh,joints[0],depth),"shin":piece("shin"+n,shin,joints[1],depth),"boot":piece("boot"+n,boot,joints[2],depth),"boot_outline":points(boot),"thigh_angle":(joints[1]-joints[0]).angle(),"shin_angle":(joints[2]-joints[1]).angle(),"sole":(ground_y-joints[2].y)*pixel_scale,"hull":PackedVector2Array(), "hip":(joints[0]-hip_source)*pixel_scale, "neutral_knee":(joints[1]-hip_source)*pixel_scale, "neutral_ankle":(joints[2]-hip_source)*pixel_scale, "thigh_axis":(joints[1]-joints[0])*pixel_scale, "shin_axis":(joints[2]-joints[1])*pixel_scale}
+	var leg := {"thigh":piece("thigh"+n, thigh,joints[0],depth),"shin":piece("shin"+n,shin,joints[1],depth),"boot":piece("boot"+n,boot,joints[2],depth),"thigh_angle":(joints[1]-joints[0]).angle(),"shin_angle":(joints[2]-joints[1]).angle(),"sole":(ground_y-joints[2].y)*pixel_scale,"hull":PackedVector2Array(), "hip":(joints[0]-hip_source)*pixel_scale, "neutral_knee":(joints[1]-hip_source)*pixel_scale, "neutral_ankle":(joints[2]-hip_source)*pixel_scale, "thigh_axis":(joints[1]-joints[0])*pixel_scale, "shin_axis":(joints[2]-joints[1])*pixel_scale}
 	var uv := points(boot)
 	if not hull_cache.is_empty():
 		leg.hull = points(hull_cache[facing][legs.size()])

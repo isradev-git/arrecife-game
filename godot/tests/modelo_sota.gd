@@ -1,8 +1,8 @@
 extends SceneTree
 
 const RIG = preload("res://sota_articulada.gd")
-const PREVIOUS = "res://../trabajo/arte/revisiones/modelo_marcha_v9/articulacion_antes.gd.txt"
-const OUTPUT = "res://../trabajo/arte/revisiones/modelo_marcha_v9/"
+const PREVIOUS = "res://../trabajo/arte/revisiones/modelo_marcha_v5/articulacion_antes.gd.txt"
+const OUTPUT = "res://../trabajo/arte/revisiones/modelo_marcha_v8/"
 
 func _initialize() -> void:
 	call_deferred("check")
@@ -31,9 +31,9 @@ func check() -> void:
 			current.pose(value[0],value[1])
 			assert(previous.body.transform.is_equal_approx(current.body.transform))
 			assert(previous.hip_center.is_equal_approx(current.hip_center))
-			for name in ["torso","head","sleeve1","hand1","deck"]:
+			for name in ["torso","head","boot0","boot1","sleeve1","hand1","deck"]:
 				assert(previous.parts[name].transform.is_equal_approx(current.parts[name].transform),"Trayectoria modificada: "+name)
-			for leg in range(2): assert(current.legs[leg].hull.size()>=3)
+			for leg in range(2): assert(previous.legs[leg].hull==current.legs[leg].hull)
 			if value[1]==1.0:
 				assert(absf(current.parts.sleeve0.position.x-current.parts.sleeve1.position.x)<=3.01)
 				assert(absf(current.legs[0].thigh.position.x-current.legs[1].thigh.position.x)<=3.01)
@@ -41,23 +41,16 @@ func check() -> void:
 		current.queue_free()
 	await process_frame
 	var before: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://assets/personajes/sota/articulada_v1/movimiento.json"))
-	var after: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://assets/personajes/sota/articulada_v6/movimiento.json"))
+	var after: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://assets/personajes/sota/articulada_v5/movimiento.json"))
 	assert(before.distancia_ciclo==after.distancia_ciclo)
 	for profile in range(2):
 		for phase in range(32):
-			for leg in range(2):
-				var original: Array = before.perfiles[profile].marcha[phase].punteras[leg]
-				var revised: Array = after.perfiles[profile].marcha[phase].punteras[leg]
-				assert(absf(original[0]-revised[0])<0.01,"La progresión horizontal de los pies debe conservarse")
-				assert(absf(original[1]-revised[1])<12.0,"La puntera cambia de altura con la nueva bota, pero no debe saltar")
-	print("OK: 328 poses conservan torso, cabeza y brazos; ciclo y progresión horizontal de pies idénticos, nueva suela dentro de 12 px de altura.")
+			assert(before.perfiles[profile].marcha[phase].punteras==after.perfiles[profile].marcha[phase].punteras)
+	print("OK: 328 poses conservan cabeza/cuerpo/brazo cercano/raíces de botas y contornos; hombro y cadera lejanos corregidos; ciclo y punteras preparados idénticos a v4.")
 	if DisplayServer.get_name()=="headless":
 		quit()
 		return
-	var ghost := GDScript.new()
-	ghost.source_code = FileAccess.get_file_as_string("res://../trabajo/arte/revisiones/modelo_marcha_v5/articulacion_antes.gd.txt")
-	assert(ghost.reload()==OK)
-	if await reproduce_ghost_hand(ghost) != true:
+	if await reproduce_ghost_hand(old) != true:
 		quit(1)
 		return
 	quit(0 if await check_coverage() == true else 1)
@@ -143,13 +136,13 @@ func check_coverage() -> bool:
 					for along in range(-5,6):
 						var axis: Vector2 = upper if along<0 else lower
 						var normal := Vector2(axis.y,-axis.x)
-						for across in range(-1,2):
+						for across in range(-3,4):
 							var point: Vector2 = figure.body.to_global(knee+axis*along+normal*across)
 							assert(image.get_pixel(int(point.x),int(point.y)).a>0.95,"Interrupción en rodilla: perfil %d pose %d, pierna %s punto %s, longitudinal %d lateral %d" % [profile,batch*56+slot,str(leg.hip),str(point-Vector2(cell)),along,across])
-					for step in range(-18,1):
+					for step in range(-23,5):
 						var axis: Vector2 = (leg.boot.position-knee).normalized()
 						var normal := Vector2(axis.y,-axis.x)
-						for across in range(0,1):
+						for across in range(-2,3):
 							var point: Vector2 = figure.body.to_global(leg.boot.position+axis*step+normal*across)
 							assert(image.get_pixel(int(point.x),int(point.y)).a>0.95,"Hueco entre pantalón y bota: perfil %d pose %d, pierna %s punto %s, paso %d lateral %d" % [profile,batch*56+slot,str(leg.hip),str(point-Vector2(cell)),step,across])
 				checked+=1
@@ -157,5 +150,5 @@ func check_coverage() -> bool:
 			await process_frame
 	assert(skin_total==0,"Piel incrustada en pantalones sin los brazos")
 	assert(checked==328)
-	print("OK: 328 renders sin brazos, sin piel en ropa y con núcleo opaco en torso/cintura, rodillas y uniones con botas.")
+	print("OK: 328 renders sin brazos, sin piel incrustada en ropa y sin huecos en las zonas reconstruidas de torso/cintura ni unión de rodillas/botas.")
 	return true

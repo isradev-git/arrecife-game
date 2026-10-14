@@ -1,7 +1,7 @@
 extends SceneTree
 
 const RIG = preload("res://sota_articulada.gd")
-const OUTPUT = "res://../trabajo/arte/revisiones/modelo_marcha_v9/"
+const OUTPUT = "res://../trabajo/arte/revisiones/modelo_marcha_v8/"
 
 func _initialize() -> void: call_deferred("check")
 
