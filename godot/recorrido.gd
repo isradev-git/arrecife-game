@@ -13,6 +13,8 @@ var destination_name := ""
 
 func _ready() -> void:
 	super._ready()
+	# Revisión de la silueta de Sota: conservar la barandilla frontal, pero ocultarla.
+	set_railings(true, false)
 	body.position = ground
 	add_child(body)
 	var footprint := CollisionShape2D.new()
