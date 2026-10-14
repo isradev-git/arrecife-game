@@ -1,10 +1,10 @@
 extends SceneTree
 
 const RIG = preload("res://sota_articulada.gd")
-const OUTPUT = "res://assets/personajes/sota/articulada_v5/"
+const OUTPUT = "res://assets/personajes/sota/articulada_v6/"
 const CELL = Vector2i(256,320)
 const FLOOR = Vector2(128,300)
-var data := {"distancia_ciclo":128.0,"fases":32,"perfiles":[],"fuente":"res://assets/personajes/sota/perfiles_pixel_v7.png","nota":"Fotogramas renderizados en Godot desde una textura v7 compartida; perfiles propios, recortes limpios y tela oculta reconstruida con UV de v7, paleta sin retoques RGB. Escala de juego fija, no normalización por pose."}
+var data := {"distancia_ciclo":128.0,"fases":32,"perfiles":[],"fuente":"res://assets/personajes/sota/perfiles_pixel_v7.png","fuente_piernas":"res://assets/personajes/sota/articulada_v6/piernas_separadas_intento1.png","nota":"Torso/cabeza/brazos v7; cuatro piezas independientes de pierna y bota con bolsillo fijo en la pierna cercana. Textura de piernas oscurecida de modo constante durante el horneado. Escala de juego fija, no normalización por pose."}
 
 func _initialize() -> void:
 	call_deferred("check")
@@ -127,6 +127,6 @@ func prepare_hulls() -> void:
 			hulls.append(hull)
 		cache.append(hulls)
 		figure.queue_free()
-	var file:=FileAccess.open("res://assets/personajes/sota/articulacion_v1.json",FileAccess.WRITE)
+	var file:=FileAccess.open("res://assets/personajes/sota/articulacion_v2.json",FileAccess.WRITE)
 	file.store_string(JSON.stringify(cache,"\t"))
 	file.close()

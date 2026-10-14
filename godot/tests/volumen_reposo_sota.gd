@@ -1,12 +1,12 @@
 extends SceneTree
 
-const OUTPUT = "res://../trabajo/arte/revisiones/modelo_marcha_v8/"
+const OUTPUT = "res://../trabajo/arte/revisiones/modelo_marcha_v9/"
 
 func _initialize() -> void: call_deferred("check")
 
 func check() -> void:
 	var previous := "--antes" in OS.get_cmdline_user_args()
-	var folder := "articulada_v4" if previous else "articulada_v5"
+	var folder := "articulada_v5" if previous else "articulada_v6"
 	var data: Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://assets/personajes/sota/"+folder+"/movimiento.json"))
 	var differences := 0
 	for view in data.perfiles:
