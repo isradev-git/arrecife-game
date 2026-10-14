@@ -15,6 +15,7 @@ var body := Node2D.new()
 var pixel_scale := 252.0 / 869.0
 var hip_source := Vector2(493.5, 945)
 var direction := 1.0
+var pose_amount := 1.0
 
 
 func build(profile: int) -> void:
@@ -119,11 +120,11 @@ func restore_covered_cloth() -> void:
 	else:
 		cloth_patch(parts.torso, [[1034,270],[1116,270],[1133,409],[1046,409]], [[1019,275],[1043,275],[1043,342],[1019,342]], hip_source)
 		cloth_patch(parts.torso, [[1045,409],[1133,409],[1133,435],[1045,435]], [[1034,409],[1048,409],[1048,425],[1034,425]], hip_source)
-		cloth_patch(parts.torso, [[1045,434],[1133,434],[1133,514],[1045,514]], [[1018,444],[1045,444],[1045,491],[1018,491]], hip_source)
+		cloth_patch(parts.torso, [[1045,434],[1118,434],[1125,468],[1115,498],[1092,525],[1045,514]], [[1018,444],[1045,444],[1045,461],[1038,478],[1030,491],[1018,491]], hip_source)
 		cloth_patch(parts.boot1, [[1023,873],[1065,873],[1065,940],[1023,940]], [[985,865],[1018,865],[1018,936],[985,936]], Vector2(1026,885))
 		parts.boot1.get_child(0).show_behind_parent=false
 		cloth_patch(parts.boot1, [[1006,800],[1046,800],[1046,870],[1010,870]], [[1035,819],[1055,819],[1055,866],[1035,866]], Vector2(1026,885))
-		cloth_patch(parts.thigh0, [[1062,489],[1133,489],[1137,577],[1063,577]], [[1018,444],[1042,444],[1042,491],[1018,491]], Vector2(1104,510))
+		cloth_patch(parts.thigh0, [[1062,489],[1114,489],[1126,522],[1126,577],[1063,577]], [[1018,444],[1037,444],[1042,462],[1042,491],[1018,491]], Vector2(1104,510))
 		cloth_patch(parts.thigh1, [[986,506],[1004,506],[1004,579],[986,579]], [[1018,444],[1035,444],[1035,491],[1018,491]], Vector2(1034,514))
 		cloth_patch(parts.torso, [[986,505],[1004,505],[1004,516],[986,516]], [[1018,444],[1035,444],[1035,456],[1018,456]], hip_source)
 		cloth_patch(parts.thigh1, [[1045,494],[1063,494],[1063,566],[1045,566]], [[1030,448],[1045,448],[1045,489],[1030,489]], Vector2(1034,514))
@@ -165,6 +166,16 @@ func prepare_continuous_legs() -> void:
 		subdivide_surface(leg.thigh,cloth,hip_source+leg.hip/pixel_scale)
 		subdivide_surface(leg.boot,leg.boot.uv,hip_source+leg.neutral_ankle/pixel_scale)
 		leg.shin.hide()
+		if facing==1 and leg==legs[1]:
+			# El original oculta media pierna: una superficie completa evita estirar la rendija visible.
+			var outline := points([[995,499],[1052,494],[1063,586],[1060,656],[1066,710],[1071,765],[1063,814],[986,814],[983,765],[988,710],[986,636]])
+			subdivide_surface(leg.thigh,outline,hip_source+leg.hip/pixel_scale)
+			var clean_uv: PackedVector2Array = leg.thigh.uv
+			for i in range(clean_uv.size()):
+				var y := clean_uv[i].y
+				var center := 1022.0 if y<650 else lerpf(1018.0,1026.0,clampf((y-650)/160,0,1))
+				clean_uv[i].x=maxf(1005.0,center+(clean_uv[i].x-1026.0)*0.65)
+			leg.thigh.uv=clean_uv
 
 
 func stretched(point: Vector2, axis: Vector2, length: float) -> Vector2:
@@ -178,7 +189,11 @@ func cloth_point(leg: Dictionary, source: Vector2, hip: Vector2, knee: Vector2, 
 	var knee_weight := smoothstep(leg.neutral_knee.y-9.0,leg.neutral_knee.y+9.0,source.y)
 	var cloth := upper.lerp(lower,knee_weight)
 	var normal := Vector2((ankle-hip).normalized().y,-(ankle-hip).normalized().x)
-	cloth+=normal*(cloth-knee).dot(normal)*0.4*(1.0-smoothstep(0.0,14.0,absf(source.y-leg.neutral_knee.y)))
+	# Mantener volumen en todo el muslo, sin abultar solo la rodilla.
+	cloth+=normal*(cloth-knee).dot(normal)*0.18*pose_amount*(1.0-smoothstep(leg.neutral_knee.y,leg.neutral_ankle.y,source.y))
+	# La cintura permanece unida al torso; el giro empieza gradualmente bajo la cadera.
+	var waist := (490.0-hip_source.y)*pixel_scale
+	cloth=source.lerp(cloth,smoothstep(waist,waist+30.0,source.y))
 	var foot: Vector2 = ankle+(source-leg.neutral_ankle).rotated(leg.boot.rotation)
 	return cloth.lerp(foot,smoothstep(leg.neutral_ankle.y-7.0,leg.neutral_ankle.y+7.0,source.y))
 
@@ -232,6 +247,8 @@ func add_arm(joints: Array, sleeve: Array, hand: Array, depth: int) -> void:
 
 
 func pose(phase: float, amount: float = 1.0) -> void:
+	if is_zero_approx(amount): phase=0.0
+	pose_amount=amount
 	body.position = Vector2(0, roundf(cos((phase-0.08)*TAU*2.0)*3.0*amount))
 	parts.torso.rotation = sin(phase*TAU)*0.015*direction*amount
 	for index in range(2):
@@ -276,10 +293,7 @@ func pose(phase: float, amount: float = 1.0) -> void:
 		leg.boot.rotation=angle*amount
 		deform_leg(leg,hip,knee,ankle)
 		var arm: Dictionary = arms[index]
-		var shoulder: Vector2 = arm.shoulder if index==1 else (Vector2(537,287) if facing==0 else Vector2(1006,287))-hip_source
-		if index==0:
-			shoulder *= pixel_scale
-			shoulder=shoulder.lerp(arms[1].shoulder+Vector2(direction*3.0,2.0),amount)
+		var shoulder: Vector2 = arm.shoulder if index==1 else arms[1].shoulder+Vector2(direction*3.0,2.0)
 		var swing := cos(p*TAU)*0.27*direction
 		var upper_angle := lerp_angle(arm.sleeve_angle,PI/2.0+swing,amount)
 		var elbow: Vector2 = shoulder+Vector2.from_angle(upper_angle)*arm.upper_length

@@ -199,8 +199,12 @@ Paleta exacta de v7 en 3.701.441 píxeles opacos, alfa binaria, cabeza comprobad
 
 `tests/recortes_sota.gd` reproduce los defectos con `-- --antes` (código 1) y comprueba la corrección sin ese argumento (código 0). GPU verifica 5327 cruces brazo/bolsa en 32 fases: tapa 5281 píxeles antes y ninguno después. Los conteos UV de región de mano/puño pasan de 631/1987 a cero. `tests/modelo_sota.gd` añade cobertura del núcleo de rodillas a los 328 estados, junto con cinemática/apoyos invariables. Pasan marcha GPU/338 poses/paleta exacta/cabeza, controlador, fluidez, importación/exportación y Web Helium, sin errores. Rótulo Modelo 6 ayuda a comprobar carga actual. Valoración de acabado/pliegues y otras plataformas pendientes.
 
-## Corrección vigente T05 · articulada_v4 / Modelo 7
+## Corrección anterior T05 · articulada_v4 / Modelo 7
 
 [Registro y pruebas](../trabajo/arte/revisiones/modelo_marcha_v7/README.md). Hombro/cadera lejanos alineados en perfil, cadena de pierna en un plano estable y bota sobre su propia tela. Pantalón continuo y caña comparten deformación; desaparecen recortes rígidos y tapas de rodilla/tobillo. Cuero oculto reconstruido con UV de v7. El reproductor y preparador usan articulada_v4; anteriores intactos. Cambian hombro y articulaciones de tela; velocidad/ciclo/raíces de pies/cabeza conservados.
 
 `tests/montaje_sota.gd -- --antes` reproduce 256 fallos y devuelve 1; sin argumento pasa en 64 poses y 46.204 cruces GPU de piernas. `tests/modelo_sota.gd` conserva la comparación de cuerpo/cabeza/brazo cercano/botas/apoyos y prueba cobertura de rodilla y caña en 328 estados. Pasan también recortes/marcha/paleta/controlador/fluidez e importación/exportación. Web Helium comprobada con D/A/paradas, rótulo Modelo 7 y sin errores. Acabado entregado para valorar; otras plataformas pendientes.
+
+## Corrección vigente T05 · articulada_v5 / Modelo 8
+
+[Registro y evidencias](../trabajo/arte/revisiones/modelo_marcha_v8/README.md). Cadera redondeada, cintura anclada y pierna izquierda completa con UV limpia. Marcha, cierre y reposo usan ahora el mismo modelo articulado; v7 original sigue disponible en revisión visual. No cambia la cadencia. `tests/volumen_reposo_sota.gd` comprueba cierre sin cambio final, hombro estable y volumen del muslo; `-- --antes` reproduce el fallo del modelo conservado. Regresión, cobertura/recortes/planos/paleta, movimiento, exportación y Web comprobados. Acabado y nuevo reposo pendientes de valoración del autor; T05 abierta.

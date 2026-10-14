@@ -1,7 +1,7 @@
 extends SceneTree
 
 const RIG = preload("res://sota_articulada.gd")
-const OUTPUT = "res://assets/personajes/sota/articulada_v4/"
+const OUTPUT = "res://assets/personajes/sota/articulada_v5/"
 const CELL = Vector2i(256,320)
 const FLOOR = Vector2(128,300)
 var data := {"distancia_ciclo":128.0,"fases":32,"perfiles":[],"fuente":"res://assets/personajes/sota/perfiles_pixel_v7.png","nota":"Fotogramas renderizados en Godot desde una textura v7 compartida; perfiles propios, recortes limpios y tela oculta reconstruida con UV de v7, paleta sin retoques RGB. Escala de juego fija, no normalización por pose."}
@@ -67,49 +67,26 @@ func check() -> void:
 			data.perfiles[profile].arranque.append(pose)
 		for i in range(5):
 			var cell := profile*9+4+i
-			var sprite := Sprite2D.new()
-			var view: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://assets/personajes/sota/movimiento_v3/movimiento.json")).perfiles[profile]
-			var texture := AtlasTexture.new()
-			texture.atlas = RIG.SOURCE
-			texture.region = Rect2(view.reposo.celda[0],0,836,1024)
-			texture.filter_clip=true
-			sprite.texture=texture
-			sprite.centered=false
-			sprite.scale=Vector2.ONE*float(view.escala)
-			sprite.offset=Vector2(-(view.reposo.cadera_x-view.reposo.celda[0]),-view.reposo.suelo_y)
-			sprite.position=position(cell,8)
-			sprite.texture_filter=CanvasItem.TEXTURE_FILTER_NEAREST
-			var mat:=ShaderMaterial.new()
-			mat.shader=RIG.CUTOUT
-			mat.set_shader_parameter("alpha_threshold",0.95)
-			mat.set_shader_parameter("opaque_cutout",true)
-			sprite.material=mat
-			viewport.add_child(sprite)
+			var figure := RIG.new()
+			viewport.add_child(figure)
+			figure.build(profile)
+			figure.position=position(cell,8)
+			figure.pose(0.0,0.0)
 			if i in [2,3]:
-				sprite.region_enabled=true
-				sprite.region_rect=Rect2(0,230,836,794)
-				sprite.offset.y+=230
-				var head:=Polygon2D.new()
-				var uv:=PackedVector2Array([Vector2(0,0),Vector2(836,0),Vector2(836,244),Vector2(0,244)])
-				for index in range(uv.size()):
-					uv[index].x+=view.reposo.celda[0]
-				head.uv=uv
-				head.polygon=PackedVector2Array([Vector2(0,0),Vector2(836,0),Vector2(836,244),Vector2(0,244)])
-				head.texture=RIG.SOURCE
-				head.material=mat
-				head.texture_filter=CanvasItem.TEXTURE_FILTER_NEAREST
-				head.scale=sprite.scale
-				head.position=position(cell,8)+Vector2(sprite.offset.x,-view.reposo.suelo_y)*sprite.scale+Vector2(0,-1)
-				viewport.add_child(head)
+				figure.parts.head.position.y-=1
+				figure.parts.torso.position.y-=1
 			var pose:=descriptor("reposo_inicio.png",cell,8)
 			pose["respiracion_y"]=-1 if i in [2,3] else 0
 			if i==0: data.perfiles[profile].reposo=pose
 			else: data.perfiles[profile].respiracion.append(pose)
 	await save(viewport,"reposo_inicio.png")
+	# Reutilizar la misma celda evita diferencias de rasterización entre posiciones del atlas.
+	for profile in data.perfiles:
+		for closing in profile.cierres: closing[3]=profile.reposo
 	var file:=FileAccess.open(OUTPUT+"movimiento.json",FileAccess.WRITE)
 	file.store_string(JSON.stringify(data,"\t"))
 	file.close()
-	print("OK: 64 fases propias, 256 enlaces de cierre, ocho de arranque y reposo/respiración desde v7 compartida.")
+	print("OK: 64 fases propias, 256 enlaces de cierre, ocho de arranque y reposo/respiración desde el mismo modelo articulado.")
 	quit()
 
 func canvas(size: Vector2i) -> SubViewport:

@@ -1,0 +1,40 @@
+extends SceneTree
+func _initialize(): call_deferred('check')
+func check():
+ var data=JSON.parse_string(FileAccess.get_file_as_string('res://assets/personajes/sota/'+OS.get_cmdline_user_args()[0]+'/movimiento.json'))
+ var vp=SubViewport.new()
+ vp.size=Vector2i(1536,1280)
+ vp.render_target_update_mode=SubViewport.UPDATE_ALWAYS
+ root.add_child(vp)
+ var bg=ColorRect.new()
+ bg.size=vp.size
+ bg.color=Color('#253040')
+ vp.add_child(bg)
+ var failures=0
+ for p in range(2):
+  var view=data.perfiles[p]
+  var poses=[view.marcha[0]]+view.cierres[0]+[view.reposo]
+  for i in range(6):
+   var s=Sprite2D.new()
+   var t=AtlasTexture.new()
+   t.atlas=load(poses[i].archivo)
+   t.region=Rect2(poses[i].celda[0],poses[i].celda[1],256,320)
+   s.texture=t
+   s.position=Vector2(128+i*256,320+p*640)
+   s.scale=Vector2.ONE*2
+   s.texture_filter=CanvasItem.TEXTURE_FILTER_NEAREST
+   vp.add_child(s)
+   var label=Label.new()
+   label.text=['Marcha','Cierre 1','Cierre 2','Cierre 3','Cierre 4','Reposo'][i]
+   label.position=Vector2(65+i*256,20+p*640)
+   vp.add_child(label)
+  var idle=Image.load_from_file(view.reposo.archivo).get_region(Rect2i(view.reposo.celda[0],view.reposo.celda[1],256,320))
+  for phase in range(32):
+   var pose=view.cierres[phase][-1]
+   var last=Image.load_from_file(pose.archivo).get_region(Rect2i(pose.celda[0],pose.celda[1],256,320))
+   if last.get_data()!=idle.get_data(): failures+=1
+ print('Saltos cierre/reposo: ',failures,' / 64')
+ for n in range(5): await process_frame
+ await RenderingServer.frame_post_draw
+ vp.get_texture().get_image().save_png(OS.get_cmdline_user_args()[1])
+ quit(1 if failures else 0)

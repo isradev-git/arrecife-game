@@ -2,7 +2,7 @@ extends SceneTree
 
 const RIG = preload("res://sota_articulada.gd")
 const PREVIOUS = "res://../trabajo/arte/revisiones/modelo_marcha_v5/articulacion_antes.gd.txt"
-const OUTPUT = "res://../trabajo/arte/revisiones/modelo_marcha_v7/"
+const OUTPUT = "res://../trabajo/arte/revisiones/modelo_marcha_v8/"
 
 func _initialize() -> void:
 	call_deferred("check")
@@ -41,7 +41,7 @@ func check() -> void:
 		current.queue_free()
 	await process_frame
 	var before: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://assets/personajes/sota/articulada_v1/movimiento.json"))
-	var after: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://assets/personajes/sota/articulada_v4/movimiento.json"))
+	var after: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://assets/personajes/sota/articulada_v5/movimiento.json"))
 	assert(before.distancia_ciclo==after.distancia_ciclo)
 	for profile in range(2):
 		for phase in range(32):
@@ -123,7 +123,7 @@ func check_coverage() -> bool:
 						if skin_in_clothing(pixel):
 							skin_total+=1
 							printerr("Piel en ropa: perfil %d, pose %d, pixel %d,%d" % [profile,batch*56+slot,x,y])
-				var zones := [Rect2(-26,-184,10,26),Rect2(-24,-144,10,13)] if profile==0 else [Rect2(14,-184,10,26),Rect2(17,-144,10,13)]
+				var zones := [Rect2(-26,-184,10,26),Rect2(-24,-144,10,13)] if profile==0 else [Rect2(14,-184,10,26),Rect2(10,-144,10,13)]
 				for zone in zones:
 					for y in range(int(zone.position.y),int(zone.end.y)):
 						for x in range(int(zone.position.x),int(zone.end.x)):

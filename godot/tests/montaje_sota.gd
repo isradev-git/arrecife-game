@@ -1,7 +1,7 @@
 extends SceneTree
 
 const RIG = preload("res://sota_articulada.gd")
-const OUTPUT = "res://../trabajo/arte/revisiones/modelo_marcha_v7/"
+const OUTPUT = "res://../trabajo/arte/revisiones/modelo_marcha_v8/"
 
 func _initialize() -> void: call_deferred("check")
 
@@ -18,7 +18,7 @@ func check() -> void:
 	var rig = RIG
 	if "--antes" in OS.get_cmdline_user_args():
 		rig=GDScript.new()
-		rig.source_code=FileAccess.get_file_as_string(OUTPUT+"articulacion_antes.gd.txt")
+		rig.source_code=FileAccess.get_file_as_string("res://../trabajo/arte/revisiones/modelo_marcha_v7/articulacion_antes.gd.txt")
 		assert(rig.reload()==OK)
 	var failures := 0
 	for profile in range(2):
