@@ -156,6 +156,7 @@ func prepare_continuous_legs() -> void:
 		plane.use_parent_material=true
 		plane.z_index=leg.thigh.z_index
 		body.add_child(plane)
+		body.move_child(plane,parts.deck.get_index())
 		for node in [leg.thigh,leg.shin,leg.boot]:
 			node.reparent(plane,false)
 			# Toda la cadena lejana queda detrás de la cercana; la bota tapa su propio borde de tela.

@@ -25,6 +25,8 @@ func check() -> void:
 		var figure = rig.new()
 		root.add_child(figure)
 		figure.build(profile)
+		if figure.legs[1].thigh.get_parent()!=figure.body:
+			assert(figure.legs[1].thigh.get_parent().get_index()<figure.parts.deck.get_index(),"La ropa no debe tapar la bolsa al compartir profundidad")
 		for phase in range(32):
 			figure.pose(phase/32.0)
 			if absf(figure.parts.sleeve0.position.x-figure.parts.sleeve1.position.x)>4.0: failures+=1
