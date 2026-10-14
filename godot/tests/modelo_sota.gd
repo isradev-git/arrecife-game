@@ -2,7 +2,7 @@ extends SceneTree
 
 const RIG = preload("res://sota_articulada.gd")
 const PREVIOUS = "res://../trabajo/arte/revisiones/modelo_marcha_v5/articulacion_antes.gd.txt"
-const OUTPUT = "res://../trabajo/arte/revisiones/modelo_marcha_v5/"
+const OUTPUT = "res://../trabajo/arte/revisiones/modelo_marcha_v6/"
 
 func _initialize() -> void:
 	call_deferred("check")
@@ -38,7 +38,7 @@ func check() -> void:
 		current.queue_free()
 	await process_frame
 	var before: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://assets/personajes/sota/articulada_v1/movimiento.json"))
-	var after: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://assets/personajes/sota/articulada_v2/movimiento.json"))
+	var after: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://assets/personajes/sota/articulada_v3/movimiento.json"))
 	assert(before.distancia_ciclo==after.distancia_ciclo)
 	for profile in range(2):
 		for phase in range(32):
@@ -126,11 +126,20 @@ func check_coverage() -> bool:
 							var point: Vector2 = figure.body.position + Vector2(x,y) + Vector2(128,300) + Vector2(cell)
 							assert(image.get_pixel(int(point.x),int(point.y)).a>0.95,"Hueco en torso/cintura, perfil %d pose %d: %s" % [profile,batch*56+slot,str(point-Vector2(cell))])
 				for leg in figure.legs:
+					var knee: Vector2 = leg.shin.position
+					var upper: Vector2 = (knee-leg.thigh.position).normalized()
+					var lower: Vector2 = (leg.boot.position-knee).normalized()
+					for along in range(-5,6):
+						var axis: Vector2 = upper if along<0 else lower
+						var normal := Vector2(axis.y,-axis.x)
+						for across in range(-3,4):
+							var point: Vector2 = figure.body.to_global(knee+axis*along+normal*across)
+							assert(image.get_pixel(int(point.x),int(point.y)).a>0.95,"Interrupción en rodilla: perfil %d pose %d" % [profile,batch*56+slot])
 					var corners: PackedVector2Array = leg.lining.polygon
-					var upper := (corners[0]+corners[1])*0.5
-					var lower := (corners[2]+corners[3])*0.5
+					var top_center := (corners[0]+corners[1])*0.5
+					var bottom_center := (corners[2]+corners[3])*0.5
 					for step in range(1,10):
-						var point: Vector2 = leg.lining.to_global(upper.lerp(lower,step/10.0))
+						var point: Vector2 = leg.lining.to_global(top_center.lerp(bottom_center,step/10.0))
 						assert(image.get_pixel(int(point.x),int(point.y)).a>0.95,"Hueco entre pantalón y bota: perfil %d pose %d pixel %s" % [profile,batch*56+slot,str(point-Vector2(cell))])
 				checked+=1
 			assert(image.save_png(OUTPUT+"cobertura_%d_%d.png" % [profile,batch])==OK)
@@ -138,5 +147,5 @@ func check_coverage() -> bool:
 			await process_frame
 	assert(skin_total==0,"Piel incrustada en pantalones sin los brazos")
 	assert(checked==328)
-	print("OK: 328 renders sin brazos, sin piel incrustada en ropa y sin huecos en las zonas reconstruidas de torso/cintura ni eje de unión con botas.")
+	print("OK: 328 renders sin brazos, sin piel incrustada en ropa y sin huecos en las zonas reconstruidas de torso/cintura ni unión de rodillas/botas.")
 	return true

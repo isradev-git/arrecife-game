@@ -1,6 +1,6 @@
 # PASE PENDIENTE · Base Godot
 
-Base técnica del 9 de octubre, actualizada el **13 de octubre de 2026**. **Todavía no contiene el caso completo.** La escena principal `recorrido.tscn` permite caminar por Velvet con sprites de marcha preparados desde v7 y altura de reposo 252 aprobada por el autor. `revision_escala.tscn` conserva la revisión de arte; `verificacion.tscn` la escena técnica original.
+Base técnica del 9 de octubre, actualizada el **14 de octubre de 2026**. **Todavía no contiene el caso completo.** La escena principal `recorrido.tscn` permite caminar por Velvet con sprites de marcha preparados desde v7 y altura de reposo 252 aprobada por el autor. `revision_escala.tscn` conserva la revisión de arte; `verificacion.tscn` la escena técnica original.
 
 **Entrega pixel art · 11 de octubre:** el autor aprueba el estilo con píxel intenso y ojos sutiles, y el contraluz acorde al entorno. Se compara el atlas v7 aprobado con una [base sin neón y contraluz separado](../trabajo/arte/revisiones/luz_v2/README.md). La máscara de contorno se calcula desde el alfa; color, intensidad y dirección son parámetros independientes. La variante nueva está entregada, pendiente de valoración. Importación, pruebas, render nativo y exportación correctos. La escena actual se comprueba después en Helium/Chromium; retícula, luces del escenario y otros navegadores pendientes. [Dirección vigente](../trabajo/direccion_artistica.md).
 
@@ -184,10 +184,17 @@ El autor sigue viendo rigidez y cambios de color tras v1. [Resultado y pruebas v
 338 poses: región de cabeza comprobada idéntica al reposo rasterizado y 3.613.251 píxeles opacos con RGB exacto presente en v7; sin alfa parcial. Raíz continua y desviación de puntera proyectada 2,4–3,5 px en interior del apoyo a 30/60 Hz. Controlador/escala/shader histórico GPU/marcha GPU/exportación/Web Helium pasan. T05 sigue abierta: valoración artística, contornos/pliegues y transición al reposo pendientes; estas pruebas no demuestran naturalidad perfecta. Versiones anteriores y prompts intactos.
 
 
-## Pulido vigente T05 · articulada_v2
+## Pulido anterior T05 · articulada_v2
 
 El autor aprueba expresamente la naturalidad de v4 y pide cerrar huecos/manos en pantalones; lo nota algo lento. [Antes/después, vídeo y pruebas](../trabajo/arte/revisiones/modelo_marcha_v5/README.md). `movimiento_sota.gd` consume ahora `assets/personajes/sota/articulada_v2/movimiento.json`. El preparador escribe esta versión nueva; `articulada_v1` y v7 quedan intactos. Los sprites nuevos corrigen recortes, reconstruyen tela oculta con UV originales, separan restos del deck de torso/muslo y cubren la unión pantalón-bota. No cambian el controlador, las trayectorias ni la cadencia.
 
 `tests/modelo_sota.gd` compara 328 poses contra el modelo v4 conservado y comprueba apoyo/ciclo/punteras idénticos. Con GPU reproduce 178 píxeles de piel incrustada en v4 y comprueba su eliminación y cobertura en torso/cintura/unión con botas para los 328 estados nuevos. Se ejecuta después de preparar/importar con `Godot --path godot --script res://tests/modelo_sota.gd`; headless solo compara transformaciones/datos. El test de marcha conserva la revisión de 338 poses/paleta/cabeza y cambia su salida de capturas a modelo_marcha_v5.
 
 Paleta exacta de v7 en 3.701.441 píxeles opacos, alfa binaria, cabeza comprobada idéntica, controlador/fluidez/GPU/importación/exportación y Web Helium pasan. Movimiento aprobado; pulido nuevo pendiente de valoración del autor. Velocidad algo lenta registrada y mantenida en 104 durante esta corrección. Revisión de contornos/pliegues y otras plataformas pendiente; las pruebas de cobertura examinan regiones concretas, no certifican acabado artístico perfecto.
+
+
+## Corrección vigente T05 · articulada_v3 / Modelo 6
+
+[Corrección de mano, bolsa y piernas](../trabajo/arte/revisiones/modelo_marcha_v6/README.md), 14 de octubre: el autor valora el movimiento, pero detecta restos de mano izquierda, bolsa por encima del brazo y piernas entrecortadas. Recortes de torso/muslo excluyen también la mano lejana oscura; bolsa z = 2 detrás del brazo z = 3, botas sin puño duplicado y rodilla con pliegue continuo. Cinemática y cadencia intactas. El reproductor/preparador usan articulada_v3; las pruebas guardan capturas en modelo_marcha_v6. V7 y atlas v1/v2 conservados.
+
+`tests/recortes_sota.gd` reproduce los defectos con `-- --antes` (código 1) y comprueba la corrección sin ese argumento (código 0). GPU verifica 5327 cruces brazo/bolsa en 32 fases: tapa 5281 píxeles antes y ninguno después. Los conteos UV de región de mano/puño pasan de 631/1987 a cero. `tests/modelo_sota.gd` añade cobertura del núcleo de rodillas a los 328 estados, junto con cinemática/apoyos invariables. Pasan marcha GPU/338 poses/paleta exacta/cabeza, controlador, fluidez, importación/exportación y Web Helium, sin errores. Rótulo Modelo 6 ayuda a comprobar carga actual. Valoración de acabado/pliegues y otras plataformas pendientes.

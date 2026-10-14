@@ -56,7 +56,7 @@ func build_controls() -> void:
 	column.add_theme_constant_override("separation", 8)
 	panel.add_child(column)
 	var title := Label.new()
-	title.text = "VELVET · Revisión de marcha"
+	title.text = "VELVET · Revisión de marcha · Modelo 6"
 	column.add_child(title)
 	var help := Label.new()
 	help.text = "Flechas / A D · Clic: caminar · Esc: parar"

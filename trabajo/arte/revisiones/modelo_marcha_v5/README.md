@@ -2,6 +2,8 @@
 
 13 de octubre de 2026. El autor prueba v4 y aprueba expresamente la naturalidad del movimiento: «el movimiento está perfecto». Lo nota un poco lento y pide pulir huecos, manos que aparecen en pantalones y otros restos de las piezas. La aprobación se refiere al movimiento; el acabado nuevo queda entregado para valoración.
 
+**Valoración posterior · 14 de octubre:** el autor reconoce mejora del movimiento, pero sigue viendo mano izquierda pintada, bolsa sobre brazo y piernas entrecortadas. La prueba de piel cálida no detectaba todos los restos oscuros. [Corrección posterior, con regresión UV y oclusión GPU](../modelo_marcha_v6/README.md).
+
 ## Corrección integrada
 
 El juego consume [articulada_v2](../../../../godot/assets/personajes/sota/articulada_v2/). Se conservan intactos v7 y los cuatro atlas v4 de `articulada_v1`. El [modelo nativo](../../../../godot/sota_articulada.gd) conserva las mismas trayectorias, giros, balanceo y oscilación; el controlador y la cadencia no cambian: ciclo 128 px, velocidad 104, aceleración 650/frenada 750.

@@ -1,7 +1,7 @@
 extends SceneTree
 
 const RIG = preload("res://sota_articulada.gd")
-const OUTPUT = "res://assets/personajes/sota/articulada_v2/"
+const OUTPUT = "res://assets/personajes/sota/articulada_v3/"
 const CELL = Vector2i(256,320)
 const FLOOR = Vector2(128,300)
 var data := {"distancia_ciclo":128.0,"fases":32,"perfiles":[],"fuente":"res://assets/personajes/sota/perfiles_pixel_v7.png","nota":"Fotogramas renderizados en Godot desde una textura v7 compartida; perfiles propios, recortes limpios y tela oculta reconstruida con UV de v7, paleta sin retoques RGB. Escala de juego fija, no normalización por pose."}

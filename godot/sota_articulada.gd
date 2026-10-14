@@ -37,7 +37,7 @@ func build(profile: int) -> void:
 		piece("head", [[0,0],[836,0],[836,244],[0,244]], hip_source, 1)
 		add_leg([Vector2(465,514),Vector2(436,699),Vector2(425,885)], [[448,506],[500,506],[502,570],[497,614],[474,656],[458,726],[389,711],[396,648],[404,624],[406,569],[444,565]], [[395,688],[461,710],[455,763],[468,805],[380,808],[378,749]], [[378,797],[452,796],[455,851],[474,883],[496,903],[501,947],[369,948],[373,906]], 947, 2)
 		add_arm([Vector2(423,280),Vector2(407,445),Vector2(414,548)], [[380,265],[416,255],[442,281],[453,340],[450,392],[440,422],[445,449],[400,466],[367,446],[360,414],[376,375],[367,344]], [[398,449],[430,449],[430,492],[438,504],[445,513],[443,548],[435,560],[412,564],[393,553],[383,543],[385,518],[395,502]], 3)
-		piece("deck", [[436,408],[493,408],[503,445],[494,494],[444,505],[430,459]], hip_source, 4)
+		piece("deck", [[436,408],[493,408],[503,445],[494,494],[444,505],[430,459]], hip_source, 2)
 	else:
 		add_leg([Vector2(1104,510),Vector2(1119,698),Vector2(1110,885)], [[1063,566],[1136,566],[1138,589],[1142,653],[1135,715],[1070,715],[1060,643]], [[1071,686],[1138,687],[1145,752],[1146,807],[1066,807],[1066,802]], [[1070,794],[1145,796],[1147,850],[1160,888],[1164,945],[1037,946],[1036,911],[1070,879]], 946, -2)
 		add_arm([Vector2(423,280),Vector2(407,445),Vector2(414,548)], [[380,265],[416,255],[442,281],[453,340],[450,392],[440,422],[445,449],[400,466],[367,446],[360,414],[376,375],[367,344]], [[398,449],[430,449],[430,492],[438,504],[445,513],[443,548],[435,560],[412,564],[393,553],[383,543],[385,518],[395,502]], -3)
@@ -45,9 +45,10 @@ func build(profile: int) -> void:
 		piece("head", [[700,0],[1536,0],[1536,244],[700,244]], hip_source, 1)
 		add_leg([Vector2(1034,514),Vector2(1034,694),Vector2(1026,885)], [[995,499],[1046,494],[1046,565],[1063,586],[1060,656],[1055,716],[992,715],[986,636]], [[994,685],[1058,689],[1068,757],[1063,806],[988,808],[983,796]], [[946,796],[1087,796],[1087,940],[946,940]], 938, 2)
 		add_arm([Vector2(1090,278),Vector2(1100,446),Vector2(1101,549)], [[1069,265],[1107,256],[1133,283],[1146,361],[1145,430],[1121,461],[1065,450],[1053,401],[1054,317]], [[1069,449],[1098,449],[1097,484],[1093,507],[1101,517],[1100,549],[1085,562],[1055,558],[1046,545],[1048,518],[1060,500],[1064,464]], 3)
-		piece("deck", [[1136,426],[1158,431],[1160,507],[1135,511]], hip_source, 4)
+		piece("deck", [[1136,426],[1158,431],[1160,507],[1135,511]], hip_source, 2)
 	restore_covered_cloth()
 	prepare_ankle_linings()
+	prepare_knee_folds()
 	var torso_vertices: PackedVector2Array = parts.torso.polygon
 	for i in range(torso_vertices.size()): torso_vertices[i].y += 124.0
 	parts.torso.polygon = torso_vertices
@@ -70,6 +71,10 @@ func points(values: Array) -> PackedVector2Array:
 func piece(name: String, values: Array, pivot: Vector2, depth: int) -> Polygon2D:
 	var node := Polygon2D.new()
 	var uv := points(values)
+	if facing == 1 and name in ["torso","thigh1"]:
+		uv = Geometry2D.clip_polygons(uv,points([[956,507],[1003,507],[1003,577],[956,577]]))[0]
+	if name.begins_with("boot"):
+		uv = Geometry2D.intersect_polygons(uv,points([[0,810],[1536,810],[1536,1024],[0,1024]]))[0]
 	if name == "torso":
 		uv = Geometry2D.intersect_polygons(uv,PackedVector2Array([Vector2(0,244),Vector2(1536,244),Vector2(1536,1024),Vector2(0,1024)]))[0]
 		if facing == 0:
@@ -113,6 +118,8 @@ func restore_covered_cloth() -> void:
 		cloth_patch(parts.torso, [[1045,409],[1133,409],[1133,435],[1045,435]], [[1034,409],[1048,409],[1048,425],[1034,425]], hip_source)
 		cloth_patch(parts.torso, [[1045,434],[1133,434],[1133,514],[1045,514]], [[1018,444],[1045,444],[1045,491],[1018,491]], hip_source)
 		cloth_patch(parts.thigh0, [[1062,489],[1133,489],[1137,577],[1063,577]], [[1018,444],[1042,444],[1042,491],[1018,491]], Vector2(1104,510))
+		cloth_patch(parts.thigh1, [[986,506],[1004,506],[1004,579],[986,579]], [[1018,444],[1035,444],[1035,491],[1018,491]], Vector2(1034,514))
+		cloth_patch(parts.torso, [[986,505],[1004,505],[1004,516],[986,516]], [[1018,444],[1035,444],[1035,456],[1018,456]], hip_source)
 		cloth_patch(parts.thigh1, [[1045,494],[1063,494],[1063,566],[1045,566]], [[1030,448],[1045,448],[1045,489],[1030,489]], Vector2(1034,514))
 
 
@@ -131,6 +138,39 @@ func prepare_ankle_linings() -> void:
 		leg["lining"] = lining
 		leg["cuff"] = points(cuffs[i])
 		leg["source_knee"] = knees[i]
+
+
+func prepare_knee_folds() -> void:
+	var samples := [Rect2(503,686,20,34),Rect2(401,690,28,30)] if facing == 0 else [Rect2(1104,684,24,42),Rect2(1025,684,16,25)]
+	for i in range(2):
+		var leg: Dictionary = legs[i]
+		var patch := Polygon2D.new()
+		var sample: Rect2 = samples[i]
+		var left := sample.position.x
+		var right := sample.end.x
+		var top := sample.position.y
+		var bottom := sample.end.y
+		var middle := (top+bottom)*0.5
+		patch.uv = points([[left,top],[right,top],[right,middle],[right,bottom],[left,bottom],[left,middle]])
+		patch.texture = SOURCE
+		patch.use_parent_material = true
+		leg.shin.add_child(patch)
+		leg["knee_fold"] = patch
+		leg["half_width"] = [6.0,8.0][i] if facing==0 else [8.0,7.0][i]
+
+
+func cover_knee(leg: Dictionary, hip: Vector2, knee: Vector2, ankle: Vector2) -> void:
+	# Un pliegue continuo sustituye el borde recto entre dos recortes rígidos, sin mover sus articulaciones.
+	var upper := (knee-hip).normalized()
+	var lower := (ankle-knee).normalized()
+	var middle := (upper+lower).normalized()
+	var half: float = leg.half_width
+	var normals := [Vector2(upper.y,-upper.x)*half,Vector2(middle.y,-middle.x)*half,Vector2(lower.y,-lower.x)*half]
+	var top := knee-upper*7.0
+	var bottom := knee+lower*7.0
+	var vertices := PackedVector2Array([top-normals[0],top+normals[0],knee+normals[1],bottom+normals[2],bottom-normals[2],knee-normals[1]])
+	for i in range(vertices.size()): vertices[i]=(vertices[i]-knee).rotated(-leg.shin.rotation)
+	leg.knee_fold.polygon=vertices
 
 
 func cover_ankle(leg: Dictionary, knee: Vector2, ankle: Vector2) -> void:
@@ -218,6 +258,7 @@ func pose(phase: float, amount: float = 1.0) -> void:
 		leg.boot.position=ankle
 		leg.boot.rotation=angle*amount
 		cover_ankle(leg,knee,ankle)
+		cover_knee(leg,hip,knee,ankle)
 		var arm: Dictionary = arms[index]
 		var shoulder: Vector2 = arm.shoulder if index==1 else (Vector2(537,287) if facing==0 else Vector2(1006,287))-hip_source
 		if index==0: shoulder *= pixel_scale
@@ -239,4 +280,5 @@ func stretch_limb(node: Polygon2D, axis: Vector2, length: float) -> void:
 		vertices[i] += unit * along * (length / axis.length() - 1.0)
 	node.polygon = vertices
 	for patch in node.get_children():
-		stretch_limb(patch, axis, length)
+		if patch.has_meta("original_polygon"):
+			stretch_limb(patch, axis, length)

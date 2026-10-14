@@ -1,7 +1,7 @@
 extends SceneTree
 
 const WALK = preload("res://movimiento_sota.gd")
-const OUTPUT = "res://../trabajo/arte/revisiones/modelo_marcha_v5/"
+const OUTPUT = "res://../trabajo/arte/revisiones/modelo_marcha_v6/"
 
 func _initialize() -> void:
 	call_deferred("check")

@@ -1,6 +1,6 @@
 extends RefCounted
 
-const DATA_PATH = "res://assets/personajes/sota/articulada_v2/movimiento.json"
+const DATA_PATH = "res://assets/personajes/sota/articulada_v3/movimiento.json"
 const CYCLE_DISTANCE = 128.0
 const START_DISTANCE = 8.0
 const SETTLE_TIME = 0.24
