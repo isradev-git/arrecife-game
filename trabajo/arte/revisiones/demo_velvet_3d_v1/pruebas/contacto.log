@@ -1,0 +1,8 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+OpenGL API 4.1 Metal - 90.5 - Compatibility - Using Device: Apple - Apple M4
+
+Modelo Sota · mínimo/máximo: -0.0091679468751 / 0.00691590458155
+Malla renderizada: borde inferior -0.0091679468751..0.00691590458155 m respecto al suelo
+Excursión de marcadores de bota en apoyo plano: [0.00142461061478, 0.00605165958405] m; muestras [4, 26]
+Ventanas: diferencia punta/talón <12 mm; ambos marcadores <40 mm de altura; no cubre todo el rodado
+Margen técnico, no ausencia absoluta de penetración/flotación ni validación de transiciones

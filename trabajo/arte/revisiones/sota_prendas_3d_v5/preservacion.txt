@@ -1,0 +1,16 @@
+SHA256 anterior intacto: godot_ilustrado/assets/sota_3d_v1/sota.glb
+SHA256 anterior intacto: trabajo/arte/personajes/sota/ilustrada_3d_v1/sota.blend
+SHA256 anterior intacto: trabajo/arte/personajes/sota/ilustrada_3d_v1/crear_sota.py
+SHA256 anterior intacto: godot_ilustrado/assets/sota_3d_v2/sota.glb
+SHA256 anterior intacto: trabajo/arte/personajes/sota/ilustrada_3d_v2/sota.blend
+SHA256 anterior intacto: trabajo/arte/personajes/sota/ilustrada_3d_v2/crear_sota.py
+SHA256 anterior intacto: godot_ilustrado/assets/sota_3d_v3/sota.glb
+SHA256 anterior intacto: trabajo/arte/personajes/sota/ilustrada_3d_v3/sota.blend
+SHA256 anterior intacto: trabajo/arte/personajes/sota/ilustrada_3d_v3/crear_sota.py
+SHA256 anterior intacto: godot_ilustrado/assets/sota_3d_v4/sota.glb
+SHA256 anterior intacto: trabajo/arte/personajes/sota/ilustrada_3d_v4/sota.blend
+SHA256 anterior intacto: trabajo/arte/personajes/sota/ilustrada_3d_v4/crear_sota.py
+cuerpo.gd: sólo cambia recurso v4 -> v5.
+Cámara/recorrido_3d.gd y clips/base idénticos a v4 por SHA256.
+Sin cambios en jugadora.gd ni lógica de locomoción/control.
+Se conservan manos y geometría original de apoyo; cambian cubiertas, UV y capas añadidas de calzado.

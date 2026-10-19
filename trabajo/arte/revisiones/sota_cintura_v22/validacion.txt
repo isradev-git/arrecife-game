@@ -1,0 +1,28 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+captura_v21_candidata: mayor entrante entre filas = 8 px; perfil/fase (1, 11)
+captura_v22_candidata: mayor entrante entre filas = 2 px; perfil/fase (1, 33)
+
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+OK: paleta original v7 y alfa binaria en todo el atlas.
+128 poses: 0 con fragmentos >=8 px, mayor fragmento 0 px.
+OK: filas superiores 0..109 e inferiores 200..287 idénticas a 21 en ambos perfiles.
+OK: piernas, pelvis y apoyos de ambos perfiles idénticos a 21; cintura cubierta; sin piezas separadas >=8 px.
+
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+OK: cintura y muslo superior sin triángulos invertidos ni colapsados en las 4098 subposes.
+OK: ambas rodillas >25° en 0 subposes; inclinación máxima de bota 32.852°.
+OK: inclinación máxima añadida del torso 3.030 grados, sin escalado.
+OK: 4098 poses; error de segmento 0.00001907 px; salto de pelvis por 1/2048 0.073124 px; deriva de apoyo plano por muestra 0.00000191 px.
+
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+OpenGL API 4.1 Metal - 90.5 - Compatibility - Using Device: Apple - Apple M4
+
+OK: 128 celdas; alfa binaria; ningún recorte. Suela raster y=271..272 (origen 272). Altura visible 250..257 px.
+OK: deriva raster máxima en cuatro apoyos planos 0.938 px.
+OK: reproducción, pausa y cámara lenta a 30/60/120 Hz.
+OK: escena nativa cargada.
+
+Helium: pausa/reanudación, lenta, fase y selector comprobados. Errors/console sin salida. Vídeo real: 57,034 s.

@@ -12,6 +12,7 @@ config_version=5
 
 config/name="Pase pendiente · EL ARRECIFE"
 run/main_scene="res://recorrido.tscn"
+run/main_scene.candidata_sota="res://candidatas/comparacion_sota_v15.tscn"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 
 [display]

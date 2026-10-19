@@ -1,0 +1,18 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+OpenGL API 4.1 Metal - 90.5 - Compatibility - Using Device: Apple - Apple M4
+
+Penetración Detalles calzado fase 45 superficie 0 reposo (0.129147, -0.006, 0.1295) y -0.01453118398786
+Penetración Detalles calzado fase 45 superficie 0 reposo (0.128621, -0.00563, 0.130726) y -0.014698471874
+Penetración Detalles calzado fase 45 superficie 0 reposo (0.129654, -0.005352, 0.130985) y -0.01457385346293
+Penetración Detalles calzado fase 45 superficie 0 reposo (0.128621, -0.00563, 0.130726) y -0.014698471874
+Penetración Detalles calzado fase 45 superficie 0 reposo (0.129654, -0.005352, 0.130985) y -0.01457385346293
+Penetración Detalles calzado fase 125 superficie 0 reposo (0.129147, -0.006, 0.1295) y -0.0145311281085
+Penetración Detalles calzado fase 125 superficie 0 reposo (0.128621, -0.00563, 0.130726) y -0.01469840854406
+Penetración Detalles calzado fase 125 superficie 0 reposo (0.129654, -0.005352, 0.130985) y -0.01457379758358
+Penetración Detalles calzado fase 125 superficie 0 reposo (0.128621, -0.00563, 0.130726) y -0.01469840854406
+Penetración Detalles calzado fase 125 superficie 0 reposo (0.129654, -0.005352, 0.130985) y -0.01457379758358
+Modelo Sota · mínimo/máximo: -0.014698471874 / 0.00527860037982
+ERROR: Contacto vertical fuera del margen de laboratorio
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] comprobar (res://tests/diagnostico_suela_v5.gd:70)

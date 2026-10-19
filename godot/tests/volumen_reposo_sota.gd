@@ -1,13 +1,13 @@
 extends SceneTree
 
-const OUTPUT = "res://../trabajo/arte/revisiones/modelo_marcha_v8/"
+const OUTPUT = "res://../trabajo/arte/revisiones/apoyo_sota_v14/"
 
 func _initialize() -> void: call_deferred("check")
 
 func check() -> void:
 	var previous := "--antes" in OS.get_cmdline_user_args()
-	var folder := "articulada_v4" if previous else "articulada_v5"
-	var data: Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://assets/personajes/sota/"+folder+"/movimiento.json"))
+	var path: String = "res://assets/personajes/sota/articulada_v4/movimiento.json" if previous else preload("res://movimiento_sota.gd").DATA_PATH
+	var data: Dictionary=JSON.parse_string(FileAccess.get_file_as_string(path))
 	var differences := 0
 	for view in data.perfiles:
 		var idle:=cell(view.reposo)
@@ -17,7 +17,7 @@ func check() -> void:
 	var script = load("res://sota_articulada.gd")
 	if previous:
 		script=GDScript.new()
-		script.source_code=FileAccess.get_file_as_string(OUTPUT+"articulacion_antes.gd.txt")
+		script.source_code=FileAccess.get_file_as_string("res://../trabajo/arte/revisiones/modelo_marcha_v8/articulacion_antes.gd.txt")
 		assert(script.reload()==OK)
 	var shoulder_errors := 0
 	for profile in range(2):
@@ -25,8 +25,8 @@ func check() -> void:
 		root.add_child(figure)
 		figure.build(profile)
 		for phase in range(32):
-			for step in range(5):
-				figure.pose(phase/32.0,step/4.0)
+			for step in range(9):
+				figure.pose(phase/32.0,step/8.0)
 				if absf(figure.parts.sleeve0.position.x-figure.parts.sleeve1.position.x)>4.0: shoulder_errors+=1
 		figure.queue_free()
 	print("Hombro lejano adelantado durante cierre: ",shoulder_errors)

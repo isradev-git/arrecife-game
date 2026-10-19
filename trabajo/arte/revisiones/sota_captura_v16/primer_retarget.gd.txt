@@ -1,0 +1,62 @@
+extends "res://candidatas/sota_ik_v15.gd"
+
+# shortcut: vestido heredado para evaluar la captura; sustituir por poses dibujadas al aprobar el gesto.
+var capture: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://assets/personajes/sota/captura_v16_candidata/ciclo.json"))
+
+func channel(name: String, phase: float) -> float:
+	var coefficients: Array = capture.canales[name]
+	var value: float = coefficients[0]
+	for k in range(1,coefficients.size()):
+		value += coefficients[k][0]*cos(k*phase*TAU)+coefficients[k][1]*sin(k*phase*TAU)
+	return value
+
+func pose(phase: float, amount: float = 1.0) -> void:
+	if legs.size()!=2 or arms.size()!=2: return
+	pose_amount=amount
+	joints.clear()
+	contacts.clear()
+	var low := -INF
+	for i in range(2):
+		var side := "l" if (i==0)==(facing==0) else "r"
+		var leg: Dictionary = legs[i]
+		var hip := Vector2(legs[1].hip.x+direction*(2.0 if i==0 else 0.0),legs[1].hip.y)
+		var upper := channel(side+"_muslo",phase)
+		var lower := channel(side+"_tibia",phase)
+		# La proyección lateral pierde profundidad cerca de extensión: nunca invertir la rodilla.
+		lower=maxf(lower,upper+0.015)
+		var knee := hip+Vector2(cos(upper)*direction,sin(upper))*FEMUR
+		var ankle := knee+Vector2(cos(lower)*direction,sin(lower))*SHIN
+		var tilt := (channel(side+"_bota",phase)-0.15)*direction
+		leg.thigh.position=hip
+		leg.thigh.rotation=(knee-hip).angle()-leg.thigh_angle
+		leg.shin.position=knee
+		leg.shin.rotation=(ankle-knee).angle()-leg.shin_angle
+		leg.boot.position=ankle
+		leg.boot.rotation=tilt
+		deform_leg(leg,hip,knee,ankle)
+		var bottom := -INF
+		for point in leg.hull: bottom=maxf(bottom,ankle.y+point.rotated(tilt).y)
+		low=maxf(low,bottom)
+		contacts.append({"bottom":bottom,"phase":phase})
+		joints.append([hip,knee,ankle])
+	body.position=Vector2(-legs[1].hip.x,-low)
+	var pixel_offset := body.position.round()-body.position
+	var lean := (channel("tronco",phase)-float(capture.canales.tronco[0]))*direction
+	parts.torso.position=Vector2(0,-124)+pixel_offset
+	parts.torso.rotation=lean
+	parts.head.position=Vector2(0,-84).rotated(lean)-Vector2(0,-84)+pixel_offset
+	parts.deck.position=pixel_offset
+	for i in range(2):
+		for j in range(3): joints[i][j]+=body.position
+		contacts[i]["lift"]=low-contacts[i].bottom
+		var side := "l" if (i==0)==(facing==0) else "r"
+		var arm: Dictionary = arms[i]
+		var shoulder: Vector2 = arms[1].shoulder+Vector2(direction*(2 if i==0 else 0),0)
+		shoulder=(shoulder-Vector2(0,-124)).rotated(lean)+Vector2(0,-124)+pixel_offset
+		var upper := channel(side+"_brazo",phase)
+		var lower := channel(side+"_antebrazo",phase)
+		var elbow: Vector2 = shoulder+Vector2(cos(upper)*direction,sin(upper))*arm.upper_length
+		arm.sleeve.position=shoulder
+		arm.sleeve.rotation=Vector2(cos(upper)*direction,sin(upper)).angle()-arm.sleeve_angle
+		arm.hand.position=elbow
+		arm.hand.rotation=Vector2(cos(lower)*direction,sin(lower)).angle()-arm.hand_angle

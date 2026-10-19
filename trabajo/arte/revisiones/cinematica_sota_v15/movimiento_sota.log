@@ -1,0 +1,4 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+OK: 3787483 píxeles opacos de marcha, inicio, cierre y respiración usan exactamente colores de v7; alfa binaria.
+OK: 64 fases, región de cabeza idéntica a v7 en marcha y transiciones, cuadros completos, escala fija, ambos sentidos, cierre, reducción, suelo y extremos.

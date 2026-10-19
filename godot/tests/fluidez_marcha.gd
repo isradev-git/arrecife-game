@@ -42,7 +42,7 @@ func check() -> void:
 						var phase: float = scene.walk.distance / scene.walk.CYCLE_DISTANCE + 0.25 + (0.5 if foot==0 else 0.0)
 						var sampled: float = fposmod(scene.walk.frame_index / 32.0 + (0.5 if foot==0 else 0.0),1.0)
 						if fposmod(phase,1.0)<0.03 or fposmod(phase,1.0)>0.56 or sampled>=0.6: continue
-						var point: float = scene.body.position.x + pose.punteras[foot][0] - 128.0
+						var point: float = scene.body.position.x + (pose.punteras[foot][0] - 128.0) * (-1.0 if scene.sota.flip_h else 1.0)
 						var step:=floori(phase)
 						if steps[foot]!=step:
 							steps[foot]=step

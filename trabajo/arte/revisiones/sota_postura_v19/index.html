@@ -1,0 +1,49 @@
+<!doctype html><html lang="es"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Sota · postura 19</title>
+<style>body{margin:0;background:#151c26;color:#e9e7e2;font:16px system-ui}main{max-width:1200px;margin:auto;padding:24px}h1{font-size:26px}p{line-height:1.5;color:#b8c0cc}button,a,select,input{font:inherit;color:#e9e7e2}button,select{background:#303e50;border:1px solid #778292;border-radius:4px;padding:9px;margin-right:8px;cursor:pointer}a{color:#e2af87}canvas{width:100%;image-rendering:pixelated;background:#202a37;border:1px solid #4c5969;margin-top:12px}button:focus-visible,input:focus-visible{outline:3px solid #f4aa65}label{display:inline-block;margin:12px 12px 0 0}#fase{width:240px}</style>
+<main><h1>Sota · postura y perfil izquierdo</h1><p>Torso más erguido y cintura izquierda alineada con las piernas. Se conservan el paso y los apoyos de ambos perfiles.</p>
+<button id="pause">Pausar</button><button id="slow">Cámara lenta</button><button id="step">Un fotograma</button><button id="bones">Ver articulaciones</button>
+<label>Fase <input id="fase" type="range" min="0" max="63" value="0"></label>
+<canvas id="live" width="1200" height="710" aria-label="Comparación de ropa anterior y revisada en ambos perfiles"></canvas>
+<canvas id="detail" width="1200" height="330" aria-label="Detalle ampliado del pantalón y botas, antes y después"></canvas>
+<p id="status" role="status">Cargando atlas…</p>
+<p>Velocidad común: <strong>104 px/s</strong>. Ambas versiones usan un ciclo de <strong>140 px</strong>. Las marcas del suelo permiten detectar deslizamientos. El juego normal sigue intacto.</p>
+<label>Ocho claves de <select id="profile"><option value="0">perfil derecho</option><option value="1">perfil izquierdo</option></select></label>
+<canvas id="sheet" width="1200" height="610" aria-label="Ocho fases de la nueva animación de Sota"></canvas>
+<p><strong>Candidata para revisión.</strong> Menos inclinación hacia delante y menos desplazamiento de la cintura izquierda. La entrepierna y los pliegues de las zonas ocultas todavía necesitan acabado artístico. <a href="README.md" download>Descargar informe (.md)</a> · <a href="../ruta_animacion_humana_v1/claves.html">Referencia humana</a>.</p></main>
+<script>
+const $=id=>document.getElementById(id), lc=$('live').getContext('2d'),sc=$('sheet').getContext('2d'),dc=$('detail').getContext('2d');lc.imageSmoothingEnabled=sc.imageSmoothingEnabled=dc.imageSmoothingEnabled=false;
+let paused=false,slow=false,bones=false,t=0,last=0,ready=false,data,old,atlas,oldAtlas;
+$('pause').onclick=()=>{paused=!paused;$('pause').textContent=paused?'Reanudar':'Pausar'};
+$('slow').onclick=()=>{slow=!slow;$('slow').textContent=slow?'Velocidad normal':'Cámara lenta'};
+$('bones').onclick=()=>{bones=!bones;$('bones').textContent=bones?'Ocultar articulaciones':'Ver articulaciones'};
+function setPhase(value){paused=true;$('pause').textContent='Reanudar';t=Number(value)/64*140/104}
+$('fase').oninput=e=>setPhase(e.target.value);$('step').onclick=()=>setPhase((Math.floor(t*104/140*64+1e-7)+1)%64);
+const image=url=>new Promise((resolve,reject)=>{const i=new Image();i.onload=()=>resolve(i);i.onerror=()=>reject(Error(url));i.src=url});
+const base='/godot/assets/personajes/sota/';
+Promise.all([fetch(base+'captura_v19_candidata/movimiento.json').then(r=>r.json()),image(base+'captura_v19_candidata/marcha.png'),fetch(base+'captura_v18_candidata/movimiento.json').then(r=>r.json()),image(base+'captura_v18_candidata/marcha.png')]).then(([d,a,o,oa])=>{data=d;atlas=a;old=o;oldAtlas=oa;ready=true}).catch(e=>$('status').textContent='Error de carga: '+e);
+function line(c,a,b,color='#667686'){c.strokeStyle=color;c.lineWidth=1;c.beginPath();c.moveTo(...a);c.lineTo(...b);c.stroke()}
+function label(c,text,x,y){c.fillStyle='#e9e7e2';c.font='15px system-ui';c.textAlign='center';c.fillText(text,x,y)}
+function figure(c,d,a,profile,frame,x,y){const p=d.perfiles[profile].marcha[frame],r=p.celda;c.drawImage(a,...r,Math.round(x-(p.cadera_x-r[0])),Math.round(y-(p.suelo_y-r[1])),r[2],r[3]);if(bones)for(const [i,leg] of p.articulaciones.entries()){const points=leg.map(p=>[x+p[0],y+p[1]]);for(let j=1;j<3;j++)line(c,points[j-1],points[j],i?'#eab877':'#73c8e2');for(const p of points){c.fillStyle=i?'#eab877':'#73c8e2';c.fillRect(p[0]-2,p[1]-2,4,4)}}}
+function draw(time){
+ const dt=last?Math.min((time-last)/1000,.05):0;last=time;if(!paused)t+=dt*(slow?.25:1);
+ if(ready){
+  const phase=Math.floor(t*104/140*64+1e-7)%64;
+  lc.clearRect(0,0,1200,710);dc.clearRect(0,0,1200,330);
+  for(let row=0;row<2;row++)for(let column=0;column<2;column++){
+   const x=300+column*600,y=315+row*350,d=column?data:old,a=column?atlas:oldAtlas;
+   label(lc,(column?'Postura revisada · 19':'Anterior · 18')+' · '+(row?'izquierda':'derecha'),x,y-285);
+   line(lc,[x-250,y+1],[x+250,y+1]);
+   const offset=t*104*(row?-1:1)%32;
+   for(let tick=-224;tick<250;tick+=32)line(lc,[x+tick-offset,y+8],[x+tick-offset,y+15]);
+   figure(lc,d,a,row,phase,x,y);
+   const slot=row*2+column,rect=d.perfiles[row].marcha[phase].celda;
+   label(dc,(row?'Izquierda':'Derecha')+(column?' · 19':' · 18'),150+slot*300,20);
+   dc.drawImage(a,rect[0]+36,rect[1]+128,120,150,30+slot*300,28,240,300);
+  }
+  $('fase').value=phase;$('status').textContent='Fase '+phase+'/63 · '+(paused?'Pausa':slow?'0,25×':'104 px/s')+' · detalle ampliado 2× · candidato aislado';
+  sc.clearRect(0,0,1200,610);
+  for(let i=0;i<8;i++){const x=150+i%4*300,y=280+Math.floor(i/4)*300;figure(sc,data,atlas,Number($('profile').value),i*8,x,y);label(sc,'Clave '+(i+1)+' · '+i*12.5+' %',x,y-260);line(sc,[x-125,y+1],[x+125,y+1])}
+ }
+ requestAnimationFrame(draw)
+}requestAnimationFrame(draw);
+</script></html>

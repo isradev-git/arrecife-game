@@ -1,68 +1,27 @@
-# EL ARRECIFE · Videojuego
+# El Arrecife · experiencia ilustrada
 
-Juego de investigación en desarrollo, ambientado en la megaciudad vertical de EL ARRECIFE. El título definitivo está pendiente. El autor y el asistente desarrollan y prueban el proyecto.
+**Dirección aprobada por el autor el 18 y 19 de octubre de 2026.** Juego de aproximadamente 30 minutos para conocer El Arrecife, su canon, a Sota y a otras personas mediante exploración, conversaciones opcionales e interacción con objetos. Sin caso que resolver, crimen central, encargos ni lista de objetivos.
 
-La producción definitiva utiliza **Godot 4.7.2, GDScript y 2D Compatibility**, con exportación Web. El caso completo todavía se encuentra en el prototipo JavaScript; la versión Godot permite mover a Sota, de perfil y con altura aprobada de 252, dentro de Velvet. La migración y las animaciones siguen en curso.
+Todo el juego se producirá en **3D, con movimiento izquierda/derecha**, escenarios más largos y acabado ilustrado. La primera entrega de unos 30 minutos podrá ampliarse con nuevo lore. Se abandona el pixel art. El estilo de los retratos de Sota y Jefa guía personajes y escenarios. **La prioridad de producción es una Sota que camine de forma convincente**, con arranque, parada y cambio de dirección cuidados.
 
+## Trabajo actual
 
-**Recorrido provisional · 13 de octubre:** F5 abre la prueba de movimiento. Flechas o A/D para caminar, clic en el suelo para caminar a un punto y Esc para detenerse. La carrera queda retirada por decisión del autor: los escenarios se recorren caminando. Clic en mostrador/cabina/personas del acceso para acercarse; todavía sin conversación ni viaje. El botón Revisión visual conserva los controles de arte anteriores. [Pruebas y capturas](trabajo/arte/revisiones/recorrido_jugable_v1/README.md).
-**Dirección artística · 10 de octubre:** vamos a renovar sprites, modelos, personajes, objetos, animaciones y entornos por capas para que sean más pixel art, más cercanos al estilo de REPLACED. Se conserva la identidad de Sota y su presentación solo de perfil. [Criterios vigentes](trabajo/direccion_artistica.md); renovación pendiente en [task.md](task.md). Pase corregido de Sota, con píxel más intenso y rostro con ojos apenas insinuados y sin rasgos detallados, integrado con el Velvet aportado por el autor; [comparación del retoque](trabajo/arte/revisiones/escala_v5/README.md). El autor aprueba el estilo vigente. La escena compara ese atlas con una [base sin neón e iluminación separada](trabajo/arte/revisiones/luz_v2/README.md), con color, intensidad y dirección controlables. El autor compara ambas en navegador el 12 de octubre y prefiere **Referencia aprobada (v7)**; queda predeterminada. [Registro y capturas](trabajo/arte/revisiones/preferencia_sota_v1/README.md). La alternativa se conserva y la futura separación de luz debe mantener ese dibujo.
+- [Continuidad vigente](proceso/ESTADO_DEL_PROYECTO.md).
+- [Tareas](task.md), [plan](proceso/PLAN_GODOT.md).
+- [Diseño de experiencia](trabajo/diseno/EXPERIENCIA_ILUSTRADA.md).
+- [Dirección artística](trabajo/direccion_artistica.md).
+- [Proyecto 3D y laboratorio de locomoción](godot_ilustrado/README.md): importar `godot_ilustrado/project.godot` en Godot 4.7.2 y ejecutar **F5**.
 
-**Suelo y capas · 12 de octubre:** el recorrido lateral sigue horizontal y la pasarela conserva profundidad. Tras la corrección del autor, Sota se apoya en el centro (y = 705), entre barandilla trasera (base y = 675) y delantera (base y = 735), con orden de dibujo fijo. La delantera recorre todo el ancho; la trasera conserva el tramo sobre el hueco central. [Barandillas y comprobaciones Godot/Web](trabajo/arte/revisiones/recorrido_v1/README.md); [fondo y prompts conservados](trabajo/arte/entornos/velvet/suelo_v1/README.md). T07 continúa en curso; geometría de T07.3 valorada positivamente por el autor, que destaca la perspectiva como esencial. Barandillas de T07.4 aprobadas visualmente, incluida trasera junto a la gente. [Mostrador independiente T07.5](trabajo/arte/revisiones/mostrador_v1/README.md) conservado; [figurante y equipo independientes T07.6](trabajo/arte/revisiones/recepcion_v1/README.md) conservados. [Persona con mochila junto a la escalera T07.7](trabajo/arte/revisiones/acceso_v1/README.md) conservada; [acompañante y entrada sin ambas personas T07.8](trabajo/arte/revisiones/acompanante_v1/README.md) integrados y comprobados en Godot/Web, pendientes de valoración del recurso nuevo. El autor aprueba separar personas para actividad/interacción y propone posibles diálogos. [Guardia y cabina T07.9](trabajo/arte/revisiones/cabina_v1/README.md) incorporados por capas y comprobados en Godot/Web. El autor establece conversación y cambio de cota en esta cabina; ambas funciones pendientes. Resto de capas e iluminación espacial pendientes; el controlador provisional de T04 se entrega después.
+F5 abre **la demo de Velvet 3D**, con 42 m de recorrido lateral, cámara lejana, cuatro encuentros opcionales y visor de Sota en 360°. Sota v7 conserva el movimiento aprobado y revisa cintura, arnés y confección posterior. [Probar en navegador local](http://127.0.0.1:8766/godot_ilustrado/build/web/) · [Capturas, instrucciones y resultados](trabajo/arte/revisiones/demo_velvet_3d_v1/README.md). Es una candidata de demo, pendiente de valoración artística; no contiene los treinta minutos. La pasarela técnica y versiones anteriores siguen disponibles.
 
-**Jefa y retratos · 12 de octubre:** [Jefa del mostrador adaptada al retrato T08.1](trabajo/arte/revisiones/jefa_v1/README.md), integrada y comprobada en Godot/Web. [Retratos originales de Sota/Jefa](trabajo/arte/personajes/retratos_v1/README.md) guardados para diálogos con escena oscurecida, Sota a izquierda, interlocutor a derecha y texto entre ambos; interfaz posterior. El autor aprueba el sprite pixel art de la Jefa. [Libro propio T08.2](trabajo/arte/revisiones/libro_v1/README.md) añadido como objeto independiente bajo sus manos; comprobado en Godot/Web, nuevo objeto pendiente de valoración.
+## Etapa anterior archivada
 
-![Velvet con Jefa y libro propio](trabajo/arte/revisiones/libro_v1/godot_galeria.png)
+[Respaldo completo, verificación e instrucciones de recuperación](proceso/ARCHIVO_ETAPA_PIXEL_20261018.md). Se conservan código, arte, prompts, versiones, guiones, pruebas y cambios sin confirmar. `godot/` y `juego/` son proyectos históricos de la etapa de investigación/pixel art. No ejecutar esos proyectos esperando encontrar la nueva dirección.
 
-**Comparación de escala T02.1:** [lámina de alturas y píxel](trabajo/arte/revisiones/escala_produccion_v1/comparacion.png), [comparación HTML](trabajo/arte/revisiones/escala_produccion_v1/comparacion.html) y [pruebas](trabajo/arte/revisiones/escala_produccion_v1/README.md). Propuesta: Sota v7 252, Jefa 244 y render actual nearest; valoración pendiente. **Comparar Jefa** permite ver ambas sin solaparse y alternar 232/252/272. Dibujos intactos, movimiento posterior.
+[README histórico](README_ETAPA_PIXEL_20261018.md). No se han borrado recursos ni modificado el canon literario. No hay publicación nueva para jugadores.
 
-## Abrir el proyecto
+Demo actual: **Velvet 3D con Sota v7 y visor 360°**. Abrir `godot_ilustrado/project.godot` y pulsar F5. [Probar y revisar](trabajo/arte/revisiones/demo_velvet_3d_v1/README.md).
 
-Clonar el repositorio e importar `godot/project.godot` desde Godot 4.7.2. Ejecutar con F5. La escena actual compara la referencia aprobada de Sota y la base con iluminación separada, ambos perfiles, alturas, ubicación, filtrado y color del contorno. Elegir **Galería / Recepción / Personal / Extremo** y alternar **Ambas barandillas / Solo trasera / Solo delantera / Sin barandillas** para comprobar los dos bordes y sus oclusiones. **Frente al mostrador** permite revisar el mueble independiente con **Mostrador visible / Ocultar mostrador**. Los interruptores **Jefa / Equipo / Acceso / Libro** controlan esos planos por separado. **Junto al acceso** coloca a Sota frente a la figura de la mochila; **Acompañante / Junto al acompañante** permiten revisar la segunda persona. **Guardia / Cabina** permiten alternar esos planos; **Frente al guardia** aparta el panel para revisar la ventanilla. Todavía no contiene desplazamiento, diálogos ni viajes entre cotas.
+## Recuperar los recursos originales
 
-Instalación, plantillas y exportación: [godot/README.md](godot/README.md).
-
-Para ejecutar el prototipo narrativo, con Python 3 y Node.js disponibles:
-
-```sh
-cd juego
-npm start
-```
-
-Abrir `http://127.0.0.1:8765/`. No necesita instalar dependencias de npm.
-
-## Comprobar el proyecto
-
-```sh
-cd juego
-npm test
-```
-
-Para Godot, desde la raíz, usando el ejecutable de Godot disponible en el equipo:
-
-```sh
-godot --headless --path godot --editor --import
-godot --headless --path godot --script tests/verificacion.gd
-godot --headless --path godot --script tests/escala.gd
-```
-
-En macOS, si `godot` no está en PATH, usar `/Applications/Godot.app/Contents/MacOS/Godot`.
-
-## Organización y continuidad
-
-| Carpeta o documento | Contenido |
-| --- | --- |
-| `godot/` | Proyecto de producción, recursos y comprobaciones. |
-| `juego/` | Prototipo JavaScript del caso completo y sus pruebas. |
-| `trabajo/` | Dirección, recursos anteriores, prompts y diseño. |
-| `proceso/` | Estado real, decisiones, historial y respaldo. |
-| [task.md](task.md) | Tareas y criterios de cierre; una tarea cada vez. |
-| [AGENTS.md](AGENTS.md) | Instrucciones para continuar trabajando. |
-
-Antes de retomar, leer [ESTADO_DEL_PROYECTO.md](proceso/ESTADO_DEL_PROYECTO.md). La documentación interna contiene soluciones del misterio. Los recursos y prompts anteriores se conservan por versiones.
-
-Las cachés de Godot, exportaciones generadas, metadatos de Finder y credenciales de exportación se excluyen de Git. Se conservan los archivos `.import` y `.uid` necesarios para reproducir el proyecto. El editor y las plantillas se instalan aparte; no forman parte del repositorio.
-
-Este repositorio contiene el proyecto de desarrollo. Todavía no hay una publicación del juego para jugadores.
-
-**Continuidad de caminar · 13 de octubre:** el autor rechaza la primera marcha por diferencia de dibujo/oscuridad frente al reposo. Se retira Pasos en prueba; el juego mantiene v7. [Una pose corregida desde la referencia y comparaciones](trabajo/arte/revisiones/marcha_identidad_v2/README.md), pendiente de valoración antes de rehacer el ciclo. Versiones/prompts anteriores conservados.
+El ZIP original de personajes Quaternius se conserva mediante Git LFS. Después de clonar, ejecutar `git lfs install` y `git lfs pull`. Los recursos jugables y las fuentes editables del proyecto están versionados; las carpetas `.godot/`, `build/` y las credenciales de exportación quedan fuera de Git.

@@ -1,0 +1,7990 @@
+{
+	"distancia_ciclo": 128.0,
+	"fases": 32,
+	"fuente": "res://assets/personajes/sota/perfiles_pixel_v7.png",
+	"nota": "Fotogramas renderizados en Godot desde una textura v7 compartida; perfiles propios, recortes limpios y tela oculta reconstruida con UV de v7, paleta sin retoques RGB. Escala de juego fija, no normalización por pose.",
+	"perfiles": [
+		{
+			"arranque": [
+				{
+					"archivo": "res://assets/personajes/sota/articulada_v10/reposo_inicio.png",
+					"cadera_x": 128.0,
+					"celda": [
+						0,
+						0,
+						256,
+						320
+					],
+					"respiracion_y": -0.517688453197479,
+					"suelo_y": 300.0
+				},
+				{
+					"archivo": "res://assets/personajes/sota/articulada_v10/reposo_inicio.png",
+					"cadera_x": 384.0,
+					"celda": [
+						256,
+						0,
+						256,
+						320
+					],
+					"respiracion_y": -1.22722458839417,
+					"suelo_y": 300.0
+				},
+				{
+					"archivo": "res://assets/personajes/sota/articulada_v10/reposo_inicio.png",
+					"cadera_x": 640.0,
+					"celda": [
+						512,
+						0,
+						256,
+						320
+					],
+					"respiracion_y": -2.05786609649658,
+					"suelo_y": 300.0
+				},
+				{
+					"archivo": "res://assets/personajes/sota/articulada_v10/reposo_inicio.png",
+					"cadera_x": 896.0,
+					"celda": [
+						768,
+						0,
+						256,
+						320
+					],
+					"respiracion_y": -2.9277503490448,
+					"suelo_y": 300.0
+				}
+			],
+			"cierres": [
+				[
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 128.0,
+						"celda": [
+							0,
+							0,
+							256,
+							320
+						],
+						"respiracion_y": 1.40654528141022,
+						"suelo_y": 300.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 384.0,
+						"celda": [
+							256,
+							0,
+							256,
+							320
+						],
+						"respiracion_y": 1.20561027526855,
+						"suelo_y": 300.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 640.0,
+						"celda": [
+							512,
+							0,
+							256,
+							320
+						],
+						"respiracion_y": 1.00467526912689,
+						"suelo_y": 300.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 896.0,
+						"celda": [
+							768,
+							0,
+							256,
+							320
+						],
+						"respiracion_y": 0.803740203380585,
+						"suelo_y": 300.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 1152.0,
+						"celda": [
+							1024,
+							0,
+							256,
+							320
+						],
+						"respiracion_y": 0.602805137634277,
+						"suelo_y": 300.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 1408.0,
+						"celda": [
+							1280,
+							0,
+							256,
+							320
+						],
+						"respiracion_y": 0.401870101690292,
+						"suelo_y": 300.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 1664.0,
+						"celda": [
+							1536,
+							0,
+							256,
+							320
+						],
+						"respiracion_y": 0.200935050845146,
+						"suelo_y": 300.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/reposo_inicio.png",
+						"cadera_x": 1152.0,
+						"celda": [
+							1024,
+							0,
+							256,
+							320
+						],
+						"respiracion_y": 0,
+						"suelo_y": 300.0
+					}
+				],
+				[
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 2176.0,
+						"celda": [
+							2048,
+							0,
+							256,
+							320
+						],
+						"respiracion_y": 2.14764308929443,
+						"suelo_y": 300.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 2432.0,
+						"celda": [
+							2304,
+							0,
+							256,
+							320
+						],
+						"respiracion_y": 1.84083688259125,
+						"suelo_y": 300.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 2688.0,
+						"celda": [
+							2560,
+							0,
+							256,
+							320
+						],
+						"respiracion_y": 1.53403067588806,
+						"suelo_y": 300.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 2944.0,
+						"celda": [
+							2816,
+							0,
+							256,
+							320
+						],
+						"respiracion_y": 1.22722458839417,
+						"suelo_y": 300.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 3200.0,
+						"celda": [
+							3072,
+							0,
+							256,
+							320
+						],
+						"respiracion_y": 0.920418441295624,
+						"suelo_y": 300.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 3456.0,
+						"celda": [
+							3328,
+							0,
+							256,
+							320
+						],
+						"respiracion_y": 0.613612294197083,
+						"suelo_y": 300.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 3712.0,
+						"celda": [
+							3584,
+							0,
+							256,
+							320
+						],
+						"respiracion_y": 0.306806147098541,
+						"suelo_y": 300.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/reposo_inicio.png",
+						"cadera_x": 1152.0,
+						"celda": [
+							1024,
+							0,
+							256,
+							320
+						],
+						"respiracion_y": 0,
+						"suelo_y": 300.0
+					}
+				],
+				[
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 128.0,
+						"celda": [
+							0,
+							320,
+							256,
+							320
+						],
+						"respiracion_y": 2.56178140640259,
+						"suelo_y": 620.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 384.0,
+						"celda": [
+							256,
+							320,
+							256,
+							320
+						],
+						"respiracion_y": 2.19581270217896,
+						"suelo_y": 620.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 640.0,
+						"celda": [
+							512,
+							320,
+							256,
+							320
+						],
+						"respiracion_y": 1.82984387874603,
+						"suelo_y": 620.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 896.0,
+						"celda": [
+							768,
+							320,
+							256,
+							320
+						],
+						"respiracion_y": 1.4638751745224,
+						"suelo_y": 620.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 1152.0,
+						"celda": [
+							1024,
+							320,
+							256,
+							320
+						],
+						"respiracion_y": 1.09790635108948,
+						"suelo_y": 620.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 1408.0,
+						"celda": [
+							1280,
+							320,
+							256,
+							320
+						],
+						"respiracion_y": 0.7319375872612,
+						"suelo_y": 620.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 1664.0,
+						"celda": [
+							1536,
+							320,
+							256,
+							320
+						],
+						"respiracion_y": 0.3659687936306,
+						"suelo_y": 620.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/reposo_inicio.png",
+						"cadera_x": 1152.0,
+						"celda": [
+							1024,
+							0,
+							256,
+							320
+						],
+						"respiracion_y": 0,
+						"suelo_y": 300.0
+					}
+				],
+				[
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 2176.0,
+						"celda": [
+							2048,
+							320,
+							256,
+							320
+						],
+						"respiracion_y": 2.58591198921204,
+						"suelo_y": 620.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 2432.0,
+						"celda": [
+							2304,
+							320,
+							256,
+							320
+						],
+						"respiracion_y": 2.21649599075317,
+						"suelo_y": 620.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 2688.0,
+						"celda": [
+							2560,
+							320,
+							256,
+							320
+						],
+						"respiracion_y": 1.84707999229431,
+						"suelo_y": 620.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 2944.0,
+						"celda": [
+							2816,
+							320,
+							256,
+							320
+						],
+						"respiracion_y": 1.47766399383545,
+						"suelo_y": 620.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 3200.0,
+						"celda": [
+							3072,
+							320,
+							256,
+							320
+						],
+						"respiracion_y": 1.10824799537659,
+						"suelo_y": 620.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 3456.0,
+						"celda": [
+							3328,
+							320,
+							256,
+							320
+						],
+						"respiracion_y": 0.738831996917725,
+						"suelo_y": 620.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 3712.0,
+						"celda": [
+							3584,
+							320,
+							256,
+							320
+						],
+						"respiracion_y": 0.369415998458862,
+						"suelo_y": 620.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/reposo_inicio.png",
+						"cadera_x": 1152.0,
+						"celda": [
+							1024,
+							0,
+							256,
+							320
+						],
+						"respiracion_y": 0,
+						"suelo_y": 300.0
+					}
+				],
+				[
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 128.0,
+						"celda": [
+							0,
+							640,
+							256,
+							320
+						],
+						"respiracion_y": 2.21636080741882,
+						"suelo_y": 940.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 384.0,
+						"celda": [
+							256,
+							640,
+							256,
+							320
+						],
+						"respiracion_y": 1.89973783493042,
+						"suelo_y": 940.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 640.0,
+						"celda": [
+							512,
+							640,
+							256,
+							320
+						],
+						"respiracion_y": 1.58311486244202,
+						"suelo_y": 940.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 896.0,
+						"celda": [
+							768,
+							640,
+							256,
+							320
+						],
+						"respiracion_y": 1.26649188995361,
+						"suelo_y": 940.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 1152.0,
+						"celda": [
+							1024,
+							640,
+							256,
+							320
+						],
+						"respiracion_y": 0.94986891746521,
+						"suelo_y": 940.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 1408.0,
+						"celda": [
+							1280,
+							640,
+							256,
+							320
+						],
+						"respiracion_y": 0.633245944976807,
+						"suelo_y": 940.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 1664.0,
+						"celda": [
+							1536,
+							640,
+							256,
+							320
+						],
+						"respiracion_y": 0.316622972488403,
+						"suelo_y": 940.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/reposo_inicio.png",
+						"cadera_x": 1152.0,
+						"celda": [
+							1024,
+							0,
+							256,
+							320
+						],
+						"respiracion_y": 0,
+						"suelo_y": 300.0
+					}
+				],
+				[
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 2176.0,
+						"celda": [
+							2048,
+							640,
+							256,
+							320
+						],
+						"respiracion_y": 1.50938880443573,
+						"suelo_y": 940.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 2432.0,
+						"celda": [
+							2304,
+							640,
+							256,
+							320
+						],
+						"respiracion_y": 1.29376184940338,
+						"suelo_y": 940.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 2688.0,
+						"celda": [
+							2560,
+							640,
+							256,
+							320
+						],
+						"respiracion_y": 1.07813489437103,
+						"suelo_y": 940.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 2944.0,
+						"celda": [
+							2816,
+							640,
+							256,
+							320
+						],
+						"respiracion_y": 0.862507879734039,
+						"suelo_y": 940.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 3200.0,
+						"celda": [
+							3072,
+							640,
+							256,
+							320
+						],
+						"respiracion_y": 0.646880924701691,
+						"suelo_y": 940.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 3456.0,
+						"celda": [
+							3328,
+							640,
+							256,
+							320
+						],
+						"respiracion_y": 0.43125393986702,
+						"suelo_y": 940.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 3712.0,
+						"celda": [
+							3584,
+							640,
+							256,
+							320
+						],
+						"respiracion_y": 0.21562696993351,
+						"suelo_y": 940.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/reposo_inicio.png",
+						"cadera_x": 1152.0,
+						"celda": [
+							1024,
+							0,
+							256,
+							320
+						],
+						"respiracion_y": 0,
+						"suelo_y": 300.0
+					}
+				],
+				[
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 128.0,
+						"celda": [
+							0,
+							960,
+							256,
+							320
+						],
+						"respiracion_y": 0.572625994682312,
+						"suelo_y": 1260.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 384.0,
+						"celda": [
+							256,
+							960,
+							256,
+							320
+						],
+						"respiracion_y": 0.490822285413742,
+						"suelo_y": 1260.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 640.0,
+						"celda": [
+							512,
+							960,
+							256,
+							320
+						],
+						"respiracion_y": 0.409018576145172,
+						"suelo_y": 1260.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 896.0,
+						"celda": [
+							768,
+							960,
+							256,
+							320
+						],
+						"respiracion_y": 0.327214866876602,
+						"suelo_y": 1260.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 1152.0,
+						"celda": [
+							1024,
+							960,
+							256,
+							320
+						],
+						"respiracion_y": 0.245411142706871,
+						"suelo_y": 1260.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 1408.0,
+						"celda": [
+							1280,
+							960,
+							256,
+							320
+						],
+						"respiracion_y": 0.163607433438301,
+						"suelo_y": 1260.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 1664.0,
+						"celda": [
+							1536,
+							960,
+							256,
+							320
+						],
+						"respiracion_y": 0.0818037167191505,
+						"suelo_y": 1260.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/reposo_inicio.png",
+						"cadera_x": 1152.0,
+						"celda": [
+							1024,
+							0,
+							256,
+							320
+						],
+						"respiracion_y": 0,
+						"suelo_y": 300.0
+					}
+				],
+				[
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 2176.0,
+						"celda": [
+							2048,
+							960,
+							256,
+							320
+						],
+						"respiracion_y": -0.451313883066177,
+						"suelo_y": 1260.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 2432.0,
+						"celda": [
+							2304,
+							960,
+							256,
+							320
+						],
+						"respiracion_y": -0.386840462684631,
+						"suelo_y": 1260.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 2688.0,
+						"celda": [
+							2560,
+							960,
+							256,
+							320
+						],
+						"respiracion_y": -0.322367072105408,
+						"suelo_y": 1260.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 2944.0,
+						"celda": [
+							2816,
+							960,
+							256,
+							320
+						],
+						"respiracion_y": -0.257893651723862,
+						"suelo_y": 1260.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 3200.0,
+						"celda": [
+							3072,
+							960,
+							256,
+							320
+						],
+						"respiracion_y": -0.193420231342316,
+						"suelo_y": 1260.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 3456.0,
+						"celda": [
+							3328,
+							960,
+							256,
+							320
+						],
+						"respiracion_y": -0.128946825861931,
+						"suelo_y": 1260.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 3712.0,
+						"celda": [
+							3584,
+							960,
+							256,
+							320
+						],
+						"respiracion_y": -0.0644734129309654,
+						"suelo_y": 1260.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/reposo_inicio.png",
+						"cadera_x": 1152.0,
+						"celda": [
+							1024,
+							0,
+							256,
+							320
+						],
+						"respiracion_y": 0,
+						"suelo_y": 300.0
+					}
+				],
+				[
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 128.0,
+						"celda": [
+							0,
+							1280,
+							256,
+							320
+						],
+						"respiracion_y": -1.40654528141022,
+						"suelo_y": 1580.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 384.0,
+						"celda": [
+							256,
+							1280,
+							256,
+							320
+						],
+						"respiracion_y": -1.20561027526855,
+						"suelo_y": 1580.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 640.0,
+						"celda": [
+							512,
+							1280,
+							256,
+							320
+						],
+						"respiracion_y": -1.00467526912689,
+						"suelo_y": 1580.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 896.0,
+						"celda": [
+							768,
+							1280,
+							256,
+							320
+						],
+						"respiracion_y": -0.803740203380585,
+						"suelo_y": 1580.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 1152.0,
+						"celda": [
+							1024,
+							1280,
+							256,
+							320
+						],
+						"respiracion_y": -0.602805137634277,
+						"suelo_y": 1580.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 1408.0,
+						"celda": [
+							1280,
+							1280,
+							256,
+							320
+						],
+						"respiracion_y": -0.401870101690292,
+						"suelo_y": 1580.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 1664.0,
+						"celda": [
+							1536,
+							1280,
+							256,
+							320
+						],
+						"respiracion_y": -0.200935050845146,
+						"suelo_y": 1580.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/reposo_inicio.png",
+						"cadera_x": 1152.0,
+						"celda": [
+							1024,
+							0,
+							256,
+							320
+						],
+						"respiracion_y": 0,
+						"suelo_y": 300.0
+					}
+				],
+				[
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 2176.0,
+						"celda": [
+							2048,
+							1280,
+							256,
+							320
+						],
+						"respiracion_y": -2.14764308929443,
+						"suelo_y": 1580.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 2432.0,
+						"celda": [
+							2304,
+							1280,
+							256,
+							320
+						],
+						"respiracion_y": -1.84083688259125,
+						"suelo_y": 1580.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 2688.0,
+						"celda": [
+							2560,
+							1280,
+							256,
+							320
+						],
+						"respiracion_y": -1.53403067588806,
+						"suelo_y": 1580.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 2944.0,
+						"celda": [
+							2816,
+							1280,
+							256,
+							320
+						],
+						"respiracion_y": -1.22722458839417,
+						"suelo_y": 1580.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 3200.0,
+						"celda": [
+							3072,
+							1280,
+							256,
+							320
+						],
+						"respiracion_y": -0.920418441295624,
+						"suelo_y": 1580.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 3456.0,
+						"celda": [
+							3328,
+							1280,
+							256,
+							320
+						],
+						"respiracion_y": -0.613612294197083,
+						"suelo_y": 1580.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 3712.0,
+						"celda": [
+							3584,
+							1280,
+							256,
+							320
+						],
+						"respiracion_y": -0.306806147098541,
+						"suelo_y": 1580.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/reposo_inicio.png",
+						"cadera_x": 1152.0,
+						"celda": [
+							1024,
+							0,
+							256,
+							320
+						],
+						"respiracion_y": 0,
+						"suelo_y": 300.0
+					}
+				],
+				[
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 128.0,
+						"celda": [
+							0,
+							1600,
+							256,
+							320
+						],
+						"respiracion_y": -2.56178140640259,
+						"suelo_y": 1900.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 384.0,
+						"celda": [
+							256,
+							1600,
+							256,
+							320
+						],
+						"respiracion_y": -2.19581270217896,
+						"suelo_y": 1900.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 640.0,
+						"celda": [
+							512,
+							1600,
+							256,
+							320
+						],
+						"respiracion_y": -1.82984387874603,
+						"suelo_y": 1900.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 896.0,
+						"celda": [
+							768,
+							1600,
+							256,
+							320
+						],
+						"respiracion_y": -1.4638751745224,
+						"suelo_y": 1900.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 1152.0,
+						"celda": [
+							1024,
+							1600,
+							256,
+							320
+						],
+						"respiracion_y": -1.09790635108948,
+						"suelo_y": 1900.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 1408.0,
+						"celda": [
+							1280,
+							1600,
+							256,
+							320
+						],
+						"respiracion_y": -0.7319375872612,
+						"suelo_y": 1900.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 1664.0,
+						"celda": [
+							1536,
+							1600,
+							256,
+							320
+						],
+						"respiracion_y": -0.3659687936306,
+						"suelo_y": 1900.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/reposo_inicio.png",
+						"cadera_x": 1152.0,
+						"celda": [
+							1024,
+							0,
+							256,
+							320
+						],
+						"respiracion_y": 0,
+						"suelo_y": 300.0
+					}
+				],
+				[
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 2176.0,
+						"celda": [
+							2048,
+							1600,
+							256,
+							320
+						],
+						"respiracion_y": -2.58591198921204,
+						"suelo_y": 1900.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 2432.0,
+						"celda": [
+							2304,
+							1600,
+							256,
+							320
+						],
+						"respiracion_y": -2.21649599075317,
+						"suelo_y": 1900.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 2688.0,
+						"celda": [
+							2560,
+							1600,
+							256,
+							320
+						],
+						"respiracion_y": -1.84707999229431,
+						"suelo_y": 1900.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 2944.0,
+						"celda": [
+							2816,
+							1600,
+							256,
+							320
+						],
+						"respiracion_y": -1.47766399383545,
+						"suelo_y": 1900.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 3200.0,
+						"celda": [
+							3072,
+							1600,
+							256,
+							320
+						],
+						"respiracion_y": -1.10824799537659,
+						"suelo_y": 1900.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 3456.0,
+						"celda": [
+							3328,
+							1600,
+							256,
+							320
+						],
+						"respiracion_y": -0.738831996917725,
+						"suelo_y": 1900.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 3712.0,
+						"celda": [
+							3584,
+							1600,
+							256,
+							320
+						],
+						"respiracion_y": -0.369415998458862,
+						"suelo_y": 1900.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/reposo_inicio.png",
+						"cadera_x": 1152.0,
+						"celda": [
+							1024,
+							0,
+							256,
+							320
+						],
+						"respiracion_y": 0,
+						"suelo_y": 300.0
+					}
+				],
+				[
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 128.0,
+						"celda": [
+							0,
+							1920,
+							256,
+							320
+						],
+						"respiracion_y": -2.21636080741882,
+						"suelo_y": 2220.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 384.0,
+						"celda": [
+							256,
+							1920,
+							256,
+							320
+						],
+						"respiracion_y": -1.89973783493042,
+						"suelo_y": 2220.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 640.0,
+						"celda": [
+							512,
+							1920,
+							256,
+							320
+						],
+						"respiracion_y": -1.58311486244202,
+						"suelo_y": 2220.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 896.0,
+						"celda": [
+							768,
+							1920,
+							256,
+							320
+						],
+						"respiracion_y": -1.26649188995361,
+						"suelo_y": 2220.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 1152.0,
+						"celda": [
+							1024,
+							1920,
+							256,
+							320
+						],
+						"respiracion_y": -0.94986891746521,
+						"suelo_y": 2220.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 1408.0,
+						"celda": [
+							1280,
+							1920,
+							256,
+							320
+						],
+						"respiracion_y": -0.633245944976807,
+						"suelo_y": 2220.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 1664.0,
+						"celda": [
+							1536,
+							1920,
+							256,
+							320
+						],
+						"respiracion_y": -0.316622972488403,
+						"suelo_y": 2220.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/reposo_inicio.png",
+						"cadera_x": 1152.0,
+						"celda": [
+							1024,
+							0,
+							256,
+							320
+						],
+						"respiracion_y": 0,
+						"suelo_y": 300.0
+					}
+				],
+				[
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 2176.0,
+						"celda": [
+							2048,
+							1920,
+							256,
+							320
+						],
+						"respiracion_y": -1.50938880443573,
+						"suelo_y": 2220.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 2432.0,
+						"celda": [
+							2304,
+							1920,
+							256,
+							320
+						],
+						"respiracion_y": -1.29376184940338,
+						"suelo_y": 2220.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 2688.0,
+						"celda": [
+							2560,
+							1920,
+							256,
+							320
+						],
+						"respiracion_y": -1.07813489437103,
+						"suelo_y": 2220.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 2944.0,
+						"celda": [
+							2816,
+							1920,
+							256,
+							320
+						],
+						"respiracion_y": -0.862507879734039,
+						"suelo_y": 2220.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 3200.0,
+						"celda": [
+							3072,
+							1920,
+							256,
+							320
+						],
+						"respiracion_y": -0.646880924701691,
+						"suelo_y": 2220.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 3456.0,
+						"celda": [
+							3328,
+							1920,
+							256,
+							320
+						],
+						"respiracion_y": -0.43125393986702,
+						"suelo_y": 2220.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 3712.0,
+						"celda": [
+							3584,
+							1920,
+							256,
+							320
+						],
+						"respiracion_y": -0.21562696993351,
+						"suelo_y": 2220.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/reposo_inicio.png",
+						"cadera_x": 1152.0,
+						"celda": [
+							1024,
+							0,
+							256,
+							320
+						],
+						"respiracion_y": 0,
+						"suelo_y": 300.0
+					}
+				],
+				[
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 128.0,
+						"celda": [
+							0,
+							2240,
+							256,
+							320
+						],
+						"respiracion_y": -0.572625994682312,
+						"suelo_y": 2540.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 384.0,
+						"celda": [
+							256,
+							2240,
+							256,
+							320
+						],
+						"respiracion_y": -0.490822285413742,
+						"suelo_y": 2540.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 640.0,
+						"celda": [
+							512,
+							2240,
+							256,
+							320
+						],
+						"respiracion_y": -0.409018576145172,
+						"suelo_y": 2540.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 896.0,
+						"celda": [
+							768,
+							2240,
+							256,
+							320
+						],
+						"respiracion_y": -0.327214866876602,
+						"suelo_y": 2540.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 1152.0,
+						"celda": [
+							1024,
+							2240,
+							256,
+							320
+						],
+						"respiracion_y": -0.245411142706871,
+						"suelo_y": 2540.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 1408.0,
+						"celda": [
+							1280,
+							2240,
+							256,
+							320
+						],
+						"respiracion_y": -0.163607433438301,
+						"suelo_y": 2540.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 1664.0,
+						"celda": [
+							1536,
+							2240,
+							256,
+							320
+						],
+						"respiracion_y": -0.0818037167191505,
+						"suelo_y": 2540.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/reposo_inicio.png",
+						"cadera_x": 1152.0,
+						"celda": [
+							1024,
+							0,
+							256,
+							320
+						],
+						"respiracion_y": 0,
+						"suelo_y": 300.0
+					}
+				],
+				[
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 2176.0,
+						"celda": [
+							2048,
+							2240,
+							256,
+							320
+						],
+						"respiracion_y": 0.451313883066177,
+						"suelo_y": 2540.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 2432.0,
+						"celda": [
+							2304,
+							2240,
+							256,
+							320
+						],
+						"respiracion_y": 0.386840462684631,
+						"suelo_y": 2540.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 2688.0,
+						"celda": [
+							2560,
+							2240,
+							256,
+							320
+						],
+						"respiracion_y": 0.322367072105408,
+						"suelo_y": 2540.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 2944.0,
+						"celda": [
+							2816,
+							2240,
+							256,
+							320
+						],
+						"respiracion_y": 0.257893651723862,
+						"suelo_y": 2540.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 3200.0,
+						"celda": [
+							3072,
+							2240,
+							256,
+							320
+						],
+						"respiracion_y": 0.193420231342316,
+						"suelo_y": 2540.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 3456.0,
+						"celda": [
+							3328,
+							2240,
+							256,
+							320
+						],
+						"respiracion_y": 0.128946825861931,
+						"suelo_y": 2540.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 3712.0,
+						"celda": [
+							3584,
+							2240,
+							256,
+							320
+						],
+						"respiracion_y": 0.0644734129309654,
+						"suelo_y": 2540.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/reposo_inicio.png",
+						"cadera_x": 1152.0,
+						"celda": [
+							1024,
+							0,
+							256,
+							320
+						],
+						"respiracion_y": 0,
+						"suelo_y": 300.0
+					}
+				],
+				[
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 128.0,
+						"celda": [
+							0,
+							2560,
+							256,
+							320
+						],
+						"respiracion_y": 1.40654528141022,
+						"suelo_y": 2860.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 384.0,
+						"celda": [
+							256,
+							2560,
+							256,
+							320
+						],
+						"respiracion_y": 1.20561027526855,
+						"suelo_y": 2860.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 640.0,
+						"celda": [
+							512,
+							2560,
+							256,
+							320
+						],
+						"respiracion_y": 1.00467526912689,
+						"suelo_y": 2860.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 896.0,
+						"celda": [
+							768,
+							2560,
+							256,
+							320
+						],
+						"respiracion_y": 0.803740203380585,
+						"suelo_y": 2860.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 1152.0,
+						"celda": [
+							1024,
+							2560,
+							256,
+							320
+						],
+						"respiracion_y": 0.602805137634277,
+						"suelo_y": 2860.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 1408.0,
+						"celda": [
+							1280,
+							2560,
+							256,
+							320
+						],
+						"respiracion_y": 0.401870101690292,
+						"suelo_y": 2860.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 1664.0,
+						"celda": [
+							1536,
+							2560,
+							256,
+							320
+						],
+						"respiracion_y": 0.200935050845146,
+						"suelo_y": 2860.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/reposo_inicio.png",
+						"cadera_x": 1152.0,
+						"celda": [
+							1024,
+							0,
+							256,
+							320
+						],
+						"respiracion_y": 0,
+						"suelo_y": 300.0
+					}
+				],
+				[
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 2176.0,
+						"celda": [
+							2048,
+							2560,
+							256,
+							320
+						],
+						"respiracion_y": 2.14764308929443,
+						"suelo_y": 2860.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 2432.0,
+						"celda": [
+							2304,
+							2560,
+							256,
+							320
+						],
+						"respiracion_y": 1.84083688259125,
+						"suelo_y": 2860.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 2688.0,
+						"celda": [
+							2560,
+							2560,
+							256,
+							320
+						],
+						"respiracion_y": 1.53403067588806,
+						"suelo_y": 2860.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 2944.0,
+						"celda": [
+							2816,
+							2560,
+							256,
+							320
+						],
+						"respiracion_y": 1.22722458839417,
+						"suelo_y": 2860.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 3200.0,
+						"celda": [
+							3072,
+							2560,
+							256,
+							320
+						],
+						"respiracion_y": 0.920418441295624,
+						"suelo_y": 2860.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 3456.0,
+						"celda": [
+							3328,
+							2560,
+							256,
+							320
+						],
+						"respiracion_y": 0.613612294197083,
+						"suelo_y": 2860.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 3712.0,
+						"celda": [
+							3584,
+							2560,
+							256,
+							320
+						],
+						"respiracion_y": 0.306806147098541,
+						"suelo_y": 2860.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/reposo_inicio.png",
+						"cadera_x": 1152.0,
+						"celda": [
+							1024,
+							0,
+							256,
+							320
+						],
+						"respiracion_y": 0,
+						"suelo_y": 300.0
+					}
+				],
+				[
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 128.0,
+						"celda": [
+							0,
+							2880,
+							256,
+							320
+						],
+						"respiracion_y": 2.56178140640259,
+						"suelo_y": 3180.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 384.0,
+						"celda": [
+							256,
+							2880,
+							256,
+							320
+						],
+						"respiracion_y": 2.19581270217896,
+						"suelo_y": 3180.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 640.0,
+						"celda": [
+							512,
+							2880,
+							256,
+							320
+						],
+						"respiracion_y": 1.82984387874603,
+						"suelo_y": 3180.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 896.0,
+						"celda": [
+							768,
+							2880,
+							256,
+							320
+						],
+						"respiracion_y": 1.4638751745224,
+						"suelo_y": 3180.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 1152.0,
+						"celda": [
+							1024,
+							2880,
+							256,
+							320
+						],
+						"respiracion_y": 1.09790635108948,
+						"suelo_y": 3180.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 1408.0,
+						"celda": [
+							1280,
+							2880,
+							256,
+							320
+						],
+						"respiracion_y": 0.7319375872612,
+						"suelo_y": 3180.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 1664.0,
+						"celda": [
+							1536,
+							2880,
+							256,
+							320
+						],
+						"respiracion_y": 0.3659687936306,
+						"suelo_y": 3180.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/reposo_inicio.png",
+						"cadera_x": 1152.0,
+						"celda": [
+							1024,
+							0,
+							256,
+							320
+						],
+						"respiracion_y": 0,
+						"suelo_y": 300.0
+					}
+				],
+				[
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 2176.0,
+						"celda": [
+							2048,
+							2880,
+							256,
+							320
+						],
+						"respiracion_y": 2.58591198921204,
+						"suelo_y": 3180.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 2432.0,
+						"celda": [
+							2304,
+							2880,
+							256,
+							320
+						],
+						"respiracion_y": 2.21649599075317,
+						"suelo_y": 3180.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 2688.0,
+						"celda": [
+							2560,
+							2880,
+							256,
+							320
+						],
+						"respiracion_y": 1.84707999229431,
+						"suelo_y": 3180.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 2944.0,
+						"celda": [
+							2816,
+							2880,
+							256,
+							320
+						],
+						"respiracion_y": 1.47766399383545,
+						"suelo_y": 3180.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 3200.0,
+						"celda": [
+							3072,
+							2880,
+							256,
+							320
+						],
+						"respiracion_y": 1.10824799537659,
+						"suelo_y": 3180.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 3456.0,
+						"celda": [
+							3328,
+							2880,
+							256,
+							320
+						],
+						"respiracion_y": 0.738831996917725,
+						"suelo_y": 3180.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 3712.0,
+						"celda": [
+							3584,
+							2880,
+							256,
+							320
+						],
+						"respiracion_y": 0.369415998458862,
+						"suelo_y": 3180.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/reposo_inicio.png",
+						"cadera_x": 1152.0,
+						"celda": [
+							1024,
+							0,
+							256,
+							320
+						],
+						"respiracion_y": 0,
+						"suelo_y": 300.0
+					}
+				],
+				[
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 128.0,
+						"celda": [
+							0,
+							3200,
+							256,
+							320
+						],
+						"respiracion_y": 2.21636080741882,
+						"suelo_y": 3500.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 384.0,
+						"celda": [
+							256,
+							3200,
+							256,
+							320
+						],
+						"respiracion_y": 1.89973783493042,
+						"suelo_y": 3500.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 640.0,
+						"celda": [
+							512,
+							3200,
+							256,
+							320
+						],
+						"respiracion_y": 1.58311486244202,
+						"suelo_y": 3500.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 896.0,
+						"celda": [
+							768,
+							3200,
+							256,
+							320
+						],
+						"respiracion_y": 1.26649188995361,
+						"suelo_y": 3500.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 1152.0,
+						"celda": [
+							1024,
+							3200,
+							256,
+							320
+						],
+						"respiracion_y": 0.94986891746521,
+						"suelo_y": 3500.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 1408.0,
+						"celda": [
+							1280,
+							3200,
+							256,
+							320
+						],
+						"respiracion_y": 0.633245944976807,
+						"suelo_y": 3500.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 1664.0,
+						"celda": [
+							1536,
+							3200,
+							256,
+							320
+						],
+						"respiracion_y": 0.316622972488403,
+						"suelo_y": 3500.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/reposo_inicio.png",
+						"cadera_x": 1152.0,
+						"celda": [
+							1024,
+							0,
+							256,
+							320
+						],
+						"respiracion_y": 0,
+						"suelo_y": 300.0
+					}
+				],
+				[
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 2176.0,
+						"celda": [
+							2048,
+							3200,
+							256,
+							320
+						],
+						"respiracion_y": 1.50938880443573,
+						"suelo_y": 3500.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 2432.0,
+						"celda": [
+							2304,
+							3200,
+							256,
+							320
+						],
+						"respiracion_y": 1.29376184940338,
+						"suelo_y": 3500.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 2688.0,
+						"celda": [
+							2560,
+							3200,
+							256,
+							320
+						],
+						"respiracion_y": 1.07813489437103,
+						"suelo_y": 3500.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 2944.0,
+						"celda": [
+							2816,
+							3200,
+							256,
+							320
+						],
+						"respiracion_y": 0.862507879734039,
+						"suelo_y": 3500.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 3200.0,
+						"celda": [
+							3072,
+							3200,
+							256,
+							320
+						],
+						"respiracion_y": 0.646880924701691,
+						"suelo_y": 3500.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 3456.0,
+						"celda": [
+							3328,
+							3200,
+							256,
+							320
+						],
+						"respiracion_y": 0.43125393986702,
+						"suelo_y": 3500.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 3712.0,
+						"celda": [
+							3584,
+							3200,
+							256,
+							320
+						],
+						"respiracion_y": 0.21562696993351,
+						"suelo_y": 3500.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/reposo_inicio.png",
+						"cadera_x": 1152.0,
+						"celda": [
+							1024,
+							0,
+							256,
+							320
+						],
+						"respiracion_y": 0,
+						"suelo_y": 300.0
+					}
+				],
+				[
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 128.0,
+						"celda": [
+							0,
+							3520,
+							256,
+							320
+						],
+						"respiracion_y": 0.572625994682312,
+						"suelo_y": 3820.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 384.0,
+						"celda": [
+							256,
+							3520,
+							256,
+							320
+						],
+						"respiracion_y": 0.490822285413742,
+						"suelo_y": 3820.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 640.0,
+						"celda": [
+							512,
+							3520,
+							256,
+							320
+						],
+						"respiracion_y": 0.409018576145172,
+						"suelo_y": 3820.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 896.0,
+						"celda": [
+							768,
+							3520,
+							256,
+							320
+						],
+						"respiracion_y": 0.327214866876602,
+						"suelo_y": 3820.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 1152.0,
+						"celda": [
+							1024,
+							3520,
+							256,
+							320
+						],
+						"respiracion_y": 0.245411142706871,
+						"suelo_y": 3820.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 1408.0,
+						"celda": [
+							1280,
+							3520,
+							256,
+							320
+						],
+						"respiracion_y": 0.163607433438301,
+						"suelo_y": 3820.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 1664.0,
+						"celda": [
+							1536,
+							3520,
+							256,
+							320
+						],
+						"respiracion_y": 0.0818037167191505,
+						"suelo_y": 3820.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/reposo_inicio.png",
+						"cadera_x": 1152.0,
+						"celda": [
+							1024,
+							0,
+							256,
+							320
+						],
+						"respiracion_y": 0,
+						"suelo_y": 300.0
+					}
+				],
+				[
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 2176.0,
+						"celda": [
+							2048,
+							3520,
+							256,
+							320
+						],
+						"respiracion_y": -0.451313883066177,
+						"suelo_y": 3820.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 2432.0,
+						"celda": [
+							2304,
+							3520,
+							256,
+							320
+						],
+						"respiracion_y": -0.386840462684631,
+						"suelo_y": 3820.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 2688.0,
+						"celda": [
+							2560,
+							3520,
+							256,
+							320
+						],
+						"respiracion_y": -0.322367072105408,
+						"suelo_y": 3820.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 2944.0,
+						"celda": [
+							2816,
+							3520,
+							256,
+							320
+						],
+						"respiracion_y": -0.257893651723862,
+						"suelo_y": 3820.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 3200.0,
+						"celda": [
+							3072,
+							3520,
+							256,
+							320
+						],
+						"respiracion_y": -0.193420231342316,
+						"suelo_y": 3820.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 3456.0,
+						"celda": [
+							3328,
+							3520,
+							256,
+							320
+						],
+						"respiracion_y": -0.128946825861931,
+						"suelo_y": 3820.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 3712.0,
+						"celda": [
+							3584,
+							3520,
+							256,
+							320
+						],
+						"respiracion_y": -0.0644734129309654,
+						"suelo_y": 3820.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/reposo_inicio.png",
+						"cadera_x": 1152.0,
+						"celda": [
+							1024,
+							0,
+							256,
+							320
+						],
+						"respiracion_y": 0,
+						"suelo_y": 300.0
+					}
+				],
+				[
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 128.0,
+						"celda": [
+							0,
+							3840,
+							256,
+							320
+						],
+						"respiracion_y": -1.40654528141022,
+						"suelo_y": 4140.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 384.0,
+						"celda": [
+							256,
+							3840,
+							256,
+							320
+						],
+						"respiracion_y": -1.20561027526855,
+						"suelo_y": 4140.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 640.0,
+						"celda": [
+							512,
+							3840,
+							256,
+							320
+						],
+						"respiracion_y": -1.00467526912689,
+						"suelo_y": 4140.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 896.0,
+						"celda": [
+							768,
+							3840,
+							256,
+							320
+						],
+						"respiracion_y": -0.803740203380585,
+						"suelo_y": 4140.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 1152.0,
+						"celda": [
+							1024,
+							3840,
+							256,
+							320
+						],
+						"respiracion_y": -0.602805137634277,
+						"suelo_y": 4140.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 1408.0,
+						"celda": [
+							1280,
+							3840,
+							256,
+							320
+						],
+						"respiracion_y": -0.401870101690292,
+						"suelo_y": 4140.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 1664.0,
+						"celda": [
+							1536,
+							3840,
+							256,
+							320
+						],
+						"respiracion_y": -0.200935050845146,
+						"suelo_y": 4140.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/reposo_inicio.png",
+						"cadera_x": 1152.0,
+						"celda": [
+							1024,
+							0,
+							256,
+							320
+						],
+						"respiracion_y": 0,
+						"suelo_y": 300.0
+					}
+				],
+				[
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 2176.0,
+						"celda": [
+							2048,
+							3840,
+							256,
+							320
+						],
+						"respiracion_y": -2.14764308929443,
+						"suelo_y": 4140.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 2432.0,
+						"celda": [
+							2304,
+							3840,
+							256,
+							320
+						],
+						"respiracion_y": -1.84083688259125,
+						"suelo_y": 4140.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 2688.0,
+						"celda": [
+							2560,
+							3840,
+							256,
+							320
+						],
+						"respiracion_y": -1.53403067588806,
+						"suelo_y": 4140.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 2944.0,
+						"celda": [
+							2816,
+							3840,
+							256,
+							320
+						],
+						"respiracion_y": -1.22722458839417,
+						"suelo_y": 4140.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 3200.0,
+						"celda": [
+							3072,
+							3840,
+							256,
+							320
+						],
+						"respiracion_y": -0.920418441295624,
+						"suelo_y": 4140.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 3456.0,
+						"celda": [
+							3328,
+							3840,
+							256,
+							320
+						],
+						"respiracion_y": -0.613612294197083,
+						"suelo_y": 4140.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 3712.0,
+						"celda": [
+							3584,
+							3840,
+							256,
+							320
+						],
+						"respiracion_y": -0.306806147098541,
+						"suelo_y": 4140.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/reposo_inicio.png",
+						"cadera_x": 1152.0,
+						"celda": [
+							1024,
+							0,
+							256,
+							320
+						],
+						"respiracion_y": 0,
+						"suelo_y": 300.0
+					}
+				],
+				[
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 128.0,
+						"celda": [
+							0,
+							4160,
+							256,
+							320
+						],
+						"respiracion_y": -2.56178140640259,
+						"suelo_y": 4460.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 384.0,
+						"celda": [
+							256,
+							4160,
+							256,
+							320
+						],
+						"respiracion_y": -2.19581270217896,
+						"suelo_y": 4460.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 640.0,
+						"celda": [
+							512,
+							4160,
+							256,
+							320
+						],
+						"respiracion_y": -1.82984387874603,
+						"suelo_y": 4460.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 896.0,
+						"celda": [
+							768,
+							4160,
+							256,
+							320
+						],
+						"respiracion_y": -1.4638751745224,
+						"suelo_y": 4460.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 1152.0,
+						"celda": [
+							1024,
+							4160,
+							256,
+							320
+						],
+						"respiracion_y": -1.09790635108948,
+						"suelo_y": 4460.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 1408.0,
+						"celda": [
+							1280,
+							4160,
+							256,
+							320
+						],
+						"respiracion_y": -0.7319375872612,
+						"suelo_y": 4460.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 1664.0,
+						"celda": [
+							1536,
+							4160,
+							256,
+							320
+						],
+						"respiracion_y": -0.3659687936306,
+						"suelo_y": 4460.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/reposo_inicio.png",
+						"cadera_x": 1152.0,
+						"celda": [
+							1024,
+							0,
+							256,
+							320
+						],
+						"respiracion_y": 0,
+						"suelo_y": 300.0
+					}
+				],
+				[
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 2176.0,
+						"celda": [
+							2048,
+							4160,
+							256,
+							320
+						],
+						"respiracion_y": -2.58591198921204,
+						"suelo_y": 4460.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 2432.0,
+						"celda": [
+							2304,
+							4160,
+							256,
+							320
+						],
+						"respiracion_y": -2.21649599075317,
+						"suelo_y": 4460.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 2688.0,
+						"celda": [
+							2560,
+							4160,
+							256,
+							320
+						],
+						"respiracion_y": -1.84707999229431,
+						"suelo_y": 4460.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 2944.0,
+						"celda": [
+							2816,
+							4160,
+							256,
+							320
+						],
+						"respiracion_y": -1.47766399383545,
+						"suelo_y": 4460.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 3200.0,
+						"celda": [
+							3072,
+							4160,
+							256,
+							320
+						],
+						"respiracion_y": -1.10824799537659,
+						"suelo_y": 4460.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 3456.0,
+						"celda": [
+							3328,
+							4160,
+							256,
+							320
+						],
+						"respiracion_y": -0.738831996917725,
+						"suelo_y": 4460.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 3712.0,
+						"celda": [
+							3584,
+							4160,
+							256,
+							320
+						],
+						"respiracion_y": -0.369415998458862,
+						"suelo_y": 4460.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/reposo_inicio.png",
+						"cadera_x": 1152.0,
+						"celda": [
+							1024,
+							0,
+							256,
+							320
+						],
+						"respiracion_y": 0,
+						"suelo_y": 300.0
+					}
+				],
+				[
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 128.0,
+						"celda": [
+							0,
+							4480,
+							256,
+							320
+						],
+						"respiracion_y": -2.21636080741882,
+						"suelo_y": 4780.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 384.0,
+						"celda": [
+							256,
+							4480,
+							256,
+							320
+						],
+						"respiracion_y": -1.89973783493042,
+						"suelo_y": 4780.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 640.0,
+						"celda": [
+							512,
+							4480,
+							256,
+							320
+						],
+						"respiracion_y": -1.58311486244202,
+						"suelo_y": 4780.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 896.0,
+						"celda": [
+							768,
+							4480,
+							256,
+							320
+						],
+						"respiracion_y": -1.26649188995361,
+						"suelo_y": 4780.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 1152.0,
+						"celda": [
+							1024,
+							4480,
+							256,
+							320
+						],
+						"respiracion_y": -0.94986891746521,
+						"suelo_y": 4780.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 1408.0,
+						"celda": [
+							1280,
+							4480,
+							256,
+							320
+						],
+						"respiracion_y": -0.633245944976807,
+						"suelo_y": 4780.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 1664.0,
+						"celda": [
+							1536,
+							4480,
+							256,
+							320
+						],
+						"respiracion_y": -0.316622972488403,
+						"suelo_y": 4780.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/reposo_inicio.png",
+						"cadera_x": 1152.0,
+						"celda": [
+							1024,
+							0,
+							256,
+							320
+						],
+						"respiracion_y": 0,
+						"suelo_y": 300.0
+					}
+				],
+				[
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 2176.0,
+						"celda": [
+							2048,
+							4480,
+							256,
+							320
+						],
+						"respiracion_y": -1.50938880443573,
+						"suelo_y": 4780.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 2432.0,
+						"celda": [
+							2304,
+							4480,
+							256,
+							320
+						],
+						"respiracion_y": -1.29376184940338,
+						"suelo_y": 4780.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 2688.0,
+						"celda": [
+							2560,
+							4480,
+							256,
+							320
+						],
+						"respiracion_y": -1.07813489437103,
+						"suelo_y": 4780.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 2944.0,
+						"celda": [
+							2816,
+							4480,
+							256,
+							320
+						],
+						"respiracion_y": -0.862507879734039,
+						"suelo_y": 4780.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 3200.0,
+						"celda": [
+							3072,
+							4480,
+							256,
+							320
+						],
+						"respiracion_y": -0.646880924701691,
+						"suelo_y": 4780.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 3456.0,
+						"celda": [
+							3328,
+							4480,
+							256,
+							320
+						],
+						"respiracion_y": -0.43125393986702,
+						"suelo_y": 4780.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 3712.0,
+						"celda": [
+							3584,
+							4480,
+							256,
+							320
+						],
+						"respiracion_y": -0.21562696993351,
+						"suelo_y": 4780.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/reposo_inicio.png",
+						"cadera_x": 1152.0,
+						"celda": [
+							1024,
+							0,
+							256,
+							320
+						],
+						"respiracion_y": 0,
+						"suelo_y": 300.0
+					}
+				],
+				[
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 128.0,
+						"celda": [
+							0,
+							4800,
+							256,
+							320
+						],
+						"respiracion_y": -0.572625994682312,
+						"suelo_y": 5100.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 384.0,
+						"celda": [
+							256,
+							4800,
+							256,
+							320
+						],
+						"respiracion_y": -0.490822285413742,
+						"suelo_y": 5100.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 640.0,
+						"celda": [
+							512,
+							4800,
+							256,
+							320
+						],
+						"respiracion_y": -0.409018576145172,
+						"suelo_y": 5100.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 896.0,
+						"celda": [
+							768,
+							4800,
+							256,
+							320
+						],
+						"respiracion_y": -0.327214866876602,
+						"suelo_y": 5100.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 1152.0,
+						"celda": [
+							1024,
+							4800,
+							256,
+							320
+						],
+						"respiracion_y": -0.245411142706871,
+						"suelo_y": 5100.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 1408.0,
+						"celda": [
+							1280,
+							4800,
+							256,
+							320
+						],
+						"respiracion_y": -0.163607433438301,
+						"suelo_y": 5100.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 1664.0,
+						"celda": [
+							1536,
+							4800,
+							256,
+							320
+						],
+						"respiracion_y": -0.0818037167191505,
+						"suelo_y": 5100.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/reposo_inicio.png",
+						"cadera_x": 1152.0,
+						"celda": [
+							1024,
+							0,
+							256,
+							320
+						],
+						"respiracion_y": 0,
+						"suelo_y": 300.0
+					}
+				],
+				[
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 2176.0,
+						"celda": [
+							2048,
+							4800,
+							256,
+							320
+						],
+						"respiracion_y": 0.451313883066177,
+						"suelo_y": 5100.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 2432.0,
+						"celda": [
+							2304,
+							4800,
+							256,
+							320
+						],
+						"respiracion_y": 0.386840462684631,
+						"suelo_y": 5100.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 2688.0,
+						"celda": [
+							2560,
+							4800,
+							256,
+							320
+						],
+						"respiracion_y": 0.322367072105408,
+						"suelo_y": 5100.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 2944.0,
+						"celda": [
+							2816,
+							4800,
+							256,
+							320
+						],
+						"respiracion_y": 0.257893651723862,
+						"suelo_y": 5100.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 3200.0,
+						"celda": [
+							3072,
+							4800,
+							256,
+							320
+						],
+						"respiracion_y": 0.193420231342316,
+						"suelo_y": 5100.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 3456.0,
+						"celda": [
+							3328,
+							4800,
+							256,
+							320
+						],
+						"respiracion_y": 0.128946825861931,
+						"suelo_y": 5100.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_0.png",
+						"cadera_x": 3712.0,
+						"celda": [
+							3584,
+							4800,
+							256,
+							320
+						],
+						"respiracion_y": 0.0644734129309654,
+						"suelo_y": 5100.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/reposo_inicio.png",
+						"cadera_x": 1152.0,
+						"celda": [
+							1024,
+							0,
+							256,
+							320
+						],
+						"respiracion_y": 0,
+						"suelo_y": 300.0
+					}
+				]
+			],
+			"escala": 1.0,
+			"marcha": [
+				{
+					"archivo": "res://assets/personajes/sota/articulada_v10/marcha.png",
+					"cadera_x": 128.0,
+					"celda": [
+						0,
+						0,
+						256,
+						320
+					],
+					"fase": 0,
+					"punteras": [
+						[
+							119.855003356934,
+							294.954559326172
+						],
+						[
+							183.855007171631,
+							294.465028762817
+						]
+					],
+					"respiracion_y": 1.60748040676117,
+					"suelo_y": 300.0
+				},
+				{
+					"archivo": "res://assets/personajes/sota/articulada_v10/marcha.png",
+					"cadera_x": 384.0,
+					"celda": [
+						256,
+						0,
+						256,
+						320
+					],
+					"fase": 1,
+					"punteras": [
+						[
+							115.855005264282,
+							295.108853340149
+						],
+						[
+							179.855003356934,
+							295.752759933472
+						]
+					],
+					"respiracion_y": 2.45444917678833,
+					"suelo_y": 300.0
+				},
+				{
+					"archivo": "res://assets/personajes/sota/articulada_v10/marcha.png",
+					"cadera_x": 640.0,
+					"celda": [
+						512,
+						0,
+						256,
+						320
+					],
+					"fase": 2,
+					"punteras": [
+						[
+							111.855007171631,
+							293.779375076294
+						],
+						[
+							175.855003356934,
+							293.033708572388
+						]
+					],
+					"respiracion_y": 2.9277503490448,
+					"suelo_y": 300.0
+				},
+				{
+					"archivo": "res://assets/personajes/sota/articulada_v10/marcha.png",
+					"cadera_x": 896.0,
+					"celda": [
+						768,
+						0,
+						256,
+						320
+					],
+					"fase": 3,
+					"punteras": [
+						[
+							107.855005264282,
+							288.798977851868
+						],
+						[
+							171.855003356934,
+							294.158553123474
+						]
+					],
+					"respiracion_y": 2.9553279876709,
+					"suelo_y": 300.0
+				},
+				{
+					"archivo": "res://assets/personajes/sota/articulada_v10/marcha.png",
+					"cadera_x": 1152.0,
+					"celda": [
+						1024,
+						0,
+						256,
+						320
+					],
+					"fase": 4,
+					"punteras": [
+						[
+							105.292505264282,
+							287.785681724548
+						],
+						[
+							167.855003356934,
+							293.330264091492
+						]
+					],
+					"respiracion_y": 2.53298377990723,
+					"suelo_y": 300.0
+				},
+				{
+					"archivo": "res://assets/personajes/sota/articulada_v10/marcha.png",
+					"cadera_x": 1408.0,
+					"celda": [
+						1280,
+						0,
+						256,
+						320
+					],
+					"fase": 5,
+					"punteras": [
+						[
+							106.736841201782,
+							284.04799079895
+						],
+						[
+							163.855003356934,
+							293.330264091492
+						]
+					],
+					"respiracion_y": 1.72501575946808,
+					"suelo_y": 300.0
+				},
+				{
+					"archivo": "res://assets/personajes/sota/articulada_v10/marcha.png",
+					"cadera_x": 1664.0,
+					"celda": [
+						1536,
+						0,
+						256,
+						320
+					],
+					"fase": 6,
+					"punteras": [
+						[
+							111.550319671631,
+							278.805702209473
+						],
+						[
+							159.855005264282,
+							293.330264091492
+						]
+					],
+					"respiracion_y": 0.654429733753204,
+					"suelo_y": 300.0
+				},
+				{
+					"archivo": "res://assets/personajes/sota/articulada_v10/marcha.png",
+					"cadera_x": 1920.0,
+					"celda": [
+						1792,
+						0,
+						256,
+						320
+					],
+					"fase": 7,
+					"punteras": [
+						[
+							119.000511169434,
+							273.788282394409
+						],
+						[
+							155.855005264282,
+							293.330264091492
+						]
+					],
+					"respiracion_y": -0.515787303447723,
+					"suelo_y": 300.0
+				},
+				{
+					"archivo": "res://assets/personajes/sota/articulada_v10/marcha.png",
+					"cadera_x": 128.0,
+					"celda": [
+						0,
+						320,
+						256,
+						320
+					],
+					"fase": 8,
+					"punteras": [
+						[
+							128.355005264282,
+							270.529098510742
+						],
+						[
+							151.855005264282,
+							293.330264091492
+						]
+					],
+					"respiracion_y": -1.60748040676117,
+					"suelo_y": 620.0
+				},
+				{
+					"archivo": "res://assets/personajes/sota/articulada_v10/marcha.png",
+					"cadera_x": 384.0,
+					"celda": [
+						256,
+						320,
+						256,
+						320
+					],
+					"fase": 9,
+					"punteras": [
+						[
+							138.881371498108,
+							274.91609954834
+						],
+						[
+							147.855005264282,
+							293.330264091492
+						]
+					],
+					"respiracion_y": -2.45444917678833,
+					"suelo_y": 620.0
+				},
+				{
+					"archivo": "res://assets/personajes/sota/articulada_v10/marcha.png",
+					"cadera_x": 640.0,
+					"celda": [
+						512,
+						320,
+						256,
+						320
+					],
+					"fase": 10,
+					"punteras": [
+						[
+							149.847192764282,
+							278.221952438354
+						],
+						[
+							143.855005264282,
+							293.330264091492
+						]
+					],
+					"respiracion_y": -2.9277503490448,
+					"suelo_y": 620.0
+				},
+				{
+					"archivo": "res://assets/personajes/sota/articulada_v10/marcha.png",
+					"cadera_x": 896.0,
+					"celda": [
+						768,
+						320,
+						256,
+						320
+					],
+					"fase": 11,
+					"punteras": [
+						[
+							160.520042419434,
+							281.750411987305
+						],
+						[
+							139.855005264282,
+							293.330264091492
+						]
+					],
+					"respiracion_y": -2.9553279876709,
+					"suelo_y": 620.0
+				},
+				{
+					"archivo": "res://assets/personajes/sota/articulada_v10/marcha.png",
+					"cadera_x": 1152.0,
+					"celda": [
+						1024,
+						320,
+						256,
+						320
+					],
+					"fase": 12,
+					"punteras": [
+						[
+							170.167503356934,
+							289.36240196228
+						],
+						[
+							135.855005264282,
+							293.330264091492
+						]
+					],
+					"respiracion_y": -2.53298377990723,
+					"suelo_y": 620.0
+				},
+				{
+					"archivo": "res://assets/personajes/sota/articulada_v10/marcha.png",
+					"cadera_x": 1408.0,
+					"celda": [
+						1280,
+						320,
+						256,
+						320
+					],
+					"fase": 13,
+					"punteras": [
+						[
+							178.057151794434,
+							291.459131240845
+						],
+						[
+							131.855005264282,
+							293.330264091492
+						]
+					],
+					"respiracion_y": -1.72501575946808,
+					"suelo_y": 620.0
+				},
+				{
+					"archivo": "res://assets/personajes/sota/articulada_v10/marcha.png",
+					"cadera_x": 1664.0,
+					"celda": [
+						1536,
+						320,
+						256,
+						320
+					],
+					"fase": 14,
+					"punteras": [
+						[
+							183.456565856934,
+							292.071864128113
+						],
+						[
+							127.855005264282,
+							293.331059455872
+						]
+					],
+					"respiracion_y": -0.654429733753204,
+					"suelo_y": 620.0
+				},
+				{
+					"archivo": "res://assets/personajes/sota/articulada_v10/marcha.png",
+					"cadera_x": 1920.0,
+					"celda": [
+						1792,
+						320,
+						256,
+						320
+					],
+					"fase": 15,
+					"punteras": [
+						[
+							185.633323669434,
+							292.217894554138
+						],
+						[
+							123.855005264282,
+							293.352017402649
+						]
+					],
+					"respiracion_y": 0.515787303447723,
+					"suelo_y": 620.0
+				},
+				{
+					"archivo": "res://assets/personajes/sota/articulada_v10/marcha.png",
+					"cadera_x": 128.0,
+					"celda": [
+						0,
+						640,
+						256,
+						320
+					],
+					"fase": 16,
+					"punteras": [
+						[
+							183.855003356934,
+							292.211870193481
+						],
+						[
+							119.855005264282,
+							293.407704353333
+						]
+					],
+					"respiracion_y": 1.60748040676117,
+					"suelo_y": 940.0
+				},
+				{
+					"archivo": "res://assets/personajes/sota/articulada_v10/marcha.png",
+					"cadera_x": 384.0,
+					"celda": [
+						256,
+						640,
+						256,
+						320
+					],
+					"fase": 17,
+					"punteras": [
+						[
+							179.855003356934,
+							293.467465400696
+						],
+						[
+							115.855005264282,
+							288.25116443634
+						]
+					],
+					"respiracion_y": 2.45444917678833,
+					"suelo_y": 940.0
+				},
+				{
+					"archivo": "res://assets/personajes/sota/articulada_v10/marcha.png",
+					"cadera_x": 640.0,
+					"celda": [
+						512,
+						640,
+						256,
+						320
+					],
+					"fase": 18,
+					"punteras": [
+						[
+							175.855003356934,
+							295.936811447144
+						],
+						[
+							111.855007171631,
+							288.371964454651
+						]
+					],
+					"respiracion_y": 2.9277503490448,
+					"suelo_y": 940.0
+				},
+				{
+					"archivo": "res://assets/personajes/sota/articulada_v10/marcha.png",
+					"cadera_x": 896.0,
+					"celda": [
+						768,
+						640,
+						256,
+						320
+					],
+					"fase": 19,
+					"punteras": [
+						[
+							171.855003356934,
+							297.618087768555
+						],
+						[
+							107.855005264282,
+							288.448572158813
+						]
+					],
+					"respiracion_y": 2.9553279876709,
+					"suelo_y": 940.0
+				},
+				{
+					"archivo": "res://assets/personajes/sota/articulada_v10/marcha.png",
+					"cadera_x": 1152.0,
+					"celda": [
+						1024,
+						640,
+						256,
+						320
+					],
+					"fase": 20,
+					"punteras": [
+						[
+							167.855003356934,
+							297.68009185791
+						],
+						[
+							105.292507171631,
+							287.434734344482
+						]
+					],
+					"respiracion_y": 2.53298377990723,
+					"suelo_y": 940.0
+				},
+				{
+					"archivo": "res://assets/personajes/sota/articulada_v10/marcha.png",
+					"cadera_x": 1408.0,
+					"celda": [
+						1280,
+						640,
+						256,
+						320
+					],
+					"fase": 21,
+					"punteras": [
+						[
+							163.855003356934,
+							297.68009185791
+						],
+						[
+							106.736843109131,
+							283.695747375488
+						]
+					],
+					"respiracion_y": 1.72501575946808,
+					"suelo_y": 940.0
+				},
+				{
+					"archivo": "res://assets/personajes/sota/articulada_v10/marcha.png",
+					"cadera_x": 1664.0,
+					"celda": [
+						1536,
+						640,
+						256,
+						320
+					],
+					"fase": 22,
+					"punteras": [
+						[
+							159.855005264282,
+							297.68009185791
+						],
+						[
+							111.550319671631,
+							278.451873779297
+						]
+					],
+					"respiracion_y": 0.654429733753204,
+					"suelo_y": 940.0
+				},
+				{
+					"archivo": "res://assets/personajes/sota/articulada_v10/marcha.png",
+					"cadera_x": 1920.0,
+					"celda": [
+						1792,
+						640,
+						256,
+						320
+					],
+					"fase": 23,
+					"punteras": [
+						[
+							155.855005264282,
+							297.68009185791
+						],
+						[
+							119.000513076782,
+							273.433820724487
+						]
+					],
+					"respiracion_y": -0.515787303447723,
+					"suelo_y": 940.0
+				},
+				{
+					"archivo": "res://assets/personajes/sota/articulada_v10/marcha.png",
+					"cadera_x": 128.0,
+					"celda": [
+						0,
+						960,
+						256,
+						320
+					],
+					"fase": 24,
+					"punteras": [
+						[
+							151.855005264282,
+							297.68009185791
+						],
+						[
+							128.355005264282,
+							270.176378250122
+						]
+					],
+					"respiracion_y": -1.60748040676117,
+					"suelo_y": 1260.0
+				},
+				{
+					"archivo": "res://assets/personajes/sota/articulada_v10/marcha.png",
+					"cadera_x": 384.0,
+					"celda": [
+						256,
+						960,
+						256,
+						320
+					],
+					"fase": 25,
+					"punteras": [
+						[
+							147.855005264282,
+							297.68009185791
+						],
+						[
+							138.881372451782,
+							269.504484176636
+						]
+					],
+					"respiracion_y": -2.45444917678833,
+					"suelo_y": 1260.0
+				},
+				{
+					"archivo": "res://assets/personajes/sota/articulada_v10/marcha.png",
+					"cadera_x": 640.0,
+					"celda": [
+						512,
+						960,
+						256,
+						320
+					],
+					"fase": 26,
+					"punteras": [
+						[
+							143.855005264282,
+							297.68009185791
+						],
+						[
+							149.847192764282,
+							271.348613739014
+						]
+					],
+					"respiracion_y": -2.9277503490448,
+					"suelo_y": 1260.0
+				},
+				{
+					"archivo": "res://assets/personajes/sota/articulada_v10/marcha.png",
+					"cadera_x": 896.0,
+					"celda": [
+						768,
+						960,
+						256,
+						320
+					],
+					"fase": 27,
+					"punteras": [
+						[
+							139.855004310608,
+							297.68009185791
+						],
+						[
+							160.520042419434,
+							274.922920227051
+						]
+					],
+					"respiracion_y": -2.9553279876709,
+					"suelo_y": 1260.0
+				},
+				{
+					"archivo": "res://assets/personajes/sota/articulada_v10/marcha.png",
+					"cadera_x": 1152.0,
+					"celda": [
+						1024,
+						960,
+						256,
+						320
+					],
+					"fase": 28,
+					"punteras": [
+						[
+							135.855003356934,
+							297.68009185791
+						],
+						[
+							170.167503356934,
+							284.374346733093
+						]
+					],
+					"respiracion_y": -2.53298377990723,
+					"suelo_y": 1260.0
+				},
+				{
+					"archivo": "res://assets/personajes/sota/articulada_v10/marcha.png",
+					"cadera_x": 1408.0,
+					"celda": [
+						1280,
+						960,
+						256,
+						320
+					],
+					"fase": 29,
+					"punteras": [
+						[
+							131.855003356934,
+							297.68009185791
+						],
+						[
+							178.057151794434,
+							288.345440864563
+						]
+					],
+					"respiracion_y": -1.72501575946808,
+					"suelo_y": 1260.0
+				},
+				{
+					"archivo": "res://assets/personajes/sota/articulada_v10/marcha.png",
+					"cadera_x": 1664.0,
+					"celda": [
+						1536,
+						960,
+						256,
+						320
+					],
+					"fase": 30,
+					"punteras": [
+						[
+							127.855005264282,
+							297.721509933472
+						],
+						[
+							183.456565856934,
+							294.074889183044
+						]
+					],
+					"respiracion_y": -0.654429733753204,
+					"suelo_y": 1260.0
+				},
+				{
+					"archivo": "res://assets/personajes/sota/articulada_v10/marcha.png",
+					"cadera_x": 1920.0,
+					"celda": [
+						1792,
+						960,
+						256,
+						320
+					],
+					"fase": 31,
+					"punteras": [
+						[
+							123.855003356934,
+							298.325331687927
+						],
+						[
+							185.633323669434,
+							294.510408401489
+						]
+					],
+					"respiracion_y": 0.515787303447723,
+					"suelo_y": 1260.0
+				}
+			],
+			"reposo": {
+				"archivo": "res://assets/personajes/sota/articulada_v10/reposo_inicio.png",
+				"cadera_x": 1152.0,
+				"celda": [
+					1024,
+					0,
+					256,
+					320
+				],
+				"respiracion_y": 0,
+				"suelo_y": 300.0
+			},
+			"respiracion": [
+				{
+					"archivo": "res://assets/personajes/sota/articulada_v10/reposo_inicio.png",
+					"cadera_x": 1408.0,
+					"celda": [
+						1280,
+						0,
+						256,
+						320
+					],
+					"respiracion_y": 0,
+					"suelo_y": 300.0
+				},
+				{
+					"archivo": "res://assets/personajes/sota/articulada_v10/reposo_inicio.png",
+					"cadera_x": 1664.0,
+					"celda": [
+						1536,
+						0,
+						256,
+						320
+					],
+					"respiracion_y": -1,
+					"suelo_y": 300.0
+				},
+				{
+					"archivo": "res://assets/personajes/sota/articulada_v10/reposo_inicio.png",
+					"cadera_x": 1920.0,
+					"celda": [
+						1792,
+						0,
+						256,
+						320
+					],
+					"respiracion_y": -1,
+					"suelo_y": 300.0
+				},
+				{
+					"archivo": "res://assets/personajes/sota/articulada_v10/reposo_inicio.png",
+					"cadera_x": 128.0,
+					"celda": [
+						0,
+						320,
+						256,
+						320
+					],
+					"respiracion_y": 0,
+					"suelo_y": 620.0
+				}
+			]
+		},
+		{
+			"arranque": [
+				{
+					"archivo": "res://assets/personajes/sota/articulada_v10/reposo_inicio.png",
+					"cadera_x": 384.0,
+					"celda": [
+						256,
+						320,
+						256,
+						320
+					],
+					"respiracion_y": -0.517688453197479,
+					"suelo_y": 620.0
+				},
+				{
+					"archivo": "res://assets/personajes/sota/articulada_v10/reposo_inicio.png",
+					"cadera_x": 640.0,
+					"celda": [
+						512,
+						320,
+						256,
+						320
+					],
+					"respiracion_y": -1.22722458839417,
+					"suelo_y": 620.0
+				},
+				{
+					"archivo": "res://assets/personajes/sota/articulada_v10/reposo_inicio.png",
+					"cadera_x": 896.0,
+					"celda": [
+						768,
+						320,
+						256,
+						320
+					],
+					"respiracion_y": -2.05786609649658,
+					"suelo_y": 620.0
+				},
+				{
+					"archivo": "res://assets/personajes/sota/articulada_v10/reposo_inicio.png",
+					"cadera_x": 1152.0,
+					"celda": [
+						1024,
+						320,
+						256,
+						320
+					],
+					"respiracion_y": -2.9277503490448,
+					"suelo_y": 620.0
+				}
+			],
+			"cierres": [
+				[
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 128.0,
+						"celda": [
+							0,
+							0,
+							256,
+							320
+						],
+						"respiracion_y": 1.40654528141022,
+						"suelo_y": 300.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 384.0,
+						"celda": [
+							256,
+							0,
+							256,
+							320
+						],
+						"respiracion_y": 1.20561027526855,
+						"suelo_y": 300.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 640.0,
+						"celda": [
+							512,
+							0,
+							256,
+							320
+						],
+						"respiracion_y": 1.00467526912689,
+						"suelo_y": 300.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 896.0,
+						"celda": [
+							768,
+							0,
+							256,
+							320
+						],
+						"respiracion_y": 0.803740203380585,
+						"suelo_y": 300.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 1152.0,
+						"celda": [
+							1024,
+							0,
+							256,
+							320
+						],
+						"respiracion_y": 0.602805137634277,
+						"suelo_y": 300.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 1408.0,
+						"celda": [
+							1280,
+							0,
+							256,
+							320
+						],
+						"respiracion_y": 0.401870101690292,
+						"suelo_y": 300.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 1664.0,
+						"celda": [
+							1536,
+							0,
+							256,
+							320
+						],
+						"respiracion_y": 0.200935050845146,
+						"suelo_y": 300.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/reposo_inicio.png",
+						"cadera_x": 1408.0,
+						"celda": [
+							1280,
+							320,
+							256,
+							320
+						],
+						"respiracion_y": 0,
+						"suelo_y": 620.0
+					}
+				],
+				[
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 2176.0,
+						"celda": [
+							2048,
+							0,
+							256,
+							320
+						],
+						"respiracion_y": 2.14764308929443,
+						"suelo_y": 300.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 2432.0,
+						"celda": [
+							2304,
+							0,
+							256,
+							320
+						],
+						"respiracion_y": 1.84083688259125,
+						"suelo_y": 300.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 2688.0,
+						"celda": [
+							2560,
+							0,
+							256,
+							320
+						],
+						"respiracion_y": 1.53403067588806,
+						"suelo_y": 300.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 2944.0,
+						"celda": [
+							2816,
+							0,
+							256,
+							320
+						],
+						"respiracion_y": 1.22722458839417,
+						"suelo_y": 300.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 3200.0,
+						"celda": [
+							3072,
+							0,
+							256,
+							320
+						],
+						"respiracion_y": 0.920418441295624,
+						"suelo_y": 300.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 3456.0,
+						"celda": [
+							3328,
+							0,
+							256,
+							320
+						],
+						"respiracion_y": 0.613612294197083,
+						"suelo_y": 300.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 3712.0,
+						"celda": [
+							3584,
+							0,
+							256,
+							320
+						],
+						"respiracion_y": 0.306806147098541,
+						"suelo_y": 300.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/reposo_inicio.png",
+						"cadera_x": 1408.0,
+						"celda": [
+							1280,
+							320,
+							256,
+							320
+						],
+						"respiracion_y": 0,
+						"suelo_y": 620.0
+					}
+				],
+				[
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 128.0,
+						"celda": [
+							0,
+							320,
+							256,
+							320
+						],
+						"respiracion_y": 2.56178140640259,
+						"suelo_y": 620.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 384.0,
+						"celda": [
+							256,
+							320,
+							256,
+							320
+						],
+						"respiracion_y": 2.19581270217896,
+						"suelo_y": 620.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 640.0,
+						"celda": [
+							512,
+							320,
+							256,
+							320
+						],
+						"respiracion_y": 1.82984387874603,
+						"suelo_y": 620.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 896.0,
+						"celda": [
+							768,
+							320,
+							256,
+							320
+						],
+						"respiracion_y": 1.4638751745224,
+						"suelo_y": 620.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 1152.0,
+						"celda": [
+							1024,
+							320,
+							256,
+							320
+						],
+						"respiracion_y": 1.09790635108948,
+						"suelo_y": 620.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 1408.0,
+						"celda": [
+							1280,
+							320,
+							256,
+							320
+						],
+						"respiracion_y": 0.7319375872612,
+						"suelo_y": 620.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 1664.0,
+						"celda": [
+							1536,
+							320,
+							256,
+							320
+						],
+						"respiracion_y": 0.3659687936306,
+						"suelo_y": 620.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/reposo_inicio.png",
+						"cadera_x": 1408.0,
+						"celda": [
+							1280,
+							320,
+							256,
+							320
+						],
+						"respiracion_y": 0,
+						"suelo_y": 620.0
+					}
+				],
+				[
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 2176.0,
+						"celda": [
+							2048,
+							320,
+							256,
+							320
+						],
+						"respiracion_y": 2.58591198921204,
+						"suelo_y": 620.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 2432.0,
+						"celda": [
+							2304,
+							320,
+							256,
+							320
+						],
+						"respiracion_y": 2.21649599075317,
+						"suelo_y": 620.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 2688.0,
+						"celda": [
+							2560,
+							320,
+							256,
+							320
+						],
+						"respiracion_y": 1.84707999229431,
+						"suelo_y": 620.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 2944.0,
+						"celda": [
+							2816,
+							320,
+							256,
+							320
+						],
+						"respiracion_y": 1.47766399383545,
+						"suelo_y": 620.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 3200.0,
+						"celda": [
+							3072,
+							320,
+							256,
+							320
+						],
+						"respiracion_y": 1.10824799537659,
+						"suelo_y": 620.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 3456.0,
+						"celda": [
+							3328,
+							320,
+							256,
+							320
+						],
+						"respiracion_y": 0.738831996917725,
+						"suelo_y": 620.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 3712.0,
+						"celda": [
+							3584,
+							320,
+							256,
+							320
+						],
+						"respiracion_y": 0.369415998458862,
+						"suelo_y": 620.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/reposo_inicio.png",
+						"cadera_x": 1408.0,
+						"celda": [
+							1280,
+							320,
+							256,
+							320
+						],
+						"respiracion_y": 0,
+						"suelo_y": 620.0
+					}
+				],
+				[
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 128.0,
+						"celda": [
+							0,
+							640,
+							256,
+							320
+						],
+						"respiracion_y": 2.21636080741882,
+						"suelo_y": 940.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 384.0,
+						"celda": [
+							256,
+							640,
+							256,
+							320
+						],
+						"respiracion_y": 1.89973783493042,
+						"suelo_y": 940.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 640.0,
+						"celda": [
+							512,
+							640,
+							256,
+							320
+						],
+						"respiracion_y": 1.58311486244202,
+						"suelo_y": 940.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 896.0,
+						"celda": [
+							768,
+							640,
+							256,
+							320
+						],
+						"respiracion_y": 1.26649188995361,
+						"suelo_y": 940.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 1152.0,
+						"celda": [
+							1024,
+							640,
+							256,
+							320
+						],
+						"respiracion_y": 0.94986891746521,
+						"suelo_y": 940.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 1408.0,
+						"celda": [
+							1280,
+							640,
+							256,
+							320
+						],
+						"respiracion_y": 0.633245944976807,
+						"suelo_y": 940.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 1664.0,
+						"celda": [
+							1536,
+							640,
+							256,
+							320
+						],
+						"respiracion_y": 0.316622972488403,
+						"suelo_y": 940.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/reposo_inicio.png",
+						"cadera_x": 1408.0,
+						"celda": [
+							1280,
+							320,
+							256,
+							320
+						],
+						"respiracion_y": 0,
+						"suelo_y": 620.0
+					}
+				],
+				[
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 2176.0,
+						"celda": [
+							2048,
+							640,
+							256,
+							320
+						],
+						"respiracion_y": 1.50938880443573,
+						"suelo_y": 940.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 2432.0,
+						"celda": [
+							2304,
+							640,
+							256,
+							320
+						],
+						"respiracion_y": 1.29376184940338,
+						"suelo_y": 940.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 2688.0,
+						"celda": [
+							2560,
+							640,
+							256,
+							320
+						],
+						"respiracion_y": 1.07813489437103,
+						"suelo_y": 940.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 2944.0,
+						"celda": [
+							2816,
+							640,
+							256,
+							320
+						],
+						"respiracion_y": 0.862507879734039,
+						"suelo_y": 940.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 3200.0,
+						"celda": [
+							3072,
+							640,
+							256,
+							320
+						],
+						"respiracion_y": 0.646880924701691,
+						"suelo_y": 940.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 3456.0,
+						"celda": [
+							3328,
+							640,
+							256,
+							320
+						],
+						"respiracion_y": 0.43125393986702,
+						"suelo_y": 940.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 3712.0,
+						"celda": [
+							3584,
+							640,
+							256,
+							320
+						],
+						"respiracion_y": 0.21562696993351,
+						"suelo_y": 940.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/reposo_inicio.png",
+						"cadera_x": 1408.0,
+						"celda": [
+							1280,
+							320,
+							256,
+							320
+						],
+						"respiracion_y": 0,
+						"suelo_y": 620.0
+					}
+				],
+				[
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 128.0,
+						"celda": [
+							0,
+							960,
+							256,
+							320
+						],
+						"respiracion_y": 0.572625994682312,
+						"suelo_y": 1260.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 384.0,
+						"celda": [
+							256,
+							960,
+							256,
+							320
+						],
+						"respiracion_y": 0.490822285413742,
+						"suelo_y": 1260.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 640.0,
+						"celda": [
+							512,
+							960,
+							256,
+							320
+						],
+						"respiracion_y": 0.409018576145172,
+						"suelo_y": 1260.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 896.0,
+						"celda": [
+							768,
+							960,
+							256,
+							320
+						],
+						"respiracion_y": 0.327214866876602,
+						"suelo_y": 1260.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 1152.0,
+						"celda": [
+							1024,
+							960,
+							256,
+							320
+						],
+						"respiracion_y": 0.245411142706871,
+						"suelo_y": 1260.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 1408.0,
+						"celda": [
+							1280,
+							960,
+							256,
+							320
+						],
+						"respiracion_y": 0.163607433438301,
+						"suelo_y": 1260.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 1664.0,
+						"celda": [
+							1536,
+							960,
+							256,
+							320
+						],
+						"respiracion_y": 0.0818037167191505,
+						"suelo_y": 1260.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/reposo_inicio.png",
+						"cadera_x": 1408.0,
+						"celda": [
+							1280,
+							320,
+							256,
+							320
+						],
+						"respiracion_y": 0,
+						"suelo_y": 620.0
+					}
+				],
+				[
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 2176.0,
+						"celda": [
+							2048,
+							960,
+							256,
+							320
+						],
+						"respiracion_y": -0.451313883066177,
+						"suelo_y": 1260.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 2432.0,
+						"celda": [
+							2304,
+							960,
+							256,
+							320
+						],
+						"respiracion_y": -0.386840462684631,
+						"suelo_y": 1260.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 2688.0,
+						"celda": [
+							2560,
+							960,
+							256,
+							320
+						],
+						"respiracion_y": -0.322367072105408,
+						"suelo_y": 1260.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 2944.0,
+						"celda": [
+							2816,
+							960,
+							256,
+							320
+						],
+						"respiracion_y": -0.257893651723862,
+						"suelo_y": 1260.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 3200.0,
+						"celda": [
+							3072,
+							960,
+							256,
+							320
+						],
+						"respiracion_y": -0.193420231342316,
+						"suelo_y": 1260.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 3456.0,
+						"celda": [
+							3328,
+							960,
+							256,
+							320
+						],
+						"respiracion_y": -0.128946825861931,
+						"suelo_y": 1260.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 3712.0,
+						"celda": [
+							3584,
+							960,
+							256,
+							320
+						],
+						"respiracion_y": -0.0644734129309654,
+						"suelo_y": 1260.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/reposo_inicio.png",
+						"cadera_x": 1408.0,
+						"celda": [
+							1280,
+							320,
+							256,
+							320
+						],
+						"respiracion_y": 0,
+						"suelo_y": 620.0
+					}
+				],
+				[
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 128.0,
+						"celda": [
+							0,
+							1280,
+							256,
+							320
+						],
+						"respiracion_y": -1.40654528141022,
+						"suelo_y": 1580.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 384.0,
+						"celda": [
+							256,
+							1280,
+							256,
+							320
+						],
+						"respiracion_y": -1.20561027526855,
+						"suelo_y": 1580.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 640.0,
+						"celda": [
+							512,
+							1280,
+							256,
+							320
+						],
+						"respiracion_y": -1.00467526912689,
+						"suelo_y": 1580.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 896.0,
+						"celda": [
+							768,
+							1280,
+							256,
+							320
+						],
+						"respiracion_y": -0.803740203380585,
+						"suelo_y": 1580.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 1152.0,
+						"celda": [
+							1024,
+							1280,
+							256,
+							320
+						],
+						"respiracion_y": -0.602805137634277,
+						"suelo_y": 1580.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 1408.0,
+						"celda": [
+							1280,
+							1280,
+							256,
+							320
+						],
+						"respiracion_y": -0.401870101690292,
+						"suelo_y": 1580.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 1664.0,
+						"celda": [
+							1536,
+							1280,
+							256,
+							320
+						],
+						"respiracion_y": -0.200935050845146,
+						"suelo_y": 1580.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/reposo_inicio.png",
+						"cadera_x": 1408.0,
+						"celda": [
+							1280,
+							320,
+							256,
+							320
+						],
+						"respiracion_y": 0,
+						"suelo_y": 620.0
+					}
+				],
+				[
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 2176.0,
+						"celda": [
+							2048,
+							1280,
+							256,
+							320
+						],
+						"respiracion_y": -2.14764308929443,
+						"suelo_y": 1580.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 2432.0,
+						"celda": [
+							2304,
+							1280,
+							256,
+							320
+						],
+						"respiracion_y": -1.84083688259125,
+						"suelo_y": 1580.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 2688.0,
+						"celda": [
+							2560,
+							1280,
+							256,
+							320
+						],
+						"respiracion_y": -1.53403067588806,
+						"suelo_y": 1580.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 2944.0,
+						"celda": [
+							2816,
+							1280,
+							256,
+							320
+						],
+						"respiracion_y": -1.22722458839417,
+						"suelo_y": 1580.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 3200.0,
+						"celda": [
+							3072,
+							1280,
+							256,
+							320
+						],
+						"respiracion_y": -0.920418441295624,
+						"suelo_y": 1580.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 3456.0,
+						"celda": [
+							3328,
+							1280,
+							256,
+							320
+						],
+						"respiracion_y": -0.613612294197083,
+						"suelo_y": 1580.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 3712.0,
+						"celda": [
+							3584,
+							1280,
+							256,
+							320
+						],
+						"respiracion_y": -0.306806147098541,
+						"suelo_y": 1580.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/reposo_inicio.png",
+						"cadera_x": 1408.0,
+						"celda": [
+							1280,
+							320,
+							256,
+							320
+						],
+						"respiracion_y": 0,
+						"suelo_y": 620.0
+					}
+				],
+				[
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 128.0,
+						"celda": [
+							0,
+							1600,
+							256,
+							320
+						],
+						"respiracion_y": -2.56178140640259,
+						"suelo_y": 1900.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 384.0,
+						"celda": [
+							256,
+							1600,
+							256,
+							320
+						],
+						"respiracion_y": -2.19581270217896,
+						"suelo_y": 1900.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 640.0,
+						"celda": [
+							512,
+							1600,
+							256,
+							320
+						],
+						"respiracion_y": -1.82984387874603,
+						"suelo_y": 1900.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 896.0,
+						"celda": [
+							768,
+							1600,
+							256,
+							320
+						],
+						"respiracion_y": -1.4638751745224,
+						"suelo_y": 1900.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 1152.0,
+						"celda": [
+							1024,
+							1600,
+							256,
+							320
+						],
+						"respiracion_y": -1.09790635108948,
+						"suelo_y": 1900.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 1408.0,
+						"celda": [
+							1280,
+							1600,
+							256,
+							320
+						],
+						"respiracion_y": -0.7319375872612,
+						"suelo_y": 1900.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 1664.0,
+						"celda": [
+							1536,
+							1600,
+							256,
+							320
+						],
+						"respiracion_y": -0.3659687936306,
+						"suelo_y": 1900.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/reposo_inicio.png",
+						"cadera_x": 1408.0,
+						"celda": [
+							1280,
+							320,
+							256,
+							320
+						],
+						"respiracion_y": 0,
+						"suelo_y": 620.0
+					}
+				],
+				[
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 2176.0,
+						"celda": [
+							2048,
+							1600,
+							256,
+							320
+						],
+						"respiracion_y": -2.58591198921204,
+						"suelo_y": 1900.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 2432.0,
+						"celda": [
+							2304,
+							1600,
+							256,
+							320
+						],
+						"respiracion_y": -2.21649599075317,
+						"suelo_y": 1900.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 2688.0,
+						"celda": [
+							2560,
+							1600,
+							256,
+							320
+						],
+						"respiracion_y": -1.84707999229431,
+						"suelo_y": 1900.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 2944.0,
+						"celda": [
+							2816,
+							1600,
+							256,
+							320
+						],
+						"respiracion_y": -1.47766399383545,
+						"suelo_y": 1900.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 3200.0,
+						"celda": [
+							3072,
+							1600,
+							256,
+							320
+						],
+						"respiracion_y": -1.10824799537659,
+						"suelo_y": 1900.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 3456.0,
+						"celda": [
+							3328,
+							1600,
+							256,
+							320
+						],
+						"respiracion_y": -0.738831996917725,
+						"suelo_y": 1900.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 3712.0,
+						"celda": [
+							3584,
+							1600,
+							256,
+							320
+						],
+						"respiracion_y": -0.369415998458862,
+						"suelo_y": 1900.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/reposo_inicio.png",
+						"cadera_x": 1408.0,
+						"celda": [
+							1280,
+							320,
+							256,
+							320
+						],
+						"respiracion_y": 0,
+						"suelo_y": 620.0
+					}
+				],
+				[
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 128.0,
+						"celda": [
+							0,
+							1920,
+							256,
+							320
+						],
+						"respiracion_y": -2.21636080741882,
+						"suelo_y": 2220.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 384.0,
+						"celda": [
+							256,
+							1920,
+							256,
+							320
+						],
+						"respiracion_y": -1.89973783493042,
+						"suelo_y": 2220.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 640.0,
+						"celda": [
+							512,
+							1920,
+							256,
+							320
+						],
+						"respiracion_y": -1.58311486244202,
+						"suelo_y": 2220.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 896.0,
+						"celda": [
+							768,
+							1920,
+							256,
+							320
+						],
+						"respiracion_y": -1.26649188995361,
+						"suelo_y": 2220.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 1152.0,
+						"celda": [
+							1024,
+							1920,
+							256,
+							320
+						],
+						"respiracion_y": -0.94986891746521,
+						"suelo_y": 2220.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 1408.0,
+						"celda": [
+							1280,
+							1920,
+							256,
+							320
+						],
+						"respiracion_y": -0.633245944976807,
+						"suelo_y": 2220.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 1664.0,
+						"celda": [
+							1536,
+							1920,
+							256,
+							320
+						],
+						"respiracion_y": -0.316622972488403,
+						"suelo_y": 2220.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/reposo_inicio.png",
+						"cadera_x": 1408.0,
+						"celda": [
+							1280,
+							320,
+							256,
+							320
+						],
+						"respiracion_y": 0,
+						"suelo_y": 620.0
+					}
+				],
+				[
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 2176.0,
+						"celda": [
+							2048,
+							1920,
+							256,
+							320
+						],
+						"respiracion_y": -1.50938880443573,
+						"suelo_y": 2220.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 2432.0,
+						"celda": [
+							2304,
+							1920,
+							256,
+							320
+						],
+						"respiracion_y": -1.29376184940338,
+						"suelo_y": 2220.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 2688.0,
+						"celda": [
+							2560,
+							1920,
+							256,
+							320
+						],
+						"respiracion_y": -1.07813489437103,
+						"suelo_y": 2220.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 2944.0,
+						"celda": [
+							2816,
+							1920,
+							256,
+							320
+						],
+						"respiracion_y": -0.862507879734039,
+						"suelo_y": 2220.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 3200.0,
+						"celda": [
+							3072,
+							1920,
+							256,
+							320
+						],
+						"respiracion_y": -0.646880924701691,
+						"suelo_y": 2220.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 3456.0,
+						"celda": [
+							3328,
+							1920,
+							256,
+							320
+						],
+						"respiracion_y": -0.43125393986702,
+						"suelo_y": 2220.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 3712.0,
+						"celda": [
+							3584,
+							1920,
+							256,
+							320
+						],
+						"respiracion_y": -0.21562696993351,
+						"suelo_y": 2220.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/reposo_inicio.png",
+						"cadera_x": 1408.0,
+						"celda": [
+							1280,
+							320,
+							256,
+							320
+						],
+						"respiracion_y": 0,
+						"suelo_y": 620.0
+					}
+				],
+				[
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 128.0,
+						"celda": [
+							0,
+							2240,
+							256,
+							320
+						],
+						"respiracion_y": -0.572625994682312,
+						"suelo_y": 2540.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 384.0,
+						"celda": [
+							256,
+							2240,
+							256,
+							320
+						],
+						"respiracion_y": -0.490822285413742,
+						"suelo_y": 2540.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 640.0,
+						"celda": [
+							512,
+							2240,
+							256,
+							320
+						],
+						"respiracion_y": -0.409018576145172,
+						"suelo_y": 2540.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 896.0,
+						"celda": [
+							768,
+							2240,
+							256,
+							320
+						],
+						"respiracion_y": -0.327214866876602,
+						"suelo_y": 2540.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 1152.0,
+						"celda": [
+							1024,
+							2240,
+							256,
+							320
+						],
+						"respiracion_y": -0.245411142706871,
+						"suelo_y": 2540.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 1408.0,
+						"celda": [
+							1280,
+							2240,
+							256,
+							320
+						],
+						"respiracion_y": -0.163607433438301,
+						"suelo_y": 2540.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 1664.0,
+						"celda": [
+							1536,
+							2240,
+							256,
+							320
+						],
+						"respiracion_y": -0.0818037167191505,
+						"suelo_y": 2540.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/reposo_inicio.png",
+						"cadera_x": 1408.0,
+						"celda": [
+							1280,
+							320,
+							256,
+							320
+						],
+						"respiracion_y": 0,
+						"suelo_y": 620.0
+					}
+				],
+				[
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 2176.0,
+						"celda": [
+							2048,
+							2240,
+							256,
+							320
+						],
+						"respiracion_y": 0.451313883066177,
+						"suelo_y": 2540.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 2432.0,
+						"celda": [
+							2304,
+							2240,
+							256,
+							320
+						],
+						"respiracion_y": 0.386840462684631,
+						"suelo_y": 2540.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 2688.0,
+						"celda": [
+							2560,
+							2240,
+							256,
+							320
+						],
+						"respiracion_y": 0.322367072105408,
+						"suelo_y": 2540.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 2944.0,
+						"celda": [
+							2816,
+							2240,
+							256,
+							320
+						],
+						"respiracion_y": 0.257893651723862,
+						"suelo_y": 2540.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 3200.0,
+						"celda": [
+							3072,
+							2240,
+							256,
+							320
+						],
+						"respiracion_y": 0.193420231342316,
+						"suelo_y": 2540.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 3456.0,
+						"celda": [
+							3328,
+							2240,
+							256,
+							320
+						],
+						"respiracion_y": 0.128946825861931,
+						"suelo_y": 2540.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 3712.0,
+						"celda": [
+							3584,
+							2240,
+							256,
+							320
+						],
+						"respiracion_y": 0.0644734129309654,
+						"suelo_y": 2540.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/reposo_inicio.png",
+						"cadera_x": 1408.0,
+						"celda": [
+							1280,
+							320,
+							256,
+							320
+						],
+						"respiracion_y": 0,
+						"suelo_y": 620.0
+					}
+				],
+				[
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 128.0,
+						"celda": [
+							0,
+							2560,
+							256,
+							320
+						],
+						"respiracion_y": 1.40654528141022,
+						"suelo_y": 2860.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 384.0,
+						"celda": [
+							256,
+							2560,
+							256,
+							320
+						],
+						"respiracion_y": 1.20561027526855,
+						"suelo_y": 2860.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 640.0,
+						"celda": [
+							512,
+							2560,
+							256,
+							320
+						],
+						"respiracion_y": 1.00467526912689,
+						"suelo_y": 2860.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 896.0,
+						"celda": [
+							768,
+							2560,
+							256,
+							320
+						],
+						"respiracion_y": 0.803740203380585,
+						"suelo_y": 2860.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 1152.0,
+						"celda": [
+							1024,
+							2560,
+							256,
+							320
+						],
+						"respiracion_y": 0.602805137634277,
+						"suelo_y": 2860.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 1408.0,
+						"celda": [
+							1280,
+							2560,
+							256,
+							320
+						],
+						"respiracion_y": 0.401870101690292,
+						"suelo_y": 2860.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 1664.0,
+						"celda": [
+							1536,
+							2560,
+							256,
+							320
+						],
+						"respiracion_y": 0.200935050845146,
+						"suelo_y": 2860.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/reposo_inicio.png",
+						"cadera_x": 1408.0,
+						"celda": [
+							1280,
+							320,
+							256,
+							320
+						],
+						"respiracion_y": 0,
+						"suelo_y": 620.0
+					}
+				],
+				[
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 2176.0,
+						"celda": [
+							2048,
+							2560,
+							256,
+							320
+						],
+						"respiracion_y": 2.14764308929443,
+						"suelo_y": 2860.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 2432.0,
+						"celda": [
+							2304,
+							2560,
+							256,
+							320
+						],
+						"respiracion_y": 1.84083688259125,
+						"suelo_y": 2860.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 2688.0,
+						"celda": [
+							2560,
+							2560,
+							256,
+							320
+						],
+						"respiracion_y": 1.53403067588806,
+						"suelo_y": 2860.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 2944.0,
+						"celda": [
+							2816,
+							2560,
+							256,
+							320
+						],
+						"respiracion_y": 1.22722458839417,
+						"suelo_y": 2860.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 3200.0,
+						"celda": [
+							3072,
+							2560,
+							256,
+							320
+						],
+						"respiracion_y": 0.920418441295624,
+						"suelo_y": 2860.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 3456.0,
+						"celda": [
+							3328,
+							2560,
+							256,
+							320
+						],
+						"respiracion_y": 0.613612294197083,
+						"suelo_y": 2860.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 3712.0,
+						"celda": [
+							3584,
+							2560,
+							256,
+							320
+						],
+						"respiracion_y": 0.306806147098541,
+						"suelo_y": 2860.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/reposo_inicio.png",
+						"cadera_x": 1408.0,
+						"celda": [
+							1280,
+							320,
+							256,
+							320
+						],
+						"respiracion_y": 0,
+						"suelo_y": 620.0
+					}
+				],
+				[
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 128.0,
+						"celda": [
+							0,
+							2880,
+							256,
+							320
+						],
+						"respiracion_y": 2.56178140640259,
+						"suelo_y": 3180.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 384.0,
+						"celda": [
+							256,
+							2880,
+							256,
+							320
+						],
+						"respiracion_y": 2.19581270217896,
+						"suelo_y": 3180.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 640.0,
+						"celda": [
+							512,
+							2880,
+							256,
+							320
+						],
+						"respiracion_y": 1.82984387874603,
+						"suelo_y": 3180.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 896.0,
+						"celda": [
+							768,
+							2880,
+							256,
+							320
+						],
+						"respiracion_y": 1.4638751745224,
+						"suelo_y": 3180.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 1152.0,
+						"celda": [
+							1024,
+							2880,
+							256,
+							320
+						],
+						"respiracion_y": 1.09790635108948,
+						"suelo_y": 3180.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 1408.0,
+						"celda": [
+							1280,
+							2880,
+							256,
+							320
+						],
+						"respiracion_y": 0.7319375872612,
+						"suelo_y": 3180.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 1664.0,
+						"celda": [
+							1536,
+							2880,
+							256,
+							320
+						],
+						"respiracion_y": 0.3659687936306,
+						"suelo_y": 3180.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/reposo_inicio.png",
+						"cadera_x": 1408.0,
+						"celda": [
+							1280,
+							320,
+							256,
+							320
+						],
+						"respiracion_y": 0,
+						"suelo_y": 620.0
+					}
+				],
+				[
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 2176.0,
+						"celda": [
+							2048,
+							2880,
+							256,
+							320
+						],
+						"respiracion_y": 2.58591198921204,
+						"suelo_y": 3180.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 2432.0,
+						"celda": [
+							2304,
+							2880,
+							256,
+							320
+						],
+						"respiracion_y": 2.21649599075317,
+						"suelo_y": 3180.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 2688.0,
+						"celda": [
+							2560,
+							2880,
+							256,
+							320
+						],
+						"respiracion_y": 1.84707999229431,
+						"suelo_y": 3180.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 2944.0,
+						"celda": [
+							2816,
+							2880,
+							256,
+							320
+						],
+						"respiracion_y": 1.47766399383545,
+						"suelo_y": 3180.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 3200.0,
+						"celda": [
+							3072,
+							2880,
+							256,
+							320
+						],
+						"respiracion_y": 1.10824799537659,
+						"suelo_y": 3180.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 3456.0,
+						"celda": [
+							3328,
+							2880,
+							256,
+							320
+						],
+						"respiracion_y": 0.738831996917725,
+						"suelo_y": 3180.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 3712.0,
+						"celda": [
+							3584,
+							2880,
+							256,
+							320
+						],
+						"respiracion_y": 0.369415998458862,
+						"suelo_y": 3180.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/reposo_inicio.png",
+						"cadera_x": 1408.0,
+						"celda": [
+							1280,
+							320,
+							256,
+							320
+						],
+						"respiracion_y": 0,
+						"suelo_y": 620.0
+					}
+				],
+				[
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 128.0,
+						"celda": [
+							0,
+							3200,
+							256,
+							320
+						],
+						"respiracion_y": 2.21636080741882,
+						"suelo_y": 3500.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 384.0,
+						"celda": [
+							256,
+							3200,
+							256,
+							320
+						],
+						"respiracion_y": 1.89973783493042,
+						"suelo_y": 3500.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 640.0,
+						"celda": [
+							512,
+							3200,
+							256,
+							320
+						],
+						"respiracion_y": 1.58311486244202,
+						"suelo_y": 3500.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 896.0,
+						"celda": [
+							768,
+							3200,
+							256,
+							320
+						],
+						"respiracion_y": 1.26649188995361,
+						"suelo_y": 3500.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 1152.0,
+						"celda": [
+							1024,
+							3200,
+							256,
+							320
+						],
+						"respiracion_y": 0.94986891746521,
+						"suelo_y": 3500.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 1408.0,
+						"celda": [
+							1280,
+							3200,
+							256,
+							320
+						],
+						"respiracion_y": 0.633245944976807,
+						"suelo_y": 3500.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 1664.0,
+						"celda": [
+							1536,
+							3200,
+							256,
+							320
+						],
+						"respiracion_y": 0.316622972488403,
+						"suelo_y": 3500.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/reposo_inicio.png",
+						"cadera_x": 1408.0,
+						"celda": [
+							1280,
+							320,
+							256,
+							320
+						],
+						"respiracion_y": 0,
+						"suelo_y": 620.0
+					}
+				],
+				[
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 2176.0,
+						"celda": [
+							2048,
+							3200,
+							256,
+							320
+						],
+						"respiracion_y": 1.50938880443573,
+						"suelo_y": 3500.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 2432.0,
+						"celda": [
+							2304,
+							3200,
+							256,
+							320
+						],
+						"respiracion_y": 1.29376184940338,
+						"suelo_y": 3500.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 2688.0,
+						"celda": [
+							2560,
+							3200,
+							256,
+							320
+						],
+						"respiracion_y": 1.07813489437103,
+						"suelo_y": 3500.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 2944.0,
+						"celda": [
+							2816,
+							3200,
+							256,
+							320
+						],
+						"respiracion_y": 0.862507879734039,
+						"suelo_y": 3500.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 3200.0,
+						"celda": [
+							3072,
+							3200,
+							256,
+							320
+						],
+						"respiracion_y": 0.646880924701691,
+						"suelo_y": 3500.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 3456.0,
+						"celda": [
+							3328,
+							3200,
+							256,
+							320
+						],
+						"respiracion_y": 0.43125393986702,
+						"suelo_y": 3500.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 3712.0,
+						"celda": [
+							3584,
+							3200,
+							256,
+							320
+						],
+						"respiracion_y": 0.21562696993351,
+						"suelo_y": 3500.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/reposo_inicio.png",
+						"cadera_x": 1408.0,
+						"celda": [
+							1280,
+							320,
+							256,
+							320
+						],
+						"respiracion_y": 0,
+						"suelo_y": 620.0
+					}
+				],
+				[
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 128.0,
+						"celda": [
+							0,
+							3520,
+							256,
+							320
+						],
+						"respiracion_y": 0.572625994682312,
+						"suelo_y": 3820.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 384.0,
+						"celda": [
+							256,
+							3520,
+							256,
+							320
+						],
+						"respiracion_y": 0.490822285413742,
+						"suelo_y": 3820.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 640.0,
+						"celda": [
+							512,
+							3520,
+							256,
+							320
+						],
+						"respiracion_y": 0.409018576145172,
+						"suelo_y": 3820.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 896.0,
+						"celda": [
+							768,
+							3520,
+							256,
+							320
+						],
+						"respiracion_y": 0.327214866876602,
+						"suelo_y": 3820.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 1152.0,
+						"celda": [
+							1024,
+							3520,
+							256,
+							320
+						],
+						"respiracion_y": 0.245411142706871,
+						"suelo_y": 3820.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 1408.0,
+						"celda": [
+							1280,
+							3520,
+							256,
+							320
+						],
+						"respiracion_y": 0.163607433438301,
+						"suelo_y": 3820.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 1664.0,
+						"celda": [
+							1536,
+							3520,
+							256,
+							320
+						],
+						"respiracion_y": 0.0818037167191505,
+						"suelo_y": 3820.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/reposo_inicio.png",
+						"cadera_x": 1408.0,
+						"celda": [
+							1280,
+							320,
+							256,
+							320
+						],
+						"respiracion_y": 0,
+						"suelo_y": 620.0
+					}
+				],
+				[
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 2176.0,
+						"celda": [
+							2048,
+							3520,
+							256,
+							320
+						],
+						"respiracion_y": -0.451313883066177,
+						"suelo_y": 3820.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 2432.0,
+						"celda": [
+							2304,
+							3520,
+							256,
+							320
+						],
+						"respiracion_y": -0.386840462684631,
+						"suelo_y": 3820.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 2688.0,
+						"celda": [
+							2560,
+							3520,
+							256,
+							320
+						],
+						"respiracion_y": -0.322367072105408,
+						"suelo_y": 3820.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 2944.0,
+						"celda": [
+							2816,
+							3520,
+							256,
+							320
+						],
+						"respiracion_y": -0.257893651723862,
+						"suelo_y": 3820.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 3200.0,
+						"celda": [
+							3072,
+							3520,
+							256,
+							320
+						],
+						"respiracion_y": -0.193420231342316,
+						"suelo_y": 3820.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 3456.0,
+						"celda": [
+							3328,
+							3520,
+							256,
+							320
+						],
+						"respiracion_y": -0.128946825861931,
+						"suelo_y": 3820.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 3712.0,
+						"celda": [
+							3584,
+							3520,
+							256,
+							320
+						],
+						"respiracion_y": -0.0644734129309654,
+						"suelo_y": 3820.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/reposo_inicio.png",
+						"cadera_x": 1408.0,
+						"celda": [
+							1280,
+							320,
+							256,
+							320
+						],
+						"respiracion_y": 0,
+						"suelo_y": 620.0
+					}
+				],
+				[
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 128.0,
+						"celda": [
+							0,
+							3840,
+							256,
+							320
+						],
+						"respiracion_y": -1.40654528141022,
+						"suelo_y": 4140.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 384.0,
+						"celda": [
+							256,
+							3840,
+							256,
+							320
+						],
+						"respiracion_y": -1.20561027526855,
+						"suelo_y": 4140.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 640.0,
+						"celda": [
+							512,
+							3840,
+							256,
+							320
+						],
+						"respiracion_y": -1.00467526912689,
+						"suelo_y": 4140.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 896.0,
+						"celda": [
+							768,
+							3840,
+							256,
+							320
+						],
+						"respiracion_y": -0.803740203380585,
+						"suelo_y": 4140.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 1152.0,
+						"celda": [
+							1024,
+							3840,
+							256,
+							320
+						],
+						"respiracion_y": -0.602805137634277,
+						"suelo_y": 4140.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 1408.0,
+						"celda": [
+							1280,
+							3840,
+							256,
+							320
+						],
+						"respiracion_y": -0.401870101690292,
+						"suelo_y": 4140.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 1664.0,
+						"celda": [
+							1536,
+							3840,
+							256,
+							320
+						],
+						"respiracion_y": -0.200935050845146,
+						"suelo_y": 4140.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/reposo_inicio.png",
+						"cadera_x": 1408.0,
+						"celda": [
+							1280,
+							320,
+							256,
+							320
+						],
+						"respiracion_y": 0,
+						"suelo_y": 620.0
+					}
+				],
+				[
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 2176.0,
+						"celda": [
+							2048,
+							3840,
+							256,
+							320
+						],
+						"respiracion_y": -2.14764308929443,
+						"suelo_y": 4140.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 2432.0,
+						"celda": [
+							2304,
+							3840,
+							256,
+							320
+						],
+						"respiracion_y": -1.84083688259125,
+						"suelo_y": 4140.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 2688.0,
+						"celda": [
+							2560,
+							3840,
+							256,
+							320
+						],
+						"respiracion_y": -1.53403067588806,
+						"suelo_y": 4140.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 2944.0,
+						"celda": [
+							2816,
+							3840,
+							256,
+							320
+						],
+						"respiracion_y": -1.22722458839417,
+						"suelo_y": 4140.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 3200.0,
+						"celda": [
+							3072,
+							3840,
+							256,
+							320
+						],
+						"respiracion_y": -0.920418441295624,
+						"suelo_y": 4140.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 3456.0,
+						"celda": [
+							3328,
+							3840,
+							256,
+							320
+						],
+						"respiracion_y": -0.613612294197083,
+						"suelo_y": 4140.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 3712.0,
+						"celda": [
+							3584,
+							3840,
+							256,
+							320
+						],
+						"respiracion_y": -0.306806147098541,
+						"suelo_y": 4140.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/reposo_inicio.png",
+						"cadera_x": 1408.0,
+						"celda": [
+							1280,
+							320,
+							256,
+							320
+						],
+						"respiracion_y": 0,
+						"suelo_y": 620.0
+					}
+				],
+				[
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 128.0,
+						"celda": [
+							0,
+							4160,
+							256,
+							320
+						],
+						"respiracion_y": -2.56178140640259,
+						"suelo_y": 4460.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 384.0,
+						"celda": [
+							256,
+							4160,
+							256,
+							320
+						],
+						"respiracion_y": -2.19581270217896,
+						"suelo_y": 4460.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 640.0,
+						"celda": [
+							512,
+							4160,
+							256,
+							320
+						],
+						"respiracion_y": -1.82984387874603,
+						"suelo_y": 4460.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 896.0,
+						"celda": [
+							768,
+							4160,
+							256,
+							320
+						],
+						"respiracion_y": -1.4638751745224,
+						"suelo_y": 4460.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 1152.0,
+						"celda": [
+							1024,
+							4160,
+							256,
+							320
+						],
+						"respiracion_y": -1.09790635108948,
+						"suelo_y": 4460.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 1408.0,
+						"celda": [
+							1280,
+							4160,
+							256,
+							320
+						],
+						"respiracion_y": -0.7319375872612,
+						"suelo_y": 4460.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 1664.0,
+						"celda": [
+							1536,
+							4160,
+							256,
+							320
+						],
+						"respiracion_y": -0.3659687936306,
+						"suelo_y": 4460.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/reposo_inicio.png",
+						"cadera_x": 1408.0,
+						"celda": [
+							1280,
+							320,
+							256,
+							320
+						],
+						"respiracion_y": 0,
+						"suelo_y": 620.0
+					}
+				],
+				[
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 2176.0,
+						"celda": [
+							2048,
+							4160,
+							256,
+							320
+						],
+						"respiracion_y": -2.58591198921204,
+						"suelo_y": 4460.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 2432.0,
+						"celda": [
+							2304,
+							4160,
+							256,
+							320
+						],
+						"respiracion_y": -2.21649599075317,
+						"suelo_y": 4460.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 2688.0,
+						"celda": [
+							2560,
+							4160,
+							256,
+							320
+						],
+						"respiracion_y": -1.84707999229431,
+						"suelo_y": 4460.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 2944.0,
+						"celda": [
+							2816,
+							4160,
+							256,
+							320
+						],
+						"respiracion_y": -1.47766399383545,
+						"suelo_y": 4460.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 3200.0,
+						"celda": [
+							3072,
+							4160,
+							256,
+							320
+						],
+						"respiracion_y": -1.10824799537659,
+						"suelo_y": 4460.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 3456.0,
+						"celda": [
+							3328,
+							4160,
+							256,
+							320
+						],
+						"respiracion_y": -0.738831996917725,
+						"suelo_y": 4460.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 3712.0,
+						"celda": [
+							3584,
+							4160,
+							256,
+							320
+						],
+						"respiracion_y": -0.369415998458862,
+						"suelo_y": 4460.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/reposo_inicio.png",
+						"cadera_x": 1408.0,
+						"celda": [
+							1280,
+							320,
+							256,
+							320
+						],
+						"respiracion_y": 0,
+						"suelo_y": 620.0
+					}
+				],
+				[
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 128.0,
+						"celda": [
+							0,
+							4480,
+							256,
+							320
+						],
+						"respiracion_y": -2.21636080741882,
+						"suelo_y": 4780.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 384.0,
+						"celda": [
+							256,
+							4480,
+							256,
+							320
+						],
+						"respiracion_y": -1.89973783493042,
+						"suelo_y": 4780.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 640.0,
+						"celda": [
+							512,
+							4480,
+							256,
+							320
+						],
+						"respiracion_y": -1.58311486244202,
+						"suelo_y": 4780.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 896.0,
+						"celda": [
+							768,
+							4480,
+							256,
+							320
+						],
+						"respiracion_y": -1.26649188995361,
+						"suelo_y": 4780.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 1152.0,
+						"celda": [
+							1024,
+							4480,
+							256,
+							320
+						],
+						"respiracion_y": -0.94986891746521,
+						"suelo_y": 4780.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 1408.0,
+						"celda": [
+							1280,
+							4480,
+							256,
+							320
+						],
+						"respiracion_y": -0.633245944976807,
+						"suelo_y": 4780.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 1664.0,
+						"celda": [
+							1536,
+							4480,
+							256,
+							320
+						],
+						"respiracion_y": -0.316622972488403,
+						"suelo_y": 4780.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/reposo_inicio.png",
+						"cadera_x": 1408.0,
+						"celda": [
+							1280,
+							320,
+							256,
+							320
+						],
+						"respiracion_y": 0,
+						"suelo_y": 620.0
+					}
+				],
+				[
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 2176.0,
+						"celda": [
+							2048,
+							4480,
+							256,
+							320
+						],
+						"respiracion_y": -1.50938880443573,
+						"suelo_y": 4780.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 2432.0,
+						"celda": [
+							2304,
+							4480,
+							256,
+							320
+						],
+						"respiracion_y": -1.29376184940338,
+						"suelo_y": 4780.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 2688.0,
+						"celda": [
+							2560,
+							4480,
+							256,
+							320
+						],
+						"respiracion_y": -1.07813489437103,
+						"suelo_y": 4780.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 2944.0,
+						"celda": [
+							2816,
+							4480,
+							256,
+							320
+						],
+						"respiracion_y": -0.862507879734039,
+						"suelo_y": 4780.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 3200.0,
+						"celda": [
+							3072,
+							4480,
+							256,
+							320
+						],
+						"respiracion_y": -0.646880924701691,
+						"suelo_y": 4780.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 3456.0,
+						"celda": [
+							3328,
+							4480,
+							256,
+							320
+						],
+						"respiracion_y": -0.43125393986702,
+						"suelo_y": 4780.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 3712.0,
+						"celda": [
+							3584,
+							4480,
+							256,
+							320
+						],
+						"respiracion_y": -0.21562696993351,
+						"suelo_y": 4780.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/reposo_inicio.png",
+						"cadera_x": 1408.0,
+						"celda": [
+							1280,
+							320,
+							256,
+							320
+						],
+						"respiracion_y": 0,
+						"suelo_y": 620.0
+					}
+				],
+				[
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 128.0,
+						"celda": [
+							0,
+							4800,
+							256,
+							320
+						],
+						"respiracion_y": -0.572625994682312,
+						"suelo_y": 5100.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 384.0,
+						"celda": [
+							256,
+							4800,
+							256,
+							320
+						],
+						"respiracion_y": -0.490822285413742,
+						"suelo_y": 5100.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 640.0,
+						"celda": [
+							512,
+							4800,
+							256,
+							320
+						],
+						"respiracion_y": -0.409018576145172,
+						"suelo_y": 5100.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 896.0,
+						"celda": [
+							768,
+							4800,
+							256,
+							320
+						],
+						"respiracion_y": -0.327214866876602,
+						"suelo_y": 5100.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 1152.0,
+						"celda": [
+							1024,
+							4800,
+							256,
+							320
+						],
+						"respiracion_y": -0.245411142706871,
+						"suelo_y": 5100.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 1408.0,
+						"celda": [
+							1280,
+							4800,
+							256,
+							320
+						],
+						"respiracion_y": -0.163607433438301,
+						"suelo_y": 5100.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 1664.0,
+						"celda": [
+							1536,
+							4800,
+							256,
+							320
+						],
+						"respiracion_y": -0.0818037167191505,
+						"suelo_y": 5100.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/reposo_inicio.png",
+						"cadera_x": 1408.0,
+						"celda": [
+							1280,
+							320,
+							256,
+							320
+						],
+						"respiracion_y": 0,
+						"suelo_y": 620.0
+					}
+				],
+				[
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 2176.0,
+						"celda": [
+							2048,
+							4800,
+							256,
+							320
+						],
+						"respiracion_y": 0.451313883066177,
+						"suelo_y": 5100.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 2432.0,
+						"celda": [
+							2304,
+							4800,
+							256,
+							320
+						],
+						"respiracion_y": 0.386840462684631,
+						"suelo_y": 5100.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 2688.0,
+						"celda": [
+							2560,
+							4800,
+							256,
+							320
+						],
+						"respiracion_y": 0.322367072105408,
+						"suelo_y": 5100.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 2944.0,
+						"celda": [
+							2816,
+							4800,
+							256,
+							320
+						],
+						"respiracion_y": 0.257893651723862,
+						"suelo_y": 5100.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 3200.0,
+						"celda": [
+							3072,
+							4800,
+							256,
+							320
+						],
+						"respiracion_y": 0.193420231342316,
+						"suelo_y": 5100.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 3456.0,
+						"celda": [
+							3328,
+							4800,
+							256,
+							320
+						],
+						"respiracion_y": 0.128946825861931,
+						"suelo_y": 5100.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/cerrar_1.png",
+						"cadera_x": 3712.0,
+						"celda": [
+							3584,
+							4800,
+							256,
+							320
+						],
+						"respiracion_y": 0.0644734129309654,
+						"suelo_y": 5100.0
+					},
+					{
+						"archivo": "res://assets/personajes/sota/articulada_v10/reposo_inicio.png",
+						"cadera_x": 1408.0,
+						"celda": [
+							1280,
+							320,
+							256,
+							320
+						],
+						"respiracion_y": 0,
+						"suelo_y": 620.0
+					}
+				]
+			],
+			"escala": 1.0,
+			"marcha": [
+				{
+					"archivo": "res://assets/personajes/sota/articulada_v10/marcha.png",
+					"cadera_x": 128.0,
+					"celda": [
+						0,
+						1280,
+						256,
+						320
+					],
+					"fase": 0,
+					"punteras": [
+						[
+							148.235836029053,
+							290.449576377869
+						],
+						[
+							84.23583984375,
+							289.763118743896
+						]
+					],
+					"respiracion_y": 1.60748040676117,
+					"suelo_y": 1580.0
+				},
+				{
+					"archivo": "res://assets/personajes/sota/articulada_v10/marcha.png",
+					"cadera_x": 384.0,
+					"celda": [
+						256,
+						1280,
+						256,
+						320
+					],
+					"fase": 1,
+					"punteras": [
+						[
+							152.23583984375,
+							290.544577598572
+						],
+						[
+							88.23583984375,
+							291.241652488708
+						]
+					],
+					"respiracion_y": 2.45444917678833,
+					"suelo_y": 1580.0
+				},
+				{
+					"archivo": "res://assets/personajes/sota/articulada_v10/marcha.png",
+					"cadera_x": 640.0,
+					"celda": [
+						512,
+						1280,
+						256,
+						320
+					],
+					"fase": 2,
+					"punteras": [
+						[
+							156.235837936401,
+							290.658334732056
+						],
+						[
+							92.23583984375,
+							294.153653144836
+						]
+					],
+					"respiracion_y": 2.9277503490448,
+					"suelo_y": 1580.0
+				},
+				{
+					"archivo": "res://assets/personajes/sota/articulada_v10/marcha.png",
+					"cadera_x": 896.0,
+					"celda": [
+						768,
+						1280,
+						256,
+						320
+					],
+					"fase": 3,
+					"punteras": [
+						[
+							160.235836029053,
+							290.728496551514
+						],
+						[
+							96.2358379364014,
+							296.139434814453
+						]
+					],
+					"respiracion_y": 2.9553279876709,
+					"suelo_y": 1580.0
+				},
+				{
+					"archivo": "res://assets/personajes/sota/articulada_v10/marcha.png",
+					"cadera_x": 1152.0,
+					"celda": [
+						1024,
+						1280,
+						256,
+						320
+					],
+					"fase": 4,
+					"punteras": [
+						[
+							162.79833984375,
+							289.714000701904
+						],
+						[
+							100.235837936401,
+							292.425433635712
+						]
+					],
+					"respiracion_y": 2.53298377990723,
+					"suelo_y": 1580.0
+				},
+				{
+					"archivo": "res://assets/personajes/sota/articulada_v10/marcha.png",
+					"cadera_x": 1408.0,
+					"celda": [
+						1280,
+						1280,
+						256,
+						320
+					],
+					"fase": 5,
+					"punteras": [
+						[
+							161.354000091553,
+							285.97336101532
+						],
+						[
+							104.235837936401,
+							292.425433635712
+						]
+					],
+					"respiracion_y": 1.72501575946808,
+					"suelo_y": 1580.0
+				},
+				{
+					"archivo": "res://assets/personajes/sota/articulada_v10/marcha.png",
+					"cadera_x": 1664.0,
+					"celda": [
+						1536,
+						1280,
+						256,
+						320
+					],
+					"fase": 6,
+					"punteras": [
+						[
+							156.540523529053,
+							280.727327346802
+						],
+						[
+							108.235837936401,
+							292.425432682037
+						]
+					],
+					"respiracion_y": 0.654429733753204,
+					"suelo_y": 1580.0
+				},
+				{
+					"archivo": "res://assets/personajes/sota/articulada_v10/marcha.png",
+					"cadera_x": 1920.0,
+					"celda": [
+						1792,
+						1280,
+						256,
+						320
+					],
+					"fase": 7,
+					"punteras": [
+						[
+							149.090328216553,
+							275.708374023438
+						],
+						[
+							112.235837936401,
+							292.425433635712
+						]
+					],
+					"respiracion_y": -0.515787303447723,
+					"suelo_y": 1580.0
+				},
+				{
+					"archivo": "res://assets/personajes/sota/articulada_v10/marcha.png",
+					"cadera_x": 128.0,
+					"celda": [
+						0,
+						1600,
+						256,
+						320
+					],
+					"fase": 8,
+					"punteras": [
+						[
+							139.735837936401,
+							272.453365325928
+						],
+						[
+							116.235837936401,
+							292.425433635712
+						]
+					],
+					"respiracion_y": -1.60748040676117,
+					"suelo_y": 1900.0
+				},
+				{
+					"archivo": "res://assets/personajes/sota/articulada_v10/marcha.png",
+					"cadera_x": 384.0,
+					"celda": [
+						256,
+						1600,
+						256,
+						320
+					],
+					"fase": 9,
+					"punteras": [
+						[
+							129.209470748901,
+							271.787868499756
+						],
+						[
+							120.235837936401,
+							292.425433635712
+						]
+					],
+					"respiracion_y": -2.45444917678833,
+					"suelo_y": 1900.0
+				},
+				{
+					"archivo": "res://assets/personajes/sota/articulada_v10/marcha.png",
+					"cadera_x": 640.0,
+					"celda": [
+						512,
+						1600,
+						256,
+						320
+					],
+					"fase": 10,
+					"punteras": [
+						[
+							118.243650436401,
+							273.639694213867
+						],
+						[
+							124.235837936401,
+							292.425433635712
+						]
+					],
+					"respiracion_y": -2.9277503490448,
+					"suelo_y": 1900.0
+				},
+				{
+					"archivo": "res://assets/personajes/sota/articulada_v10/marcha.png",
+					"cadera_x": 896.0,
+					"celda": [
+						768,
+						1600,
+						256,
+						320
+					],
+					"fase": 11,
+					"punteras": [
+						[
+							107.570798873901,
+							277.217029571533
+						],
+						[
+							128.235837936401,
+							292.425433635712
+						]
+					],
+					"respiracion_y": -2.9553279876709,
+					"suelo_y": 1900.0
+				},
+				{
+					"archivo": "res://assets/personajes/sota/articulada_v10/marcha.png",
+					"cadera_x": 1152.0,
+					"celda": [
+						1024,
+						1600,
+						256,
+						320
+					],
+					"fase": 12,
+					"punteras": [
+						[
+							97.9233379364014,
+							281.420463562012
+						],
+						[
+							132.235837936401,
+							292.425433635712
+						]
+					],
+					"respiracion_y": -2.53298377990723,
+					"suelo_y": 1900.0
+				},
+				{
+					"archivo": "res://assets/personajes/sota/articulada_v10/marcha.png",
+					"cadera_x": 1408.0,
+					"celda": [
+						1280,
+						1600,
+						256,
+						320
+					],
+					"fase": 13,
+					"punteras": [
+						[
+							90.03369140625,
+							294.354621887207
+						],
+						[
+							136.235837936401,
+							292.425433635712
+						]
+					],
+					"respiracion_y": -1.72501575946808,
+					"suelo_y": 1900.0
+				},
+				{
+					"archivo": "res://assets/personajes/sota/articulada_v10/marcha.png",
+					"cadera_x": 1664.0,
+					"celda": [
+						1536,
+						1600,
+						256,
+						320
+					],
+					"fase": 14,
+					"punteras": [
+						[
+							84.63427734375,
+							295.961691856384
+						],
+						[
+							140.235836029053,
+							292.455555438995
+						]
+					],
+					"respiracion_y": -0.654429733753204,
+					"suelo_y": 1900.0
+				},
+				{
+					"archivo": "res://assets/personajes/sota/articulada_v10/marcha.png",
+					"cadera_x": 1920.0,
+					"celda": [
+						1792,
+						1600,
+						256,
+						320
+					],
+					"fase": 15,
+					"punteras": [
+						[
+							82.45751953125,
+							296.012594223022
+						],
+						[
+							144.235836029053,
+							293.131539344788
+						]
+					],
+					"respiracion_y": 0.515787303447723,
+					"suelo_y": 1900.0
+				},
+				{
+					"archivo": "res://assets/personajes/sota/articulada_v10/marcha.png",
+					"cadera_x": 128.0,
+					"celda": [
+						0,
+						1920,
+						256,
+						320
+					],
+					"fase": 16,
+					"punteras": [
+						[
+							84.23583984375,
+							295.970303535461
+						],
+						[
+							148.235837936401,
+							294.413477897644
+						]
+					],
+					"respiracion_y": 1.60748040676117,
+					"suelo_y": 2220.0
+				},
+				{
+					"archivo": "res://assets/personajes/sota/articulada_v10/marcha.png",
+					"cadera_x": 384.0,
+					"celda": [
+						256,
+						1920,
+						256,
+						320
+					],
+					"fase": 17,
+					"punteras": [
+						[
+							88.23583984375,
+							297.306553840637
+						],
+						[
+							152.235836029053,
+							294.798355102539
+						]
+					],
+					"respiracion_y": 2.45444917678833,
+					"suelo_y": 2220.0
+				},
+				{
+					"archivo": "res://assets/personajes/sota/articulada_v10/marcha.png",
+					"cadera_x": 640.0,
+					"celda": [
+						512,
+						1920,
+						256,
+						320
+					],
+					"fase": 18,
+					"punteras": [
+						[
+							92.23583984375,
+							299.159690856934
+						],
+						[
+							156.235837936401,
+							294.951064109802
+						]
+					],
+					"respiracion_y": 2.9277503490448,
+					"suelo_y": 2220.0
+				},
+				{
+					"archivo": "res://assets/personajes/sota/articulada_v10/marcha.png",
+					"cadera_x": 896.0,
+					"celda": [
+						768,
+						1920,
+						256,
+						320
+					],
+					"fase": 19,
+					"punteras": [
+						[
+							96.2358379364014,
+							290.355781555176
+						],
+						[
+							160.235836029053,
+							295.036031723022
+						]
+					],
+					"respiracion_y": 2.9553279876709,
+					"suelo_y": 2220.0
+				},
+				{
+					"archivo": "res://assets/personajes/sota/articulada_v10/marcha.png",
+					"cadera_x": 1152.0,
+					"celda": [
+						1024,
+						1920,
+						256,
+						320
+					],
+					"fase": 20,
+					"punteras": [
+						[
+							100.235837936401,
+							290.386127471924
+						],
+						[
+							162.798336029053,
+							294.022666931152
+						]
+					],
+					"respiracion_y": 2.53298377990723,
+					"suelo_y": 2220.0
+				},
+				{
+					"archivo": "res://assets/personajes/sota/articulada_v10/marcha.png",
+					"cadera_x": 1408.0,
+					"celda": [
+						1280,
+						1920,
+						256,
+						320
+					],
+					"fase": 21,
+					"punteras": [
+						[
+							104.235837936401,
+							290.386127471924
+						],
+						[
+							161.35400390625,
+							290.284643173218
+						]
+					],
+					"respiracion_y": 1.72501575946808,
+					"suelo_y": 2220.0
+				},
+				{
+					"archivo": "res://assets/personajes/sota/articulada_v10/marcha.png",
+					"cadera_x": 1664.0,
+					"celda": [
+						1536,
+						1920,
+						256,
+						320
+					],
+					"fase": 22,
+					"punteras": [
+						[
+							108.235837936401,
+							290.386127471924
+						],
+						[
+							156.540523529053,
+							285.041612625122
+						]
+					],
+					"respiracion_y": 0.654429733753204,
+					"suelo_y": 2220.0
+				},
+				{
+					"archivo": "res://assets/personajes/sota/articulada_v10/marcha.png",
+					"cadera_x": 1920.0,
+					"celda": [
+						1792,
+						1920,
+						256,
+						320
+					],
+					"fase": 23,
+					"punteras": [
+						[
+							112.235837936401,
+							290.386127471924
+						],
+						[
+							149.090328216553,
+							280.023796081543
+						]
+					],
+					"respiracion_y": -0.515787303447723,
+					"suelo_y": 2220.0
+				},
+				{
+					"archivo": "res://assets/personajes/sota/articulada_v10/marcha.png",
+					"cadera_x": 128.0,
+					"celda": [
+						0,
+						2240,
+						256,
+						320
+					],
+					"fase": 24,
+					"punteras": [
+						[
+							116.235837936401,
+							290.386127471924
+						],
+						[
+							139.735836029053,
+							276.765565872192
+						]
+					],
+					"respiracion_y": -1.60748040676117,
+					"suelo_y": 2540.0
+				},
+				{
+					"archivo": "res://assets/personajes/sota/articulada_v10/marcha.png",
+					"cadera_x": 384.0,
+					"celda": [
+						256,
+						2240,
+						256,
+						320
+					],
+					"fase": 25,
+					"punteras": [
+						[
+							120.235837936401,
+							290.386127471924
+						],
+						[
+							129.209470748901,
+							276.088459014893
+						]
+					],
+					"respiracion_y": -2.45444917678833,
+					"suelo_y": 2540.0
+				},
+				{
+					"archivo": "res://assets/personajes/sota/articulada_v10/marcha.png",
+					"cadera_x": 640.0,
+					"celda": [
+						512,
+						2240,
+						256,
+						320
+					],
+					"fase": 26,
+					"punteras": [
+						[
+							124.235837936401,
+							290.386127471924
+						],
+						[
+							118.243650436401,
+							277.913009643555
+						]
+					],
+					"respiracion_y": -2.9277503490448,
+					"suelo_y": 2540.0
+				},
+				{
+					"archivo": "res://assets/personajes/sota/articulada_v10/marcha.png",
+					"cadera_x": 896.0,
+					"celda": [
+						768,
+						2240,
+						256,
+						320
+					],
+					"fase": 27,
+					"punteras": [
+						[
+							128.235837936401,
+							290.386127471924
+						],
+						[
+							107.570798873901,
+							281.438053131104
+						]
+					],
+					"respiracion_y": -2.9553279876709,
+					"suelo_y": 2540.0
+				},
+				{
+					"archivo": "res://assets/personajes/sota/articulada_v10/marcha.png",
+					"cadera_x": 1152.0,
+					"celda": [
+						1024,
+						2240,
+						256,
+						320
+					],
+					"fase": 28,
+					"punteras": [
+						[
+							132.235837936401,
+							290.386127471924
+						],
+						[
+							97.9233379364014,
+							284.405568122864
+						]
+					],
+					"respiracion_y": -2.53298377990723,
+					"suelo_y": 2540.0
+				},
+				{
+					"archivo": "res://assets/personajes/sota/articulada_v10/marcha.png",
+					"cadera_x": 1408.0,
+					"celda": [
+						1280,
+						2240,
+						256,
+						320
+					],
+					"fase": 29,
+					"punteras": [
+						[
+							136.235837936401,
+							290.386127471924
+						],
+						[
+							90.03369140625,
+							289.790273666382
+						]
+					],
+					"respiracion_y": -1.72501575946808,
+					"suelo_y": 2540.0
+				},
+				{
+					"archivo": "res://assets/personajes/sota/articulada_v10/marcha.png",
+					"cadera_x": 1664.0,
+					"celda": [
+						1536,
+						2240,
+						256,
+						320
+					],
+					"fase": 30,
+					"punteras": [
+						[
+							140.235837936401,
+							290.386533737183
+						],
+						[
+							84.63427734375,
+							289.996095657349
+						]
+					],
+					"respiracion_y": -0.654429733753204,
+					"suelo_y": 2540.0
+				},
+				{
+					"archivo": "res://assets/personajes/sota/articulada_v10/marcha.png",
+					"cadera_x": 1920.0,
+					"celda": [
+						1792,
+						2240,
+						256,
+						320
+					],
+					"fase": 31,
+					"punteras": [
+						[
+							144.23583984375,
+							290.400207519531
+						],
+						[
+							82.45751953125,
+							289.867204666138
+						]
+					],
+					"respiracion_y": 0.515787303447723,
+					"suelo_y": 2540.0
+				}
+			],
+			"reposo": {
+				"archivo": "res://assets/personajes/sota/articulada_v10/reposo_inicio.png",
+				"cadera_x": 1408.0,
+				"celda": [
+					1280,
+					320,
+					256,
+					320
+				],
+				"respiracion_y": 0,
+				"suelo_y": 620.0
+			},
+			"respiracion": [
+				{
+					"archivo": "res://assets/personajes/sota/articulada_v10/reposo_inicio.png",
+					"cadera_x": 1664.0,
+					"celda": [
+						1536,
+						320,
+						256,
+						320
+					],
+					"respiracion_y": 0,
+					"suelo_y": 620.0
+				},
+				{
+					"archivo": "res://assets/personajes/sota/articulada_v10/reposo_inicio.png",
+					"cadera_x": 1920.0,
+					"celda": [
+						1792,
+						320,
+						256,
+						320
+					],
+					"respiracion_y": -1,
+					"suelo_y": 620.0
+				},
+				{
+					"archivo": "res://assets/personajes/sota/articulada_v10/reposo_inicio.png",
+					"cadera_x": 128.0,
+					"celda": [
+						0,
+						640,
+						256,
+						320
+					],
+					"respiracion_y": -1,
+					"suelo_y": 940.0
+				},
+				{
+					"archivo": "res://assets/personajes/sota/articulada_v10/reposo_inicio.png",
+					"cadera_x": 384.0,
+					"celda": [
+						256,
+						640,
+						256,
+						320
+					],
+					"respiracion_y": 0,
+					"suelo_y": 940.0
+				}
+			]
+		}
+	]
+}

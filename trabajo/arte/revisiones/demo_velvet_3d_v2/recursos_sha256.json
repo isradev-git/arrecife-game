@@ -1,0 +1,12 @@
+{
+  "godot_ilustrado/velvet.gd": "0fde0f243514155ae8e193fd7d61611245401b4b04509eeb91741b64f3f51498",
+  "godot_ilustrado/jugadora.gd": "501e93239d582444622a058b8ef8defa28d21d865309bc8ae1cb8cc8c9ef3224",
+  "godot_ilustrado/demo_velvet.gd": "9d1cfd3995e7f7b6a3439c61448e19cee111eb30aaa9142f56c418adfe48bfa5",
+  "godot_ilustrado/recorrido_3d.gd": "f9608871b63bdd0cd7fe557e6ad230831ce88a11772d95c444c47543986b0be3",
+  "trabajo/arte/personajes/figuracion/velvet_v2/crear_vecindario.py": "6e641e9e7ab72f47e01dcb08f69b73f60edd1d1d03e0285898dcbf1b4a70fdd5",
+  "godot_ilustrado/build/web/index.pck": "04bab3d2ffeec27920612b418748994d97301fb965182bf2134b6716a1fe8b32",
+  "godot_ilustrado/assets/velvet_3d_v2/jefa.glb": "50d7b8d5cf80ba1f94f7e38afd8327439860ca3a1c284523de059276fb144565",
+  "godot_ilustrado/assets/velvet_3d_v2/vecina_tecnica.glb": "82ab334c98e28445e4a6f3b8d79f590b96eaf04a61a5ca2e98da4abe5c15e089",
+  "godot_ilustrado/assets/velvet_3d_v2/vecino_visor.glb": "c7d0bd5b9ed58e29677cef70e5d681fb9518c377c0402402dbc9ae493c2dcbcf",
+  "godot_ilustrado/assets/velvet_3d_v2/vecina_brazo.glb": "e7a6798ec05caab77699f4ea48ddc0dd3478a47b16bb85afba8abfd02fe376d5"
+}

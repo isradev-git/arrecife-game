@@ -1,0 +1,4 @@
+INTACTO godot_ilustrado/assets/sota_3d_v7/sota.glb
+INTACTO trabajo/arte/personajes/sota/ilustrada_3d_v7/crear_sota.py
+INTACTO trabajo/arte/personajes/sota/ilustrada_3d_v7/sota.blend
+INTACTO godot_ilustrado/assets/velvet_3d_v1/jefa_estudio.glb

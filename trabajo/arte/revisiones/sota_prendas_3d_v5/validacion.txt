@@ -1,0 +1,51 @@
+19 octubre 2026 · Godot 4.7.2 / GPU Apple M4 / Compatibility
+
+=== modelo · salida 0 ===
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+OpenGL API 4.1 Metal - 90.5 - Compatibility - Using Device: Apple - Apple M4
+
+Sota: 63 piezas, 52747 vértices con pesos normalizados; deck en lado físico derecho; retarget activo
+
+=== locomocion · salida 0 ===
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+OpenGL API 4.1 Metal - 90.5 - Compatibility - Using Device: Apple - Apple M4
+
+Root motion a 30 FPS: (0.0, 0.0, 3.900002) m en 4 s
+Root motion a 60 FPS: (0.0, 0.0, 3.899998) m en 4 s
+Root motion a 120 FPS: (0.0, 0.0, 3.900009) m en 4 s
+65 huesos; adaptación nativa sin escalado; error máximo de longitud local: 0.0 m
+Frenada llega a reposo; root motion nulo en reposo
+Recorrido lateral y pérdida de foco comprobados
+Captura nativa guardada: /Users/glitchbane/Documents/proyectos/el-arrecife/godot_ilustrado/../trabajo/arte/revisiones/sota_prendas_3d_v5/base_3d.png
+
+=== equipo · salida 0 ===
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+OpenGL API 4.1 Metal - 90.5 - Compatibility - Using Device: Apple - Apple M4
+
+Equipo: 1920 poses a 120 Hz en ambos sentidos; reposo completo, arranque, marcha y parada. Sin cruces de aristas de mano/antebrazo con caja del equipo +3 mm. Modelo anterior: 1726 poses con cruce. Arnés unido al anclaje en todas las muestras.
+
+=== contacto · salida 0 ===
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+OpenGL API 4.1 Metal - 90.5 - Compatibility - Using Device: Apple - Apple M4
+
+Modelo Sota · mínimo/máximo: -0.0091679468751 / 0.00691590458155
+Malla renderizada: borde inferior -0.0091679468751..0.00691590458155 m respecto al suelo
+Excursión de marcadores de bota en apoyo plano: [0.00142461061478, 0.00605165958405] m; muestras [4, 26]
+Ventanas: diferencia punta/talón <12 mm; ambos marcadores <40 mm de altura; no cubre todo el rodado
+Margen técnico, no ausencia absoluta de penetración/flotación ni validación de transiciones
+
+Web 3D: export-release salida 0. Helium/WebGL 2: carga del GLB texturizado, clic al suelo, movimiento/seguimiento y pausa con Espacio. Consola: sólo inicio de Godot, sin errores. Otros navegadores no comprobados.
+
+Inspección nativa: cabeza elegida por el autor, chaqueta/capas, pantalón, botas, ambos perfiles/fases y tres zonas de pasarela. Contacto incluye todas las superficies de Detalles calzado, no sólo las botas anteriores. Marcadores horizontales sólo sobre soporte original, con ventanas parciales.
+No se repiten control.gd ni recorrido.gd: cámara, controlador y clips conservados; la escena real se renderiza y prueba por clic en Web. La pasada física completa anterior es v4.
+Blender advierte de reducción a cuatro influencias en ciertos vértices y de color de vértices no usado en algunos materiales. La importación/runtime y pesos normalizados se validan en GPU. No se ocultan esos avisos como si fueran una aprobación artística.
+No aprobación artística del vestuario ni certificación de acabado profesional. Primera penetración de suela (-14,70 mm) conservada en ensayo_01/; final -9,168..+6,916 mm, sin modificar los umbrales.
+
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+OpenGL API 4.1 Metal - 90.5 - Compatibility - Using Device: Apple - Apple M4
+
+Captura 120: 380.0 llamadas de dibujo
+Captura 300: 385.0 llamadas de dibujo
+Captura 480: 387.0 llamadas de dibujo
+
+Llamadas de dibujo de estas capturas no son benchmark de FPS.

@@ -49,6 +49,7 @@ func build(profile: int) -> void:
 		piece("deck", [[1136,426],[1158,431],[1160,507],[1135,511]], hip_source, 2)
 	restore_covered_cloth()
 	prepare_continuous_legs()
+	prepare_full_trousers()
 	var torso_vertices: PackedVector2Array = parts.torso.polygon
 	for i in range(torso_vertices.size()): torso_vertices[i].y += 124.0
 	parts.torso.polygon = torso_vertices
@@ -183,6 +184,64 @@ func stretched(point: Vector2, axis: Vector2, length: float) -> Vector2:
 	return point+unit*point.dot(unit)*(length/axis.length()-1.0)
 
 
+func prepare_full_trousers() -> void:
+	# Cada pierna necesita tela completa: el perfil aplanado solo dibuja la franja visible de la lejana.
+	for index in range(2):
+		var leg: Dictionary = legs[index]
+		var node: Polygon2D = leg.thigh
+		for patch in node.get_children(): patch.queue_free()
+		var vertices := PackedVector2Array()
+		var uv := PackedVector2Array()
+		var triangles: Array[PackedInt32Array] = []
+		var rows := [490.0,530.0,570.0,610.0,650.0,690.0,730.0,770.0,814.0]
+		var widths := [13.0,14.0,14.0,13.0,12.0,11.0,11.0,12.0,12.0]
+		var samples: Array
+		if facing==0:
+			samples = [[455,486,510],[455,486,530],[410,492,570],[410,487,610],[400,475,650],[396,458,690],[388,453,730],[390,456,770],[388,450,800]] if index==1 else [[505,537,510],[505,537,530],[505,537,570],[505,538,610],[502,537,650],[498,530,690],[495,530,730],[490,528,770],[490,527,800]]
+		else:
+			samples = [[1020,1040,470],[1020,1040,490],[1068,1128,580],[1071,1130,610],[1074,1132,650],[1075,1130,690],[1074,1132,730],[1074,1136,770],[1074,1135,800]] if index==1 else [[1018,1040,470],[1018,1040,490],[1006,1047,580],[1000,1052,610],[1005,1050,650],[1024,1058,690],[1030,1060,730],[1030,1060,770],[1025,1060,800]]
+		for row in range(rows.size()):
+			var y: float = (rows[row]-hip_source.y)*pixel_scale
+			var center: float = lerpf(leg.hip.x,leg.neutral_knee.x,clampf((y-leg.hip.y)/(leg.neutral_knee.y-leg.hip.y),0,1)) if y<leg.neutral_knee.y else lerpf(leg.neutral_knee.x,leg.neutral_ankle.x,clampf((y-leg.neutral_knee.y)/(leg.neutral_ankle.y-leg.neutral_knee.y),0,1))
+			for side in range(2):
+				vertices.append(Vector2(center+widths[row]*(-1 if side==0 else 1),y)-leg.hip)
+				uv.append(Vector2(samples[row][side],samples[row][2]))
+			if row>0:
+				var a := (row-1)*2
+				triangles.append(PackedInt32Array([a,a+1,a+2]))
+				triangles.append(PackedInt32Array([a+1,a+3,a+2]))
+		node.polygon=vertices
+		node.uv=uv
+		node.polygons=triangles
+		if index==1:
+			# Separar las islas UV impide interpolar a través de la mano pintada entre cintura y bolsillo.
+			var split_vertices := PackedVector2Array()
+			var split_uv := PackedVector2Array()
+			var split_triangles: Array[PackedInt32Array] = []
+			for row in range(rows.size()-1):
+				var offset := split_vertices.size()
+				for corner in [row*2,row*2+1,row*2+2,row*2+3]:
+					split_vertices.append(vertices[corner])
+					var sample: Vector2 = uv[corner]
+					if row<2:
+						var fraction: float = (rows[corner/2]-490.0)/80.0
+						sample=Vector2(455.0 if corner%2==0 else 486.0,498.0+fraction*34.0) if facing==0 else Vector2(1018.0 if corner%2==0 else 1040.0,444.0+fraction*47.0)
+					split_uv.append(sample)
+				split_triangles.append(PackedInt32Array([offset,offset+1,offset+2]))
+				split_triangles.append(PackedInt32Array([offset+1,offset+3,offset+2]))
+			vertices=split_vertices
+			node.polygon=vertices
+			node.uv=split_uv
+			node.polygons=split_triangles
+		node.set_meta("original_polygon",vertices)
+	var outline := [[402,490],[548,490],[548,520],[526,548],[486,562],[445,550],[414,530]] if facing==0 else [[985,490],[1127,490],[1123,522],[1098,548],[1055,562],[1014,548],[991,520]]
+	var pelvis := piece("pelvis",outline,hip_source,1)
+	var clean := PackedVector2Array()
+	for point in pelvis.uv:
+		clean.append(Vector2(455+(point.x-400)/150.0*30.0,498+(point.y-435)/135.0*34.0) if facing==0 else Vector2(1018+(point.x-982)/148.0*25.0,444+(point.y-435)/135.0*47.0))
+	pelvis.uv=clean
+
+
 func cloth_point(leg: Dictionary, source: Vector2, hip: Vector2, knee: Vector2, ankle: Vector2) -> Vector2:
 	var upper: Vector2 = hip+stretched(source-leg.hip,leg.thigh_axis,(knee-hip).length()).rotated(leg.thigh.rotation)
 	var lower: Vector2 = knee+stretched(source-leg.neutral_knee,leg.shin_axis,(ankle-knee).length()).rotated(leg.shin.rotation)
@@ -249,7 +308,12 @@ func add_arm(joints: Array, sleeve: Array, hand: Array, depth: int) -> void:
 func pose(phase: float, amount: float = 1.0) -> void:
 	if is_zero_approx(amount): phase=0.0
 	pose_amount=amount
-	body.position = Vector2(0, roundf(cos((phase-0.08)*TAU*2.0)*3.0*amount))
+	body.position = Vector2(0, cos((phase-0.08)*TAU*2.0)*3.0*amount)
+	# El dibujo superior conserva su retícula; las rodillas se resuelven sin escalones.
+	var pixel_offset := Vector2(0,roundf(body.position.y)-body.position.y)
+	parts.head.position=pixel_offset
+	parts.deck.position=pixel_offset
+	parts.torso.position=Vector2(0,-124)+pixel_offset
 	parts.torso.rotation = sin(phase*TAU)*0.015*direction*amount
 	for index in range(2):
 		var p := fposmod(phase+(0.5 if index==0 else 0.0),1.0)
@@ -261,10 +325,11 @@ func pose(phase: float, amount: float = 1.0) -> void:
 			var eased := swing*swing*(3.0-2.0*swing)
 			var tangent := swing*(1.0-swing)*(1.0-2.0*swing)
 			foot_x = lerpf(56.0-STRIDE*0.6,56.0,eased) - STRIDE*0.4*tangent
-			lift = pow(sin(swing*PI),2.0)*10.0
-			tilt = lerpf(0.24,-0.16,eased)
+			# El talón recoge antes de pasar bajo la cadera y el pie se extiende al llegar.
+			lift = pow(sin(swing*PI),2.0)*18.0*(1.0+0.5*cos(swing*PI))
+			tilt = lerpf(0.24,-0.16,eased)+0.16*pow(sin(swing*PI),2.0)
 		else:
-			tilt = -0.16*(1.0-p/0.1) if p<0.1 else 0.24*smoothstep(0.43,0.6,p)
+			tilt = -0.16*(1.0-smoothstep(0.0,0.1,p)) if p<0.1 else 0.24*smoothstep(0.43,0.6,p)
 		var leg: Dictionary = legs[index]
 		var angle := direction*tilt
 		var low := -INF
@@ -278,10 +343,14 @@ func pose(phase: float, amount: float = 1.0) -> void:
 		if index==0:
 			hip=hip.lerp(Vector2(legs[1].hip.x+direction*3.0,hip.y),amount)
 		var axis := ankle-hip
-		var reach := clampf(axis.length(),1.0,111.9)
+		# El apoyo se extiende; la flexión grande pertenece a la recuperación de la pierna.
+		var flexion := 6.0+10.0*pow(sin(PI*p/0.3),2.0)
+		if p>0.3: flexion=lerpf(6.0,30.0,smoothstep(0.3,0.6,p))
+		if p>0.6: flexion=lerpf(30.0,62.0,smoothstep(0.6,0.76,p))
+		if p>0.76: flexion=lerpf(62.0,6.0,smoothstep(0.76,1.0,p))
 		var unit := axis.normalized()
-		var along := (56.0*56.0-56.0*56.0+reach*reach)/(2.0*reach)
-		var bend := sqrt(maxf(0.0,56.0*56.0-along*along))
+		var along := axis.length()/2.0
+		var bend := along*tan(deg_to_rad(flexion)*0.5)
 		var knee: Vector2 = hip+unit*along+Vector2(unit.y,-unit.x)*direction*bend
 		knee = leg.neutral_knee.lerp(knee,amount)
 		ankle = leg.neutral_ankle.lerp(ankle,amount)
@@ -294,6 +363,7 @@ func pose(phase: float, amount: float = 1.0) -> void:
 		deform_leg(leg,hip,knee,ankle)
 		var arm: Dictionary = arms[index]
 		var shoulder: Vector2 = arm.shoulder if index==1 else arms[1].shoulder+Vector2(direction*3.0,2.0)
+		shoulder+=pixel_offset
 		var swing := cos(p*TAU)*0.27*direction
 		var upper_angle := lerp_angle(arm.sleeve_angle,PI/2.0+swing,amount)
 		var elbow: Vector2 = shoulder+Vector2.from_angle(upper_angle)*arm.upper_length

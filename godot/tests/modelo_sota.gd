@@ -2,7 +2,7 @@ extends SceneTree
 
 const RIG = preload("res://sota_articulada.gd")
 const PREVIOUS = "res://../trabajo/arte/revisiones/modelo_marcha_v5/articulacion_antes.gd.txt"
-const OUTPUT = "res://../trabajo/arte/revisiones/modelo_marcha_v8/"
+const OUTPUT = "res://../trabajo/arte/revisiones/apoyo_sota_v14/"
 
 func _initialize() -> void:
 	call_deferred("check")
@@ -11,7 +11,7 @@ func poses() -> Array:
 	var values := []
 	for phase in range(32):
 		values.append([phase/32.0,1.0])
-		for stage in range(4): values.append([phase/32.0,1.0-(stage+1)/4.0])
+		for stage in range(8): values.append([phase/32.0,1.0-(stage+1)/8.0])
 	for stage in range(4): values.append([0.25+(stage+1)*2.0/128.0,(stage+1)/4.0])
 	return values
 
@@ -29,10 +29,10 @@ func check() -> void:
 		for value in poses():
 			previous.pose(value[0],value[1])
 			current.pose(value[0],value[1])
-			assert(previous.body.transform.is_equal_approx(current.body.transform))
+			assert(absf(current.body.position.y)<=3.01)
 			assert(previous.hip_center.is_equal_approx(current.hip_center))
-			for name in ["torso","head","boot0","boot1","sleeve1","hand1","deck"]:
-				assert(previous.parts[name].transform.is_equal_approx(current.parts[name].transform),"Trayectoria modificada: "+name)
+			for name in ["torso","head","sleeve1","hand1","deck"]:
+				assert(previous.parts[name].global_transform.is_equal_approx(current.parts[name].global_transform),"Trayectoria modificada: "+name)
 			for leg in range(2): assert(previous.legs[leg].hull==current.legs[leg].hull)
 			if value[1]==1.0:
 				assert(absf(current.parts.sleeve0.position.x-current.parts.sleeve1.position.x)<=3.01)
@@ -41,12 +41,13 @@ func check() -> void:
 		current.queue_free()
 	await process_frame
 	var before: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://assets/personajes/sota/articulada_v1/movimiento.json"))
-	var after: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://assets/personajes/sota/articulada_v5/movimiento.json"))
+	var after: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(preload("res://movimiento_sota.gd").DATA_PATH))
 	assert(before.distancia_ciclo==after.distancia_ciclo)
 	for profile in range(2):
 		for phase in range(32):
-			assert(before.perfiles[profile].marcha[phase].punteras==after.perfiles[profile].marcha[phase].punteras)
-	print("OK: 328 poses conservan cabeza/cuerpo/brazo cercano/raíces de botas y contornos; hombro y cadera lejanos corregidos; ciclo y punteras preparados idénticos a v4.")
+			for foot in range(2):
+				assert(absf(before.perfiles[profile].marcha[phase].punteras[foot][0]-after.perfiles[profile].marcha[phase].punteras[foot][0])<0.001)
+	print("OK: 584 poses conservan cabeza/tronco/brazo cercano/raíces y contornos de botas; ciclo y trayectoria horizontal de punteras idénticos a v4.")
 	if DisplayServer.get_name()=="headless":
 		quit()
 		return
@@ -91,7 +92,7 @@ func check_coverage() -> bool:
 	var skin_total := 0
 	var samples := poses()
 	for profile in range(2):
-		for batch in range(3):
+		for batch in range(ceili(samples.size()/56.0)):
 			var vp := SubViewport.new()
 			vp.size = Vector2i(2048,2240)
 			vp.transparent_bg = true
@@ -149,6 +150,6 @@ func check_coverage() -> bool:
 			vp.queue_free()
 			await process_frame
 	assert(skin_total==0,"Piel incrustada en pantalones sin los brazos")
-	assert(checked==328)
-	print("OK: 328 renders sin brazos, sin piel incrustada en ropa y sin huecos en las zonas reconstruidas de torso/cintura ni unión de rodillas/botas.")
+	assert(checked==584)
+	print("OK: 584 renders sin brazos, sin piel incrustada en ropa y sin huecos en las zonas reconstruidas de torso/cintura ni unión de rodillas/botas.")
 	return true

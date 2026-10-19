@@ -1,6 +1,6 @@
 extends RefCounted
 
-const DATA_PATH = "res://assets/personajes/sota/articulada_v5/movimiento.json"
+const DATA_PATH = "res://assets/personajes/sota/articulada_v10/movimiento.json"
 const CYCLE_DISTANCE = 128.0
 const START_DISTANCE = 8.0
 const SETTLE_TIME = 0.24
@@ -11,18 +11,24 @@ var profile := 0
 var state := "reposo"
 var frame_index := -1
 var distance := 0.0
-var start_distance := 0.0
 var timer := 0.0
 var reduced_motion := false
 var closing_frame := 8
+var blend := 0.0
+var visible_pose: Dictionary = {}
+var reflect_left := true
 
-func _init() -> void:
+func _init(path: String = DATA_PATH, mirror_left: bool = true) -> void:
+	if path!=DATA_PATH: data=JSON.parse_string(FileAccess.get_file_as_string(path))
+	reflect_left=mirror_left
 	assert(data.distancia_ciclo == CYCLE_DISTANCE and data.perfiles.size() == 2)
+	# La versión jugable conservada usa el derecho reflejado; la candidata carga perfiles propios.
+	if reflect_left: data.perfiles[1] = data.perfiles[0]
 	for view in data.perfiles:
-		assert(view.marcha.size() == 32 and view.arranque.size() == 4 and view.cierres.size() == 32)
+		assert(view.marcha.size() == data.fases and view.arranque.size() == 4 and view.cierres.size() == data.fases)
 		var poses: Array = view.marcha + view.arranque + view.respiracion + [view.reposo]
 		for closing in view.cierres:
-			assert(closing.size() == 4)
+			assert(closing.size() == 8)
 			poses += closing
 		for pose in poses:
 			var texture := AtlasTexture.new()
@@ -43,34 +49,33 @@ func reset(facing: int) -> void:
 	state="reposo"
 	frame_index=-1
 	distance=0.0
-	start_distance=0.0
 	timer=0.0
+	blend=0.0
+	visible_pose={}
 
 func update(sprite: Sprite2D, moved: float, delta: float, facing: int) -> void:
 	var dt:=clampf(delta,0.0,0.05)
 	if absf(moved)>0.0001:
 		var next_profile:=0 if moved>0.0 else 1
-		if profile!=next_profile or state in ["reposo","parada","giro"]:
+		if profile!=next_profile or state in ["reposo","giro"]:
 			reset(next_profile)
-			state="arranque"
-		start_distance+=absf(moved)
+		# Una parada interrumpida conserva fase y amplitud del paso mostrado.
 		distance+=absf(moved)
-		if start_distance<START_DISTANCE:
-			apply(sprite,data.perfiles[profile].arranque[mini(3,int(start_distance/START_DISTANCE*4.0))])
-			return
-		state="marcha"
+		blend=move_toward(blend,1.0,absf(moved)/START_DISTANCE)
 		frame_index=frame_at(distance)
-		apply(sprite,data.perfiles[profile].marcha[frame_index])
+		state="marcha" if blend==1.0 else "arranque"
+		apply(sprite,blended_pose(frame_index))
 		timer=0.0
 		return
 	if state in ["marcha","arranque"]:
-		closing_frame=frame_index if frame_index>=0 else frame_at(distance)
+		closing_frame=frame_index
 		state="parada"
 		timer=0.0
 	if state=="parada":
 		timer+=dt
-		if timer<SETTLE_TIME:
-			apply(sprite,data.perfiles[profile].cierres[closing_frame][mini(3,int(timer/SETTLE_TIME*4.0))])
+		blend=move_toward(blend,0.0,dt/SETTLE_TIME)
+		if blend>0.0:
+			apply(sprite,blended_pose(closing_frame))
 			return
 		reset(profile)
 	if facing!=profile:
@@ -88,17 +93,21 @@ func update(sprite: Sprite2D, moved: float, delta: float, facing: int) -> void:
 	else:
 		apply(sprite,data.perfiles[profile].reposo)
 
+func blended_pose(phase: int) -> Dictionary:
+	var level:=clampi(roundi(smoothstep(0.0,1.0,blend)*8.0),0,8)
+	if level==8: return data.perfiles[profile].marcha[phase]
+	return data.perfiles[profile].cierres[phase][7-level]
+
 func current_pose() -> Dictionary:
-	var view: Dictionary = data.perfiles[profile]
-	if state=="marcha": return view.marcha[frame_index]
-	if state=="arranque": return view.arranque[mini(3,int(start_distance/START_DISTANCE*4.0))]
-	if state=="parada": return view.cierres[closing_frame][mini(3,int(timer/SETTLE_TIME*4.0))]
-	return view.reposo
+	return visible_pose if not visible_pose.is_empty() else data.perfiles[profile].reposo
 
 func apply(sprite: Sprite2D, pose: Dictionary) -> void:
+	visible_pose=pose
 	sprite.texture=textures[key(pose)]
 	sprite.centered=false
+	sprite.flip_h=reflect_left and profile==1
 	sprite.offset=Vector2(-(pose.cadera_x-pose.celda[0]),-(pose.suelo_y-pose.celda[1]))
+	if sprite.flip_h: sprite.offset.x=-pose.celda[2]-sprite.offset.x
 	sprite.scale=Vector2.ONE
 	sprite.position=Vector2.ZERO
 	sprite.texture_filter=CanvasItem.TEXTURE_FILTER_NEAREST

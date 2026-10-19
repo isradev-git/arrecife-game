@@ -1,0 +1,9 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+OpenGL API 4.1 Metal - 90.5 - Compatibility - Using Device: Apple - Apple M4
+
+Completo: 26.7 ms/fotograma; CPU 30.912; llamadas 633.0
+Sin sombras: 23.9666666666667 ms/fotograma; CPU 29.084; llamadas 232.0
+Sin vapor: 23.9833333333333 ms/fotograma; CPU 28.76; llamadas 227.0
+Sin sonda: 23.6666666666667 ms/fotograma; CPU 25.75; llamadas 227.0
+Materiales simples: 23.6333333333333 ms/fotograma; CPU 26.779; llamadas 227.0
+Sin personajes: 3.31666666666667 ms/fotograma; CPU 26.779; llamadas 167.0

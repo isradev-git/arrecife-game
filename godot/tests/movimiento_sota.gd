@@ -1,7 +1,7 @@
 extends SceneTree
 
 const WALK = preload("res://movimiento_sota.gd")
-const OUTPUT = "res://../trabajo/arte/revisiones/modelo_marcha_v8/"
+const OUTPUT = "res://../trabajo/arte/revisiones/apoyo_sota_v14/"
 
 func _initialize() -> void:
 	call_deferred("check")
@@ -28,7 +28,7 @@ func check() -> void:
 		for pose in poses:
 			if not images.has(pose.archivo): images[pose.archivo]=Image.load_from_file(ProjectSettings.globalize_path(pose.archivo))
 			var image: Image=images[pose.archivo]
-			var shift:int=int(pose.respiracion_y)
+			var shift:int=roundi(pose.respiracion_y)
 			for y in range(40,88):
 				for x in range(80,190):
 					var sample:=image.get_pixel(pose.celda[0]+x,pose.celda[1]+y+shift)
@@ -64,7 +64,7 @@ func check() -> void:
 		for tick in range(240):
 			scene.advance(1.0/60.0,1.0 if profile==0 else -1.0)
 			assert(scene.sota.scale==Vector2.ONE and scene.sota.position==Vector2.ZERO)
-			assert(not scene.sota.flip_h and not scene.sota.flip_v)
+			assert(scene.sota.flip_h==(profile==1) and not scene.sota.flip_v)
 			if scene.walk.state=="marcha": seen[scene.walk.frame_index]=true
 		assert(seen.size()==32)
 		for tick in range(60): scene.advance(1.0/60.0,0.0)

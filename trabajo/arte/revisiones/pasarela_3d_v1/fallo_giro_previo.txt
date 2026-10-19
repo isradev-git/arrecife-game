@@ -1,0 +1,11 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+SCRIPT ERROR: Assertion failed: Giro interrumpido deja el cuerpo oblicuo
+          at: comprobar (res://tests/recorrido.gd:42)
+          GDScript backtrace (most recent call first):
+              [0] comprobar (res://tests/recorrido.gd:42)
+              [1] pasos (res://tests/recorrido.gd:20)
+ERROR: La prueba del recorrido no terminó
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] <anonymous lambda> (res://tests/recorrido.gd:5)

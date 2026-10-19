@@ -1,7 +1,7 @@
 extends SceneTree
 
 const RIG = preload("res://sota_articulada.gd")
-const OUTPUT = "res://assets/personajes/sota/articulada_v5/"
+const OUTPUT = "res://assets/personajes/sota/articulada_v10/"
 const CELL = Vector2i(256,320)
 const FLOOR = Vector2(128,300)
 var data := {"distancia_ciclo":128.0,"fases":32,"perfiles":[],"fuente":"res://assets/personajes/sota/perfiles_pixel_v7.png","nota":"Fotogramas renderizados en Godot desde una textura v7 compartida; perfiles propios, recortes limpios y tela oculta reconstruida con UV de v7, paleta sin retoques RGB. Escala de juego fija, no normalización por pose."}
@@ -38,16 +38,16 @@ func check() -> void:
 			data.perfiles[profile].marcha.append(pose)
 	await save(viewport,"marcha.png")
 	for profile in range(2):
-		viewport = canvas(Vector2i(4096,2560))
+		viewport = canvas(Vector2i(4096,5120))
 		for phase in range(32):
 			var closing := []
-			for stage in range(4):
-				var cell := phase*4+stage
+			for stage in range(8):
+				var cell := phase*8+stage
 				var figure := RIG.new()
 				viewport.add_child(figure)
 				figure.build(profile)
 				figure.position = position(cell,16)
-				figure.pose(phase/32.0,1.0-(stage+1)/4.0)
+				figure.pose(phase/32.0,1.0-(stage+1)/8.0)
 				var pose:=descriptor("cerrar_"+str(profile)+".png",cell,16)
 				pose["respiracion_y"]=figure.body.position.y
 				closing.append(pose)
@@ -82,11 +82,11 @@ func check() -> void:
 	await save(viewport,"reposo_inicio.png")
 	# Reutilizar la misma celda evita diferencias de rasterización entre posiciones del atlas.
 	for profile in data.perfiles:
-		for closing in profile.cierres: closing[3]=profile.reposo
+		for closing in profile.cierres: closing[7]=profile.reposo
 	var file:=FileAccess.open(OUTPUT+"movimiento.json",FileAccess.WRITE)
 	file.store_string(JSON.stringify(data,"\t"))
 	file.close()
-	print("OK: 64 fases propias, 256 enlaces de cierre, ocho de arranque y reposo/respiración desde el mismo modelo articulado.")
+	print("OK: 64 fases propias, 512 enlaces de cierre, ocho de arranque y reposo/respiración desde el mismo modelo articulado.")
 	quit()
 
 func canvas(size: Vector2i) -> SubViewport:

@@ -1,0 +1,6 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+OpenGL API 4.1 Metal - 90.5 - Compatibility - Using Device: Apple - Apple M4
+
+OK: 328 poses conservan cabeza/cuerpo/brazo cercano/raíces y contornos de botas; ciclo y punteras preparados idénticos a v4.
+Regresión reproducida: 178 píxeles de piel en la ropa de v4, perfil izquierdo sin brazos.
+OK: 328 renders sin brazos, sin piel incrustada en ropa y sin huecos en las zonas reconstruidas de torso/cintura ni unión de rodillas/botas.

@@ -1,0 +1,13 @@
+extends SceneTree
+const RIG = preload("res://candidatas/sota_captura_v17.gd")
+func _initialize() -> void:
+	var rig := RIG.new()
+	root.add_child(rig)
+	rig.build(0)
+	for n in range(32):
+		var phase := n/32.0
+		rig.pose(phase)
+		var j: Array = rig.joints[0]
+		var flex := rad_to_deg((j[1]-j[0]).angle_to(j[2]-j[1]))
+		print("%.3f pelvis %.1f rodilla %.1f / captura %.1f pie %.1f %.1f bota %.1f" % [phase,rig.body.position.y,flex,rad_to_deg(rig.channel("l_tibia",phase)-rig.channel("l_muslo",phase)),j[2].x,rig.contacts[0].lift,rad_to_deg(rig.legs[0].boot.rotation)])
+	quit()

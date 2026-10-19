@@ -1,0 +1,203 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+[   0% ] [90m[1mfirst_scan_filesystem[22m | Started Inicialización del proyecto (5 steps)[39m[0m
+[   0% ] [90m[1mfirst_scan_filesystem[22m | Escaneando la estructura del archivo...[39m[0m
+[  16% ] [90m[1mfirst_scan_filesystem[22m | Cargando nombres de clases globales...[39m[0m
+[  33% ] [90m[1mfirst_scan_filesystem[22m | Verificando GDExtensions...[39m[0m
+[  50% ] [90m[1mfirst_scan_filesystem[22m | Creando scripts de carga automática...[39m[0m
+[  66% ] [90m[1mfirst_scan_filesystem[22m | Inicializando plugins...[39m[0m
+[  83% ] [90m[1mfirst_scan_filesystem[22m | Iniciando escaneo de archivos...[39m[0m
+[92m[ DONE ][39m [1mfirst_scan_filesystem[22m
+[0m
+[   0% ] [90m[1msavepack[22m | Started Empaquetando (102 steps)[39m[0m
+[   1% ] [90m[1msavepack[22m | Almacenando Archivo: res://.godot/imported/locomocion.glb-d5381b95b310492b8a28e249cb549adc.scn[39m[0m
+[   1% ] [90m[1msavepack[22m | Almacenando Archivo: res://assets/base/locomocion.glb.import[39m[0m
+[   2% ] [90m[1msavepack[22m | Almacenando Archivo: res://.godot/imported/Superhero_Female_FullBody.gltf-c0a10708fd8dfe6b6d5943578c5fff66.scn[39m[0m
+[   2% ] [90m[1msavepack[22m | Almacenando Archivo: res://assets/base/Superhero_Female_FullBody.gltf.import[39m[0m
+[   3% ] [90m[1msavepack[22m | Almacenando Archivo: res://demo_velvet.gdc[39m[0m
+[   4% ] [90m[1msavepack[22m | Almacenando Archivo: res://velvet.gdc[39m[0m
+[   5% ] [90m[1msavepack[22m | Almacenando Archivo: res://pasarela.gdc[39m[0m
+[   6% ] [90m[1msavepack[22m | Almacenando Archivo: res://jugadora.gdc[39m[0m
+[   7% ] [90m[1msavepack[22m | Almacenando Archivo: res://.godot/imported/recepcion.glb-6a761f53b66463f93573b5c59368b90a.scn[39m[0m
+[   7% ] [90m[1msavepack[22m | Almacenando Archivo: res://assets/velvet_3d_v1/recepcion.glb.import[39m[0m
+[   8% ] [90m[1msavepack[22m | Almacenando Archivo: res://.godot/imported/jefa_estudio_Tejido interior_rugosidad.png-ae57c57dcfbf5d97ca130615200d4960.ctex[39m[0m
+[   8% ] [90m[1msavepack[22m | Almacenando Archivo: res://assets/velvet_3d_v1/jefa_estudio_Tejido interior_rugosidad.png.import[39m[0m
+[   9% ] [90m[1msavepack[22m | Almacenando Archivo: res://.godot/imported/recepcion_Goma suela_normal.png-fa9d7347ae6419f837f08559b2511491.ctex[39m[0m
+[   9% ] [90m[1msavepack[22m | Almacenando Archivo: res://assets/velvet_3d_v1/recepcion_Goma suela_normal.png.import[39m[0m
+[  10% ] [90m[1msavepack[22m | Almacenando Archivo: res://.godot/imported/recepcion_Goma suela_color.png-3d78ea006e9a7651a63cbde75d568d89.ctex[39m[0m
+[  10% ] [90m[1msavepack[22m | Almacenando Archivo: res://assets/velvet_3d_v1/recepcion_Goma suela_color.png.import[39m[0m
+[  11% ] [90m[1msavepack[22m | Almacenando Archivo: res://.godot/imported/jefa_estudio_Sarga cargo_rugosidad.png-871e595dfa0bb487b92a27f1a43547da.ctex[39m[0m
+[  11% ] [90m[1msavepack[22m | Almacenando Archivo: res://assets/velvet_3d_v1/jefa_estudio_Sarga cargo_rugosidad.png.import[39m[0m
+[  12% ] [90m[1msavepack[22m | Almacenando Archivo: res://.godot/imported/jefa_estudio_Sarga cargo_color.png-2a9c9971a434fc770356d32bced35cc7.ctex[39m[0m
+[  12% ] [90m[1msavepack[22m | Almacenando Archivo: res://assets/velvet_3d_v1/jefa_estudio_Sarga cargo_color.png.import[39m[0m
+[  13% ] [90m[1msavepack[22m | Almacenando Archivo: res://.godot/imported/jefa_estudio_Tejido interior_color.png-a0a551683559cbd40fea53c443a6b86f.ctex[39m[0m
+[  13% ] [90m[1msavepack[22m | Almacenando Archivo: res://assets/velvet_3d_v1/jefa_estudio_Tejido interior_color.png.import[39m[0m
+[  14% ] [90m[1msavepack[22m | Almacenando Archivo: res://.godot/imported/recepcion_Cuero botas_color.png-c3c78524c7ba9d4b73ddda7f6eae2538.ctex[39m[0m
+[  14% ] [90m[1msavepack[22m | Almacenando Archivo: res://assets/velvet_3d_v1/recepcion_Cuero botas_color.png.import[39m[0m
+[  15% ] [90m[1msavepack[22m | Almacenando Archivo: res://.godot/imported/recepcion_Cuero botas_rugosidad.png-f7f744d111e64e2c07065b176e04515d.ctex[39m[0m
+[  15% ] [90m[1msavepack[22m | Almacenando Archivo: res://assets/velvet_3d_v1/recepcion_Cuero botas_rugosidad.png.import[39m[0m
+[  16% ] [90m[1msavepack[22m | Almacenando Archivo: res://.godot/imported/recepcion_Lona arnes_normal.png-ea16cf6fbe4c5ef3ea6c2e211d0f9096.ctex[39m[0m
+[  16% ] [90m[1msavepack[22m | Almacenando Archivo: res://assets/velvet_3d_v1/recepcion_Lona arnes_normal.png.import[39m[0m
+[  18% ] [90m[1msavepack[22m | Almacenando Archivo: res://.godot/imported/recepcion_Cuero botas_normal.png-004fccb6a9e85761e65c292c4e1aae8d.ctex[39m[0m
+[  18% ] [90m[1msavepack[22m | Almacenando Archivo: res://assets/velvet_3d_v1/recepcion_Cuero botas_normal.png.import[39m[0m
+[  19% ] [90m[1msavepack[22m | Almacenando Archivo: res://.godot/imported/recepcion_Cuero chaqueta_color.png-16101be75946516716564b06254f79e5.ctex[39m[0m
+[  19% ] [90m[1msavepack[22m | Almacenando Archivo: res://assets/velvet_3d_v1/recepcion_Cuero chaqueta_color.png.import[39m[0m
+[  20% ] [90m[1msavepack[22m | Almacenando Archivo: res://.godot/imported/recepcion_Lona arnes_color.png-b6881cb377faed28fb2b84d1eccb19f6.ctex[39m[0m
+[  20% ] [90m[1msavepack[22m | Almacenando Archivo: res://assets/velvet_3d_v1/recepcion_Lona arnes_color.png.import[39m[0m
+[  21% ] [90m[1msavepack[22m | Almacenando Archivo: res://.godot/imported/recepcion_Cuero chaqueta_normal.png-d20d58a4ac50747c3c0743896ad32864.ctex[39m[0m
+[  21% ] [90m[1msavepack[22m | Almacenando Archivo: res://assets/velvet_3d_v1/recepcion_Cuero chaqueta_normal.png.import[39m[0m
+[  22% ] [90m[1msavepack[22m | Almacenando Archivo: res://.godot/imported/recepcion_Cuero chaqueta_rugosidad.png-1ae99c6eeaa5a37be2da1d1014c6b1c2.ctex[39m[0m
+[  22% ] [90m[1msavepack[22m | Almacenando Archivo: res://assets/velvet_3d_v1/recepcion_Cuero chaqueta_rugosidad.png.import[39m[0m
+[  23% ] [90m[1msavepack[22m | Almacenando Archivo: res://.godot/imported/jefa_estudio_Tejido interior_normal.png-bf3492f0cf1701f32a2c266ef06b47df.ctex[39m[0m
+[  23% ] [90m[1msavepack[22m | Almacenando Archivo: res://assets/velvet_3d_v1/jefa_estudio_Tejido interior_normal.png.import[39m[0m
+[  24% ] [90m[1msavepack[22m | Almacenando Archivo: res://.godot/imported/jefa_estudio_Sarga cargo_normal.png-786dbc6a694e09b404262f04aec1dddc.ctex[39m[0m
+[  24% ] [90m[1msavepack[22m | Almacenando Archivo: res://assets/velvet_3d_v1/jefa_estudio_Sarga cargo_normal.png.import[39m[0m
+[  25% ] [90m[1msavepack[22m | Almacenando Archivo: res://.godot/imported/recepcion_Goma suela_rugosidad.png-0ead30afb33818ad298cdbe8461509ad.ctex[39m[0m
+[  25% ] [90m[1msavepack[22m | Almacenando Archivo: res://assets/velvet_3d_v1/recepcion_Goma suela_rugosidad.png.import[39m[0m
+[  26% ] [90m[1msavepack[22m | Almacenando Archivo: res://.godot/exported/133200997/export-8669af984f7a72249f8841eeac1a91e4-recorrido_3d.scn[39m[0m
+[  27% ] [90m[1msavepack[22m | Almacenando Archivo: res://cuerpo.gdc[39m[0m
+[  28% ] [90m[1msavepack[22m | Almacenando Archivo: res://.godot/imported/recepcion_Tejido interior_rugosidad.png-d7b056b55f8538e405febcd6ee91af6d.ctex[39m[0m
+[  28% ] [90m[1msavepack[22m | Almacenando Archivo: res://assets/velvet_3d_v1/recepcion_Tejido interior_rugosidad.png.import[39m[0m
+[  29% ] [90m[1msavepack[22m | Almacenando Archivo: res://.godot/imported/recepcion_Sarga cargo_rugosidad.png-e6fc68b1a4b950c26b1af26f8d77264a.ctex[39m[0m
+[  29% ] [90m[1msavepack[22m | Almacenando Archivo: res://assets/velvet_3d_v1/recepcion_Sarga cargo_rugosidad.png.import[39m[0m
+[  30% ] [90m[1msavepack[22m | Almacenando Archivo: res://assets/velvet_3d_v1/superficies.gdshader[39m[0m
+[  31% ] [90m[1msavepack[22m | Almacenando Archivo: res://.godot/exported/133200997/export-bfe5fdff543da1fe0bd9a9c3498970c4-sota_360.scn[39m[0m
+[  32% ] [90m[1msavepack[22m | Almacenando Archivo: res://recorrido_3d.gdc[39m[0m
+[  33% ] [90m[1msavepack[22m | Almacenando Archivo: res://.godot/imported/recepcion_Lona arnes_rugosidad.png-b5570c72b58f2065d145503e57fd63a3.ctex[39m[0m
+[  33% ] [90m[1msavepack[22m | Almacenando Archivo: res://assets/velvet_3d_v1/recepcion_Lona arnes_rugosidad.png.import[39m[0m
+[  34% ] [90m[1msavepack[22m | Almacenando Archivo: res://.godot/imported/recepcion_Sarga cargo_normal.png-95751a3e5572369e42c72321065b9519.ctex[39m[0m
+[  34% ] [90m[1msavepack[22m | Almacenando Archivo: res://assets/velvet_3d_v1/recepcion_Sarga cargo_normal.png.import[39m[0m
+[  35% ] [90m[1msavepack[22m | Almacenando Archivo: res://sota_360.gdc[39m[0m
+[  36% ] [90m[1msavepack[22m | Almacenando Archivo: res://laboratorio.gdc[39m[0m
+[  37% ] [90m[1msavepack[22m | Almacenando Archivo: res://.godot/imported/recepcion_Sarga cargo_color.png-187bde4a573b4cb39259e63091f2301f.ctex[39m[0m
+[  37% ] [90m[1msavepack[22m | Almacenando Archivo: res://assets/velvet_3d_v1/recepcion_Sarga cargo_color.png.import[39m[0m
+[  38% ] [90m[1msavepack[22m | Almacenando Archivo: res://.godot/exported/133200997/export-369f0eede88950ed411569813067228e-demo_velvet.scn[39m[0m
+[  39% ] [90m[1msavepack[22m | Almacenando Archivo: res://.godot/imported/recepcion_Tejido interior_normal.png-453ef41ca1edcc90f43ab1ac6e8a25cb.ctex[39m[0m
+[  39% ] [90m[1msavepack[22m | Almacenando Archivo: res://assets/velvet_3d_v1/recepcion_Tejido interior_normal.png.import[39m[0m
+[  40% ] [90m[1msavepack[22m | Almacenando Archivo: res://assets/velvet_3d_v1/ventanas.gdshader[39m[0m
+[  41% ] [90m[1msavepack[22m | Almacenando Archivo: res://.godot/imported/recepcion_Tejido interior_color.png-30b497ea98d1a3b1ed554d235acfb680.ctex[39m[0m
+[  41% ] [90m[1msavepack[22m | Almacenando Archivo: res://assets/velvet_3d_v1/recepcion_Tejido interior_color.png.import[39m[0m
+[  42% ] [90m[1msavepack[22m | Almacenando Archivo: res://.godot/imported/sota.png-907a8229e8caf4d64ce2bc254e502fda.ctex[39m[0m
+[  42% ] [90m[1msavepack[22m | Almacenando Archivo: res://referencias/sota.png.import[39m[0m
+[  43% ] [90m[1msavepack[22m | Almacenando Archivo: res://.godot/imported/jefa.png-3ed61bbdc521fd357bf21f5758bf777f.ctex[39m[0m
+[  43% ] [90m[1msavepack[22m | Almacenando Archivo: res://referencias/jefa.png.import[39m[0m
+[  44% ] [90m[1msavepack[22m | Almacenando Archivo: res://.godot/exported/133200997/export-d26fb43a4a1006fd5d7b29c72db78f5c-laboratorio.scn[39m[0m
+[  45% ] [90m[1msavepack[22m | Almacenando Archivo: res://.godot/imported/sota.glb-adba35525ca7c6d07903e0adfbdabdec.scn[39m[0m
+[  45% ] [90m[1msavepack[22m | Almacenando Archivo: res://assets/sota_3d_v6/sota.glb.import[39m[0m
+[  46% ] [90m[1msavepack[22m | Almacenando Archivo: res://.godot/imported/sota_Cuero botas_color.png-f7d6698677aff3b977eb9ce8376d94dc.ctex[39m[0m
+[  46% ] [90m[1msavepack[22m | Almacenando Archivo: res://assets/sota_3d_v6/sota_Cuero botas_color.png.import[39m[0m
+[  47% ] [90m[1msavepack[22m | Almacenando Archivo: res://.godot/imported/sota_Cuero botas_normal.png-5824439d3f3d4e573ac04c1143874e51.ctex[39m[0m
+[  47% ] [90m[1msavepack[22m | Almacenando Archivo: res://assets/sota_3d_v6/sota_Cuero botas_normal.png.import[39m[0m
+[  48% ] [90m[1msavepack[22m | Almacenando Archivo: res://.godot/imported/sota_Cuero botas_rugosidad.png-e0e7a5f157ae9d8fed9337b288b01508.ctex[39m[0m
+[  48% ] [90m[1msavepack[22m | Almacenando Archivo: res://assets/sota_3d_v6/sota_Cuero botas_rugosidad.png.import[39m[0m
+[  50% ] [90m[1msavepack[22m | Almacenando Archivo: res://.godot/imported/sota_Cuero chaqueta_color.png-9c278db071e909da69f4ca7e5bae57e8.ctex[39m[0m
+[  50% ] [90m[1msavepack[22m | Almacenando Archivo: res://assets/sota_3d_v6/sota_Cuero chaqueta_color.png.import[39m[0m
+[  51% ] [90m[1msavepack[22m | Almacenando Archivo: res://.godot/imported/sota_Cuero chaqueta_normal.png-37d2ab48191260e23596b46ae60fa5fe.ctex[39m[0m
+[  51% ] [90m[1msavepack[22m | Almacenando Archivo: res://assets/sota_3d_v6/sota_Cuero chaqueta_normal.png.import[39m[0m
+[  52% ] [90m[1msavepack[22m | Almacenando Archivo: res://.godot/imported/sota_Cuero chaqueta_rugosidad.png-2fbcf5c33c82b9fcc9f3eae76bbc6413.ctex[39m[0m
+[  52% ] [90m[1msavepack[22m | Almacenando Archivo: res://assets/sota_3d_v6/sota_Cuero chaqueta_rugosidad.png.import[39m[0m
+[  53% ] [90m[1msavepack[22m | Almacenando Archivo: res://.godot/imported/sota_Goma suela_color.png-838b47c8695a219a999c0039307cf6c8.ctex[39m[0m
+[  53% ] [90m[1msavepack[22m | Almacenando Archivo: res://assets/sota_3d_v6/sota_Goma suela_color.png.import[39m[0m
+[  54% ] [90m[1msavepack[22m | Almacenando Archivo: res://.godot/imported/sota_Goma suela_normal.png-629f979e31d79eab5983ba4f89a28b99.ctex[39m[0m
+[  54% ] [90m[1msavepack[22m | Almacenando Archivo: res://assets/sota_3d_v6/sota_Goma suela_normal.png.import[39m[0m
+[  55% ] [90m[1msavepack[22m | Almacenando Archivo: res://.godot/imported/sota_Goma suela_rugosidad.png-ec978afd1f089e7cb9d9966ebbd62b73.ctex[39m[0m
+[  55% ] [90m[1msavepack[22m | Almacenando Archivo: res://assets/sota_3d_v6/sota_Goma suela_rugosidad.png.import[39m[0m
+[  56% ] [90m[1msavepack[22m | Almacenando Archivo: res://.godot/imported/sota_Lona arnes_color.png-034ef7b22031fcd5510b9734545c274f.ctex[39m[0m
+[  56% ] [90m[1msavepack[22m | Almacenando Archivo: res://assets/sota_3d_v6/sota_Lona arnes_color.png.import[39m[0m
+[  57% ] [90m[1msavepack[22m | Almacenando Archivo: res://.godot/imported/sota_Lona arnes_normal.png-7a53d65eeddfa3a5f4680585910bd8fd.ctex[39m[0m
+[  57% ] [90m[1msavepack[22m | Almacenando Archivo: res://assets/sota_3d_v6/sota_Lona arnes_normal.png.import[39m[0m
+[  58% ] [90m[1msavepack[22m | Almacenando Archivo: res://.godot/imported/sota_Lona arnes_rugosidad.png-cb97f6a41bd5a57ade50f5f56e844c64.ctex[39m[0m
+[  58% ] [90m[1msavepack[22m | Almacenando Archivo: res://assets/sota_3d_v6/sota_Lona arnes_rugosidad.png.import[39m[0m
+[  59% ] [90m[1msavepack[22m | Almacenando Archivo: res://.godot/imported/sota_Sarga cargo_color.png-7267de1bbba06e2f95ef4d93aa6285d7.ctex[39m[0m
+[  59% ] [90m[1msavepack[22m | Almacenando Archivo: res://assets/sota_3d_v6/sota_Sarga cargo_color.png.import[39m[0m
+[  60% ] [90m[1msavepack[22m | Almacenando Archivo: res://.godot/imported/sota_Sarga cargo_normal.png-187f827ae323508a49e1ac0c04e95d44.ctex[39m[0m
+[  60% ] [90m[1msavepack[22m | Almacenando Archivo: res://assets/sota_3d_v6/sota_Sarga cargo_normal.png.import[39m[0m
+[  61% ] [90m[1msavepack[22m | Almacenando Archivo: res://.godot/imported/sota_Sarga cargo_rugosidad.png-1dae33cc60880394efe19273667a19e4.ctex[39m[0m
+[  61% ] [90m[1msavepack[22m | Almacenando Archivo: res://assets/sota_3d_v6/sota_Sarga cargo_rugosidad.png.import[39m[0m
+[  62% ] [90m[1msavepack[22m | Almacenando Archivo: res://.godot/imported/sota_Tejido interior_color.png-e45c88ecfd58df995639d99b1afb1d9c.ctex[39m[0m
+[  62% ] [90m[1msavepack[22m | Almacenando Archivo: res://assets/sota_3d_v6/sota_Tejido interior_color.png.import[39m[0m
+[  63% ] [90m[1msavepack[22m | Almacenando Archivo: res://.godot/imported/sota_Tejido interior_normal.png-f555bae4688bf3e18482a2b44fdc6e9e.ctex[39m[0m
+[  63% ] [90m[1msavepack[22m | Almacenando Archivo: res://assets/sota_3d_v6/sota_Tejido interior_normal.png.import[39m[0m
+[  64% ] [90m[1msavepack[22m | Almacenando Archivo: res://.godot/imported/sota_Tejido interior_rugosidad.png-a3e79046ca1004b7e9ac42e59af6df65.ctex[39m[0m
+[  64% ] [90m[1msavepack[22m | Almacenando Archivo: res://assets/sota_3d_v6/sota_Tejido interior_rugosidad.png.import[39m[0m
+[  65% ] [90m[1msavepack[22m | Almacenando Archivo: res://.godot/imported/sota.glb-7bb4cba52925f5c53fe14acbb52063b3.scn[39m[0m
+[  65% ] [90m[1msavepack[22m | Almacenando Archivo: res://assets/sota_3d_v7/sota.glb.import[39m[0m
+[  66% ] [90m[1msavepack[22m | Almacenando Archivo: res://.godot/imported/sota_Cuero botas_color.png-1bee0b298418c3ed32bee5f3f551cd23.s3tc.ctex[39m[0m
+[  66% ] [90m[1msavepack[22m | Almacenando Archivo: res://assets/sota_3d_v7/sota_Cuero botas_color.png.import[39m[0m
+[  67% ] [90m[1msavepack[22m | Almacenando Archivo: res://.godot/imported/sota_Cuero botas_normal.png-e73539ddfae3f1b8656eca3ccfbba2ad.s3tc.ctex[39m[0m
+[  67% ] [90m[1msavepack[22m | Almacenando Archivo: res://assets/sota_3d_v7/sota_Cuero botas_normal.png.import[39m[0m
+[  68% ] [90m[1msavepack[22m | Almacenando Archivo: res://.godot/imported/sota_Cuero botas_rugosidad.png-f294dd77cec9c6f88f60f1c50d5c7580.s3tc.ctex[39m[0m
+[  68% ] [90m[1msavepack[22m | Almacenando Archivo: res://assets/sota_3d_v7/sota_Cuero botas_rugosidad.png.import[39m[0m
+[  69% ] [90m[1msavepack[22m | Almacenando Archivo: res://.godot/imported/sota_Cuero chaqueta_color.png-6dcb6b30265fa29926a43eac67adf912.s3tc.ctex[39m[0m
+[  69% ] [90m[1msavepack[22m | Almacenando Archivo: res://assets/sota_3d_v7/sota_Cuero chaqueta_color.png.import[39m[0m
+[  70% ] [90m[1msavepack[22m | Almacenando Archivo: res://.godot/imported/sota_Cuero chaqueta_normal.png-0a6c10e8d65959e6c74f76354872e6b0.s3tc.ctex[39m[0m
+[  70% ] [90m[1msavepack[22m | Almacenando Archivo: res://assets/sota_3d_v7/sota_Cuero chaqueta_normal.png.import[39m[0m
+[  71% ] [90m[1msavepack[22m | Almacenando Archivo: res://.godot/imported/sota_Cuero chaqueta_rugosidad.png-c07cc8465b1b96c7ca7a26cc5fc16413.s3tc.ctex[39m[0m
+[  71% ] [90m[1msavepack[22m | Almacenando Archivo: res://assets/sota_3d_v7/sota_Cuero chaqueta_rugosidad.png.import[39m[0m
+[  72% ] [90m[1msavepack[22m | Almacenando Archivo: res://.godot/imported/sota_Goma suela_color.png-a6ab2620e297e57112806c35378410af.s3tc.ctex[39m[0m
+[  72% ] [90m[1msavepack[22m | Almacenando Archivo: res://assets/sota_3d_v7/sota_Goma suela_color.png.import[39m[0m
+[  73% ] [90m[1msavepack[22m | Almacenando Archivo: res://.godot/imported/sota_Goma suela_normal.png-1630bfd6fa6eebc72e3be44469225e5b.s3tc.ctex[39m[0m
+[  73% ] [90m[1msavepack[22m | Almacenando Archivo: res://assets/sota_3d_v7/sota_Goma suela_normal.png.import[39m[0m
+[  74% ] [90m[1msavepack[22m | Almacenando Archivo: res://.godot/imported/sota_Goma suela_rugosidad.png-d39bfb2f8b47b7f7b205b1b34184dcbb.s3tc.ctex[39m[0m
+[  74% ] [90m[1msavepack[22m | Almacenando Archivo: res://assets/sota_3d_v7/sota_Goma suela_rugosidad.png.import[39m[0m
+[  75% ] [90m[1msavepack[22m | Almacenando Archivo: res://.godot/imported/sota_Lona arnes_color.png-e69bb3a3321b55f04d65199b90ff99ed.s3tc.ctex[39m[0m
+[  75% ] [90m[1msavepack[22m | Almacenando Archivo: res://assets/sota_3d_v7/sota_Lona arnes_color.png.import[39m[0m
+[  76% ] [90m[1msavepack[22m | Almacenando Archivo: res://.godot/imported/sota_Lona arnes_normal.png-c26bdfcc3a9de9d7c1df05d5a335d504.s3tc.ctex[39m[0m
+[  76% ] [90m[1msavepack[22m | Almacenando Archivo: res://assets/sota_3d_v7/sota_Lona arnes_normal.png.import[39m[0m
+[  77% ] [90m[1msavepack[22m | Almacenando Archivo: res://.godot/imported/sota_Lona arnes_rugosidad.png-03dac356b360fdb7869e31c76c9dbf42.s3tc.ctex[39m[0m
+[  77% ] [90m[1msavepack[22m | Almacenando Archivo: res://assets/sota_3d_v7/sota_Lona arnes_rugosidad.png.import[39m[0m
+[  78% ] [90m[1msavepack[22m | Almacenando Archivo: res://.godot/imported/sota_Sarga cargo_color.png-ccf547c1c13d243486f3265e05e697a5.s3tc.ctex[39m[0m
+[  78% ] [90m[1msavepack[22m | Almacenando Archivo: res://assets/sota_3d_v7/sota_Sarga cargo_color.png.import[39m[0m
+[  79% ] [90m[1msavepack[22m | Almacenando Archivo: res://.godot/imported/sota_Sarga cargo_normal.png-a47f23f9791180d7863e0e719ec950eb.s3tc.ctex[39m[0m
+[  79% ] [90m[1msavepack[22m | Almacenando Archivo: res://assets/sota_3d_v7/sota_Sarga cargo_normal.png.import[39m[0m
+[  80% ] [90m[1msavepack[22m | Almacenando Archivo: res://.godot/imported/sota_Sarga cargo_rugosidad.png-2a6d2314547f5d4b92e73d29a93bbacc.s3tc.ctex[39m[0m
+[  80% ] [90m[1msavepack[22m | Almacenando Archivo: res://assets/sota_3d_v7/sota_Sarga cargo_rugosidad.png.import[39m[0m
+[  81% ] [90m[1msavepack[22m | Almacenando Archivo: res://.godot/imported/sota_Tejido interior_color.png-a01221647663c0ce586d59a63eb4e4b7.s3tc.ctex[39m[0m
+[  81% ] [90m[1msavepack[22m | Almacenando Archivo: res://assets/sota_3d_v7/sota_Tejido interior_color.png.import[39m[0m
+[  83% ] [90m[1msavepack[22m | Almacenando Archivo: res://.godot/imported/sota_Tejido interior_normal.png-1ef4f43e839433ef3015cdb3882c5574.s3tc.ctex[39m[0m
+[  83% ] [90m[1msavepack[22m | Almacenando Archivo: res://assets/sota_3d_v7/sota_Tejido interior_normal.png.import[39m[0m
+[  84% ] [90m[1msavepack[22m | Almacenando Archivo: res://.godot/imported/sota_Tejido interior_rugosidad.png-76dff40da43f768e0b906b97d6854723.s3tc.ctex[39m[0m
+[  84% ] [90m[1msavepack[22m | Almacenando Archivo: res://assets/sota_3d_v7/sota_Tejido interior_rugosidad.png.import[39m[0m
+[  85% ] [90m[1msavepack[22m | Almacenando Archivo: res://.godot/imported/jefa_estudio.glb-732869e601e6aae7e45c371057691297.scn[39m[0m
+[  85% ] [90m[1msavepack[22m | Almacenando Archivo: res://assets/velvet_3d_v1/jefa_estudio.glb.import[39m[0m
+[  86% ] [90m[1msavepack[22m | Almacenando Archivo: res://.godot/imported/jefa_estudio_Cuero botas_color.png-ecca67e357717df0379fc129766f2e88.ctex[39m[0m
+[  86% ] [90m[1msavepack[22m | Almacenando Archivo: res://assets/velvet_3d_v1/jefa_estudio_Cuero botas_color.png.import[39m[0m
+[  87% ] [90m[1msavepack[22m | Almacenando Archivo: res://.godot/imported/jefa_estudio_Cuero botas_normal.png-7f99792bb4f0f3edca422476630dccdd.ctex[39m[0m
+[  87% ] [90m[1msavepack[22m | Almacenando Archivo: res://assets/velvet_3d_v1/jefa_estudio_Cuero botas_normal.png.import[39m[0m
+[  88% ] [90m[1msavepack[22m | Almacenando Archivo: res://.godot/imported/jefa_estudio_Cuero botas_rugosidad.png-49d25e1622bc40f3567ed256af4a372e.ctex[39m[0m
+[  88% ] [90m[1msavepack[22m | Almacenando Archivo: res://assets/velvet_3d_v1/jefa_estudio_Cuero botas_rugosidad.png.import[39m[0m
+[  89% ] [90m[1msavepack[22m | Almacenando Archivo: res://.godot/imported/jefa_estudio_Cuero chaqueta_color.png-ff28691fca1470439d40a16ab57faa65.ctex[39m[0m
+[  89% ] [90m[1msavepack[22m | Almacenando Archivo: res://assets/velvet_3d_v1/jefa_estudio_Cuero chaqueta_color.png.import[39m[0m
+[  90% ] [90m[1msavepack[22m | Almacenando Archivo: res://.godot/imported/jefa_estudio_Cuero chaqueta_normal.png-ac2724314c223124970364819f0addb1.ctex[39m[0m
+[  90% ] [90m[1msavepack[22m | Almacenando Archivo: res://assets/velvet_3d_v1/jefa_estudio_Cuero chaqueta_normal.png.import[39m[0m
+[  91% ] [90m[1msavepack[22m | Almacenando Archivo: res://.godot/imported/jefa_estudio_Cuero chaqueta_rugosidad.png-fc91594ef6566bd48d9076d7978ac67c.ctex[39m[0m
+[  91% ] [90m[1msavepack[22m | Almacenando Archivo: res://assets/velvet_3d_v1/jefa_estudio_Cuero chaqueta_rugosidad.png.import[39m[0m
+[  92% ] [90m[1msavepack[22m | Almacenando Archivo: res://.godot/imported/jefa_estudio_Goma suela_color.png-02cdcfc2255e7361d173bb9fda707b5f.ctex[39m[0m
+[  92% ] [90m[1msavepack[22m | Almacenando Archivo: res://assets/velvet_3d_v1/jefa_estudio_Goma suela_color.png.import[39m[0m
+[  93% ] [90m[1msavepack[22m | Almacenando Archivo: res://.godot/imported/jefa_estudio_Goma suela_normal.png-6b5ab3931548a0c0e71eba12f1942a83.ctex[39m[0m
+[  93% ] [90m[1msavepack[22m | Almacenando Archivo: res://assets/velvet_3d_v1/jefa_estudio_Goma suela_normal.png.import[39m[0m
+[  94% ] [90m[1msavepack[22m | Almacenando Archivo: res://.godot/imported/jefa_estudio_Goma suela_rugosidad.png-f4d2a7872d61c4df00c9a2465a3cf8d0.ctex[39m[0m
+[  94% ] [90m[1msavepack[22m | Almacenando Archivo: res://assets/velvet_3d_v1/jefa_estudio_Goma suela_rugosidad.png.import[39m[0m
+[  95% ] [90m[1msavepack[22m | Almacenando Archivo: res://.godot/imported/jefa_estudio_Lona arnes_color.png-71c9fb4b0cd9fb6152e794a4af48922c.ctex[39m[0m
+[  95% ] [90m[1msavepack[22m | Almacenando Archivo: res://assets/velvet_3d_v1/jefa_estudio_Lona arnes_color.png.import[39m[0m
+[  96% ] [90m[1msavepack[22m | Almacenando Archivo: res://.godot/imported/jefa_estudio_Lona arnes_normal.png-d2d5d5a3eeeeb253ffd4701a12e3b670.ctex[39m[0m
+[  96% ] [90m[1msavepack[22m | Almacenando Archivo: res://assets/velvet_3d_v1/jefa_estudio_Lona arnes_normal.png.import[39m[0m
+[  97% ] [90m[1msavepack[22m | Almacenando Archivo: res://.godot/imported/jefa_estudio_Lona arnes_rugosidad.png-2a2e598858bf372a990378a23e5c411a.ctex[39m[0m
+[  97% ] [90m[1msavepack[22m | Almacenando Archivo: res://assets/velvet_3d_v1/jefa_estudio_Lona arnes_rugosidad.png.import[39m[0m
+[  97% ] [90m[1msavepack[22m | Almacenando Archivo: res://demo_velvet.gd.remap[39m[0m
+[  97% ] [90m[1msavepack[22m | Almacenando Archivo: res://velvet.gd.remap[39m[0m
+[  97% ] [90m[1msavepack[22m | Almacenando Archivo: res://pasarela.gd.remap[39m[0m
+[  97% ] [90m[1msavepack[22m | Almacenando Archivo: res://jugadora.gd.remap[39m[0m
+[  97% ] [90m[1msavepack[22m | Almacenando Archivo: res://recorrido_3d.tscn.remap[39m[0m
+[  97% ] [90m[1msavepack[22m | Almacenando Archivo: res://cuerpo.gd.remap[39m[0m
+[  97% ] [90m[1msavepack[22m | Almacenando Archivo: res://sota_360.tscn.remap[39m[0m
+[  97% ] [90m[1msavepack[22m | Almacenando Archivo: res://recorrido_3d.gd.remap[39m[0m
+[  97% ] [90m[1msavepack[22m | Almacenando Archivo: res://sota_360.gd.remap[39m[0m
+[  97% ] [90m[1msavepack[22m | Almacenando Archivo: res://laboratorio.gd.remap[39m[0m
+[  97% ] [90m[1msavepack[22m | Almacenando Archivo: res://demo_velvet.tscn.remap[39m[0m
+[  97% ] [90m[1msavepack[22m | Almacenando Archivo: res://laboratorio.tscn.remap[39m[0m
+[  97% ] [90m[1msavepack[22m | Almacenando Archivo: res://.godot/global_script_class_cache.cfg[39m[0m
+[  97% ] [90m[1msavepack[22m | Almacenando Archivo: res://.godot/uid_cache.bin[39m[0m
+[  97% ] [90m[1msavepack[22m | Almacenando Archivo: res://project.binary[39m[0m
+[92m[ DONE ][39m [1msavepack[22m
+[0m

@@ -1,0 +1,9 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+OpenGL API 4.1 Metal - 90.5 - Compatibility - Using Device: Apple - Apple M4
+
+Figuración: 65 huesos, una superficie por modelo, vértices finitos y pesos normalizados
+Cámara: extremos del plano de juego dentro de -4..38 m; carretera de 2,3 m
+Vecindario: tres rutas, 34 cambios de sentido en 120 s, pausa y posiciones válidas
+Cadencia Sota 30 FPS: 4.36799970269203 m / 4 s (+12 %)
+Cadencia Sota 60 FPS: 4.36799970269203 m / 4 s (+12 %)
+Cadencia Sota 120 FPS: 4.36799970269203 m / 4 s (+12 %)

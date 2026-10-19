@@ -1,0 +1,57 @@
+extends SceneTree
+
+const OUTPUT = "res://../trabajo/arte/revisiones/pierna_fondo_v12/"
+
+func _initialize() -> void: call_deferred("check")
+
+func check() -> void:
+	var old := GDScript.new()
+	old.source_code=FileAccess.get_file_as_string(OUTPUT+"articulacion_antes.gd.txt")
+	assert(old.reload()==OK)
+	var script = old if "--antes" in OS.get_cmdline_user_args() else load("res://sota_articulada.gd")
+	var rig = script.new()
+	var previous = old.new()
+	root.add_child(rig)
+	root.add_child(previous)
+	rig.build(0)
+	previous.build(0)
+	var locked := [0,0]
+	var maximum := [0.0,0.0]
+	for phase in range(32):
+		rig.pose(phase/32.0)
+		previous.pose(phase/32.0)
+		for index in range(2):
+			var leg: Dictionary = rig.legs[index]
+			var flexion := rad_to_deg(absf((leg.shin.position-leg.thigh.position).angle_to(leg.boot.position-leg.shin.position)))
+			if flexion<5.0: locked[index]+=1
+			maximum[index]=maxf(maximum[index],flexion)
+			assert(leg.boot.transform.is_equal_approx(previous.legs[index].boot.transform),"Apoyo desplazado")
+		assert(rig.legs[1].shin.transform.is_equal_approx(previous.legs[1].shin.transform),"Pierna cercana modificada")
+	print("Fases con rodilla casi recta (<5 grados), fondo/cercana: %s; flexión máxima: %s" % [str(locked),str(maximum)])
+	var passed: bool = locked[0]<=locked[1]+2 and maximum[0]>=maximum[1]-5.0
+	if DisplayServer.get_name()!="headless":
+		var vp := SubViewport.new()
+		vp.size=Vector2i(2048,1280)
+		vp.render_target_update_mode=SubViewport.UPDATE_ALWAYS
+		root.add_child(vp)
+		var bg := ColorRect.new()
+		bg.size=Vector2(2048,1280)
+		bg.color=Color("253040")
+		bg.z_index=-100
+		vp.add_child(bg)
+		for row in range(4):
+			for phase in range(8):
+				var figure = (old if row%2==0 else script).new()
+				vp.add_child(figure)
+				figure.build(0)
+				figure.position=Vector2(phase*256+128,row*320+300)
+				figure.pose(phase/8.0)
+				if row>=2:
+					for name in figure.parts:
+						if name not in ["thigh0","boot0"]: figure.parts[name].hide()
+		for tick in range(3): await process_frame
+		await RenderingServer.frame_post_draw
+		assert(vp.get_texture().get_image().save_png(OUTPUT+"comparacion.png")==OK)
+	rig.free()
+	previous.free()
+	quit(0 if passed else 1)

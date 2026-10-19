@@ -1,0 +1,53 @@
+<!doctype html><html lang="es"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Sota · movimiento humano</title>
+<style>body{margin:0;background:#151c26;color:#e9e7e2;font:16px system-ui}main{max-width:1200px;margin:auto;padding:24px}h1{font-size:27px;margin:0 0 8px}p{color:#b8c0cc;max-width:1000px;line-height:1.5}button,select{font:inherit;background:#303e50;color:white;border:1px solid #778292;border-radius:4px;padding:9px;margin:3px;cursor:pointer}button:focus-visible,select:focus-visible{outline:3px solid #f4aa65}canvas{width:100%;image-rendering:pixelated;background:#202a37;border:1px solid #4c5969;margin-top:16px}.note{border-left:3px solid #cb8054;padding-left:14px}a{color:#e2af87}#estado{font-variant-numeric:tabular-nums}</style>
+<main><h1>Sota · cambiar la forma de animar</h1><p>Conservar el diseño aprobado. Construir el gesto a partir de una persona caminando. Esta prueba separa el dibujo de la referencia de movimiento; el maniquí no es una nueva versión de Sota.</p>
+<div><select id="clip" aria-label="Referencia humana"><option value="1">Referencia: caminar despacio</option><option value="0">Referencia: caminar normal</option></select><button id="pausa">Pausar</button><button id="lento">Cámara lenta: no</button><button id="paso">Avanzar una muestra</button><button id="huesos">Ver articulaciones</button></div>
+<canvas id="vista" width="1200" height="440" aria-label="Diseño original, candidata rechazada y guía humana de marcha"></canvas>
+<p id="estado" role="status">Cargando…</p><p class="note"><strong>Qué valorar:</strong> el apoyo, el paso del peso de una pierna a otra, el acompañamiento del tronco y el ritmo de los brazos. La referencia conserva su velocidad de captura y sus proporciones: todavía necesita adaptación a Sota. El reinicio de la toma está marcado y no es un bucle de juego terminado.</p>
+<p><a href="claves.html"><strong>Ver el ciclo seleccionado y sus ocho claves</strong></a>.</p>
+<p>Ruta propuesta: referencia humana → poses completas de Sota → limpieza y animación en pixel art → prueba en Velvet. <a href="README.md">Opciones, fuentes y límites</a>.</p></main>
+<script src="captura.js"></script><script>
+const canvas=document.getElementById('vista'),ctx=canvas.getContext('2d');ctx.imageSmoothingEnabled=false;
+let elapsed=0,paused=false,slow=false,skeleton=false,last=0,ready=false;
+const ui=id=>document.getElementById(id);
+ui('pausa').onclick=()=>{paused=!paused;ui('pausa').textContent=paused?'Reanudar':'Pausar'};
+ui('lento').onclick=()=>{slow=!slow;ui('lento').textContent='Cámara lenta: '+(slow?'0,25×':'no')};
+ui('huesos').onclick=()=>{skeleton=!skeleton};
+ui('clip').onchange=()=>elapsed=0;
+ui('paso').onclick=()=>{paused=true;ui('pausa').textContent='Reanudar';elapsed+=1/120};
+const image=url=>new Promise((resolve,reject)=>{const im=new Image();im.onload=()=>resolve(im);im.onerror=reject;im.src=url});
+let atlas,original,data;
+Promise.all([fetch('/godot/assets/personajes/sota/articulada_v11_candidata/movimiento.json').then(r=>r.json()),image('/godot/assets/personajes/sota/perfiles_pixel_v7.png'),image('/godot/assets/personajes/sota/articulada_v11_candidata/marcha.png')]).then(([d,o,a])=>{data=d;original=o;atlas=a;ready=true}).catch(e=>ui('estado').textContent='No se han podido cargar las referencias: '+e);
+function line(a,b,width,color){ctx.strokeStyle=color;ctx.lineWidth=width;ctx.lineCap='round';ctx.beginPath();ctx.moveTo(...a);ctx.lineTo(...b);ctx.stroke()}
+function circle(p,r,color){ctx.fillStyle=color;ctx.beginPath();ctx.arc(...p,r,0,Math.PI*2);ctx.fill()}
+function person(frame){
+ const p=Object.fromEntries(Object.entries(frame.points).map(([k,v])=>[k,[1000+v[0],365+v[1]]]));
+ // Volúmenes de guía: no contienen ni deforman la textura de Sota.
+ for(const [side,color] of [['l','#63707e'],['r','#b6bcc2']]){
+  for(const [a,b,w] of [['hipjoint','femur',16],['femur','tibia',12],['tibia','foot',10],['foot','toes',10]])line(p[side+a],p[side+b],w,color);
+  if(side==='l'){
+   line(p.root,p.thorax,34,'#8c979f');line(p.thorax,p.lowerneck,23,'#8c979f');
+   line(p.lowerneck,p.head,15,'#a9b3ba');circle([p.head[0],p.head[1]-5],12,'#b6bcc2');
+  }
+  for(const [a,b,w] of [['clavicle','humerus',10],['humerus','radius',8],['radius','wrist',7],['wrist','hand',7]])line(p[side+a],p[side+b],w,color);
+ }
+ if(skeleton){for(const side of ['l','r'])for(const chain of [['hipjoint','femur','tibia','foot','toes'],['clavicle','humerus','radius','wrist']])for(let j=1;j<chain.length;j++){line(p[side+chain[j-1]],p[side+chain[j]],1,'#f4bd73');circle(p[side+chain[j]],2,'#f4bd73')}}
+}
+function draw(time){
+ const dt=last?Math.min((time-last)/1000,.05):0;last=time;if(!paused)elapsed+=dt*(slow?.25:1);
+ if(ready){
+  ctx.clearRect(0,0,1200,440);ctx.font='16px system-ui';ctx.fillStyle='#efefec';ctx.textAlign='center';
+  ['Identidad v7 · conservar','IK 15 · rechazada','Captura humana · guía'].forEach((label,i)=>ctx.fillText(label,200+400*i,34));
+  for(let i=0;i<3;i++)line([30+400*i,371],[370+400*i,371],1,'#738391');
+  const size=252/871;ctx.drawImage(original,362,75,240,871,200-120*size,365-252,240*size,252);
+  const phase=Math.round(elapsed*104/128*64)%64,pose=data.perfiles[0].marcha[phase],c=pose.celda;
+  ctx.drawImage(atlas,...c,600-128,365-300,256,320);
+  const clip=CAPTURAS[Number(ui('clip').value)],index=Math.floor(elapsed*clip.fps)%clip.frames.length,frame=clip.frames[index];
+  person(frame);
+  for(const [center,travel] of [[600,elapsed*104],[1000,frame.travel]])for(let x=-160;x<190;x+=32)line([center+x-travel%32,376],[center+x-travel%32,382],1,'#526171');
+  ctx.fillStyle='#b9c5d0';ctx.font='14px system-ui';ctx.fillText('Sin cambios de diseño',200,413);ctx.fillText('104 px/s · ciclo 128 px',600,413);ctx.fillText(index<8?'INICIO / REINICIO DE TOMA':'Movimiento capturado a 120 Hz',1000,413);
+  ui('estado').textContent=clip.name+' · muestra '+(index+1)+'/'+clip.frames.length+' · '+(paused?'Pausa':slow?'Reproducción 0,25×':'Ritmo original')+' · guía sin retocar';
+ }
+ requestAnimationFrame(draw);
+}requestAnimationFrame(draw);
+</script></html>
