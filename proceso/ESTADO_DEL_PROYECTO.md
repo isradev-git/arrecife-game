@@ -149,7 +149,7 @@ Revisar artísticamente la Sota v7 en 360°, las prendas/materiales y el parecid
 
 La pasarela tiene colisión física; el laboratorio mantiene sus límites numéricos. La demo de Velvet incorpora cuatro encuentros breves opcionales; todavía no hay guardado ni recorrido narrativo completo. No están producidos los 30 minutos ni el sistema de ampliaciones/compatibilidad de partidas. La estructura actual separa entorno, cuerpo y recorrido, sin introducir un framework nuevo.
 
-Exportación Web del tramo mediante preset **Web 3D**, comprobada en Helium/WebGL 2.0: carga, clic, seguimiento y pausa con Espacio, acceso al laboratorio y regreso; capturas conservadas. El laboratorio anterior tenía además pruebas de marcha continua, lenta, paso y clic izquierdo. Safari/Firefox, rendimiento en equipos modestos y experiencia completa pendientes. La etapa anterior no se borra; no se hizo commit/push ni publicación.
+Exportación Web del tramo mediante preset **Web 3D**, comprobada en Helium/WebGL 2.0: carga, clic, seguimiento y pausa con Espacio, acceso al laboratorio y regreso; capturas conservadas. El laboratorio anterior tenía además pruebas de marcha continua, lenta, paso y clic izquierdo. Safari/Firefox, rendimiento en equipos modestos y experiencia completa pendientes. La etapa anterior no se borra. El punto de control está publicado en `origin/main` (`fde0207`); no hay publicación para jugadores.
 
 ## 6. Historial de esta etapa
 
@@ -163,19 +163,14 @@ Exportación Web del tramo mediante preset **Web 3D**, comprobada en Helium/WebG
 | 19 oct 2026 | Pasarela técnica de 42 m, seguimiento, colisiones y acceso al laboratorio | Prueba física/regresiones, capturas nativas y Web comprobadas; giro interrumpido corregido. No es acabado profesional ni experiencia narrativa terminada. |
 | 19 oct 2026 | Corrección del cyberdeck señalado sobre la mano | Sota 3D v2 activa, 23 mallas idénticas y tres piezas del equipo ajustadas; prueba GPU de 1.920 poses, regresiones y comparación visual correctas. Sin aprobación artística nueva. |
 | 19 oct 2026 | Autor rechaza la v2 y fija protagonismo del entorno con plano lejano | Decisión artística registrada. Se entrega v3 para revisión, arnés continuo, superficies/pelo/materiales nuevos, escala de pantalla del 15,59 % y geometría estática agrupada. Sin aprobación artística nueva. |
-
 | 19 oct 2026 | Autor aprueba el movimiento actual y solicita más definición/parecido y cámara un poco más lejana | Revisión de aspecto v4 sobre rig v3, cámara a 24 m/14,30 %, cinco pruebas GPU y Web comprobadas. Fuentes anteriores intactas; entorno técnico. Modelo pendiente de valoración artística. |
 | 19 oct 2026 | Autor elige parecido del ensayo 01 de v4 y pide prendas construidas/texturizadas | Candidata v5: abertura real de chaqueta, volumen/espesor, holgura, calzado construido y seis materiales UV. Movimiento aprobado conservado; cuatro pruebas GPU y Web pasan, capturas disponibles. Aspecto pendiente de valoración. |
 | 19 oct 2026 | Autor aclara que Sota es sólo un poco morena | V6 aclara material de piel hacia tono cálido suave; modelo/ropas/movimiento conservados. Capturas nativas y modelo comprobados; tono pendiente de valoración. |
-
 | 19 oct 2026 | Autor pide demo, acabado 360 de Sota y recuperar Velvet en 3D | Candidata Sota v7, visor 360 y primer tramo de Velvet con materiales, luces, vapor y cuatro encuentros. Conserva movimiento aprobado; arte y texto nuevos pendientes de valoración. |
-
 | 19 oct 2026 | Autor rechaza el puente y precisa cada cota como ciudad; exige interacción con retratos | Calle continua de la Fiebre y diálogo modal con retratos originales, hablante iluminado y monólogo de Sota. Candidata comprobada; escenario, modelo secundario y textos pendientes de valoración. |
-
 | 19 oct 2026 | Autor pide más detalle urbano, carretera estrecha, límites visuales coherentes, más cadencia y vecindario | Revisión v2, jefa y tres diseños secundarios, seis vecinos y cadencia +12 %. Pruebas y capturas documentadas; sin aprobación artística nueva. |
-
+| 19 oct 2026 | Autor pide commit de todo el estado y push antes de continuar | Publicado `fde0207` en `origin/main`; etapas pixel/3D, arte, fuentes, pruebas y documentación; ZIP grande por Git LFS. Revalidación de `modelo`, `locomocion` y `control` en headless con código 0 y avisos conocidos del renderizador dummy; `barrio` necesita GPU y no se completó en headless. |
+| 19 oct 2026 | Análisis del estado y cierre del punto de control | Dirección 3D lateral aprobada, movimiento validado y demo de Velvet v2; Sota v7 y entorno siguen pendientes de valoración artística. Repositorio remoto actualizado. |
 ### Punto de control Git · solicitud del autor
 
-El autor solicita guardar todo el estado actual y actualizar `origin/main` antes de continuar. El punto de control incluye la etapa pixel conservada, proyecto 3D, fuentes/modelos, candidatos, capturas, pruebas y documentación. Cachés de Godot, exportaciones regenerables y credenciales siguen excluidas por `.gitignore`. El ZIP original `trabajo/arte/terceros/quaternius_20261018/universal-base-characters.zip` usa Git LFS por superar 100 MiB; un clon necesita `git lfs pull` para recuperarlo. La verificación del push se comunica tras comparar HEAD con el remoto; este registro no concede aprobación artística nueva.
-
-| 19 oct 2026 | Autor pide commit de todo el estado y push antes de continuar | Punto de control de las etapas pixel/3D, arte, fuentes y pruebas; recurso ZIP grande conservado con Git LFS. |
+El autor solicitó guardar todo el estado actual y actualizar `origin/main` antes de continuar. El punto de control incluye la etapa pixel conservada, proyecto 3D, fuentes/modelos, candidatos, capturas, pruebas y documentación. Cachés de Godot, exportaciones regenerables y credenciales siguen excluidas por `.gitignore`. El ZIP original `trabajo/arte/terceros/quaternius_20261018/universal-base-characters.zip` usa Git LFS por superar 100 MiB; un clon necesita `git lfs pull` para recuperarlo. **Publicado y verificado:** `fde0207` en `origin/main`, 1673 archivos, subida LFS de 129 MB. Este registro no concede aprobación artística nueva.
