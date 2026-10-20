@@ -1,3 +1,0 @@
-Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
-
-Montaje: 256 fallos de hombro/cadera/orden de botas en 64 poses

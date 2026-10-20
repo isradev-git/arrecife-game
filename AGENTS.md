@@ -1,9 +1,11 @@
-# Continuidad de EL ARRECIFE
+# EL ARRECIFE · continuidad
 
-Al iniciar o retomar trabajo en este proyecto, lee [proceso/ESTADO_DEL_PROYECTO.md](proceso/ESTADO_DEL_PROYECTO.md). Contiene estado actual, decisiones del autor, fuentes, historial y pendientes. Comprueba los archivos relevantes antes de editar; las notas antiguas pueden describir fases ya superadas.
+Al retomar, lee `proceso/ESTADO_DEL_PROYECTO.md` y comprueba el estado real de Git y de los archivos que vayas a tocar. El único juego activo es `game/project.godot`: aventura 2D ilustrada en primera persona, con clic/toque, contratos y progresión.
 
-Al completar una tarea significativa, actualiza ese documento: estado real, decisiones o aprobaciones nuevas, comprobaciones realizadas y pendientes. Añade un hito breve al historial. Distingue entrega del asistente, aprobación del autor y resultado probado; conserva las versiones anteriores de arte y sus prompts.
+Antes de cambiar narrativa, consulta `canon_el_arrecife.md` y `docs/GAME_DESIGN.md`. El canon es sólo consulta. Las situaciones, biografía y relaciones propuestas para el juego requieren aprobación; no conviertas una propuesta en canon. Si aparecen `sources/` o `universo/`, consulta también las fuentes pertinentes. Actualmente no están en este checkout.
 
-Habla en español y trabaja con autonomía en acciones reversibles. El autor y el asistente desarrollan y prueban el proyecto; no presupongas terceros.
+Antes de cambiar arte, lee `docs/ART_DIRECTION.md` y observa los originales de `art/originals/`. Conserva retratos, versiones y prompts. La aprobación de los retratos no aprueba automáticamente los fondos nuevos.
 
-Usa `canon_el_arrecife.md` y las fuentes sincronizadas bajo `sources/` solo para consulta; guarda propuestas y resultados en las carpetas editables. Antes de cambiar historia, consulta canon y guion; antes de cambiar arte, observa la referencia aprobada y los recursos actuales indicados en el documento de continuidad.
+Trabaja y documenta en español. Para validar cambios de juego ejecuta las pruebas indicadas en README y revisa el render cuando afecten a la interfaz. Actualiza `task.md` y la continuidad al terminar un hito: distingue implementación, comprobación y aprobación del autor.
+
+Consulta `docs/RECUPERACION.md` para recuperar material retirado. La rama de respaldo conserva las etapas anteriores; no reintroduzcas prototipos jugables junto al proyecto activo. No publiques la limpieza del reinicio sin autorización explícita del autor.

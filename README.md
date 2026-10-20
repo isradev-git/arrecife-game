@@ -1,27 +1,67 @@
-# El Arrecife · experiencia ilustrada
+# EL ARRECIFE
 
-**Dirección aprobada por el autor el 18 y 19 de octubre de 2026.** Juego de aproximadamente 30 minutos para conocer El Arrecife, su canon, a Sota y a otras personas mediante exploración, conversaciones opcionales e interacción con objetos. Sin caso que resolver, crimen central, encargos ni lista de objetivos.
+Aventura narrativa **2D ilustrada, en primera persona**, en el universo de *CARGA ADMISIBLE*. Exploras a través de los ojos de Sota: clic o toque sobre objetos, personas y accesos. Godot **4.7.2**, GDScript y español de España.
 
-Todo el juego se producirá en **3D, con movimiento izquierda/derecha**, escenarios más largos y acabado ilustrado. La primera entrega de unos 30 minutos podrá ampliarse con nuevo lore. Se abandona el pixel art. El estilo de los retratos de Sota y Jefa guía personajes y escenarios. **La prioridad de producción es una Sota que camine de forma convincente**, con arranque, parada y cambio de dirección cuidados.
+## Estado: hito 1 jugable
 
-## Trabajo actual
+Menú, introducción saltable, tres habitaciones, una primera vista de La Fiebre, interacciones, diálogo con retratos originales, deck, mensajes, contrato, documentos, terminal y guardado local. El contrato puede recibirse, aceptarse y avanzar hasta contrastar el parte con la Jefa.
 
-- [Continuidad vigente](proceso/ESTADO_DEL_PROYECTO.md).
-- [Tareas](task.md), [plan](proceso/PLAN_GODOT.md).
-- [Diseño de experiencia](trabajo/diseno/EXPERIENCIA_ILUSTRADA.md).
-- [Dirección artística](trabajo/direccion_artistica.md).
-- [Proyecto 3D y laboratorio de locomoción](godot_ilustrado/README.md): importar `godot_ilustrado/project.godot` en Godot 4.7.2 y ejecutar **F5**.
+**No es todavía la aventura completa de 30 minutos.** El Nudo, Los Puntales, la resolución y el final están pendientes. Los cuatro fondos son candidatos ilustrados; la ficción nueva y el arte requieren revisión del autor.
 
-F5 abre **la demo de Velvet 3D**, con 42 m de recorrido lateral, cámara lejana, cuatro encuentros opcionales y visor de Sota en 360°. Sota v7 conserva el movimiento aprobado y revisa cintura, arnés y confección posterior. [Probar en navegador local](http://127.0.0.1:8766/godot_ilustrado/build/web/) · [Capturas, instrucciones y resultados](trabajo/arte/revisiones/demo_velvet_3d_v1/README.md). Es una candidata de demo, pendiente de valoración artística; no contiene los treinta minutos. La pasarela técnica y versiones anteriores siguen disponibles.
+## Abrir y jugar
 
-## Etapa anterior archivada
+1. Abre Godot 4.7.2 e importa **`game/project.godot`**.
+2. Pulsa **F5** y selecciona **Jugar**. También puedes ejecutar:
 
-[Respaldo completo, verificación e instrucciones de recuperación](proceso/ARCHIVO_ETAPA_PIXEL_20261018.md). Se conservan código, arte, prompts, versiones, guiones, pruebas y cambios sin confirmar. `godot/` y `juego/` son proyectos históricos de la etapa de investigación/pixel art. No ejecutar esos proyectos esperando encontrar la nueva dirección.
+```sh
+godot --path game
+```
 
-[README histórico](README_ETAPA_PIXEL_20261018.md). No se han borrado recursos ni modificado el canon literario. No hay publicación nueva para jugadores.
+En este Mac:
 
-Demo actual: **Velvet 3D con Sota v7 y visor 360°**. Abrir `godot_ilustrado/project.godot` y pulsar F5. [Probar y revisar](trabajo/arte/revisiones/demo_velvet_3d_v1/README.md).
+```sh
+/Applications/Godot.app/Contents/MacOS/Godot --path game
+```
 
-## Recuperar los recursos originales
+Todo se juega con clic o toque. **Deck** abre mensajes, contratos, archivo, noticias, contactos y lugares. **Pistas** atenúa los indicadores. En pantallas estrechas hay una lista táctil bajo la ilustración. Los textos extensos se desplazan. Se recomienda horizontal.
 
-El ZIP original de personajes Quaternius se conserva mediante Git LFS. Después de clonar, ejecutar `git lfs install` y `git lfs pull`. Los recursos jugables y las fuentes editables del proyecto están versionados; las carpetas `.godot/`, `build/` y las credenciales de exportación quedan fuera de Git.
+### Recorrido de comprobación
+
+Deck → mensaje de la Jefa → revisar y aceptar contrato → cocina → terminal doméstico → copiar lectura → cerrar → salir a La Fiebre → hablar con la Jefa → mostrar la lectura. Puedes visitar el baño, mirar el espejo y leer el recibo antes o después. El acceso a El Nudo explica el límite del hito. Menú → Continuar recupera el progreso.
+
+### Web local
+
+Instala las plantillas de exportación de **la misma versión** del motor:
+
+```sh
+godot --headless --path game --export-release Web
+python3 -m http.server 8767 --bind 127.0.0.1 --directory game/build/web
+```
+
+Abre `http://127.0.0.1:8767`. El directorio `build/` es regenerable y está excluido de Git. No abras el HTML con `file://`. La exportación Web usa Compatibility, sin hilos ni extensiones.
+
+El guardado usa `user://partida.json` y una copia `.bak`; una partida nueva conserva además una copia `.previa-*`. En navegador depende del almacenamiento del sitio: borrar sus datos, cambiar de origen o usar modo privado puede hacer perder el acceso al progreso. No hay guardado en la nube.
+
+## Comprobar
+
+```sh
+godot --headless --path game --editor --import --quit
+godot --headless --path game --script tests/run.gd
+godot --path game --script tests/run.gd
+python3 game/tests/preservation.py
+```
+
+La prueba con GPU guarda capturas reales en `docs/evidence/`; usa partidas temporales aisladas. [Resultados y límites](docs/VALIDACION.md).
+
+## Organización
+
+- `game/`: único juego activo. Datos narrativos en JSON; controles nativos reutilizables.
+- `art/originals/`: originales protegidos, incluidos los dos retratos y las figuras históricas del acceso.
+- `art/prompts/`: especificaciones exactas usadas para los fondos candidatos.
+- `docs/`: diseño, dirección artística, validación, preservación y atribución.
+- `canon_el_arrecife.md`: canon literario, sólo consulta.
+- `proceso/ESTADO_DEL_PROYECTO.md`: continuidad vigente.
+
+[Diseño](docs/GAME_DESIGN.md) · [Arte](docs/ART_DIRECTION.md) · [Tareas](task.md) · [Recuperación de las etapas anteriores](docs/RECUPERACION.md).
+
+El reinicio vive en `feat/interactive-arrecife-reboot`. Las etapas anteriores están respaldadas en `backup/pre-reboot-20261020`, desde `433e099`. **Este reinicio no se ha enviado al remoto.**

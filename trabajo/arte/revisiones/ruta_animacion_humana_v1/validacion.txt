@@ -1,1 +1,0 @@
-Conversión: 316 + 449 muestras; 30 huesos, longitud 3D error máximo 0,00000228. Helium: las dos referencias cargan, pausa, cámara lenta, paso y articulaciones activados y comprobados. Referencia v7 y atlas IK 15 cargan. No hay errores de página ni consola. No se ha integrado la captura en Sota.

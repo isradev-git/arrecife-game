@@ -1,2 +1,0 @@
-Use case: precise-object-edit.
-Image1 walking sheet edit target. Preserve its right LEFT-FACING character's pose, corrected large near arm FORWARD LEFT, cargo thigh pocket on forward LEFT leg, proportions, palette and narrow rim EXACTLY. Remove only the entire background/soft glow/black matte: everything outside both character hard silhouettes must be TRANSPARENT alpha0, not translucent dark pixels. Keep both figures and all opaque character pixels unchanged. Keep1536x1024two cells. No recoloring, no labels, no floor. Genuine clean alpha cutout, all four corners alpha0.

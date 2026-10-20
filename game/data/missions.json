@@ -1,0 +1,35 @@
+{
+  "retorno_agua": {
+    "title": "El parte del agua",
+    "status": "PROPUESTA NARRATIVA",
+    "client": "La Jefa",
+    "summary": "Contrasta un cargo de reparación con la lectura de la conducción. Lleva los datos a la Jefa antes de buscar una comprobación técnica.",
+    "terms": "Trabajo de comprobación, sin cobrar a la persona afectada. Honorarios pendientes de acordar al cerrar el parte. Puedes leer el contrato antes de aceptarlo.",
+    "steps": [
+      {
+        "id": "registro",
+        "label": "Copiar la lectura del terminal doméstico",
+        "flag": "lectura_copiada"
+      },
+      {
+        "id": "jefa",
+        "label": "Contrastar el parte con la Jefa",
+        "flag": "parte_contrastado"
+      },
+      {
+        "id": "nudo",
+        "label": "Comprobar el equipo en El Nudo · próximo hito",
+        "flag": "equipo_comprobado"
+      },
+      {
+        "id": "puntales",
+        "label": "Verificar la reparación en Los Puntales · próximo hito",
+        "flag": "reparacion_verificada"
+      }
+    ],
+    "completion_flag": "resolucion_entregada",
+    "unlocks_on_accept": [
+      "fiebre"
+    ]
+  }
+}

@@ -1,0 +1,93 @@
+{
+  "intro": [
+    {
+      "heading": "EL ARRECIFE",
+      "text": "La ciudad sigue creciendo sobre sus propias reparaciones. Arriba, la Luz. Aquí, el ruido de las conducciones."
+    },
+    {
+      "heading": "TE LLAMAS SOTA",
+      "text": "El deck ha recibido un mensaje. Antes de salir, conviene saber quién quiere pagarte y por qué."
+    },
+    {
+      "heading": "UNA PUERTA DE ENTRADA",
+      "text": "Una historia jugable en el universo de CARGA ADMISIBLE. Explora, pregunta y decide qué hacer con lo que descubras."
+    }
+  ],
+  "observations": {
+    "bed": "La sábana se ha soltado otra vez. Ya la estiraré cuando vuelva.",
+    "window": "Han cerrado otro hueco entre las torres. Desde aquí apenas se ve dónde acaba una y empieza la siguiente.",
+    "water": "El contador sigue corriendo con el grifo cerrado. Antes de pagar, quiero ver el recibo.",
+    "pipes": "La abrazadera es nueva. El tubo que sujeta lleva bastantes más años aquí.",
+    "shelf": "Queda jabón para dos días. Si lo corto por la mitad, seguirá quedando para dos días.",
+    "velvet": "Por esa puerta entra gente que luego no comparte ascensor para volver a casa."
+  },
+  "documents": {
+    "recibo": {
+      "title": "Recibo de suministro",
+      "issuer": "ADMINISTRACIÓN DEL INMUEBLE · COPIA LOCAL",
+      "pages": [
+        "Concepto: revisión del retorno de agua.\n\nCargo pendiente de conformidad.\n\nLa casilla de sustitución del filtro está marcada. La de comprobación de presión sigue vacía.",
+        "Nota añadida a mano:\n\n«Si vuelve a caer la presión, guardar la lectura del contador. No tirar la copia del parte.»\n\nEn el margen hay una mancha circular de taza."
+      ],
+      "effects": {
+        "discover": "recibo_agua"
+      }
+    },
+    "registro": {
+      "title": "Lectura de la conducción",
+      "issuer": "TERMINAL DOMÉSTICO · REGISTRO LOCAL",
+      "pages": [
+        "La caída de presión empieza antes de la hora anotada en el parte.\n\nNo demuestra quién se equivocó. Sí demuestra que el recibo y la lectura no cuentan lo mismo.\n\nCopias el intervalo al deck para poder enseñarlo."
+      ],
+      "effects": {
+        "flag": "lectura_copiada",
+        "discover": "lectura_agua"
+      }
+    }
+  },
+  "terminals": {
+    "domestico": {
+      "title": "Terminal doméstico",
+      "status": "ENLACE FÍSICO · REGISTRO LOCAL DISPONIBLE",
+      "entries": [
+        {
+          "label": "Consultar lectura de la conducción",
+          "document": "registro"
+        },
+        {
+          "label": "Copia del recibo",
+          "document": "recibo"
+        }
+      ]
+    }
+  },
+  "messages": {
+    "encargo": {
+      "from": "La Jefa",
+      "subject": "Un parte que no cuadra",
+      "text": "Han pasado a una de las nuestras el coste de una reparación. El agua sigue fallando. Necesito a alguien que compare el parte con lo que hicieron.\n\nSi te interesa, revisa el contrato. Te veo en el pasaje junto a Velvet. Llevaré la copia.",
+      "effects": {
+        "offer": "retorno_agua"
+      }
+    }
+  },
+  "news": [
+    {
+      "title": "Revisión de accesos",
+      "text": "Los controles de subida siguen exigiendo acreditación. Una visita a un taller no sustituye el permiso de regreso."
+    }
+  ],
+  "records": {
+    "recibo_agua": "Recibo: filtro marcado como sustituido; presión sin verificar.",
+    "lectura_agua": "Registro: la presión ya había caído antes de la intervención.",
+    "nomina": "La Nómina cubre a quienes aportan a su caja, hasta donde llega el fondo.",
+    "parte_jefa": "La Jefa conserva una copia del parte. El siguiente contraste requiere un taller de El Nudo."
+  },
+  "contacts": [
+    {
+      "name": "La Jefa",
+      "text": "Contacto para el parte del agua. Su presencia en el pasaje es una propuesta de esta historia."
+    }
+  ],
+  "credits": "EL ARRECIFE\nUna aventura en el universo de CARGA ADMISIBLE.\n\nUniverso y dirección: autor de El Arrecife.\nDesarrollo: autor y asistente.\nRetratos: originales aportados por el autor, conservados sin modificación.\nFondos: candidatos generados con imagegen; pendientes de aprobación.\nMotor: Godot Engine, licencia MIT (incluida en Créditos del motor).\n\nHito 1. Texto y situaciones nuevos pendientes de revisión narrativa. Sin música ni efectos finales."
+}

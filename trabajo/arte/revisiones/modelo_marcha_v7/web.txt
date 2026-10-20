@@ -1,4 +1,0 @@
-Helium / Chromium, WebGL 2, canvas 1672×941. Rótulo Modelo 7 confirmado en captura.
-D tres segundos, pausa 0,9; A tres segundos, pausa 1,1. Retorno a x=780, reposo.
-Sin errores de navegador. Consola: Godot 4.7.2, Emscripten 4.0.20, single-threaded.
-Vídeo original 9,433 segundos, 30 fps (incluye tiempo de captura inicial/final).

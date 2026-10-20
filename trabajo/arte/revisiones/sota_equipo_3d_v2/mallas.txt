@@ -1,1 +1,0 @@
-Sólo cambian las tres piezas del equipo. Las otras 23 mallas conservan vértices, normales, índices, huesos y pesos idénticos.

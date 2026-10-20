@@ -1,3 +1,0 @@
-INTACTO godot_ilustrado/assets/sota_3d_v6/sota.glb
-INTACTO trabajo/arte/personajes/sota/ilustrada_3d_v6/sota.blend
-INTACTO trabajo/arte/personajes/sota/ilustrada_3d_v6/crear_sota.py

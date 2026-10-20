@@ -1,0 +1,416 @@
+{
+  "start": "ap_dormitorio",
+  "proposal": "Ficción de juego pendiente de aprobación. Vivienda en el entorno de La Fiebre: propuesta, no canon.",
+  "zones": {
+    "apartamento": {
+      "name": "La habitación alquilada",
+      "cota": 4,
+      "cota_status": "PROPUESTA",
+      "screens": [
+        "ap_dormitorio",
+        "ap_cocina",
+        "ap_bano"
+      ]
+    },
+    "fiebre": {
+      "name": "La Fiebre",
+      "cota": 4,
+      "screens": [
+        "fiebre_calle",
+        "fiebre_entrada",
+        "fiebre_encuentro"
+      ]
+    },
+    "nudo": {
+      "name": "El Nudo",
+      "cota": 3,
+      "screens": [
+        "nudo_acceso",
+        "nudo_taller",
+        "nudo_terminal"
+      ]
+    },
+    "puntales": {
+      "name": "Los Puntales",
+      "cota": 2,
+      "screens": [
+        "puntales_acceso",
+        "puntales_taller",
+        "puntales_observatorio"
+      ]
+    }
+  },
+  "routes": [
+    {
+      "from": "apartamento",
+      "to": "fiebre",
+      "requires": {
+        "mission": "retorno_agua",
+        "states": [
+          "ACTIVE",
+          "READY_TO_COMPLETE",
+          "COMPLETED"
+        ]
+      },
+      "text": "Cierras la puerta y atraviesas el pasaje. El ruido de los locales llega antes que sus luces."
+    },
+    {
+      "from": "fiebre",
+      "to": "apartamento",
+      "requires": {},
+      "text": "Vuelves por el pasaje hasta tu puerta."
+    },
+    {
+      "from": "fiebre",
+      "to": "nudo",
+      "requires": {
+        "flag": "orden_visita"
+      },
+      "text": "Descenso por el acceso público."
+    },
+    {
+      "from": "nudo",
+      "to": "fiebre",
+      "requires": {
+        "flag": "acreditacion_residencia"
+      },
+      "text": "El control comprueba tu acreditación de residencia antes de dejarte subir."
+    },
+    {
+      "from": "nudo",
+      "to": "puntales",
+      "requires": {
+        "flag": "orden_visita"
+      },
+      "text": "Descenso al acceso de mantenimiento."
+    },
+    {
+      "from": "puntales",
+      "to": "nudo",
+      "requires": {
+        "flag": "orden_visita"
+      },
+      "text": "Presentas la orden de visita al control de subida."
+    }
+  ],
+  "screens": {
+    "ap_dormitorio": {
+      "zone": "apartamento",
+      "title": "Antes de salir",
+      "subtitle": "HABITACIÓN ALQUILADA · DORMITORIO",
+      "art": "dormitorio",
+      "implemented": true,
+      "hotspots": [
+        {
+          "id": "bed",
+          "label": "La cama",
+          "type": "OBJECT",
+          "bounds": [
+            0.07,
+            0.64,
+            0.25,
+            0.21
+          ],
+          "target": "bed"
+        },
+        {
+          "id": "window",
+          "label": "La ventana",
+          "type": "OBJECT",
+          "bounds": [
+            0.19,
+            0.1,
+            0.3,
+            0.39
+          ],
+          "target": "window"
+        },
+        {
+          "id": "deck",
+          "label": "Deck externo",
+          "type": "DEVICE",
+          "bounds": [
+            0.46,
+            0.49,
+            0.1,
+            0.13
+          ],
+          "target": ""
+        },
+        {
+          "id": "to_kitchen",
+          "label": "Salón / cocina",
+          "type": "NAVIGATION",
+          "bounds": [
+            0.76,
+            0.25,
+            0.17,
+            0.49
+          ],
+          "target": "ap_cocina"
+        }
+      ]
+    },
+    "ap_cocina": {
+      "zone": "apartamento",
+      "title": "Lo que cuesta abrir el grifo",
+      "subtitle": "HABITACIÓN ALQUILADA · SALÓN / COCINA",
+      "art": "cocina",
+      "implemented": true,
+      "hotspots": [
+        {
+          "id": "terminal",
+          "label": "Terminal doméstico",
+          "type": "TERMINAL",
+          "bounds": [
+            0.22,
+            0.33,
+            0.11,
+            0.16
+          ],
+          "target": "domestico"
+        },
+        {
+          "id": "receipt",
+          "label": "Recibo del agua",
+          "type": "DOCUMENT",
+          "bounds": [
+            0.47,
+            0.67,
+            0.1,
+            0.09
+          ],
+          "target": "recibo"
+        },
+        {
+          "id": "water",
+          "label": "Suministro",
+          "type": "OBJECT",
+          "bounds": [
+            0.59,
+            0.3,
+            0.14,
+            0.31
+          ],
+          "target": "water"
+        },
+        {
+          "id": "bedroom",
+          "label": "Dormitorio",
+          "type": "NAVIGATION",
+          "bounds": [
+            0.01,
+            0.25,
+            0.1,
+            0.44
+          ],
+          "target": "ap_dormitorio"
+        },
+        {
+          "id": "bathroom",
+          "label": "Baño",
+          "type": "NAVIGATION",
+          "bounds": [
+            0.76,
+            0.27,
+            0.11,
+            0.4
+          ],
+          "target": "ap_bano"
+        },
+        {
+          "id": "street",
+          "label": "Salir a La Fiebre",
+          "type": "NAVIGATION",
+          "bounds": [
+            0.89,
+            0.23,
+            0.1,
+            0.44
+          ],
+          "target": "fiebre_calle",
+          "available_if": {
+            "mission": "retorno_agua",
+            "states": [
+              "ACTIVE",
+              "READY_TO_COMPLETE",
+              "COMPLETED"
+            ]
+          },
+          "locked_text": "Revisa el mensaje del deck y acepta el contrato antes de salir.",
+          "short_label": "La Fiebre"
+        }
+      ]
+    },
+    "ap_bano": {
+      "zone": "apartamento",
+      "title": "Un poco más de presión",
+      "subtitle": "HABITACIÓN ALQUILADA · BAÑO",
+      "art": "bano",
+      "implemented": true,
+      "hotspots": [
+        {
+          "id": "mirror",
+          "label": "El espejo",
+          "type": "PERSON",
+          "bounds": [
+            0.3,
+            0.17,
+            0.24,
+            0.32
+          ],
+          "target": "espejo"
+        },
+        {
+          "id": "pipes",
+          "label": "Tubería reparada",
+          "type": "OBJECT",
+          "bounds": [
+            0.32,
+            0.6,
+            0.28,
+            0.29
+          ],
+          "target": "pipes"
+        },
+        {
+          "id": "shelf",
+          "label": "Estante",
+          "type": "OBJECT",
+          "bounds": [
+            0.61,
+            0.26,
+            0.12,
+            0.21
+          ],
+          "target": "shelf"
+        },
+        {
+          "id": "kitchen",
+          "label": "Salón / cocina",
+          "type": "NAVIGATION",
+          "bounds": [
+            0.03,
+            0.25,
+            0.13,
+            0.47
+          ],
+          "target": "ap_cocina"
+        }
+      ]
+    },
+    "fiebre_calle": {
+      "zone": "fiebre",
+      "title": "Al margen del ruido",
+      "subtitle": "LA FIEBRE · PASAJE JUNTO A VELVET",
+      "art": "fiebre",
+      "implemented": true,
+      "hotspots": [
+        {
+          "id": "velvet",
+          "label": "Entrada de Velvet",
+          "type": "OBJECT",
+          "bounds": [
+            0.13,
+            0.28,
+            0.24,
+            0.33
+          ],
+          "target": "velvet"
+        },
+        {
+          "id": "jefa",
+          "label": "Hablar con la Jefa",
+          "type": "PERSON",
+          "bounds": [
+            0.84,
+            0.37,
+            0.12,
+            0.3
+          ],
+          "target": "jefa",
+          "visible_if": {
+            "mission": "retorno_agua",
+            "states": [
+              "ACTIVE",
+              "READY_TO_COMPLETE",
+              "COMPLETED"
+            ]
+          }
+        },
+        {
+          "id": "transit",
+          "label": "Acceso a El Nudo",
+          "type": "SPECIAL_EVENT",
+          "bounds": [
+            0.42,
+            0.24,
+            0.17,
+            0.32
+          ],
+          "target": "nudo_acceso"
+        },
+        {
+          "id": "home",
+          "label": "Volver a casa",
+          "type": "NAVIGATION",
+          "bounds": [
+            0.02,
+            0.76,
+            0.18,
+            0.16
+          ],
+          "target": "ap_cocina"
+        }
+      ]
+    },
+    "fiebre_entrada": {
+      "zone": "fiebre",
+      "title": "Umbral de Velvet",
+      "implemented": false,
+      "hotspots": []
+    },
+    "fiebre_encuentro": {
+      "zone": "fiebre",
+      "title": "Mesa de la Nómina",
+      "implemented": false,
+      "hotspots": []
+    },
+    "nudo_acceso": {
+      "zone": "nudo",
+      "title": "Acceso a El Nudo",
+      "implemented": false,
+      "hotspots": []
+    },
+    "nudo_taller": {
+      "zone": "nudo",
+      "title": "Reparaciones",
+      "implemented": false,
+      "hotspots": []
+    },
+    "nudo_terminal": {
+      "zone": "nudo",
+      "title": "Puesto de red",
+      "implemented": false,
+      "hotspots": []
+    },
+    "puntales_acceso": {
+      "zone": "puntales",
+      "title": "Acceso estructural",
+      "implemented": false,
+      "hotspots": []
+    },
+    "puntales_taller": {
+      "zone": "puntales",
+      "title": "Taller de mantenimiento",
+      "implemented": false,
+      "hotspots": []
+    },
+    "puntales_observatorio": {
+      "zone": "puntales",
+      "title": "Zona de trabajo",
+      "implemented": false,
+      "hotspots": []
+    }
+  }
+}

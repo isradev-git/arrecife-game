@@ -1,0 +1,51 @@
+{
+  "base": "433e0998172180466cdb832060e653ecfc3cd6d1",
+  "rama_respaldo": "backup/pre-reboot-20261020",
+  "archivo_local": "/Users/glitchbane/Documents/proyectos/el-arrecife-respaldos/pre-reboot-20261020-433e099",
+  "canon_sha256": "3b1408e4ce04f144c8d1da6acdcf0d3a79f090b29e5b1dbd217f37ed7c0c56a5",
+  "retratos_y_figuras": [
+    {
+      "original": "godot/assets/personajes/sota/retrato_dialogo_v1.png",
+      "preservado": "art/originals/sota.png",
+      "sha256": "5e170db20f0bca73fb25eb923fef45d565f158f3bea0b7227ff6790eed09e81b",
+      "uso": "retrato original de diálogo"
+    },
+    {
+      "original": "godot/assets/personajes/jefa/retrato_dialogo_v1.png",
+      "preservado": "art/originals/jefa.png",
+      "sha256": "ef0461a6f4561c7dd7ba3dde0b87fb7a0808cd7af943ffd5dc09f0fe983a8f0d",
+      "uso": "retrato original de diálogo"
+    },
+    {
+      "original": "godot/assets/entornos/velvet/guardia_cabina_v1.png",
+      "preservado": "art/originals/historico_guardia.png",
+      "sha256": "fdb8e08213eb8fad207060bc960b5959bc07308351be3b4f9dcee8e99c1dc105",
+      "uso": "histórico; no es retrato ilustrado"
+    },
+    {
+      "original": "godot/assets/entornos/velvet/figurante_acceso_v2.png",
+      "preservado": "art/originals/historico_acceso.png",
+      "sha256": "d61bf0351cf30643296df0008d93f9901f24eedac5c39443d8a33274ee155613",
+      "uso": "histórico; no es retrato ilustrado"
+    },
+    {
+      "original": "godot/assets/entornos/velvet/acompanante_acceso_v1.png",
+      "preservado": "art/originals/historico_acompanante.png",
+      "sha256": "dec7a683381a2d33e2d95b4e3d354adc1e3fc7ae6220e458a49cc6b266c0df53",
+      "uso": "histórico; no es retrato ilustrado"
+    }
+  ],
+  "fuentes_ausentes": [
+    "sources/",
+    "universo/"
+  ],
+  "retirados": [
+    "godot/",
+    "godot_ilustrado/",
+    "juego/",
+    "trabajo/",
+    "proceso/ (documentación histórica)",
+    "README_ETAPA_PIXEL_20261018.md",
+    "task_ETAPA_PIXEL_20261018.md"
+  ]
+}

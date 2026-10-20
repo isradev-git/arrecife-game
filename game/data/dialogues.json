@@ -1,0 +1,107 @@
+{
+  "espejo": {
+    "other": "",
+    "start": "inicio",
+    "nodes": {
+      "inicio": {
+        "speaker": "sota",
+        "text": "—La marca de la almohada tardará en irse. Lo demás puede esperar.",
+        "next": "fin"
+      },
+      "fin": {
+        "speaker": "sota",
+        "text": "—Vamos a ver qué quiere la Jefa.",
+        "choices": [
+          {
+            "text": "Volver al baño",
+            "end": true
+          }
+        ]
+      }
+    }
+  },
+  "jefa": {
+    "other": "jefa",
+    "start": "saludo",
+    "nodes": {
+      "saludo": {
+        "speaker": "jefa",
+        "text": "—¿Traes algo que podamos enseñar? Con decir que el agua sale mal no nos van a devolver el cargo.",
+        "choices": [
+          {
+            "text": "He copiado la lectura. No coincide con el parte.",
+            "if": {
+              "flag": "lectura_copiada"
+            },
+            "next": "lectura"
+          },
+          {
+            "text": "Todavía tengo que revisar el terminal.",
+            "if": {
+              "not_flag": "lectura_copiada"
+            },
+            "next": "volver"
+          },
+          {
+            "text": "¿Lo va a cubrir la Nómina?",
+            "next": "nomina"
+          },
+          {
+            "text": "Repasar lo que sabemos.",
+            "if": {
+              "flag": "parte_contrastado"
+            },
+            "next": "siguiente"
+          },
+          {
+            "text": "Lo hablamos luego.",
+            "end": true
+          }
+        ]
+      },
+      "volver": {
+        "speaker": "jefa",
+        "text": "—Míralo antes de bajar. El recibo dice una cosa; necesito saber si la conducción dice otra.",
+        "next": "saludo"
+      },
+      "nomina": {
+        "speaker": "jefa",
+        "text": "—Si ha pagado su cuota, hasta donde alcance la caja. Pero no pienso gastar las aportaciones en una reparación que nadie ha comprobado.",
+        "effects": {
+          "discover": "nomina"
+        },
+        "next": "saludo"
+      },
+      "lectura": {
+        "speaker": "sota",
+        "text": "—La presión cayó antes de la intervención. Han marcado el filtro como cambiado, pero no comprobaron la salida.",
+        "next": "copia"
+      },
+      "copia": {
+        "speaker": "jefa",
+        "text": "—Guarda ambas horas. Con mi copia podrás pedir que revisen el equipo en El Nudo. La orden es para esa visita; no te abre cualquier control.",
+        "effects": {
+          "flag": "parte_contrastado",
+          "flags": [
+            "orden_visita"
+          ],
+          "discover": "parte_jefa",
+          "unlock": [
+            "nudo"
+          ]
+        },
+        "next": "siguiente"
+      },
+      "siguiente": {
+        "speaker": "sota",
+        "text": "—Primero el equipo. Luego habrá que ver qué tocaron en la conducción.",
+        "choices": [
+          {
+            "text": "Guardar el parte y volver al pasaje",
+            "end": true
+          }
+        ]
+      }
+    }
+  }
+}

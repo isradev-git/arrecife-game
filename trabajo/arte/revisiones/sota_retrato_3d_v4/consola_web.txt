@@ -1,4 +1,0 @@
-Godot 4.7.2
-OpenGL ES 3.0 / WebGL 2.0, Compatibility
-Emscripten 4.0.20, single-threaded, sin GDExtension
-Sin errores en consola ni en errors.

@@ -1,8 +1,4 @@
 .DS_Store
-godot/.godot/
-godot/build/
-godot/export_credentials.cfg
-
-godot_ilustrado/.godot/
-godot_ilustrado/build/
-godot_ilustrado/export_credentials.cfg
+game/.godot/
+game/build/
+game/export_credentials.cfg
