@@ -43,6 +43,8 @@ Las fases futuras se prueban con datos sintéticos, pero **no se completan en el
 
 Hotspots con ID por pantalla, tipo, etiqueta, rectángulo normalizado, condición visible y disponible, y destino. El centro del rectángulo sitúa el punto de luz y un área pulsable fija de 56×56 unidades lógicas; el rectángulo completo no captura toques. El punto mide 9 unidades lógicas y no cubre la imagen con letras. «Pistas» abre, sólo a petición, la lista de acciones disponibles en la vista y permite ocultar los puntos. La ilustración se contiene completa en cada proporción.
 
+En móvil vertical, la escena conserva su proporción 16:9 y la observación queda justo debajo, con altura suficiente para leerla. La nota de revisión de los fondos se mantiene en el menú y la documentación, fuera de la exploración.
+
 - OBJECT: observación breve, sin diálogo modal.
 - PERSON: diálogo con temas, condiciones, efectos, elecciones y salida.
 - TERMINAL: menú de registros locales con arranque breve.

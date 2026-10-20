@@ -14,6 +14,7 @@ var modal_body: VBoxContainer
 var focus_before_modal: Control
 var menu_portrait: TextureRect
 var exploration_header: BoxContainer
+var exploration_footer: PanelContainer
 
 func _ready() -> void:
 	theme = GameUI.theme()
@@ -33,6 +34,11 @@ func reflow() -> void:
 		menu_portrait.visible = size.x >= 700
 	if is_instance_valid(exploration_header):
 		exploration_header.vertical = size.x < 700
+	if is_instance_valid(current_view):
+		current_view.size_flags_vertical = Control.SIZE_SHRINK_BEGIN if size.x < 700 else Control.SIZE_EXPAND_FILL
+		current_view.custom_minimum_size.y = maxf(0, (size.x - 32) * 9.0 / 16.0) if size.x < 700 else 0
+	if is_instance_valid(exploration_footer):
+		exploration_footer.custom_minimum_size.y = 128 if size.x < 700 else 68
 
 func update_scale() -> void:
 	var portrait := get_window().size.x < get_window().size.y
@@ -155,20 +161,19 @@ func show_exploration() -> void:
 		State.save_game()
 		show_menu())
 	current_view = Viewpoint.new()
-	current_view.size_flags_vertical = Control.SIZE_EXPAND_FILL
 	column.add_child(current_view)
 	current_view.activated.connect(interact)
 	var footer := PanelContainer.new()
+	exploration_footer = footer
 	footer.add_theme_stylebox_override("panel", GameUI.box(Color("122027")))
-	footer.custom_minimum_size.y = 68
 	column.add_child(footer)
 	var footer_column := GameUI.scroll(footer)
 	observation = GameUI.label(footer_column, "Toca los puntos de luz para explorar. El deck contiene un mensaje nuevo.", 20)
-	GameUI.label(column, "FONDOS CANDIDATOS · REVISIÓN ARTÍSTICA PENDIENTE", 13).modulate = GameUI.MUTED
 	var screen: Dictionary = Content.world.screens[State.data.screen]
 	location_label.text = screen.subtitle
 	title.text = screen.title
 	current_view.show_screen(screen)
+	reflow()
 	if State.data.missions.retorno_agua == "ACTIVE":
 		observation.text = "Contrato activo: copia la lectura del terminal y contrasta el parte con la Jefa."
 	if State.data.flags.get("parte_contrastado", false):

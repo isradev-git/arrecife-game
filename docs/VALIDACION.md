@@ -7,8 +7,8 @@
 | Comprobación | Resultado |
 | --- | --- |
 | Importación del proyecto y arranque | Sin errores de script/importación registrados |
-| `tests/run.gd`, headless | **179 comprobaciones, 0 fallos** |
-| Mismo recorrido nativo con GPU Apple M4 | **198 comprobaciones, 0 fallos**; incluye 19 capturas |
+| `tests/run.gd`, headless | **184 comprobaciones, 0 fallos** |
+| Mismo recorrido nativo con GPU Apple M4 | **203 comprobaciones, 0 fallos**; incluye 19 capturas |
 | `tests/preservation.py` | Canon, cinco originales, dos copias de diálogo idénticos; un proyecto activo; ninguna dependencia 3D |
 | Exportación Web, sin hilos | Generada correctamente con las plantillas 4.7.2 |
 
@@ -18,7 +18,7 @@ Las pruebas cubren: IDs/destinos y condiciones, cuatro zonas/doce vistas registr
 
 Entrada: eventos `InputEventMouseButton` y `InputEventScreenTouch` entregados al viewport. Se pulsa también la opción de diálogo mediante su botón. No son pruebas con un dedo físico.
 
-Resoluciones nativas capturadas: 1280×720, 844×390, 1024×768 y 390×844. Ilustración completa, controles dentro del encuadre; diálogo desplazable. Horizontal es la composición recomendada. En vertical los hotspots permanecen sobre la imagen y la lista de acciones sólo aparece al abrir «Pistas».
+Resoluciones nativas capturadas: 1280×720, 844×390, 1024×768 y 390×844. Ilustración completa, controles dentro del encuadre; diálogo desplazable. Horizontal es la composición recomendada. En vertical la escena y la observación aparecen juntas, el texto tiene espacio para varias líneas y los hotspots permanecen sobre la imagen. La prueba también cambia de vertical a horizontal y vuelve sin reconstruir la escena. La lista de acciones sólo aparece al abrir «Pistas».
 
 [Log headless](evidence/pruebas_headless.log) · [Log GPU](evidence/pruebas_nativas.log) · [Integridad](evidence/preservacion.log).
 
@@ -29,6 +29,8 @@ Helium/Chromium, WebGL 2, servidor HTTP local. Comprobados visualmente menú, in
 Se ajusta el viewport a 844×390. Un `TouchEvent` de inicio/fin enviado al canvas sobre Deck abre su interfaz. Es una comprobación del recorrido táctil del navegador de escritorio, no una certificación de Safari ni de un teléfono real.
 
 Consola sin errores de ejecución registrados en la revisión del hito 1. En la corrección móvil posterior, se reemplazaron los indicadores con letras y rótulos por puntos de luz y áreas táctiles transparentes. A 844×390 se comprobó visualmente el dormitorio, un `TouchEvent` sobre la puerta que lleva a la cocina, una observación sobre el suministro y la apertura del terminal desde «Pistas». Tras acotar las áreas, se repitió en la nueva exportación Web: toque próximo al punto sin navegar; toque central con navegación correcta.
+
+La exportación Web posterior se probó también a 390×844: escena y observación juntas, texto legible, toque fuera del punto sin navegación y toque central que abre la cocina. No se recortó la ilustración para llenar la pantalla vertical.
 
 [Consola](evidence/web_consola.log) · [Errores](evidence/web_errores.log) · [Antes de recargar](evidence/web_cocina_antes_recarga.png) · [Después](evidence/web_cocina_tras_recarga.png) · [Toque sobre Deck](evidence/web_toque_deck.png).
 
@@ -41,6 +43,7 @@ La persistencia observada es entre recargas del mismo origen y perfil. Borrar al
 - [Baño](evidence/08_bano.png), [Sota sola](evidence/09_monologo.png), [La Fiebre](evidence/10_fiebre.png), [diálogo](evidence/11_dialogo.png).
 - [Horizontal móvil](evidence/dialogo_844x390.png), [vertical](evidence/viewport_390x844.png).
 - [Dormitorio Web con puntos discretos](evidence/web_movil_sutil_dormitorio.png), [cocina tras toque directo](evidence/web_movil_sutil_toque.png), [acciones a petición](evidence/web_movil_sutil_pistas.png).
+- [Escena vertical Web](evidence/web_movil_vertical_escena.png), [cocina tras toque vertical](evidence/web_movil_vertical_toque.png).
 
 Son capturas del juego ejecutándose, no maquetas. Los PNG fuente de fondos no se utilizan como prueba de interfaz. Se revisaron composición, retratos, etiquetas, desplazamiento y transiciones. Se corrigieron botones superpuestos, referencias a pantallas liberadas al redimensionar y opciones de diálogo recortadas en vertical.
 

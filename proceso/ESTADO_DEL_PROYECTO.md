@@ -30,7 +30,7 @@ Cotas, jerarquía, tecnología física y límites de la Nómina proceden del can
 
 ## Resultados probados
 
-Importación y arranque correctos. **179 comprobaciones headless y 198 nativas con GPU, cero fallos**, incluidas 19 capturas reales. Integridad de canon, cinco originales y dos copias; una única implementación sin dependencia 3D. Web exportada y comprobada en Helium/WebGL 2: clic, toque sintético, contrato y recuperación de ubicación/progreso después de recargar. Cuatro tamaños de viewport nativo, incluido vertical. Tras las correcciones de interacción, se verificaron la pulsación directa en vertical, el panel «Pistas» y, en Web a 844×390, un toque fuera del área acotada que no navega seguido de otro en el centro que sí lo hace.
+Importación y arranque correctos. **184 comprobaciones headless y 203 nativas con GPU, cero fallos**, incluidas 19 capturas reales. Integridad de canon, cinco originales y dos copias; una única implementación sin dependencia 3D. Web exportada y comprobada en Helium/WebGL 2: clic, toque sintético, contrato y recuperación de ubicación/progreso después de recargar. Cuatro tamaños de viewport nativo, incluido vertical. Tras las correcciones de interacción, se verificaron la pulsación directa en vertical, el panel «Pistas» y, en Web a 844×390 y 390×844, un toque fuera del área acotada que no navega seguido de otro en el centro que sí lo hace. En vertical se comprobaron además la escena y el texto de observación juntos y legibles, y un cambio de orientación sin reconstruir la escena.
 
 [Resultados, evidencias y límites](../docs/VALIDACION.md). No se han probado móviles físicos, Safari/iOS, Windows ni Linux. El navegador depende de su almacenamiento local. No hay música ni efectos finales; los buses están preparados. Las pruebas técnicas no constituyen aprobación artística.
 
@@ -44,5 +44,6 @@ Revisión del autor sobre la propuesta narrativa y los cuatro fondos. Completar 
 - **20 oct 2026 · entrega del asistente:** retiro recuperable, proyecto único, hito 1 jugable y pruebas descritas arriba. **Pendiente de revisión narrativa y artística por el autor.**
 - **20 oct 2026 · corrección solicitada por el autor:** retirar los rótulos y botones grandes sobre los objetos, con prioridad móvil. **Entrega del asistente:** puntos pequeños, toque directo sobre la imagen y acciones nombradas sólo al abrir «Pistas». Verificación técnica y visual realizada; el autor aún no ha aprobado esta presentación.
 - **20 oct 2026 · segunda corrección solicitada por el autor:** reducir el tamaño de las áreas pulsables. **Entrega del asistente:** 56×56 unidades alrededor de cada punto, con pruebas dentro y fuera del área en Godot y Web. Pendiente de valorar la comodidad en teléfono físico.
+- **20 oct 2026 · continuación del asistente:** comprobación visual de los puntos del apartamento; agrupación de escena y observación en vertical y retirada del aviso técnico durante la exploración. Pruebas nativas y Web realizadas; diseño móvil pendiente de revisión del autor y de un teléfono físico.
 
 El historial de las etapas anteriores está íntegro en la rama de respaldo y la copia local; no describe la producción actual.

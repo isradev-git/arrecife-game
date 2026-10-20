@@ -209,6 +209,15 @@ func run() -> void:
 			check(button.text.is_empty() and button.get_child(0).size == Vector2(9, 9), "Punto discreto sin rótulo " + str(resolution))
 		await capture("viewport_%dx%d" % [resolution.x,resolution.y])
 		if resolution == Vector2i(390,844):
+			check(app.current_view.size.y <= app.current_view.size.x * 0.6, "Ilustración vertical sin espacio vacío interno")
+			check(app.observation.get_global_rect().position.y - app.current_view.get_global_rect().end.y < 100, "Observación junto a la ilustración en vertical")
+			check(app.exploration_footer.size.y >= 128, "Observación legible en móvil vertical")
+			root.size = Vector2i(844,390)
+			await frames(8)
+			check(app.current_view.size_flags_vertical == Control.SIZE_EXPAND_FILL and app.exploration_footer.custom_minimum_size.y == 68, "Rotación a horizontal sin reconstruir la escena")
+			root.size = resolution
+			await frames(8)
+			check(app.current_view.size_flags_vertical == Control.SIZE_SHRINK_BEGIN and app.exploration_footer.custom_minimum_size.y == 128, "Regreso a vertical sin reconstruir la escena")
 			await press("· Hablar con la Jefa", null, true)
 			check(app.overlay.visible, "Personaje activable tocando la escena en vertical")
 			app.close_modal()
