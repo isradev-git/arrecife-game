@@ -18,7 +18,7 @@ Canon intacto. Dos retratos originales ilustrados (Sota/Jefa) migrados sin alter
 
 ## Entrega del asistente: hito 1
 
-Menú, opciones, créditos, intro saltable, tres habitaciones y primer pasaje de La Fiebre. Hotspots por datos, observaciones, terminal, documentos paginados y leídos, diálogo con temas/elecciones/revisita, Sota izquierda/Jefa derecha y hablante iluminado. Deck con mensajes, contrato, archivo, noticias, contactos y lugares. Guardado v1, copia anterior, recuperación y nueva partida confirmada con respaldo fechado. Interacción de ratón y toque, texto desplazable y formato vertical con lista de acciones.
+Menú, opciones, créditos, intro saltable, tres habitaciones y primer pasaje de La Fiebre. Hotspots por datos, observaciones, terminal, documentos paginados y leídos, diálogo con temas/elecciones/revisita, Sota izquierda/Jefa derecha y hablante iluminado. Deck con mensajes, contrato, archivo, noticias, contactos y lugares. Guardado v1, copia anterior, recuperación y nueva partida confirmada con respaldo fechado. Interacción de ratón y toque sobre la ilustración, puntos de luz discretos y lista de acciones a petición dentro de «Pistas».
 
 Contrato **`retorno_agua`**: mensaje → aceptar → copiar lectura doméstica → contrastar con Jefa. El contrato permanece ACTIVE al terminar el contenido del hito. El Nudo y Los Puntales tienen IDs, rutas y condiciones, pero sus vistas no están construidas. Doce vistas registradas, cuatro construidas. No hay desenlace ni duración final comprobada.
 
@@ -30,7 +30,7 @@ Cotas, jerarquía, tecnología física y límites de la Nómina proceden del can
 
 ## Resultados probados
 
-Importación y arranque correctos. **137 comprobaciones headless y 156 nativas con GPU, cero fallos**, incluidas 19 capturas reales. Integridad de canon, cinco originales y dos copias; una única implementación sin dependencia 3D. Web exportada y comprobada en Helium/WebGL 2: clic, toque sintético, contrato y recuperación de ubicación/progreso después de recargar. Cuatro tamaños de viewport nativo, incluido vertical.
+Importación y arranque correctos. **162 comprobaciones headless y 181 nativas con GPU, cero fallos**, incluidas 19 capturas reales. Integridad de canon, cinco originales y dos copias; una única implementación sin dependencia 3D. Web exportada y comprobada en Helium/WebGL 2: clic, toque sintético, contrato y recuperación de ubicación/progreso después de recargar. Cuatro tamaños de viewport nativo, incluido vertical. Tras la corrección de indicadores, se verificaron además la pulsación directa en vertical, el panel «Pistas» y un toque Web sobre la puerta a 844×390.
 
 [Resultados, evidencias y límites](../docs/VALIDACION.md). No se han probado móviles físicos, Safari/iOS, Windows ni Linux. El navegador depende de su almacenamiento local. No hay música ni efectos finales; los buses están preparados. Las pruebas técnicas no constituyen aprobación artística.
 
@@ -42,5 +42,6 @@ Revisión del autor sobre la propuesta narrativa y los cuatro fondos. Completar 
 
 - **20 oct 2026 · decisión del autor:** abandonar la implementación anterior y construir una aventura ilustrada en primera persona, con misiones, contratos y progresión.
 - **20 oct 2026 · entrega del asistente:** retiro recuperable, proyecto único, hito 1 jugable y pruebas descritas arriba. **Pendiente de revisión narrativa y artística por el autor.**
+- **20 oct 2026 · corrección solicitada por el autor:** retirar los rótulos y botones grandes sobre los objetos, con prioridad móvil. **Entrega del asistente:** puntos pequeños, toque directo sobre la imagen y acciones nombradas sólo al abrir «Pistas». Verificación técnica y visual realizada; el autor aún no ha aprobado esta presentación.
 
 El historial de las etapas anteriores está íntegro en la rama de respaldo y la copia local; no describe la producción actual.

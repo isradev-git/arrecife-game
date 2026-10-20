@@ -150,7 +150,7 @@ func show_exploration() -> void:
 	header.add_child(controls)
 	controls.size_flags_vertical = Control.SIZE_SHRINK_CENTER
 	GameUI.button(controls, "Deck", func(): show_device())
-	GameUI.button(controls, "Pistas", toggle_hints)
+	GameUI.button(controls, "Pistas", show_hints_panel)
 	GameUI.button(controls, "Menú", func():
 		State.save_game()
 		show_menu())
@@ -163,7 +163,7 @@ func show_exploration() -> void:
 	footer.custom_minimum_size.y = 68
 	column.add_child(footer)
 	var footer_column := GameUI.scroll(footer)
-	observation = GameUI.label(footer_column, "Toca los indicadores para explorar. El deck contiene un mensaje nuevo.", 20)
+	observation = GameUI.label(footer_column, "Toca los puntos de luz para explorar. El deck contiene un mensaje nuevo.", 20)
 	GameUI.label(column, "FONDOS CANDIDATOS · REVISIÓN ARTÍSTICA PENDIENTE", 13).modulate = GameUI.MUTED
 	var screen: Dictionary = Content.world.screens[State.data.screen]
 	location_label.text = screen.subtitle
@@ -174,10 +174,17 @@ func show_exploration() -> void:
 	if State.data.flags.get("parte_contrastado", false):
 		observation.text = "Parte guardado. Has terminado el recorrido del hito 1. El acceso a El Nudo continuará en el próximo hito."
 
-func toggle_hints() -> void:
-	State.set_option("hints", not State.settings.hints)
-	current_view.set_hints(State.settings.hints)
-	observe("Indicadores visibles." if State.settings.hints else "Indicadores atenuados. Siguen disponibles con un toque.")
+func show_hints_panel() -> void:
+	open_panel("Pistas", "ACCIONES DE ESTA VISTA")
+	GameUI.button(modal_body, "Ocultar puntos de luz" if State.settings.hints else "Mostrar puntos de luz", func():
+		State.set_option("hints", not State.settings.hints)
+		current_view.set_hints(State.settings.hints)
+		show_hints_panel())
+	for spot in current_view.get("spots"):
+		var hotspot: Dictionary = spot.get_meta("hotspot")
+		GameUI.button(modal_body, hotspot.label, func():
+			close_modal()
+			interact(hotspot))
 
 func observe(text: String) -> void:
 	if is_instance_valid(observation):

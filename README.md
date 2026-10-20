@@ -23,7 +23,7 @@ En este Mac:
 /Applications/Godot.app/Contents/MacOS/Godot --path game
 ```
 
-Todo se juega con clic o toque. **Deck** abre mensajes, contratos, archivo, noticias, contactos y lugares. **Pistas** atenúa los indicadores. En pantallas estrechas hay una lista táctil bajo la ilustración. Los textos extensos se desplazan. Se recomienda horizontal.
+Todo se juega con clic o toque. **Deck** abre mensajes, contratos, archivo, noticias, contactos y lugares. Los objetos y accesos se tocan directamente en la ilustración; pequeños puntos de luz indican dónde. **Pistas** abre la lista de acciones y permite ocultar los puntos. Los textos extensos se desplazan. Se recomienda horizontal.
 
 ### Recorrido de comprobación
 

@@ -109,6 +109,15 @@ func run() -> void:
 	await press("Saltar introducción")
 	check(is_instance_valid(app.current_view), "Introducción saltable")
 	await capture("03_dormitorio")
+	await press("Pistas")
+	check(app.overlay.visible, "Pistas abre acciones accesibles")
+	await press("Ocultar puntos de luz")
+	check(not app.current_view.spots[0].get_child(0).visible, "Pistas oculta marcas sin desactivar hotspots")
+	await press("Mostrar puntos de luz")
+	check(app.current_view.spots[0].get_child(0).visible, "Pistas recupera marcas discretas")
+	await press("Deck externo", app.overlay)
+	check(app.overlay.visible and app.modal_body.get_child_count() > 0, "Acción nombrada de Pistas abre el deck")
+	await press("Cerrar ×")
 	await press("· Deck externo")
 	check(app.overlay.visible, "Hotspot abre deck con ratón")
 	await press("* Un parte que no cuadra · La Jefa")
@@ -185,10 +194,13 @@ func run() -> void:
 		app.show_exploration()
 		await frames(8)
 		for button in app.current_view.spots:
-			if not button.visible:
-				continue
-			check(app.get_global_rect().encloses(button.get_global_rect()), "Indicador dentro de pantalla " + str(resolution) + " " + button.text)
+			check(button.visible and app.current_view.art_rect().encloses(Rect2(button.position, button.size)), "Área táctil sobre la ilustración " + str(resolution))
+			check(button.text.is_empty() and button.get_child(0).size == Vector2(9, 9), "Punto discreto sin rótulo " + str(resolution))
 		await capture("viewport_%dx%d" % [resolution.x,resolution.y])
+		if resolution == Vector2i(390,844):
+			await press("· Hablar con la Jefa", null, true)
+			check(app.overlay.visible, "Personaje activable tocando la escena en vertical")
+			app.close_modal()
 		app.show_dialogue("jefa")
 		await frames()
 		await capture("dialogo_%dx%d" % [resolution.x,resolution.y])
