@@ -1,4 +1,15 @@
 {
+  "startup": {
+    "logo": "el_arrecife",
+    "tagline": "Una ciudad que creció sobre sus propias reparaciones.",
+    "creator": "Un universo creado por Israel Zamora",
+    "rights": "Universo y personajes originales © 2026 Israel Zamora.",
+    "mobile_title": "Gira el móvil",
+    "mobile_text": "Colócalo en horizontal para jugar.",
+    "desktop_title": "Todo listo",
+    "desktop_text": "Si juegas desde el ordenador, disfruta.",
+    "rotate_hint": "La partida continuará al poner la pantalla en horizontal."
+  },
   "intro": [
     {
       "heading": "EL ARRECIFE",
@@ -89,5 +100,5 @@
       "text": "Contacto para el parte del agua. Su presencia en el pasaje es una propuesta de esta historia."
     }
   ],
-  "credits": "EL ARRECIFE\nUna aventura en el universo de CARGA ADMISIBLE.\n\nUniverso y dirección: autor de El Arrecife.\nDesarrollo: autor y asistente.\nRetratos: originales aportados por el autor, conservados sin modificación.\nFondos: candidatos generados con imagegen; pendientes de aprobación.\nMotor: Godot Engine, licencia MIT (incluida en Créditos del motor).\n\nHito 1. Texto y situaciones nuevos pendientes de revisión narrativa. Sin música ni efectos finales."
+  "credits": "EL ARRECIFE\nUna aventura en el universo de CARGA ADMISIBLE.\n\nUniverso y personajes originales: Israel Zamora.\nDesarrollo: autor y asistente.\nRetratos: originales aportados por el autor, conservados sin modificación.\nFondos: candidatos generados con imagegen; pendientes de aprobación.\nMotor: Godot Engine, licencia MIT (incluida en Créditos del motor).\n\nHito 1. Texto y situaciones nuevos pendientes de revisión narrativa. Sin música ni efectos finales."
 }

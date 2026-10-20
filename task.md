@@ -24,12 +24,15 @@ Dirección del autor, 20 oct 2026: aventura **2D ilustrada en primera persona**,
 - [x] Guardado versionado, copia de seguridad, recuperación, continuar y reinicio confirmado.
 - [x] Opciones de volumen/buses, texto grande, indicadores y reducción de transiciones.
 - [x] Ratón y toque sobre áreas acotadas de la ilustración, puntos de luz discretos, lista de acciones a petición y desplazamiento de texto.
-- [x] Agrupar ilustración y observación en móvil vertical, sin recortar la vista; comprobar toque Web dentro y fuera del punto.
+- [x] Comprobación histórica de móvil vertical, sustituida después por la decisión de jugar sólo en horizontal; se mantiene la prueba de toque Web dentro y fuera del punto.
+- [x] Sustituir la orientación móvil vertical por apertura de tres pantallas y aviso persistente de giro; conservar el uso libre de la ventana en ordenador.
 - [x] Importación, pruebas automáticas, ejecución nativa con GPU y capturas reales.
 - [x] Exportación Web, clic/toque sintético, recarga y persistencia en navegador de escritorio.
 - [x] README, AGENTS, diseño, arte, recuperación y continuidad renovados.
 
 **Entrega técnica del hito 1. No equivale a aprobación narrativa o artística.** Ver resultados concretos y límites en [VALIDACION](docs/VALIDACION.md).
+
+**Decisión posterior del autor:** móvil sólo horizontal. La implementación actual anula el uso vertical móvil documentado en el punto histórico anterior; el logo tipográfico y el texto legal aún necesitan revisión visual/editorial.
 
 ## H2 · siguiente trabajo
 
@@ -47,5 +50,6 @@ Dirección del autor, 20 oct 2026: aventura **2D ilustrada en primera persona**,
 - [ ] Aprobar y finalizar todas las ilustraciones y capas animadas necesarias.
 - [ ] Música, ambiente y efectos; ahora sólo están preparados los buses.
 - [ ] Pruebas en teléfonos físicos, Safari/iOS, Android, Windows y Linux.
+- [ ] Revisar y aprobar el logo definitivo y la redacción del crédito legal.
 - [ ] Exportaciones de escritorio y comprobación final de rendimiento/accesibilidad.
 - [ ] Publicación del reinicio cuando el autor la autorice.

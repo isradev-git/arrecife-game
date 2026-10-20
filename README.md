@@ -4,14 +4,14 @@ Aventura narrativa **2D ilustrada, en primera persona**, en el universo de *CARG
 
 ## Estado: hito 1 jugable
 
-Menú, introducción saltable, tres habitaciones, una primera vista de La Fiebre, interacciones, diálogo con retratos originales, deck, mensajes, contrato, documentos, terminal y guardado local. El contrato puede recibirse, aceptarse y avanzar hasta contrastar el parte con la Jefa.
+Tres pantallas de apertura (logo, autoría y orientación), menú, introducción saltable, tres habitaciones, una primera vista de La Fiebre, interacciones, diálogo con retratos originales, deck, mensajes, contrato, documentos, terminal y guardado local. El contrato puede recibirse, aceptarse y avanzar hasta contrastar el parte con la Jefa.
 
 **No es todavía la aventura completa de 30 minutos.** El Nudo, Los Puntales, la resolución y el final están pendientes. Los cuatro fondos son candidatos ilustrados; la ficción nueva y el arte requieren revisión del autor.
 
 ## Abrir y jugar
 
 1. Abre Godot 4.7.2 e importa **`game/project.godot`**.
-2. Pulsa **F5** y selecciona **Jugar**. También puedes ejecutar:
+2. Pulsa **F5**. Después de las tres pantallas de apertura, selecciona **Jugar**. Puedes tocarlas para avanzar antes de que termine su breve espera. También puedes ejecutar:
 
 ```sh
 godot --path game
@@ -23,7 +23,7 @@ En este Mac:
 /Applications/Godot.app/Contents/MacOS/Godot --path game
 ```
 
-Todo se juega con clic o toque. **Deck** abre mensajes, contratos, archivo, noticias, contactos y lugares. Toca los pequeños puntos de luz sobre los objetos y accesos; sus áreas pulsables están acotadas. **Pistas** abre la lista de acciones y permite ocultar los puntos. Los textos extensos se desplazan. Se recomienda horizontal.
+Todo se juega con clic o toque. **En móvil se juega sólo en horizontal**: el aviso de giro aparece antes del menú y vuelve a cubrir la partida si se gira el dispositivo a vertical. En ordenador se puede usar cualquier orientación de ventana. **Deck** abre mensajes, contratos, archivo, noticias, contactos y lugares. Toca los pequeños puntos de luz sobre los objetos y accesos; sus áreas pulsables están acotadas. **Pistas** abre la lista de acciones y permite ocultar los puntos. Los textos extensos se desplazan.
 
 ### Recorrido de comprobación
 

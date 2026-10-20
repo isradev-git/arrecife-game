@@ -3,8 +3,11 @@ extends Control
 const Viewpoint = preload("res://scripts/ui/viewpoint.gd")
 const Dialogue = preload("res://scripts/ui/dialogue.gd")
 const Device = preload("res://scripts/ui/device.gd")
+const Startup = preload("res://scripts/ui/startup.gd")
 var page := Control.new()
 var overlay := Control.new()
+var orientation_gate := Startup.new()
+var opening := Startup.new()
 var current_view: Control
 var observation: Label
 var location_label: Label
@@ -26,8 +29,18 @@ func _ready() -> void:
 	add_child(overlay)
 	GameUI.fill(overlay)
 	overlay.hide()
+	orientation_gate.orientation_only = true
+	add_child(orientation_gate)
+	GameUI.fill(orientation_gate)
+	orientation_gate.hide()
+	add_child(opening)
+	GameUI.fill(opening)
+	opening.finished.connect(func():
+		opening.queue_free()
+		show_menu()
+		orientation_gate.refresh())
 	State.save_failed.connect(func(message: String): show_notice("Guardado pendiente", message))
-	show_menu()
+	menu_visible = false
 
 func reflow() -> void:
 	if is_instance_valid(menu_portrait):
@@ -45,6 +58,10 @@ func update_scale() -> void:
 	var target := Vector2i(480, 540) if portrait else Vector2i(960, 540)
 	if get_window().content_scale_size != target:
 		get_window().content_scale_size = target
+	if is_instance_valid(opening) and opening.is_inside_tree():
+		opening.refresh()
+	if orientation_gate.is_inside_tree():
+		orientation_gate.refresh()
 
 func background(parent: Control, id: String, dim: float = 0.0) -> void:
 	var texture := TextureRect.new()

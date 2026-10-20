@@ -66,6 +66,7 @@ func press(text: String, in_node: Node = null, touch: bool = false) -> void:
 func run() -> void:
 	state = root.get_node("State")
 	content = root.get_node("Content")
+	check(ProjectSettings.get_setting("display/window/handheld/orientation") == 6, "Orientación por sensor para mostrar el aviso en móvil nativo")
 	screenshots = DisplayServer.get_name() != "headless"
 	state.save_path = "user://prueba_" + str(OS.get_process_id()) + ".json"
 	check(content.world.zones.size() == 4, "Cuatro zonas")
@@ -96,6 +97,16 @@ func run() -> void:
 	app = load("res://scenes/main.tscn").instantiate()
 	root.add_child(app)
 	await frames(8)
+	check(app.opening.stage == 0 and not app.menu_visible, "El logo precede al menú")
+	await capture("00_logo")
+	await press("Continuar")
+	check(app.opening.stage == 1, "Crédito del universo tras el logo")
+	await capture("00_autoria")
+	await press("Continuar")
+	check(app.opening.stage == 2 and not app.opening.is_portrait_mobile(), "Aviso para ordenador antes del menú")
+	await capture("00_aviso_pc")
+	await press("Entrar al juego")
+	check(app.menu_visible, "Menú después de las tres pantallas")
 	await capture("01_menu")
 	await press("Opciones")
 	check(app.overlay.visible, "Opciones desde menú")
@@ -225,6 +236,26 @@ func run() -> void:
 		await frames()
 		await capture("dialogo_%dx%d" % [resolution.x,resolution.y])
 		app.close_modal()
+	var mobile_opening = load("res://scripts/ui/startup.gd").new()
+	mobile_opening.mobile = true
+	root.add_child(mobile_opening)
+	mobile_opening.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	root.size = Vector2i(390, 844)
+	await frames(8)
+	mobile_opening.advance()
+	mobile_opening.advance()
+	check(mobile_opening.stage == 2 and mobile_opening.is_portrait_mobile(), "Apertura móvil espera en vertical")
+	await capture("00_girar_movil")
+	mobile_opening.advance()
+	check(mobile_opening.stage == 2, "No se entra al juego con móvil vertical")
+	mobile_opening.queue_free()
+	app.orientation_gate.mobile = true
+	app.orientation_gate.refresh()
+	check(app.orientation_gate.visible, "Partida tapada al girar el móvil a vertical")
+	root.size = Vector2i(844, 390)
+	await frames(8)
+	check(not app.orientation_gate.visible, "Partida recuperada al volver a horizontal")
+	app.orientation_gate.mobile = false
 	# Toda la máquina de misión puede concluir con datos de futuros hitos.
 	for step in content.missions.retorno_agua.steps:
 		state.apply({"flag":step.flag})
