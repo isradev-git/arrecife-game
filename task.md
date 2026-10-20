@@ -23,7 +23,7 @@ Dirección del autor, 20 oct 2026: aventura **2D ilustrada en primera persona**,
 - [x] Cuatro zonas y doce IDs registrados; rutas y permisos; zonas futuras identificadas.
 - [x] Guardado versionado, copia de seguridad, recuperación, continuar y reinicio confirmado.
 - [x] Opciones de volumen/buses, texto grande, indicadores y reducción de transiciones.
-- [x] Ratón y toque directos en la ilustración, puntos de luz discretos, lista de acciones a petición y desplazamiento de texto.
+- [x] Ratón y toque sobre áreas acotadas de la ilustración, puntos de luz discretos, lista de acciones a petición y desplazamiento de texto.
 - [x] Importación, pruebas automáticas, ejecución nativa con GPU y capturas reales.
 - [x] Exportación Web, clic/toque sintético, recarga y persistencia en navegador de escritorio.
 - [x] README, AGENTS, diseño, arte, recuperación y continuidad renovados.

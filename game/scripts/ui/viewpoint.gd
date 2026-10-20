@@ -66,7 +66,7 @@ func layout_spots() -> void:
 	image.size = area.size
 	for node in spots:
 		var bounds: Array = node.get_meta("hotspot").bounds
-		var extent := Vector2(maxf(56, area.size.x * bounds[2]), maxf(56, area.size.y * bounds[3]))
+		var extent := Vector2(56, 56)
 		var center := area.position + area.size * Vector2(bounds[0] + bounds[2]*0.5, bounds[1] + bounds[3]*0.5)
 		node.size = extent
 		node.position = Vector2(clampf(center.x - extent.x*0.5, area.position.x, area.end.x-extent.x), clampf(center.y - extent.y*0.5, area.position.y, area.end.y-extent.y))

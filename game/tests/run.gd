@@ -109,6 +109,16 @@ func run() -> void:
 	await press("Saltar introducción")
 	check(is_instance_valid(app.current_view), "Introducción saltable")
 	await capture("03_dormitorio")
+	var door: Button = app.current_view.spots.back()
+	var miss := door.get_global_rect().get_center() + Vector2(35, 0)
+	for down in [true, false]:
+		var event := InputEventMouseButton.new()
+		event.position = miss
+		event.button_index = MOUSE_BUTTON_LEFT
+		event.pressed = down
+		root.push_input(event, true)
+		await frames()
+	check(state.data.screen == "ap_dormitorio", "Toque junto a la puerta no activa un área invisible grande")
 	await press("Pistas")
 	check(app.overlay.visible, "Pistas abre acciones accesibles")
 	await press("Ocultar puntos de luz")
@@ -195,6 +205,7 @@ func run() -> void:
 		await frames(8)
 		for button in app.current_view.spots:
 			check(button.visible and app.current_view.art_rect().encloses(Rect2(button.position, button.size)), "Área táctil sobre la ilustración " + str(resolution))
+			check(button.size.x <= 56.1 and button.size.y <= 56.1, "Área táctil acotada " + str(resolution) + " " + str(button.size))
 			check(button.text.is_empty() and button.get_child(0).size == Vector2(9, 9), "Punto discreto sin rótulo " + str(resolution))
 		await capture("viewport_%dx%d" % [resolution.x,resolution.y])
 		if resolution == Vector2i(390,844):

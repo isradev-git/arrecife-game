@@ -41,7 +41,7 @@ Las fases futuras se prueban con datos sintéticos, pero **no se completan en el
 
 ## Interacciones
 
-Hotspots con ID por pantalla, tipo, etiqueta, rectángulo normalizado, condición visible y disponible, y destino. El jugador toca directamente la zona del objeto o acceso en la ilustración, también en vertical. Un punto de luz de 9 unidades lógicas indica su centro sin cubrirla con letras; el área táctil mantiene un mínimo de 56 unidades lógicas. «Pistas» abre, sólo a petición, la lista de acciones disponibles en la vista y permite ocultar los puntos. La ilustración se contiene completa en cada proporción.
+Hotspots con ID por pantalla, tipo, etiqueta, rectángulo normalizado, condición visible y disponible, y destino. El centro del rectángulo sitúa el punto de luz y un área pulsable fija de 56×56 unidades lógicas; el rectángulo completo no captura toques. El punto mide 9 unidades lógicas y no cubre la imagen con letras. «Pistas» abre, sólo a petición, la lista de acciones disponibles en la vista y permite ocultar los puntos. La ilustración se contiene completa en cada proporción.
 
 - OBJECT: observación breve, sin diálogo modal.
 - PERSON: diálogo con temas, condiciones, efectos, elecciones y salida.

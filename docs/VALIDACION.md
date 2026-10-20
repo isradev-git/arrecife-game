@@ -7,12 +7,12 @@
 | Comprobación | Resultado |
 | --- | --- |
 | Importación del proyecto y arranque | Sin errores de script/importación registrados |
-| `tests/run.gd`, headless | **162 comprobaciones, 0 fallos** |
-| Mismo recorrido nativo con GPU Apple M4 | **181 comprobaciones, 0 fallos**; incluye 19 capturas |
+| `tests/run.gd`, headless | **179 comprobaciones, 0 fallos** |
+| Mismo recorrido nativo con GPU Apple M4 | **198 comprobaciones, 0 fallos**; incluye 19 capturas |
 | `tests/preservation.py` | Canon, cinco originales, dos copias de diálogo idénticos; un proyecto activo; ninguna dependencia 3D |
 | Exportación Web, sin hilos | Generada correctamente con las plantillas 4.7.2 |
 
-Los conteos difieren porque la ejecución GPU incluye comprobaciones de escritura de capturas. En las cuatro proporciones se comprueba que cada área táctil siga sobre la ilustración, sin rótulos superpuestos; en vertical se pulsa directamente una persona con `InputEventScreenTouch`. No sumar las cifras como si fuesen casos independientes.
+Los conteos difieren porque la ejecución GPU incluye comprobaciones de escritura de capturas. En las cuatro proporciones se comprueba que cada área táctil sea de 56×56 unidades, permanezca sobre la ilustración y no tenga rótulos superpuestos. Un clic cercano a la puerta, fuera del área acotada, no navega; el clic central sí. En vertical se pulsa directamente una persona con `InputEventScreenTouch`. No sumar las cifras como si fuesen casos independientes.
 
 Las pruebas cubren: IDs/destinos y condiciones, cuatro zonas/doce vistas registradas, partida nueva, bloqueo previo al contrato, menú/opciones/créditos/continuar, intro saltable, deck, mensaje, aceptación, cocina/baño, documentos y paginación, terminal y registro, conversación/elección/flags, ruta a La Fiebre, persistencia de cada campo y rechazo de formatos inválidos, recuperación de `.bak`, rechazo de zona futura y limpieza de nueva partida. Se prueban READY_TO_COMPLETE y COMPLETED con efectos sintéticos de futuros hitos, sin atribuir esos contenidos al juego actual.
 
@@ -28,7 +28,7 @@ Helium/Chromium, WebGL 2, servidor HTTP local. Comprobados visualmente menú, in
 
 Se ajusta el viewport a 844×390. Un `TouchEvent` de inicio/fin enviado al canvas sobre Deck abre su interfaz. Es una comprobación del recorrido táctil del navegador de escritorio, no una certificación de Safari ni de un teléfono real.
 
-Consola sin errores de ejecución registrados en la revisión del hito 1. En la corrección móvil posterior, se reemplazaron los indicadores con letras y rótulos por puntos de luz y áreas táctiles transparentes. A 844×390 se comprobó visualmente el dormitorio, un `TouchEvent` sobre la puerta que lleva a la cocina, una observación sobre el suministro y la apertura del terminal desde «Pistas».
+Consola sin errores de ejecución registrados en la revisión del hito 1. En la corrección móvil posterior, se reemplazaron los indicadores con letras y rótulos por puntos de luz y áreas táctiles transparentes. A 844×390 se comprobó visualmente el dormitorio, un `TouchEvent` sobre la puerta que lleva a la cocina, una observación sobre el suministro y la apertura del terminal desde «Pistas». Tras acotar las áreas, se repitió en la nueva exportación Web: toque próximo al punto sin navegar; toque central con navegación correcta.
 
 [Consola](evidence/web_consola.log) · [Errores](evidence/web_errores.log) · [Antes de recargar](evidence/web_cocina_antes_recarga.png) · [Después](evidence/web_cocina_tras_recarga.png) · [Toque sobre Deck](evidence/web_toque_deck.png).
 
