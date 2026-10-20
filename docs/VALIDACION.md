@@ -9,7 +9,7 @@
 | Importación del proyecto y arranque | Sin errores de script/importación registrados |
 | `tests/run.gd`, headless | **193 comprobaciones, 0 fallos** |
 | Mismo recorrido nativo con GPU Apple M4 | **216 comprobaciones, 0 fallos**; incluye 23 capturas |
-| `tests/preservation.py` | Canon, cinco originales, dos copias de diálogo idénticos; un proyecto activo; ninguna dependencia 3D |
+| `tests/preservation.py` | Canon, cinco originales, dos copias de diálogo y logo original idénticos; un proyecto activo; ninguna dependencia 3D |
 | Exportación Web, sin hilos | Generada correctamente con las plantillas 4.7.2 |
 
 Los conteos difieren porque la ejecución GPU incluye comprobaciones de escritura de capturas. Se comprueba logo → autoría → aviso → menú, espera en móvil vertical, cobertura del menú hasta volver a horizontal y configuración nativa por sensor para que el aviso pueda verse con el teléfono erguido. En las cuatro proporciones se comprueba que cada área táctil sea de 56×56 unidades, permanezca sobre la ilustración y no tenga rótulos superpuestos. Un clic cercano a la puerta, fuera del área acotada, no navega; el clic central sí. La prueba vertical de interacción de la escena se ejecuta en modo ordenador dentro de Godot para conservar la regresión de layout; en un móvil la escena queda cubierta. No sumar las cifras como si fuesen casos independientes.
@@ -32,6 +32,10 @@ Consola sin errores de ejecución registrados en la revisión del hito 1. En la 
 
 Antes de la nueva decisión horizontal se probó la exploración Web a 390×844: escena y observación juntas, texto legible y toques dentro/fuera del punto. Esa captura es evidencia histórica del diseño anterior. Con la nueva exportación se emuló iPhone 12 en Helium: en 390×844 aparece «Gira el móvil» y no el menú; al pasar a 844×390 aparece el menú; de vuelta a vertical reaparece el aviso encima del menú. El icono de giro se vio en movimiento. Emulación de navegador, no hardware iOS/Safari.
 
+Con el logo original integrado se repitió la exportación Web. En una sesión de pestaña vacía apareció el logo; se recargó durante la apertura y apareció directamente el menú. Se cerró esa pestaña y se abrió otra en la misma dirección: el logo volvió a aparecer. Una recarga adicional con iPhone emulado en vertical mostró únicamente el aviso de giro, sin repetir logo ni crédito. Se inspeccionó el valor de sesión `el_arrecife_apertura_v1`. Si el navegador impide usar `sessionStorage`, la apertura se muestra de nuevo como degradación segura; aún no se ha probado ese caso en hardware.
+
+La exportación final usa `boot_splash/show_image=false`: se inspeccionó el HTML generado y su clase `show-image--false` oculta la imagen azul de Godot durante la descarga. Queda el fondo neutro `#0c171d`, seguido del logo original sólo en la primera apertura de la pestaña.
+
 [Consola](evidence/web_consola.log) · [Errores](evidence/web_errores.log) · [Antes de recargar](evidence/web_cocina_antes_recarga.png) · [Después](evidence/web_cocina_tras_recarga.png) · [Toque sobre Deck](evidence/web_toque_deck.png).
 
 La persistencia observada es entre recargas del mismo origen y perfil. Borrar almacenamiento, modo privado, restricciones del navegador o cambiar de host/puerto pueden impedir recuperar la partida. No se ha probado persistencia prolongada, cuotas agotadas ni cierres abruptos del dispositivo.
@@ -39,6 +43,7 @@ La persistencia observada es entre recargas del mismo origen y perfil. Borrar al
 ## Evidencia visual real
 
 - [Logo](evidence/00_logo.png), [autoría](evidence/00_autoria.png), [aviso PC](evidence/00_aviso_pc.png), [aviso móvil](evidence/00_girar_movil.png).
+- [Web primera visita con el logo original](evidence/web_apertura_primera_visita.png), [recarga directa al menú](evidence/web_apertura_recarga.png), [pestaña nueva con logo](evidence/web_apertura_pestana_nueva.png), [recarga móvil vertical con aviso](evidence/web_apertura_recarga_movil_vertical.png).
 - [Web iPhone emulado vertical inicial](evidence/web_iphone_vertical.png), [horizontal con menú](evidence/web_iphone_horizontal.png), [vertical tras menú](evidence/web_iphone_giro_en_menu.png).
 - [Menú](evidence/01_menu.png), [introducción](evidence/02_introduccion.png), [dormitorio](evidence/03_dormitorio.png).
 - [Contrato](evidence/04_contrato.png), [cocina](evidence/05_cocina.png), [documento](evidence/06_documento.png), [terminal](evidence/07_terminal.png).
@@ -51,4 +56,4 @@ Son capturas del juego ejecutándose, no maquetas. Los PNG fuente de fondos no s
 
 ## Límites pendientes
 
-No se han probado Windows/Linux, Safari/iOS, Android real ni teléfonos físicos. La detección móvil Web usa los indicadores `web_android`/`web_ios` de Godot, comprobada con iPhone emulado; queda por validar en Safari y Android físicos. El logo actual es tipográfico y el texto de derechos requiere revisión editorial del autor. No hay aventura de 30 minutos completa, desenlace, sonido final, capas ambientales animadas ni arte aprobado para estos escenarios. Los fondos son candidatos aplanados. La ventana y la continuidad de las habitaciones requieren revisión artística. La Jefa aparece en el retrato de conversación; falta su figura ambiental. No se declara ninguna aprobación del autor sobre esta entrega.
+No se han probado Windows/Linux, Safari/iOS, Android real ni teléfonos físicos. La detección móvil Web usa los indicadores `web_android`/`web_ios` de Godot, comprobada con iPhone emulado; queda por validar en Safari y Android físicos. El logo original fue suministrado por el autor para esta pantalla; el texto de derechos requiere revisión editorial. No hay aventura de 30 minutos completa, desenlace, sonido final, capas ambientales animadas ni arte aprobado para estos escenarios. Los fondos son candidatos aplanados. La ventana y la continuidad de las habitaciones requieren revisión artística. La Jefa aparece en el retrato de conversación; falta su figura ambiental. No se declara ninguna aprobación del autor sobre el resto de esta entrega.

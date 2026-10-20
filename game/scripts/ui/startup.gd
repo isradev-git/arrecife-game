@@ -50,6 +50,9 @@ func show_stage() -> void:
 	if phone_tween and phone_tween.is_running():
 		phone_tween.kill()
 	GameUI.clear(canvas)
+	if stage == 0:
+		show_logo_screen()
+		return
 	var backdrop := ColorRect.new()
 	backdrop.color = Color("0c171d")
 	canvas.add_child(backdrop)
@@ -69,9 +72,6 @@ func show_stage() -> void:
 	var headline := ""
 	var body := ""
 	match stage:
-		0:
-			headline = Content.story.startup.logo
-			body = Content.story.startup.tagline
 		1:
 			headline = Content.story.startup.creator
 			body = Content.story.startup.rights
@@ -100,6 +100,37 @@ func show_stage() -> void:
 	elif stage == 2 and is_portrait_mobile():
 		GameUI.label(column, Content.story.startup.rotate_hint, 19).horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	if not orientation_only and not State.settings.reduced_motion:
+		canvas.modulate.a = 0.0
+		create_tween().tween_property(canvas, "modulate:a", 1.0, 0.3)
+
+func show_logo_screen() -> void:
+	var backdrop := ColorRect.new()
+	backdrop.color = Color("ccb8b5")
+	canvas.add_child(backdrop)
+	GameUI.fill(backdrop)
+	var logo := TextureRect.new()
+	logo.texture = load("res://assets/branding/el_arrecife_products.png")
+	logo.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	logo.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED if get_window().size.x < get_window().size.y else TextureRect.STRETCH_KEEP_ASPECT_COVERED
+	logo.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	canvas.add_child(logo)
+	GameUI.fill(logo)
+	var bottom := HBoxContainer.new()
+	bottom.alignment = BoxContainer.ALIGNMENT_CENTER
+	bottom.anchor_left = 0
+	bottom.anchor_right = 1
+	bottom.anchor_top = 1
+	bottom.anchor_bottom = 1
+	bottom.offset_top = -82
+	bottom.offset_bottom = -16
+	canvas.add_child(bottom)
+	var skip := GameUI.button(bottom, "Continuar", advance)
+	skip.custom_minimum_size = Vector2(180, 54)
+	skip.size_flags_horizontal = Control.SIZE_SHRINK_CENTER
+	skip.add_theme_stylebox_override("normal", GameUI.box(Color("ccb8b5"), Color("a51919"), 3))
+	skip.add_theme_color_override("font_color", Color("9e1717"))
+	timer.start(2.4)
+	if not State.settings.reduced_motion:
 		canvas.modulate.a = 0.0
 		create_tween().tween_property(canvas, "modulate:a", 1.0, 0.3)
 

@@ -3,6 +3,12 @@
   "rama_respaldo": "backup/pre-reboot-20261020",
   "archivo_local": "/Users/glitchbane/Documents/proyectos/el-arrecife-respaldos/pre-reboot-20261020-433e099",
   "canon_sha256": "3b1408e4ce04f144c8d1da6acdcf0d3a79f090b29e5b1dbd217f37ed7c0c56a5",
+  "logo_apertura": {
+    "preservado": "art/originals/branding/el_arrecife_products.png",
+    "copia_juego": "game/assets/branding/el_arrecife_products.png",
+    "sha256": "cee5b81373c13bfc04897981442857f7b325ac0825c3c0f5b25791cb99671e73",
+    "uso": "logo suministrado por el autor para la apertura; copia idéntica"
+  },
   "retratos_y_figuras": [
     {
       "original": "godot/assets/personajes/sota/retrato_dialogo_v1.png",

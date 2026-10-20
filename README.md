@@ -25,6 +25,10 @@ En este Mac:
 
 Todo se juega con clic o toque. **En móvil se juega sólo en horizontal**: el aviso de giro aparece antes del menú y vuelve a cubrir la partida si se gira el dispositivo a vertical. En ordenador se puede usar cualquier orientación de ventana. **Deck** abre mensajes, contratos, archivo, noticias, contactos y lugares. Toca los pequeños puntos de luz sobre los objetos y accesos; sus áreas pulsables están acotadas. **Pistas** abre la lista de acciones y permite ocultar los puntos. Los textos extensos se desplazan.
 
+El logo original de **EL ARRECIFE PRODUCTS**, suministrado por el autor, abre el juego. En Web, la secuencia de apertura se muestra una vez por pestaña: **recargar lleva directamente al menú** y abrir el juego en una pestaña nueva vuelve a mostrarla. El aviso de orientación sigue activo incluso cuando se omite la apertura.
+
+Mientras la exportación Web descarga el motor aparece un fondo neutro; el logo sólo se muestra dentro de la secuencia de apertura.
+
 ### Recorrido de comprobación
 
 Deck → mensaje de la Jefa → revisar y aceptar contrato → cocina → terminal doméstico → copiar lectura → cerrar → salir a La Fiebre → hablar con la Jefa → mostrar la lectura. Puedes visitar el baño, mirar el espejo y leer el recibo antes o después. El acceso a El Nudo explica el límite del hito. Menú → Continuar recupera el progreso.

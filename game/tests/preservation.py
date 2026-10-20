@@ -13,6 +13,9 @@ for item in manifest['retratos_y_figuras']:
     assert sha(asset) == item['sha256'], asset
     if not asset.name.startswith('historico_'):
         assert sha(root / 'game/assets/portraits' / asset.name) == item['sha256']
+logo = manifest['logo_apertura']
+assert sha(root / logo['preservado']) == logo['sha256']
+assert sha(root / logo['copia_juego']) == logo['sha256']
 assert sorted(str(p.relative_to(root)) for p in root.glob('**/project.godot') if '.git' not in p.parts) == ['game/project.godot']
 for p in (root / 'game').rglob('*'):
     if any(part in ['.godot', 'build'] for part in p.parts):
@@ -20,4 +23,4 @@ for p in (root / 'game').rglob('*'):
     assert p.suffix not in ['.glb', '.gltf', '.blend', '.fbx'], p
     if p.suffix in ['.gd', '.tscn']:
         assert not any(x in p.read_text() for x in ['Node3D', 'CharacterBody3D', 'Skeleton3D'])
-print('OK: canon, 5 originales, 2 copias de diálogo, un proyecto y ninguna dependencia 3D.')
+print('OK: canon, 5 originales, 2 copias de diálogo, logo íntegro, un proyecto y ninguna dependencia 3D.')

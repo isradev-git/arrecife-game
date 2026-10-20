@@ -8,6 +8,8 @@ La ciudad se construye por acumulación: instalaciones añadidas, reparaciones y
 
 ## Candidatos de este hito
 
+El autor suministró el logo rojo sobre fondo claro «EL ARRECIFE PRODUCTS» para la primera pantalla de apertura. Original intacto en `art/originals/branding/el_arrecife_products.png`; copia idéntica en `game/assets/branding/`. No se ha redibujado ni recoloreado. Esta indicación concreta del logo no supone la aprobación de los fondos candidatos ni del texto legal.
+
 Cuatro PNG en `game/assets/backgrounds/candidates/`, generados con la herramienta integrada imagegen y el retrato de Sota como referencia de estilo. Prompts completos en `art/prompts/fondos_hito1.json`; no se ha usado CLI/API externa. Son imágenes aplanadas, **pendientes de aprobación**, no fuentes finales por capas. El menú y las escenas lo indican.
 
 Se conservan los PNG originales de generación. No se ha regenerado ningún personaje. La calle representa la mesa del encuentro mediante un indicador; falta una figura ambiental de la Jefa fiel al retrato. El dormitorio necesita revisar la luz exterior: el tono ámbar debe leerse como bruma iluminada artificialmente, nunca como sol en La Fiebre. También falta verificar continuidad arquitectónica exacta entre las habitaciones.

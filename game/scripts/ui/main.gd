@@ -7,7 +7,7 @@ const Startup = preload("res://scripts/ui/startup.gd")
 var page := Control.new()
 var overlay := Control.new()
 var orientation_gate := Startup.new()
-var opening := Startup.new()
+var opening
 var current_view: Control
 var observation: Label
 var location_label: Label
@@ -33,14 +33,26 @@ func _ready() -> void:
 	add_child(orientation_gate)
 	GameUI.fill(orientation_gate)
 	orientation_gate.hide()
-	add_child(opening)
-	GameUI.fill(opening)
-	opening.finished.connect(func():
-		opening.queue_free()
-		show_menu()
-		orientation_gate.refresh())
 	State.save_failed.connect(func(message: String): show_notice("Guardado pendiente", message))
-	menu_visible = false
+	if should_show_opening():
+		opening = Startup.new()
+		add_child(opening)
+		GameUI.fill(opening)
+		opening.finished.connect(func():
+			opening.queue_free()
+			show_menu()
+			orientation_gate.refresh())
+		menu_visible = false
+	else:
+		show_menu()
+		orientation_gate.refresh()
+
+func should_show_opening() -> bool:
+	if not OS.has_feature("web"):
+		return true
+	# sessionStorage sobrevive a recargas, pero se borra al cerrar la pestaña.
+	var result = JavaScriptBridge.eval("(function(){try{var s=sessionStorage,k='el_arrecife_apertura_v1';if(s.getItem(k)==='1')return 0;s.setItem(k,'1');return 1}catch(e){return 1}})()")
+	return result == 1 or result == null
 
 func reflow() -> void:
 	if is_instance_valid(menu_portrait):
