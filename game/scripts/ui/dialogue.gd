@@ -53,17 +53,15 @@ func advance(id: String) -> void:
 		GameUI.button(column, "Continuar >", func(): advance(entry.next))
 	for choice in entry.get("choices", []):
 		if State.matches(choice.get("if", {})):
-			# Etiqueta multilínea independiente: las opciones largas siguen siendo táctiles.
-			var button := GameUI.button(column, "", func(): choose(choice))
-			var text := GameUI.label(button, choice.text, 21)
-			text.mouse_filter = Control.MOUSE_FILTER_IGNORE
-			text.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
-			text.offset_left = 14
-			text.offset_right = -14
-			text.offset_top = 10
-			text.offset_bottom = -10
-			button.custom_minimum_size.y = 64
-			text.minimum_size_changed.connect(func(): button.custom_minimum_size.y = maxf(64, text.get_minimum_size().y + 24))
+			var button := GameUI.button(column, choice.text, func(): choose(choice))
+			var main: bool = choice.get("role", "info") == "main"
+			var accent := Color("e9c46a") if main else Color("aeb9b7")
+			button.add_theme_color_override("font_color", accent)
+			button.add_theme_color_override("font_hover_color", accent)
+			button.add_theme_color_override("font_pressed_color", accent)
+			button.add_theme_stylebox_override("normal", GameUI.box(Color("24291e") if main else Color("182229"), accent))
+			button.add_theme_stylebox_override("hover", GameUI.box(Color("343322") if main else Color("27353a"), accent))
+			button.accessibility_name = ("Avanza la misión: " if main else "Pregunta u opción secundaria: ") + choice.text
 
 func choose(choice: Dictionary) -> void:
 	State.data.choices[dialogue_id + ":" + node_id] = choice.text

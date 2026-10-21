@@ -11,6 +11,7 @@ func _ready() -> void:
 	image.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 	image.stretch_mode = TextureRect.STRETCH_SCALE
 	image.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	clip_contents = true
 	resized.connect(layout_spots)
 
 func show_screen(value: Dictionary) -> void:
@@ -38,16 +39,15 @@ func show_screen(value: Dictionary) -> void:
 		node.pressed.connect(func(): activated.emit(hotspot))
 		add_child(node)
 		spots.append(node)
-		var glint := Panel.new()
-		glint.mouse_filter = Control.MOUSE_FILTER_IGNORE
-		var dot := StyleBoxFlat.new()
-		dot.bg_color = Color(0.91, 0.75, 0.52, 0.75)
-		dot.border_color = Color(0.08, 0.13, 0.14, 0.8)
-		dot.set_border_width_all(1)
-		dot.set_corner_radius_all(5)
-		glint.add_theme_stylebox_override("panel", dot)
-		glint.size = Vector2(9, 9)
-		node.add_child(glint)
+		var marker := Panel.new()
+		marker.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		var style := StyleBoxFlat.new()
+		style.bg_color = Color(0.04, 0.08, 0.10, 0.42)
+		style.border_color = Color(0.91, 0.75, 0.52, 0.8)
+		style.set_border_width_all(1)
+		style.set_corner_radius_all(3)
+		marker.add_theme_stylebox_override("panel", style)
+		node.add_child(marker)
 	set_hints(State.settings.hints)
 	layout_spots()
 
@@ -57,17 +57,20 @@ func set_hints(value: bool) -> void:
 
 func art_rect() -> Rect2:
 	var ratio := image.texture.get_size().aspect() if image.texture else 16.0 / 9.0
-	var extent := Vector2(minf(size.x, size.y * ratio), minf(size.y, size.x / ratio))
-	return Rect2((size - extent) * 0.5, extent)
+	var height := size.x / ratio
+	return Rect2(Vector2(0, maxf(0, (size.y - height) * 0.5)), Vector2(size.x, minf(size.y, height)))
 
 func layout_spots() -> void:
 	var area := art_rect()
-	image.position = area.position
-	image.size = area.size
+	var ratio := image.texture.get_size().aspect() if image.texture else 16.0 / 9.0
+	var drawn := Vector2(size.x, size.x / ratio)
+	image.position = (size - drawn) * 0.5
+	image.size = drawn
 	for node in spots:
 		var bounds: Array = node.get_meta("hotspot").bounds
-		var extent := Vector2(56, 56)
-		var center := area.position + area.size * Vector2(bounds[0] + bounds[2]*0.5, bounds[1] + bounds[3]*0.5)
+		var side := 48.0 if get_window().size.y < 500 else 36.0
+		var extent := Vector2(side, side)
+		var center := image.position + drawn * Vector2(bounds[0] + bounds[2]*0.5, bounds[1] + bounds[3]*0.5)
 		node.size = extent
 		node.position = Vector2(clampf(center.x - extent.x*0.5, area.position.x, area.end.x-extent.x), clampf(center.y - extent.y*0.5, area.position.y, area.end.y-extent.y))
-		node.get_child(0).position = (extent - Vector2(9, 9)) * 0.5
+		node.get_child(0).set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)

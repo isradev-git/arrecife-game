@@ -5,15 +5,16 @@
     "nodes": {
       "inicio": {
         "speaker": "sota",
-        "text": "—La marca de la almohada tardará en irse. Lo demás puede esperar.",
+        "text": "—La marca de la almohada tardará en irse. Anoche dejé el deck cargando junto a la cama y ni siquiera lo apagué al despertar. Primero veré qué ha llegado; luego ya decidiré si merece la pena salir.",
         "next": "fin"
       },
       "fin": {
         "speaker": "sota",
-        "text": "—Vamos a ver qué quiere la Jefa.",
+        "text": "—La Jefa no suele escribir para charlar. Si hay un contrato, quiero leerlo antes de prometer nada. Y si el asunto vuelve a ser una casilla marcada sin mirar la tubería, más vale guardar una copia de todo.",
         "choices": [
           {
             "text": "Volver al baño",
+            "role": "exit",
             "end": true
           }
         ]
@@ -26,17 +27,19 @@
     "nodes": {
       "saludo": {
         "speaker": "jefa",
-        "text": "—¿Traes algo que podamos enseñar? Con decir que el agua sale mal no nos van a devolver el cargo.",
+        "text": "—Ya han cargado la reparación a una de las nuestras y el agua sigue llegando a tirones. Para quien firmó el parte, la casilla del filtro basta. Para ella, es dinero que no tiene. ¿Traes algo que podamos enseñar, o todavía es sólo nuestra palabra contra la suya?",
         "choices": [
           {
-            "text": "He copiado la lectura. No coincide con el parte.",
+            "text": "La lectura no coincide con el parte.",
+            "role": "main",
             "if": {
               "flag": "lectura_copiada"
             },
             "next": "lectura"
           },
           {
-            "text": "Todavía tengo que revisar el terminal.",
+            "text": "Aún tengo que revisar el terminal.",
+            "role": "main",
             "if": {
               "not_flag": "lectura_copiada"
             },
@@ -44,10 +47,12 @@
           },
           {
             "text": "¿Lo va a cubrir la Nómina?",
+            "role": "info",
             "next": "nomina"
           },
           {
             "text": "Repasar lo que sabemos.",
+            "role": "info",
             "if": {
               "flag": "parte_contrastado"
             },
@@ -55,18 +60,19 @@
           },
           {
             "text": "Lo hablamos luego.",
+            "role": "exit",
             "end": true
           }
         ]
       },
       "volver": {
         "speaker": "jefa",
-        "text": "—Míralo antes de bajar. El recibo dice una cosa; necesito saber si la conducción dice otra.",
+        "text": "—Mira el terminal antes de bajar. El recibo asegura que cambiaron una pieza, pero no dice si comprobaron el agua después. Necesito la lectura de la conducción: una hora que podamos contrastar con la del parte, no una discusión en la puerta de un despacho.",
         "next": "saludo"
       },
       "nomina": {
         "speaker": "jefa",
-        "text": "—Si ha pagado su cuota, hasta donde alcance la caja. Pero no pienso gastar las aportaciones en una reparación que nadie ha comprobado.",
+        "text": "—Si ha pagado su cuota, la caja la cubre hasta donde alcance. Eso significa pagar una salida concreta, no borrar cualquier deuda que le pongan delante. Las demás también han aportado. Antes de tocar ese dinero quiero saber si hubo una reparación y qué dejaron sin comprobar.",
         "effects": {
           "discover": "nomina"
         },
@@ -74,12 +80,12 @@
       },
       "lectura": {
         "speaker": "sota",
-        "text": "—La presión cayó antes de la intervención. Han marcado el filtro como cambiado, pero no comprobaron la salida.",
+        "text": "—La lectura empieza a caer antes de la hora de la intervención. En el recibo han marcado el filtro como cambiado, pero la comprobación de salida está vacía. Puede que la pieza fuese necesaria; con estos datos no puedo afirmarlo. Lo que sí puedo discutir es que nos cobren una reparación cerrada sin haberla verificado.",
         "next": "copia"
       },
       "copia": {
         "speaker": "jefa",
-        "text": "—Guarda ambas horas. Con mi copia podrás pedir que revisen el equipo en El Nudo. La orden es para esa visita; no te abre cualquier control.",
+        "text": "—Entonces guarda las dos horas juntas. Te doy mi copia del parte para que no tengas que repetirlo de memoria en cada control. En El Nudo podrán mirar el equipo; después habrá que bajar a la conducción. La orden cubre esa visita concreta. No la enseñes como si fuera un permiso para ir donde quieras.",
         "effects": {
           "flag": "parte_contrastado",
           "flags": [
@@ -94,10 +100,11 @@
       },
       "siguiente": {
         "speaker": "sota",
-        "text": "—Primero el equipo. Luego habrá que ver qué tocaron en la conducción.",
+        "text": "—Primero el equipo y los datos que dejó. Después, la conducción. Si el filtro está cambiado, tendrá que verse; si no, también. De momento sólo sabemos que alguien cerró el trabajo sin anotar la comprobación que faltaba.",
         "choices": [
           {
-            "text": "Guardar el parte y volver al pasaje",
+            "text": "Guardar el parte y volver",
+            "role": "main",
             "end": true
           }
         ]

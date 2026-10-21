@@ -1,6 +1,12 @@
 # Validación del hito 1
 
-20 de octubre de 2026. Godot 4.7.2 oficial, Mac mini M4, Compatibility. Estas pruebas certifican el alcance descrito; no aprueban el arte ni la ficción.
+Actualizado el 21 de octubre de 2026. Godot 4.7.2 oficial, Mac mini M4, Compatibility. Estas pruebas certifican el alcance descrito; no aprueban el arte ni la ficción.
+
+## Revisión de menú, escala y textos · 21 oct 2026
+
+El menú muestra el nuevo fondo de ventana con ciudad, sin Sota; cuatro enlaces tipográficos sustituyen las cajas. Las tres pantallas previas se adelantan con clic, toque o Intro y carecen de botón visible. La exploración usa imagen a pantalla completa con controles superpuestos; los hotspots tienen marca y área de acción coincidentes, de 36 unidades lógicas en escritorio y 48 en móvil horizontal. La tipografía y los botones generales se redujeron. La elección que avanza el contrato aparece en amarillo y las preguntas/salidas en gris; el nombre accesible también explica su función. Se ampliaron introducción, observaciones, mensaje, documentos, noticia y conversación con la Jefa.
+
+Importación y exportación Web sin errores. El recorrido automatizado actual obtuvo **201/201 comprobaciones headless** y **225/225 nativas**, incluidas **24 capturas**. Se inspeccionaron [menú de escritorio](evidence/01_menu.png), [menú a 844×390](evidence/menu_844x390.png), [dormitorio](evidence/03_dormitorio.png) y [diálogo horizontal](evidence/dialogo_844x390.png): el paisaje ocupa la pantalla, el menú deja visible la ciudad y la jerarquía amarillo/gris se distingue. La exportación se abrió en Helium/Chromium y se vio el menú nuevo y el dormitorio. Falta verificar la nueva interfaz en Safari y teléfonos físicos; la densidad de texto en pantallas móviles pequeñas requiere juicio del autor.
 
 ## Revisión del pasaje poblado · 21 oct 2026
 
@@ -13,18 +19,18 @@ Inspección visual del asistente: las dos entradas y el paso central se leen, la
 | Comprobación | Resultado |
 | --- | --- |
 | Importación del proyecto y arranque | Sin errores de script/importación registrados |
-| `tests/run.gd`, headless | **193 comprobaciones, 0 fallos** |
-| Mismo recorrido nativo con GPU Apple M4 | **216 comprobaciones, 0 fallos**; incluye 23 capturas |
+| `tests/run.gd`, headless | **201 comprobaciones, 0 fallos** |
+| Mismo recorrido nativo con GPU Apple M4 | **225 comprobaciones, 0 fallos**; incluye 24 capturas |
 | `tests/preservation.py` | Canon, cinco originales, dos copias de diálogo y logo original idénticos; un proyecto activo; ninguna dependencia 3D |
 | Exportación Web, sin hilos | Generada correctamente con las plantillas 4.7.2 |
 
-Los conteos difieren porque la ejecución GPU incluye comprobaciones de escritura de capturas. Se comprueba logo → autoría → aviso → menú, espera en móvil vertical, cobertura del menú hasta volver a horizontal y configuración nativa por sensor para que el aviso pueda verse con el teléfono erguido. En las cuatro proporciones se comprueba que cada área táctil sea de 56×56 unidades, permanezca sobre la ilustración y no tenga rótulos superpuestos. Un clic cercano a la puerta, fuera del área acotada, no navega; el clic central sí. La prueba vertical de interacción de la escena se ejecuta en modo ordenador dentro de Godot para conservar la regresión de layout; en un móvil la escena queda cubierta. No sumar las cifras como si fuesen casos independientes.
+Los conteos difieren porque la ejecución GPU incluye comprobaciones de escritura de capturas. Se comprueba logo → autoría → aviso → menú, avance por clic/toque sin botón, espera en móvil vertical, cobertura del menú hasta volver a horizontal y configuración nativa por sensor para que el aviso pueda verse con el teléfono erguido. En las cuatro proporciones se comprueba que cada área táctil sea de 36 o 48 unidades lógicas, coincida con la marca visible, permanezca sobre la ilustración y no tenga rótulos superpuestos. Un clic cercano a la puerta, fuera del área acotada, no navega; el clic central sí. La prueba vertical de interacción de la escena se ejecuta en modo ordenador dentro de Godot para conservar la regresión de layout; en un móvil la escena queda cubierta. No sumar las cifras como si fuesen casos independientes.
 
 Las pruebas cubren: IDs/destinos y condiciones, cuatro zonas/doce vistas registradas, partida nueva, bloqueo previo al contrato, menú/opciones/créditos/continuar, intro saltable, deck, mensaje, aceptación, cocina/baño, documentos y paginación, terminal y registro, conversación/elección/flags, ruta a La Fiebre, persistencia de cada campo y rechazo de formatos inválidos, recuperación de `.bak`, rechazo de zona futura y limpieza de nueva partida. Se prueban READY_TO_COMPLETE y COMPLETED con efectos sintéticos de futuros hitos, sin atribuir esos contenidos al juego actual.
 
 Entrada: eventos `InputEventMouseButton` y `InputEventScreenTouch` entregados al viewport. Se pulsa también la opción de diálogo mediante su botón. No son pruebas con un dedo físico.
 
-Resoluciones nativas capturadas: 1280×720, 844×390, 1024×768 y 390×844. Ilustración completa, controles dentro del encuadre; diálogo desplazable. En móvil, horizontal es obligatorio. La prueba de layout vertical corresponde al modo ordenador. La lista de acciones sólo aparece al abrir «Pistas».
+Resoluciones nativas capturadas: 1280×720, 844×390, 1024×768 y 390×844. Ilustración a pantalla completa con recorte vertical cuando procede, controles dentro del encuadre; diálogo desplazable. En móvil, horizontal es obligatorio. La prueba de layout vertical corresponde al modo ordenador. La lista de acciones sólo aparece al abrir «Pistas».
 
 [Log headless](evidence/pruebas_headless.log) · [Log GPU](evidence/pruebas_nativas.log) · [Integridad](evidence/preservacion.log).
 
@@ -51,7 +57,7 @@ La persistencia observada es entre recargas del mismo origen y perfil. Borrar al
 - [Logo](evidence/00_logo.png), [autoría](evidence/00_autoria.png), [aviso PC](evidence/00_aviso_pc.png), [aviso móvil](evidence/00_girar_movil.png).
 - [Web primera visita con el logo original](evidence/web_apertura_primera_visita.png), [recarga directa al menú](evidence/web_apertura_recarga.png), [pestaña nueva con logo](evidence/web_apertura_pestana_nueva.png), [recarga móvil vertical con aviso](evidence/web_apertura_recarga_movil_vertical.png).
 - [Web iPhone emulado vertical inicial](evidence/web_iphone_vertical.png), [horizontal con menú](evidence/web_iphone_horizontal.png), [vertical tras menú](evidence/web_iphone_giro_en_menu.png).
-- [Menú](evidence/01_menu.png), [introducción](evidence/02_introduccion.png), [dormitorio](evidence/03_dormitorio.png).
+- [Menú](evidence/01_menu.png), [menú horizontal pequeño](evidence/menu_844x390.png), [introducción](evidence/02_introduccion.png), [dormitorio](evidence/03_dormitorio.png).
 - [Contrato](evidence/04_contrato.png), [cocina](evidence/05_cocina.png), [documento](evidence/06_documento.png), [terminal](evidence/07_terminal.png).
 - [Baño](evidence/08_bano.png), [Sota sola](evidence/09_monologo.png), [La Fiebre](evidence/10_fiebre.png), [diálogo](evidence/11_dialogo.png).
 - [Horizontal móvil](evidence/dialogo_844x390.png), [vertical](evidence/viewport_390x844.png).

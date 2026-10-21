@@ -11,32 +11,32 @@
   "intro": [
     {
       "heading": "EL ARRECIFE",
-      "text": "La ciudad sigue creciendo sobre sus propias reparaciones. Arriba, la Luz. Aquí, el ruido de las conducciones."
+      "text": "El Arrecife no tiene un plano que alcance para explicarlo. Una pasarela tapa otra, las conducciones atraviesan fachadas más viejas que sus dueños y cada arreglo deja una costura nueva. Sobre el humo está la Luz. Desde aquí abajo apenas se ve el resplandor que deja en la niebla."
     },
     {
       "heading": "TE LLAMAS SOTA",
-      "text": "El deck ha recibido un mensaje. Antes de salir, conviene saber quién quiere pagarte y por qué."
+      "text": "Te llamas Sota. El deck ha recibido un mensaje durante la noche y aún espera junto a la cama. Antes de salir puedes mirar la habitación, consultar los registros de casa y leer lo que te proponen. En esta ciudad, aceptar un trabajo antes de comprobar sus condiciones sale caro."
     },
     {
       "heading": "UNA PUERTA DE ENTRADA",
-      "text": "Una historia jugable en el universo de CARGA ADMISIBLE. Explora, pregunta y decide qué hacer con lo que descubras."
+      "text": "Esta historia transcurre en el universo de CARGA ADMISIBLE. No necesitas conocer la novela para entrar en El Arrecife: empieza con una puerta, un mensaje y un problema que alguien preferiría dar por resuelto. Explora las escenas, pregunta a quien quiera hablar y conserva lo que descubras."
     }
   ],
   "observations": {
-    "bed": "La sábana se ha soltado otra vez. Ya la estiraré cuando vuelva.",
-    "window": "Han cerrado otro hueco entre las torres. Desde aquí apenas se ve dónde acaba una y empieza la siguiente.",
-    "water": "El contador sigue corriendo con el grifo cerrado. Antes de pagar, quiero ver el recibo.",
-    "pipes": "La abrazadera es nueva. El tubo que sujeta lleva bastantes más años aquí.",
-    "shelf": "Queda jabón para dos días. Si lo corto por la mitad, seguirá quedando para dos días.",
-    "velvet": "Por esa puerta entra gente que luego no comparte ascensor para volver a casa."
+    "bed": "La sábana se ha soltado otra vez por la esquina. Debajo hay una libreta con dos cuentas pendientes y una dirección que ya no sirve. Podría dejarlo ordenado antes de salir, pero el deck parpadea sobre la mesa y parece tener más prisa que yo.",
+    "window": "Han cerrado otro hueco entre las torres. Ayer se veía el pasillo de luz que quedaba al fondo; hoy hay una chapa soldada y un conducto nuevo. Desde aquí ya cuesta distinguir dónde termina esta mole y empieza la siguiente.",
+    "water": "El contador avanza aunque el grifo esté cerrado. Una gota queda suspendida en la boquilla antes de caer al fregadero y el número vuelve a moverse. Si hay un cargo nuevo por la reparación, quiero leer el recibo antes de pagarlo.",
+    "pipes": "La abrazadera brilla más que el tubo que sujeta. Alguien limpió la zona exacta donde trabajó y dejó el resto tal como estaba. El goteo continúa detrás del panel; por fuera no hay manera de saber si la intervención llegó hasta allí.",
+    "shelf": "Queda jabón para dos días, quizá tres si no se deshace en el agua. El estante está torcido y alguien lo sujetó con una arandela que no pertenece a este lavabo. Aquí hasta las cosas pequeñas parecen haber pasado por varias manos.",
+    "velvet": "La fila de la entrada mezcla ropa que no ha conocido un remiendo con chaquetas reparadas para aguantar otro turno. Dos personas salen discutiendo el precio de un trayecto; otra comprueba la hora y vuelve adentro. El pasaje sigue funcionando alrededor de todos ellos."
   },
   "documents": {
     "recibo": {
       "title": "Recibo de suministro",
       "issuer": "ADMINISTRACIÓN DEL INMUEBLE · COPIA LOCAL",
       "pages": [
-        "Concepto: revisión del retorno de agua.\n\nCargo pendiente de conformidad.\n\nLa casilla de sustitución del filtro está marcada. La de comprobación de presión sigue vacía.",
-        "Nota añadida a mano:\n\n«Si vuelve a caer la presión, guardar la lectura del contador. No tirar la copia del parte.»\n\nEn el margen hay una mancha circular de taza."
+        "Concepto: revisión del retorno de agua.\n\nCargo pendiente de conformidad. La sustitución del filtro aparece marcada como realizada, pero la casilla destinada a comprobar la presión de salida sigue vacía. Tampoco figura una lectura final junto a la firma.\n\nEl importe se ha añadido al siguiente cobro. No hay desglose de la pieza ni una explicación de por qué la avería continúa.",
+        "Nota añadida a mano:\n\n«Si vuelve a caer la presión, guarda la lectura del contador. No tires la copia del parte hasta que alguien compare las horas.»\n\nLa tinta cambia a mitad de frase, como si quien escribió hubiera tenido que buscar otro bolígrafo. En el margen queda una mancha circular de taza; el sello de la administración atraviesa una esquina de la nota sin taparla."
       ],
       "effects": {
         "discover": "recibo_agua"
@@ -46,7 +46,7 @@
       "title": "Lectura de la conducción",
       "issuer": "TERMINAL DOMÉSTICO · REGISTRO LOCAL",
       "pages": [
-        "La caída de presión empieza antes de la hora anotada en el parte.\n\nNo demuestra quién se equivocó. Sí demuestra que el recibo y la lectura no cuentan lo mismo.\n\nCopias el intervalo al deck para poder enseñarlo."
+        "Registro local de la conducción. La caída de presión empieza antes de la hora anotada como inicio de la intervención. Después hay una recuperación breve y otra bajada; el archivo conserva ambas marcas de tiempo.\n\nEso no demuestra quién se equivocó ni si se cambió el filtro. Sí permite comparar el recibo con algo más sólido que un recuerdo. Copias al deck el intervalo completo, incluido el tramo que no favorece ninguna conclusión fácil."
       ],
       "effects": {
         "flag": "lectura_copiada",
@@ -74,7 +74,7 @@
     "encargo": {
       "from": "La Jefa",
       "subject": "Un parte que no cuadra",
-      "text": "Han pasado a una de las nuestras el coste de una reparación. El agua sigue fallando. Necesito a alguien que compare el parte con lo que hicieron.\n\nSi te interesa, revisa el contrato. Te veo en el pasaje junto a Velvet. Llevaré la copia.",
+      "text": "Han pasado a una de las nuestras el coste de una reparación. El agua sigue fallando y en el recibo ya aparece la intervención como cerrada. Discutirlo de palabra no va a mover el cargo.\n\nNecesito a alguien que compare el parte con las lecturas y, si hace falta, con el equipo que tocaron. Lee las condiciones antes de aceptar. No te pido que des por buena nuestra versión: te pido que compruebes la suya.\n\nSi te interesa, te espero en el pasaje junto a Velvet. Llevaré mi copia.",
       "effects": {
         "offer": "retorno_agua"
       }
@@ -83,7 +83,7 @@
   "news": [
     {
       "title": "Revisión de accesos",
-      "text": "Los controles de subida siguen exigiendo acreditación. Una visita a un taller no sustituye el permiso de regreso."
+      "text": "Los controles de subida siguen exigiendo una acreditación válida para cada trayecto. Una orden de visita permite llegar a un destino concreto; no sustituye el permiso de residencia ni garantiza el regreso por otra ruta. La revisión se hará en los accesos habituales, según informa la red local."
     }
   ],
   "records": {

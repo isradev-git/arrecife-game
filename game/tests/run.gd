@@ -23,7 +23,8 @@ func frames(n: int = 3) -> void:
 func capture(id: String) -> void:
 	if screenshots:
 		await create_timer(0.35).timeout
-		await RenderingServer.frame_post_draw
+		RenderingServer.force_draw()
+		await frames(2)
 		var path := ProjectSettings.globalize_path("res://../docs/evidence/" + id + ".png")
 		check(root.get_texture().get_image().save_png(path) == OK, "Captura " + id)
 
@@ -63,6 +64,24 @@ func press(text: String, in_node: Node = null, touch: bool = false) -> void:
 			return
 	check(false, "Botón visible: " + text)
 
+func tap_opening(touch: bool = false) -> void:
+	for down in [true, false]:
+		if touch:
+			var screen_touch := InputEventScreenTouch.new()
+			screen_touch.position = app.size * 0.5
+			screen_touch.pressed = down
+			root.push_input(screen_touch, true)
+		else:
+			var mouse := InputEventMouseButton.new()
+			mouse.position = app.size * 0.5
+			mouse.button_index = MOUSE_BUTTON_LEFT
+			mouse.pressed = down
+			root.push_input(mouse, true)
+		await frames()
+	if is_instance_valid(app.opening):
+		app.opening.timer.stop()
+	await create_timer(0.21).timeout
+
 func run() -> void:
 	state = root.get_node("State")
 	content = root.get_node("Content")
@@ -98,16 +117,24 @@ func run() -> void:
 	root.add_child(app)
 	await frames(8)
 	check(app.opening.stage == 0 and not app.menu_visible, "El logo precede al menú")
+	app.opening.timer.stop()
+	check(all_buttons(app.opening).is_empty(), "Apertura sin botones superpuestos")
 	await capture("00_logo")
-	await press("Continuar")
+	await tap_opening()
 	check(app.opening.stage == 1, "Crédito del universo tras el logo")
 	await capture("00_autoria")
-	await press("Continuar")
+	await tap_opening()
 	check(app.opening.stage == 2 and not app.opening.is_portrait_mobile(), "Aviso para ordenador antes del menú")
 	await capture("00_aviso_pc")
-	await press("Entrar al juego")
+	await tap_opening(true)
 	check(app.menu_visible, "Menú después de las tres pantallas")
 	await capture("01_menu")
+	check(all_buttons(app.page).size() == 4, "Menú tipográfico sin avatar")
+	root.size = Vector2i(844, 390)
+	await frames(8)
+	await capture("menu_844x390")
+	root.size = Vector2i(1280, 720)
+	await frames(8)
 	await press("Opciones")
 	check(app.overlay.visible, "Opciones desde menú")
 	await press("Cerrar ×")
@@ -178,6 +205,11 @@ func run() -> void:
 	var dialogue = app.overlay.get_child(0)
 	check(dialogue.content.other == "jefa", "Interlocutora original")
 	var choice: Dictionary = content.dialogues.jefa.nodes.saludo.choices[0]
+	for button in all_buttons(dialogue):
+		if button.text == choice.text:
+			check(button.get_theme_color("font_color") == Color("e9c46a"), "Respuesta de misión en amarillo")
+		if button.text == "¿Lo va a cubrir la Nómina?":
+			check(button.get_theme_color("font_color") == Color("aeb9b7"), "Pregunta opcional en gris")
 	await press(choice.text)
 	await frames()
 	await press("Continuar >")
@@ -214,21 +246,22 @@ func run() -> void:
 		root.size = resolution
 		app.show_exploration()
 		await frames(8)
+		check(app.current_view.size.is_equal_approx(app.page.size), "Paisaje ocupa la pantalla " + str(resolution))
 		for button in app.current_view.spots:
 			check(button.visible and app.current_view.art_rect().encloses(Rect2(button.position, button.size)), "Área táctil sobre la ilustración " + str(resolution))
-			check(button.size.x <= 56.1 and button.size.y <= 56.1, "Área táctil acotada " + str(resolution) + " " + str(button.size))
-			check(button.text.is_empty() and button.get_child(0).size == Vector2(9, 9), "Punto discreto sin rótulo " + str(resolution))
+			check(button.size.x <= 48.1 and button.size.y <= 48.1, "Área táctil acotada " + str(resolution) + " " + str(button.size))
+			check(button.text.is_empty() and button.get_child(0).size.is_equal_approx(button.size), "Área táctil igual a la marca visible " + str(resolution))
 		await capture("viewport_%dx%d" % [resolution.x,resolution.y])
 		if resolution == Vector2i(390,844):
-			check(app.current_view.size.y <= app.current_view.size.x * 0.6, "Ilustración vertical sin espacio vacío interno")
-			check(app.observation.get_global_rect().position.y - app.current_view.get_global_rect().end.y < 100, "Observación junto a la ilustración en vertical")
-			check(app.exploration_footer.size.y >= 128, "Observación legible en móvil vertical")
+			check(app.current_view.image.size.y <= app.current_view.size.x * 0.6, "Ilustración vertical contenida")
+			check(app.observation.get_global_rect().end.y <= app.current_view.get_global_rect().end.y, "Observación dentro de la pantalla")
+			check(app.exploration_footer.size.y >= 70, "Observación legible en ventana vertical")
 			root.size = Vector2i(844,390)
 			await frames(8)
-			check(app.current_view.size_flags_vertical == Control.SIZE_EXPAND_FILL and app.exploration_footer.custom_minimum_size.y == 68, "Rotación a horizontal sin reconstruir la escena")
+			check(app.current_view.size.is_equal_approx(app.page.size), "Rotación a horizontal sin reconstruir la escena")
 			root.size = resolution
 			await frames(8)
-			check(app.current_view.size_flags_vertical == Control.SIZE_SHRINK_BEGIN and app.exploration_footer.custom_minimum_size.y == 128, "Regreso a vertical sin reconstruir la escena")
+			check(app.current_view.image.size.y <= app.current_view.size.x * 0.6, "Regreso a vertical sin recortar el paisaje")
 			await press("· Hablar con la Jefa", null, true)
 			check(app.overlay.visible, "Personaje activable tocando la escena en vertical")
 			app.close_modal()

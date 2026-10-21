@@ -15,7 +15,6 @@ var menu_visible := true
 var intro_index := 0
 var modal_body: VBoxContainer
 var focus_before_modal: Control
-var menu_portrait: TextureRect
 var exploration_header: BoxContainer
 var exploration_footer: PanelContainer
 
@@ -55,19 +54,12 @@ func should_show_opening() -> bool:
 	return result == 1 or result == null
 
 func reflow() -> void:
-	if is_instance_valid(menu_portrait):
-		menu_portrait.visible = size.x >= 700
-	if is_instance_valid(exploration_header):
-		exploration_header.vertical = size.x < 700
 	if is_instance_valid(current_view):
-		current_view.size_flags_vertical = Control.SIZE_SHRINK_BEGIN if size.x < 700 else Control.SIZE_EXPAND_FILL
-		current_view.custom_minimum_size.y = maxf(0, (size.x - 32) * 9.0 / 16.0) if size.x < 700 else 0
-	if is_instance_valid(exploration_footer):
-		exploration_footer.custom_minimum_size.y = 128 if size.x < 700 else 68
+		current_view.layout_spots()
 
 func update_scale() -> void:
 	var portrait := get_window().size.x < get_window().size.y
-	var target := Vector2i(480, 540) if portrait else Vector2i(960, 540)
+	var target := Vector2i(480, 540) if portrait else (Vector2i(780, 440) if get_window().size.y < 500 else Vector2i(960, 540))
 	if get_window().content_scale_size != target:
 		get_window().content_scale_size = target
 	if is_instance_valid(opening) and opening.is_inside_tree():
@@ -93,30 +85,48 @@ func show_menu() -> void:
 	close_modal()
 	menu_visible = true
 	GameUI.clear(page)
-	background(page, "dormitorio", 0.76)
-	var margins := GameUI.margin(page, 38)
+	background(page, "menu_nudo_ventana_v3")
+	var margins := GameUI.margin(page, 42)
 	GameUI.fill(margins)
 	var row := HBoxContainer.new()
 	margins.add_child(row)
 	var column := VBoxContainer.new()
-	column.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	column.custom_minimum_size.x = 220
+	column.alignment = BoxContainer.ALIGNMENT_CENTER
+	column.size_flags_horizontal = Control.SIZE_SHRINK_BEGIN
 	row.add_child(column)
-	GameUI.label(column, "CARGA ADMISIBLE / UNA HISTORIA JUGABLE", 16)
-	GameUI.label(column, "EL ARRECIFE", 50)
-	GameUI.label(column, "Lo que la ciudad deja pasar.", 22).modulate = GameUI.MUTED
-	var buttons := GameUI.scroll(column)
-	GameUI.button(buttons, "Jugar", request_new_game)
-	var continue_button := GameUI.button(buttons, "Continuar", continue_game)
+	GameUI.label(column, "EL ARRECIFE", 30)
+	var links := VBoxContainer.new()
+	column.add_child(links)
+	menu_link(links, "Jugar", request_new_game)
+	var continue_button := menu_link(links, "Continuar", continue_game)
 	continue_button.disabled = not State.has_save()
-	GameUI.button(buttons, "Opciones", show_options)
-	GameUI.button(buttons, "Créditos", show_credits)
-	GameUI.label(column, "HITO 1 · FONDOS Y FICCIÓN EN REVISIÓN", 14).modulate = GameUI.MUTED
-	var portrait := GameUI.portrait(row, "sota")
-	portrait.custom_minimum_size.x = 300
-	portrait.visible = size.x >= 700
-	menu_portrait = portrait
+	menu_link(links, "Opciones", show_options)
+	menu_link(links, "Créditos", show_credits)
 	if FileAccess.file_exists(State.save_path) and not State.has_save():
 		GameUI.label(column, "Guardado incompatible o dañado conservado. Puedes iniciar otra partida.", 18)
+
+func menu_link(parent: Node, title: String, action: Callable) -> Button:
+	var link := Button.new()
+	link.text = title
+	link.alignment = HORIZONTAL_ALIGNMENT_LEFT
+	link.size_flags_horizontal = Control.SIZE_SHRINK_BEGIN
+	link.custom_minimum_size.y = 36 if get_window().size.y >= 500 else 48
+	link.add_theme_font_size_override("font_size", 16 if get_window().size.y < 500 else 15)
+	link.focus_mode = Control.FOCUS_ALL
+	for state in ["normal", "hover", "pressed", "disabled"]:
+		link.add_theme_stylebox_override(state, StyleBoxEmpty.new())
+	var focus := StyleBoxFlat.new()
+	focus.bg_color = Color.TRANSPARENT
+	focus.border_color = GameUI.AMBER
+	focus.border_width_bottom = 2
+	link.add_theme_stylebox_override("focus", focus)
+	link.add_theme_color_override("font_color", GameUI.PAPER)
+	link.add_theme_color_override("font_hover_color", GameUI.AMBER)
+	link.add_theme_color_override("font_disabled_color", GameUI.MUTED.darkened(0.4))
+	link.pressed.connect(action)
+	parent.add_child(link)
+	return link
 
 func request_new_game() -> void:
 	if FileAccess.file_exists(State.save_path) or FileAccess.file_exists(State.save_path + ".bak"):
@@ -168,19 +178,27 @@ func show_exploration() -> void:
 	close_modal()
 	menu_visible = false
 	GameUI.clear(page)
-	var margins := GameUI.margin(page, 16)
-	GameUI.fill(margins)
-	var column := VBoxContainer.new()
-	margins.add_child(column)
-	var header := BoxContainer.new()
-	header.vertical = size.x < 700
+	current_view = Viewpoint.new()
+	page.add_child(current_view)
+	GameUI.fill(current_view)
+	current_view.activated.connect(interact)
+	var screen: Dictionary = Content.world.screens[State.data.screen]
+	current_view.show_screen(screen)
+	var top := PanelContainer.new()
+	top.add_theme_stylebox_override("panel", GameUI.box(Color(0.035, 0.065, 0.08, 0.88)))
+	page.add_child(top)
+	top.anchor_right = 1
+	top.offset_left = 8
+	top.offset_top = 8
+	top.offset_right = -8
+	top.offset_bottom = 50
+	var header := HBoxContainer.new()
 	exploration_header = header
-	column.add_child(header)
+	top.add_child(header)
 	var heading := VBoxContainer.new()
 	heading.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	header.add_child(heading)
-	location_label = GameUI.label(heading, "", 16)
-	var title := GameUI.label(heading, "", 26)
+	location_label = GameUI.label(heading, screen.subtitle, 20)
 	var controls := HBoxContainer.new()
 	header.add_child(controls)
 	controls.size_flags_vertical = Control.SIZE_SHRINK_CENTER
@@ -189,24 +207,24 @@ func show_exploration() -> void:
 	GameUI.button(controls, "Menú", func():
 		State.save_game()
 		show_menu())
-	current_view = Viewpoint.new()
-	column.add_child(current_view)
-	current_view.activated.connect(interact)
 	var footer := PanelContainer.new()
 	exploration_footer = footer
-	footer.add_theme_stylebox_override("panel", GameUI.box(Color("122027")))
-	column.add_child(footer)
+	footer.add_theme_stylebox_override("panel", GameUI.box(Color(0.04, 0.08, 0.10, 0.86)))
+	page.add_child(footer)
+	footer.anchor_left = 0
+	footer.anchor_right = 1
+	footer.anchor_top = 1
+	footer.anchor_bottom = 1
+	footer.offset_left = 8
+	footer.offset_right = -8
+	footer.offset_top = -82
+	footer.offset_bottom = -8
 	var footer_column := GameUI.scroll(footer)
 	observation = GameUI.label(footer_column, "Toca los puntos de luz para explorar. El deck contiene un mensaje nuevo.", 20)
-	var screen: Dictionary = Content.world.screens[State.data.screen]
-	location_label.text = screen.subtitle
-	title.text = screen.title
-	current_view.show_screen(screen)
-	reflow()
 	if State.data.missions.retorno_agua == "ACTIVE":
 		observation.text = "Contrato activo: copia la lectura del terminal y contrasta el parte con la Jefa."
 	if State.data.flags.get("parte_contrastado", false):
-		observation.text = "Parte guardado. Has terminado el recorrido del hito 1. El acceso a El Nudo continuará en el próximo hito."
+		observation.text = "El parte y la lectura están guardados. El siguiente contraste corresponde al equipo de El Nudo."
 
 func show_hints_panel() -> void:
 	open_panel("Pistas", "ACCIONES DE ESTA VISTA")
@@ -305,7 +323,7 @@ func show_dialogue(id: String) -> void:
 	dialogue.finished.connect(func():
 		close_modal()
 		if State.data.flags.get("parte_contrastado", false):
-			observe("Has guardado el parte. El siguiente tramo, El Nudo, se construirá en el próximo hito."))
+			observe("El parte y la lectura están guardados. El siguiente contraste corresponde al equipo de El Nudo."))
 	dialogue.start(id)
 
 func show_document(id: String, page_number: int = 0) -> void:

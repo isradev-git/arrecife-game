@@ -27,6 +27,9 @@ Dirección del autor, 20 oct 2026: aventura **2D ilustrada en primera persona**,
 - [x] Comprobación histórica de móvil vertical, sustituida después por la decisión de jugar sólo en horizontal; se mantiene la prueba de toque Web dentro y fuera del punto.
 - [x] Sustituir la orientación móvil vertical por apertura de tres pantallas y aviso persistente de giro; conservar el uso libre de la ventana en ordenador.
 - [x] Usar el logo original facilitado por el autor, con original/copia íntegros; en Web mostrar la apertura una vez por pestaña, saltarla al recargar y repetirla en pestaña nueva.
+- [x] Menú ilustrado de ventana a la ciudad sin Sota y con enlaces tipográficos; apertura con texto discreto y avance por clic/toque/Intro.
+- [x] Paisaje a pantalla completa, controles superpuestos, marcas interactivas iguales a su área pulsable, tipografía y botones reducidos.
+- [x] Opciones de misión amarillas e información opcional gris; ampliar los textos del primer recorrido.
 - [x] Importación, pruebas automáticas, ejecución nativa con GPU y capturas reales.
 - [x] Exportación Web, clic/toque sintético, recarga y persistencia en navegador de escritorio.
 - [x] README, AGENTS, diseño, arte, recuperación y continuidad renovados.
@@ -38,7 +41,7 @@ Dirección del autor, 20 oct 2026: aventura **2D ilustrada en primera persona**,
 ## H2 · siguiente trabajo
 
 - [ ] Autor: revisar vivienda propuesta, contrato, voz de Sota y encuentro con la Jefa.
-- [ ] Autor: revisar los cuatro fondos candidatos respecto a los retratos originales.
+- [ ] Autor: revisar los cuatro fondos de exploración y el nuevo fondo candidato del menú respecto a los retratos originales.
 - [x] Preparar y mostrar una variante poblada del pasaje de La Fiebre, conservando el PNG anterior y sus prompts.
 - [ ] Revisar con el autor la variante poblada a tamaño de juego: personas, implantes, sombras, reflejos, entradas y coherencia con los retratos.
 - [ ] Diseñar los futuros pasos públicos de El Nudo y Los Puntales con densidad de población propia de cada cota.

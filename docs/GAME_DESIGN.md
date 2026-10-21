@@ -4,7 +4,9 @@
 
 Primera persona desde Sota. Vistas fijas, exploración por clic/toque, conversaciones y decisiones breves. Objetivo de la primera entrega completa: unos 30 minutos, ampliables con nuevos contratos y localizaciones. El hito actual es una base jugable más corta; su duración no se ha medido con una sesión del autor.
 
-Al arrancar: logo original «EL ARRECIFE PRODUCTS» suministrado por el autor → crédito del universo original de Israel Zamora → aviso de orientación → menú. Cada pantalla avanza sola tras una breve espera o al tocar «Continuar». En Web se marca al empezar la apertura en `sessionStorage`: recargar la misma pestaña va directamente al menú, mientras que una pestaña nueva muestra la secuencia. La carga del motor usa fondo neutro, sin otro logo. En móvil, la tercera espera a que la pantalla esté horizontal; si se vuelve a vertical durante el juego, un aviso cubre la interfaz hasta recuperar la orientación. El ordenador muestra «disfruta» y no se bloquea por la forma de su ventana. Los textos de crédito y orientación están en `story.json`; la imagen original del logo se conserva sin modificar.
+Al arrancar: logo original «EL ARRECIFE PRODUCTS» suministrado por el autor → crédito del universo original de Israel Zamora → aviso de orientación → menú. Cada pantalla avanza sola tras una breve espera o al tocar la pantalla, hacer clic o pulsar Intro; no muestra un botón de salto. En Web se marca al empezar la apertura en `sessionStorage`: recargar la misma pestaña va directamente al menú, mientras que una pestaña nueva muestra la secuencia. La carga del motor usa fondo neutro, sin otro logo. En móvil, la tercera espera a que la pantalla esté horizontal; si se vuelve a vertical durante el juego, un aviso cubre la interfaz hasta recuperar la orientación. El ordenador muestra «disfruta» y no se bloquea por la forma de su ventana. Los textos de crédito y orientación están en `story.json`; la imagen original del logo se conserva sin modificar.
+
+El menú usa una vista ilustrada de ciudad desde una ventana de una cota aún sin identificar, ajena al dormitorio de Sota. Los enlaces son líneas tipográficas sin cajas ni retrato de protagonista. Es una candidata visual del asistente, no arte final aprobado. Las vistas jugables dejan la ilustración a pantalla completa y sitúan los controles en bandas translúcidas sobre la propia escena.
 
 La estructura propone una actividad concreta: comprobar un cargo de reparación de agua. El mundo aparece en recibos, lecturas, desplazamientos y conversaciones. No hay combate, avatar caminando ni cámara libre.
 
@@ -45,9 +47,9 @@ Las fases futuras se prueban con datos sintéticos, pero **no se completan en el
 
 ## Interacciones
 
-Hotspots con ID por pantalla, tipo, etiqueta, rectángulo normalizado, condición visible y disponible, y destino. El centro del rectángulo sitúa el punto de luz y un área pulsable fija de 56×56 unidades lógicas; el rectángulo completo no captura toques. El punto mide 9 unidades lógicas y no cubre la imagen con letras. «Pistas» abre, sólo a petición, la lista de acciones disponibles en la vista y permite ocultar los puntos. La ilustración se contiene completa en cada proporción.
+Hotspots con ID por pantalla, tipo, etiqueta, rectángulo normalizado, condición visible y disponible, y destino. El centro del rectángulo sitúa una marca sutil que coincide exactamente con su área pulsable: 36×36 unidades lógicas en escritorio y 48×48 en móvil horizontal. El rectángulo normalizado completo no captura toques. No hay rótulos sobre la ilustración. «Pistas» abre, sólo a petición, la lista de acciones disponibles en la vista y permite ocultar las marcas. La ilustración llena la ventana y puede recortarse por arriba/abajo en proporciones distintas de 16:9; los puntos se calculan sobre la imagen renderizada y permanecen dentro de la zona visible.
 
-La experiencia móvil sólo está disponible en horizontal. La nota de revisión de los fondos se mantiene en el menú y la documentación, fuera de la exploración.
+La experiencia móvil sólo está disponible en horizontal. La condición de candidata de los fondos se documenta fuera de la interfaz jugable.
 
 - OBJECT: observación breve, sin diálogo modal.
 - PERSON: diálogo con temas, condiciones, efectos, elecciones y salida.
@@ -57,7 +59,7 @@ La experiencia móvil sólo está disponible en horizontal. La nota de revisión
 - NAVIGATION: ruta y cambio de vista.
 - SPECIAL_EVENT: acceso contextual; actualmente el límite de El Nudo.
 
-En conversaciones, Sota izquierda e interlocutora derecha, mirando al centro con sus PNG originales. Sólo Sota en monólogos. Escena oscurecida, hablante iluminado y oyente atenuado. Texto central, desplazable. Texto completo inmediatamente: no se necesita ajuste de velocidad de escritura.
+En conversaciones, Sota izquierda e interlocutora derecha, mirando al centro con sus PNG originales. Sólo Sota en monólogos. Escena oscurecida, hablante iluminado y oyente atenuado. Texto central, desplazable. Las decisiones que avanzan el contrato se identifican en amarillo; las preguntas y salidas opcionales, en gris, con nombre accesible que explicita el papel de la opción. Los parlamentos, documentos y observaciones del primer tramo se ampliaron sin convertirlos en exposición enciclopédica. Texto completo inmediatamente: no se necesita ajuste de velocidad de escritura.
 
 ## Arquitectura
 

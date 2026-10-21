@@ -8,6 +8,17 @@ var mobile := OS.has_feature("mobile") or OS.has_feature("web_android") or OS.ha
 var timer := Timer.new()
 var canvas := Control.new()
 var phone_tween: Tween
+var last_tap_ms := 0
+
+func _input(event: InputEvent) -> void:
+	if orientation_only or not is_visible_in_tree():
+		return
+	var tapped: bool = (event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed) or (event is InputEventScreenTouch and event.pressed)
+	var confirmed: bool = event is InputEventKey and event.pressed and not event.echo and event.keycode in [KEY_ENTER, KEY_KP_ENTER, KEY_SPACE]
+	if (tapped or confirmed) and Time.get_ticks_msec() - last_tap_ms > 180:
+		last_tap_ms = Time.get_ticks_msec()
+		advance()
+		get_viewport().set_input_as_handled()
 
 func _ready() -> void:
 	mouse_filter = Control.MOUSE_FILTER_STOP
@@ -93,9 +104,15 @@ func show_stage() -> void:
 	description.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	description.modulate = GameUI.MUTED
 	if not orientation_only and not (stage == 2 and is_portrait_mobile()):
-		var button := GameUI.button(column, "Entrar al juego" if stage == 2 else "Continuar", advance)
-		button.size_flags_horizontal = Control.SIZE_SHRINK_CENTER
-		button.custom_minimum_size.x = 200
+		var hint := GameUI.label(canvas, "Toca la pantalla para continuar" if mobile else "Haz clic o pulsa Intro para continuar", 18)
+		hint.anchor_left = 0
+		hint.anchor_right = 1
+		hint.anchor_top = 1
+		hint.anchor_bottom = 1
+		hint.offset_top = -62
+		hint.offset_bottom = -20
+		hint.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+		hint.modulate = GameUI.MUTED
 		timer.start(3.0 if stage == 2 else 2.4)
 	elif stage == 2 and is_portrait_mobile():
 		GameUI.label(column, Content.story.startup.rotate_hint, 19).horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
@@ -115,8 +132,13 @@ func show_logo_screen() -> void:
 	logo.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	canvas.add_child(logo)
 	GameUI.fill(logo)
-	var bottom := HBoxContainer.new()
-	bottom.alignment = BoxContainer.ALIGNMENT_CENTER
+	var bottom := Label.new()
+	bottom.text = "Toca la pantalla para continuar" if mobile else "Haz clic o pulsa Intro para continuar"
+	bottom.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	bottom.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+	bottom.add_theme_font_size_override("font_size", 17)
+	bottom.add_theme_color_override("font_color", Color("8f2525"))
+	bottom.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	bottom.anchor_left = 0
 	bottom.anchor_right = 1
 	bottom.anchor_top = 1
@@ -124,11 +146,6 @@ func show_logo_screen() -> void:
 	bottom.offset_top = -82
 	bottom.offset_bottom = -16
 	canvas.add_child(bottom)
-	var skip := GameUI.button(bottom, "Continuar", advance)
-	skip.custom_minimum_size = Vector2(180, 54)
-	skip.size_flags_horizontal = Control.SIZE_SHRINK_CENTER
-	skip.add_theme_stylebox_override("normal", GameUI.box(Color("ccb8b5"), Color("a51919"), 3))
-	skip.add_theme_color_override("font_color", Color("9e1717"))
 	timer.start(2.4)
 	if not State.settings.reduced_motion:
 		canvas.modulate.a = 0.0

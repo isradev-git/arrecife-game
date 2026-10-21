@@ -12,15 +12,15 @@ static func box(color: Color, border: Color = Color("435456"), radius: int = 4) 
 	style.border_color = border
 	style.set_border_width_all(1)
 	style.set_corner_radius_all(radius)
-	style.content_margin_left = 18
-	style.content_margin_right = 18
-	style.content_margin_top = 10
-	style.content_margin_bottom = 10
+	style.content_margin_left = 12
+	style.content_margin_right = 12
+	style.content_margin_top = 6
+	style.content_margin_bottom = 6
 	return style
 
 static func theme() -> Theme:
 	var result := Theme.new()
-	result.default_font_size = 22
+	result.default_font_size = 16
 	result.set_color("font_color", "Label", PAPER)
 	result.set_color("font_color", "Button", PAPER)
 	result.set_color("font_hover_color", "Button", Color.WHITE)
@@ -30,8 +30,8 @@ static func theme() -> Theme:
 	result.set_stylebox("pressed", "Button", box(Color("46544a"), AMBER))
 	result.set_stylebox("disabled", "Button", box(Color("172024"), Color("283235")))
 	result.set_stylebox("focus", "Button", box(Color(0,0,0,0), AMBER))
-	result.set_constant("separation", "VBoxContainer", 12)
-	result.set_constant("separation", "HBoxContainer", 12)
+	result.set_constant("separation", "VBoxContainer", 8)
+	result.set_constant("separation", "HBoxContainer", 8)
 	return result
 
 static func fill(control: Control) -> void:
@@ -45,7 +45,7 @@ static func clear(parent: Node) -> void:
 static func label(parent: Node, text: String, font_size: int = 22, wrap: bool = true) -> Label:
 	var node := Label.new()
 	node.text = text
-	node.add_theme_font_size_override("font_size", font_size)
+	node.add_theme_font_size_override("font_size", maxi(16, roundi(font_size * 0.65)))
 	if wrap:
 		node.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 		node.size_flags_horizontal = Control.SIZE_EXPAND_FILL
@@ -55,8 +55,8 @@ static func label(parent: Node, text: String, font_size: int = 22, wrap: bool = 
 static func button(parent: Node, text: String, callback: Callable) -> Button:
 	var node := Button.new()
 	node.text = text
-	node.custom_minimum_size.y = 60
-	node.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	node.custom_minimum_size.y = 44 if parent.get_window().size.y < 500 else 36
+	node.size_flags_horizontal = Control.SIZE_SHRINK_BEGIN
 	node.focus_mode = Control.FOCUS_ALL
 	node.pressed.connect(callback)
 	parent.add_child(node)
