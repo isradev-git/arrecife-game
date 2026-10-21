@@ -2,6 +2,12 @@
 
 20 de octubre de 2026. Godot 4.7.2 oficial, Mac mini M4, Compatibility. Estas pruebas certifican el alcance descrito; no aprueban el arte ni la ficción.
 
+## Revisión del pasaje poblado · 21 oct 2026
+
+Se sustituyó sólo la referencia artística del pasaje por `fiebre_multitud_v2.png`; `fiebre.png` y la primera variante se conservan. Importación Godot sin error; recorrido headless **193/193** y recorrido nativo GPU **216/216**; preservación de canon y originales correcta. El recorrido llegó a La Fiebre, activó el punto de la Jefa y continuó el diálogo. Las capturas reales actualizadas son [pasaje a 1280×720](evidence/10_fiebre.png) y [vista a 844×390](evidence/viewport_844x390.png).
+
+Inspección visual del asistente: las dos entradas y el paso central se leen, la multitud ocupa calle, interiores y pasarelas, y los indicadores siguen sobre la ilustración. En 844×390 las figuras pequeñas pierden detalle, por lo que la variedad de implantes, anatomía, reflejos y legibilidad en teléfono físico siguen pendientes de revisión. La puerta cálida de la derecha parece un local con botellas; hay que decidir si sirve para el encuentro propuesto con la Jefa. Se regeneró la exportación Web y se comprobó que empaqueta la nueva imagen; no se ha repetido la navegación en navegador ni una prueba en móvil físico para esta revisión artística. La variante no está aprobada por el autor.
+
 ## Automatización
 
 | Comprobación | Resultado |

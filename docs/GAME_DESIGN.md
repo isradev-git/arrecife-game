@@ -33,6 +33,8 @@ No se incorporan tramas ni revelaciones de los protagonistas de las novelas. No 
 | El Nudo | Acceso, reparaciones, puesto de red | Identificadores y reglas; vistas pendientes |
 | Los Puntales | Acceso estructural, taller, zona de trabajo | Identificadores y reglas; vistas pendientes |
 
+Las cotas urbanas visitadas son **La Fiebre (4), El Nudo (3) y Los Puntales (2)**. El apartamento es la cuarta zona jugable, pero su ubicación precisa sigue siendo una propuesta. Las vistas de calles y pasos públicos deben transmitir ciudades muy pobladas: en La Fiebre coinciden residentes, personal de servicio y visitantes de mayores recursos. La densidad ambiental no crea por sí sola nuevos personajes conversables ni altera las restricciones de acceso entre cotas.
+
 Las puertas conectan habitaciones. La salida del apartamento se habilita al aceptar el contrato. Los trayectos entre cotas tienen rutas explícitas en `world.json`; bajar y subir se comprueban por separado. La residencia y la orden de visita justifican regresos concretos. El deck informa de los lugares y nunca permite saltarse estos accesos. Los destinos no construidos explican su estado sin cambiar de pantalla.
 
 ## Contrato principal

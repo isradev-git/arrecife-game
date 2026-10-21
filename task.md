@@ -39,6 +39,9 @@ Dirección del autor, 20 oct 2026: aventura **2D ilustrada en primera persona**,
 
 - [ ] Autor: revisar vivienda propuesta, contrato, voz de Sota y encuentro con la Jefa.
 - [ ] Autor: revisar los cuatro fondos candidatos respecto a los retratos originales.
+- [x] Preparar y mostrar una variante poblada del pasaje de La Fiebre, conservando el PNG anterior y sus prompts.
+- [ ] Revisar con el autor la variante poblada a tamaño de juego: personas, implantes, sombras, reflejos, entradas y coherencia con los retratos.
+- [ ] Diseñar los futuros pasos públicos de El Nudo y Los Puntales con densidad de población propia de cada cota.
 - [ ] Resolver luz de Penumbra en la ventana y continuidad espacial entre habitaciones.
 - [ ] Ilustrar a la Jefa en el entorno y producir fuentes por capas.
 - [ ] Completar las dos vistas restantes de La Fiebre y las tres de El Nudo.

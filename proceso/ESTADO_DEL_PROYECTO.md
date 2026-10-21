@@ -1,6 +1,6 @@
 # EL ARRECIFE · continuidad vigente
 
-Actualizado: **20 de octubre de 2026**.
+Actualizado: **21 de octubre de 2026**.
 
 ## Dirección del autor
 
@@ -28,6 +28,8 @@ Contrato **`retorno_agua`**: mensaje → aceptar → copiar lectura doméstica �
 
 Cuatro fondos candidatos generados con imagegen desde referencia de retrato, en `game/assets/backgrounds/candidates/`. PNG originales y prompts conservados; ninguna regeneración de retratos. Son imágenes aplanadas, sin aprobación artística ni fuentes por capas. Revisar luz exterior del dormitorio, continuidad arquitectónica y representación ambiental de la Jefa.
 
+**Revisión visual del autor, 21 oct:** le gusta mucho el estilo de los entornos a primera vista; pide revisar sus detalles y mostrar calles densamente pobladas. En La Fiebre deben coexistir visitantes de mayores recursos y personas que viven y trabajan allí, incluido el servicio sexual. El asistente ha creado `fiebre_multitud_v2.png` como variante del pasaje visible en el juego, con las dos entradas despejadas. `fiebre.png` y la primera variante poblada permanecen intactos. Prompts y límites documentados en `art/prompts/fiebre_multitud_v2.md`. Esta impresión positiva **no equivale a aprobación final** del nuevo fondo, de cada detalle ni del guion.
+
 ## Canon frente a propuesta
 
 Cotas, jerarquía, tecnología física y límites de la Nómina proceden del canon. La residencia de Sota cerca de La Fiebre, su acreditación, el parte del agua, el encuentro y todos los diálogos nuevos son **propuestas de juego pendientes de aprobación**. La Jefa no se convierte en dueña ni recepcionista de Velvet. No se incluyen revelaciones principales de las novelas ni se modifica el canon literario.
@@ -40,11 +42,13 @@ Tras incorporar el logo original, la prueba Web confirmó **primera visita con l
 
 La carga previa del motor Web se dejó con fondo neutro: el HTML exportado oculta el logo por defecto de Godot para que una recarga no muestre ningún segundo logo. La imagen aportada por el autor sólo aparece en la secuencia controlada por pestaña.
 
+**Variante poblada del pasaje, 21 oct:** importación correcta; 193 comprobaciones headless y 216 nativas sin fallos, incluida conversación con la Jefa. Capturas reales a 1280×720 y 844×390 inspeccionadas; las entradas se mantienen visibles. Exportación Web regenerada e imagen nueva empaquetada; no se ha repetido recorrido de navegador ni probado teléfono físico. [Detalle](../docs/VALIDACION.md).
+
 [Resultados, evidencias y límites](../docs/VALIDACION.md). No se han probado móviles físicos, Safari/iOS, Windows ni Linux. El navegador depende de su almacenamiento local. No hay música ni efectos finales; los buses están preparados. Las pruebas técnicas no constituyen aprobación artística.
 
 ## Siguiente trabajo
 
-Revisión del autor sobre la propuesta narrativa y los cuatro fondos. Completar La Fiebre y El Nudo con una comprobación técnica y consecuencias, después Puntales y el final. Producir capas y sonido, revisar ritmo y validar dispositivos reales. [Tareas completas](../task.md).
+Revisión del autor sobre la propuesta narrativa y los detalles de los fondos, especialmente la nueva multitud de La Fiebre a tamaño de juego. En los futuros pasos públicos de El Nudo y Los Puntales, representar la densidad humana propia de cada cota. Completar La Fiebre y El Nudo con una comprobación técnica y consecuencias, después Puntales y el final. Producir capas y sonido, revisar ritmo y validar dispositivos reales. [Tareas completas](../task.md).
 
 ## Historial breve
 
@@ -55,5 +59,6 @@ Revisión del autor sobre la propuesta narrativa y los cuatro fondos. Completar 
 - **20 oct 2026 · continuación del asistente:** comprobación visual de los puntos del apartamento; agrupación de escena y observación en vertical y retirada del aviso técnico durante la exploración. Pruebas nativas y Web realizadas; diseño móvil pendiente de revisión del autor y de un teléfono físico.
 - **20 oct 2026 · decisión del autor:** juego móvil exclusivamente horizontal; apertura con logo, autoría de Israel Zamora y aviso de giro antes del menú. **Entrega del asistente:** secuencia y bloqueo visual persistente, capturas Godot y Web iPhone emulado, 193/216 comprobaciones sin fallos. Logo tipográfico, crédito y experiencia en teléfono físico pendientes de aprobación/comprobación.
 - **20 oct 2026 · decisión del autor:** apertura una sola vez por pestaña Web; una recarga debe ir al menú y una pestaña nueva debe repetirla. El autor facilitó el logo original «EL ARRECIFE PRODUCTS». **Entrega del asistente:** logo intacto integrado y preservado, marca por `sessionStorage`, prueba visual de las tres situaciones y aviso móvil al recargar. Redacción legal y teléfono físico pendientes.
+- **21 oct 2026 · observación del autor:** el estilo de los entornos gusta a primera vista; pide revisar detalles y calles concurridas con mezcla social en La Fiebre. **Entrega del asistente:** nueva variante poblada del pasaje, original preservado y dirección de población registrada para las tres cotas. **Comprobado:** importación, pruebas y capturas nativas. Pendiente aprobación artística del autor y dispositivo físico.
 
 El historial de las etapas anteriores está íntegro en la rama de respaldo y la copia local; no describe la producción actual.
