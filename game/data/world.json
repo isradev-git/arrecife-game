@@ -42,7 +42,10 @@
       "screens": [
         "puntales_acceso",
         "puntales_taller",
-        "puntales_observatorio"
+        "puntales_observatorio",
+        "puntales_soportes",
+        "puntales_presion",
+        "puntales_verificacion"
       ]
     }
   },
@@ -510,26 +513,75 @@
       "implemented": true,
       "hotspots": [
         {"id": "archivo", "label": "Archivo de órdenes", "type": "NAVIGATION", "bounds": [0.03, 0.3, 0.16, 0.3], "target": "nudo_archivo"},
-        {"id": "puntales", "label": "Bajar a Los Puntales", "type": "SPECIAL_EVENT", "bounds": [0.77, 0.57, 0.19, 0.3], "target": "puntales_acceso"}
+        {"id": "puntales", "label": "Bajar a Los Puntales", "type": "NAVIGATION", "bounds": [0.77, 0.57, 0.19, 0.3], "target": "puntales_acceso"}
       ]
     },
     "puntales_acceso": {
       "zone": "puntales",
       "title": "Acceso estructural",
-      "implemented": false,
-      "hotspots": []
+      "subtitle": "LOS PUNTALES · ENTRADA INDUSTRIAL",
+      "art": "puntales_acceso",
+      "implemented": true,
+      "hotspots": [
+        {"id": "nudo", "label": "Subir a El Nudo", "type": "NAVIGATION", "bounds": [0.04, 0.32, 0.24, 0.32], "target": "nudo_paso_inferior"},
+        {"id": "taller", "label": "Taller de conducción", "type": "NAVIGATION", "bounds": [0.52, 0.33, 0.18, 0.32], "target": "puntales_taller"},
+        {"id": "verificacion", "label": "Puesto de verificación", "type": "NAVIGATION", "bounds": [0.79, 0.36, 0.19, 0.29], "target": "puntales_verificacion"}
+      ]
     },
     "puntales_taller": {
       "zone": "puntales",
       "title": "Taller de mantenimiento",
-      "implemented": false,
-      "hotspots": []
+      "subtitle": "LOS PUNTALES · CONDUCCIONES",
+      "art": "puntales_taller",
+      "implemented": true,
+      "hotspots": [
+        {"id": "acceso", "label": "Acceso a Los Puntales", "type": "NAVIGATION", "bounds": [0.05, 0.32, 0.22, 0.32], "target": "puntales_acceso"},
+        {"id": "trabajo", "label": "Frente de trabajo", "type": "NAVIGATION", "bounds": [0.81, 0.34, 0.17, 0.3], "target": "puntales_observatorio"}
+      ]
     },
     "puntales_observatorio": {
       "zone": "puntales",
       "title": "Zona de trabajo",
-      "implemented": false,
-      "hotspots": []
+      "subtitle": "LOS PUNTALES · FRENTE DE TRABAJO",
+      "art": "puntales_observatorio",
+      "implemented": true,
+      "hotspots": [
+        {"id": "taller", "label": "Taller de conducción", "type": "NAVIGATION", "bounds": [0.02, 0.33, 0.18, 0.31], "target": "puntales_taller"},
+        {"id": "soportes", "label": "Galería de soportes", "type": "NAVIGATION", "bounds": [0.81, 0.33, 0.17, 0.31], "target": "puntales_soportes"}
+      ]
+    },
+    "puntales_soportes": {
+      "zone": "puntales",
+      "title": "Galería de soportes",
+      "subtitle": "LOS PUNTALES · ESTRUCTURA",
+      "art": "puntales_soportes",
+      "implemented": true,
+      "hotspots": [
+        {"id": "trabajo", "label": "Frente de trabajo", "type": "NAVIGATION", "bounds": [0.02, 0.29, 0.2, 0.34], "target": "puntales_observatorio"},
+        {"id": "presion", "label": "Cámara de presión", "type": "NAVIGATION", "bounds": [0.76, 0.34, 0.2, 0.31], "target": "puntales_presion"}
+      ]
+    },
+    "puntales_presion": {
+      "zone": "puntales",
+      "title": "Cámara de presión",
+      "subtitle": "LOS PUNTALES · CONDUCCIÓN PRINCIPAL",
+      "art": "puntales_presion",
+      "implemented": true,
+      "hotspots": [
+        {"id": "soportes", "label": "Galería de soportes", "type": "NAVIGATION", "bounds": [0.02, 0.31, 0.23, 0.34], "target": "puntales_soportes"},
+        {"id": "verificacion", "label": "Puesto de verificación", "type": "NAVIGATION", "bounds": [0.82, 0.31, 0.16, 0.33], "target": "puntales_verificacion"}
+      ]
+    },
+    "puntales_verificacion": {
+      "zone": "puntales",
+      "title": "Puesto de verificación",
+      "subtitle": "LOS PUNTALES · CONTROL DE ESTRUCTURA",
+      "art": "puntales_verificacion",
+      "implemented": true,
+      "hotspots": [
+        {"id": "presion", "label": "Cámara de presión", "type": "NAVIGATION", "bounds": [0.02, 0.31, 0.18, 0.34], "target": "puntales_presion"},
+        {"id": "acceso", "label": "Acceso a Los Puntales", "type": "NAVIGATION", "bounds": [0.8, 0.29, 0.18, 0.35], "target": "puntales_acceso"}
+      ]
     }
   }
 }

@@ -97,17 +97,24 @@ func run() -> void:
 	screenshots = DisplayServer.get_name() != "headless"
 	state.save_path = "user://prueba_" + str(OS.get_process_id()) + ".json"
 	check(content.world.zones.size() == 4, "Cuatro zonas")
-	check(content.world.screens.size() == 18, "Dieciocho puntos de vista registrados tras El Nudo")
+	check(content.world.screens.size() == 21, "Veintiún puntos de vista registrados")
 	var fiebre_ids := ["fiebre_calle", "fiebre_entrada", "fiebre_encuentro", "fiebre_galeria", "fiebre_suministros", "fiebre_descenso"]
 	var nudo_ids := ["nudo_acceso", "nudo_taller", "nudo_terminal", "nudo_mercado", "nudo_archivo", "nudo_paso_inferior"]
+	var puntales_ids := ["puntales_acceso", "puntales_taller", "puntales_observatorio", "puntales_soportes", "puntales_presion", "puntales_verificacion"]
 	var fiebre_count := 0
 	var implemented_count := 0
+	var arts := []
+	var unique_arts := {}
 	for sid in content.world.screens:
 		implemented_count += int(content.world.screens[sid].implemented)
+		if content.world.screens[sid].has("art"):
+			arts.append(content.world.screens[sid].art)
+			unique_arts[content.world.screens[sid].art] = true
 		if sid in fiebre_ids:
 			fiebre_count += 1
 	check(fiebre_count == 6 and content.world.zones.fiebre.screens.size() == 6, "Seis vistas de La Fiebre")
-	check(implemented_count == 15, "Quince fondos jugables tras El Nudo")
+	check(implemented_count == 21 and arts.size() == 21 and unique_arts.size() == 21, "Veintiún fondos propios jugables")
+	check(content.world.zones.apartamento.screens.size() == 3 and content.world.zones.fiebre.screens.size() == 6 and content.world.zones.nudo.screens.size() == 6 and content.world.zones.puntales.screens.size() == 6, "Distribución 3/6/6/6")
 	for pair in [["fiebre_calle", "fiebre_entrada"], ["fiebre_calle", "fiebre_encuentro"], ["fiebre_calle", "fiebre_galeria"], ["fiebre_calle", "fiebre_descenso"], ["fiebre_galeria", "fiebre_suministros"], ["fiebre_galeria", "fiebre_descenso"]]:
 		check(has_navigation(pair[0], pair[1]) and has_navigation(pair[1], pair[0]), "Ruta doble " + pair[0] + "/" + pair[1])
 	for sid in fiebre_ids:
@@ -119,6 +126,13 @@ func run() -> void:
 		check(has_navigation(pair[0], pair[1]) and has_navigation(pair[1], pair[0]), "Ruta doble " + pair[0] + "/" + pair[1])
 	check(has_navigation("fiebre_descenso", "nudo_acceso") and has_navigation("nudo_acceso", "fiebre_descenso"), "Descenso y subida físicos entre La Fiebre y El Nudo")
 	for sid in nudo_ids:
+		if content.world.screens.has(sid):
+			var screen_data: Dictionary = content.world.screens[sid]
+			check(screen_data.implemented and FileAccess.file_exists("res://assets/backgrounds/candidates/%s.png" % screen_data.get("art", "")), "Fondo propio " + sid)
+	for pair in [["puntales_acceso", "puntales_taller"], ["puntales_taller", "puntales_observatorio"], ["puntales_observatorio", "puntales_soportes"], ["puntales_soportes", "puntales_presion"], ["puntales_presion", "puntales_verificacion"], ["puntales_verificacion", "puntales_acceso"]]:
+		check(has_navigation(pair[0], pair[1]) and has_navigation(pair[1], pair[0]), "Ruta doble " + pair[0] + "/" + pair[1])
+	check(has_navigation("nudo_paso_inferior", "puntales_acceso") and has_navigation("puntales_acceso", "nudo_paso_inferior"), "Descenso y subida físicos entre El Nudo y Los Puntales")
+	for sid in puntales_ids:
 		if content.world.screens.has(sid):
 			var screen_data: Dictionary = content.world.screens[sid]
 			check(screen_data.implemented and FileAccess.file_exists("res://assets/backgrounds/candidates/%s.png" % screen_data.get("art", "")), "Fondo propio " + sid)
@@ -318,7 +332,20 @@ func run() -> void:
 	await press("> Archivo de órdenes")
 	await press("> Paso inferior")
 	check(state.data.screen == "nudo_paso_inferior", "Paso inferior navegable")
-	check(not state.navigate("puntales_acceso"), "Los Puntales aún conservan el límite del hito")
+	state.data.flags.erase("orden_visita")
+	check(not state.navigate("puntales_acceso"), "Bajada a Los Puntales sin orden bloqueada")
+	state.apply({"flag": "orden_visita"})
+	await press("> Bajar a Los Puntales")
+	check(state.data.screen == "puntales_acceso", "Bajada autorizada a Los Puntales")
+	await press("> Taller de conducción")
+	await press("> Frente de trabajo")
+	await press("> Galería de soportes", null, true)
+	await press("> Cámara de presión")
+	await press("> Puesto de verificación")
+	check(state.data.screen == "puntales_verificacion", "Anillo de Los Puntales accesible por toque")
+	await press("> Acceso a Los Puntales")
+	await press("> Subir a El Nudo")
+	check(state.data.screen == "nudo_paso_inferior", "Subida autorizada a El Nudo")
 	await press("> Archivo de órdenes")
 	await press("> Mercado de componentes")
 	check(state.data.screen == "nudo_mercado", "Mercado de componentes navegable")
@@ -424,7 +451,7 @@ func run() -> void:
 	check(state.data.missions.retorno_agua == "COMPLETED", "Misión completada explícitamente")
 	for resolution in [Vector2i(1280, 720), Vector2i(844, 390)]:
 		root.size = resolution
-		for sid in fiebre_ids + nudo_ids:
+		for sid in fiebre_ids + nudo_ids + puntales_ids:
 			if sid == "fiebre_calle" or not content.world.screens.has(sid) or not content.world.screens[sid].implemented:
 				continue
 			state.data.screen = sid
