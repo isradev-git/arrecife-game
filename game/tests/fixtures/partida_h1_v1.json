@@ -7,6 +7,6 @@
   "discoveries": ["lectura_agua"],
   "documents": ["recibo"],
   "messages": ["encargo"],
-  "unlocked": ["apartamento", "fiebre", "nudo", "puntales"],
-  "choices": {"jefa:saludo": "mostrar_lectura"}
+  "unlocked": ["apartamento", "fiebre", "nudo"],
+  "choices": {"jefa:saludo": "La lectura no coincide con el parte."}
 }

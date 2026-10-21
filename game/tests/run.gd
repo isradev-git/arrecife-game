@@ -182,7 +182,8 @@ func run() -> void:
 	check(state.data.missions == {"retorno_agua": "ACTIVE"} and state.data.flags.has("orden_visita") and state.data.flags.has("acreditacion_residencia"), "Misión y permisos v1 conservados")
 	check(state.data.documents == ["recibo"] and state.data.choices.has("jefa:saludo"), "Documentos y elección v1 conservados")
 	var exploration_state: Dictionary = state.data.duplicate(true)
-	for target in ["fiebre_descenso", "nudo_acceso", "nudo_paso_inferior", "puntales_acceso", "puntales_taller", "puntales_observatorio", "puntales_soportes", "puntales_presion", "puntales_verificacion", "puntales_acceso", "nudo_paso_inferior", "nudo_acceso", "fiebre_descenso", "fiebre_calle"]:
+	for target in ["fiebre_descenso", "nudo_acceso", "nudo_taller", "nudo_terminal", "nudo_archivo", "nudo_paso_inferior", "puntales_acceso", "puntales_taller", "puntales_observatorio", "puntales_soportes", "puntales_presion", "puntales_verificacion", "puntales_acceso", "nudo_paso_inferior", "nudo_archivo", "nudo_mercado", "nudo_acceso", "fiebre_descenso", "fiebre_calle"]:
+		check(has_navigation(state.data.screen, target), "Partida anterior sigue salida física a " + target)
 		check(state.navigate(target), "Partida anterior navega a " + target)
 	for field in ["missions", "flags", "documents", "choices"]:
 		check(state.data[field] == exploration_state[field], "Explorar conserva " + field)
