@@ -1,0 +1,12 @@
+{
+  "version": 1,
+  "screen": "fiebre_calle",
+  "zone": "fiebre",
+  "missions": {"retorno_agua": "ACTIVE"},
+  "flags": {"acreditacion_residencia": true, "orden_visita": true, "lectura_copiada": true, "parte_contrastado": true},
+  "discoveries": ["lectura_agua"],
+  "documents": ["recibo"],
+  "messages": ["encargo"],
+  "unlocked": ["apartamento", "fiebre", "nudo", "puntales"],
+  "choices": {"jefa:saludo": "mostrar_lectura"}
+}

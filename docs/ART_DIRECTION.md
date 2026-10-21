@@ -24,7 +24,9 @@ Maestro recomendado: 2560×1440, 16:9; exportación inicial 1920×1080 PNG sRGB.
 
 Capas: estructura/fondo, objetos interactivos cuando requieran cambio, luz emisiva, humo y primer plano. Animación contenida; versión estática accesible. Retratos ilustrados originales como referencia en cada encargo. Ni arte pixel ni render 3D. Las interfaces y los textos legibles los dibuja Godot.
 
-## Plan de ilustraciones (12 vistas)
+## Ilustraciones del mapa de 21 vistas
+
+El autor aprobó tres vistas del apartamento y seis de cada cota, incluidos los nombres y conexiones del [diseño espacial](superpowers/specs/2026-10-21-21-vistas-zonas-design.md). Las 21 vistas ya están implementadas con un fondo candidato propio y recorridos de ida y vuelta. Los 17 fondos añadidos para las cotas conservan sus prompts en `art/prompts/zonas_{fiebre,nudo,puntales}.md`; la primera variante de soportes se conserva en `art/iterations/zonas_puntales/`. La revisión artística del autor sigue pendiente para cada fondo.
 
 | Vista | Composición y objetos | Luz / capas / animación |
 | --- | --- | --- |
@@ -41,7 +43,7 @@ Capas: estructura/fondo, objetos interactivos cuando requieran cambio, luz emisi
 | Puntales: taller | Herramientas, piezas de conducción, registros de trabajo | Luz útil y materiales gastados; objeto comprobable separable |
 | Puntales: trabajo | Estructura que soporta otras cotas, intervención local concreta | Bruma y puntos de servicio; cierre visual pendiente de guion |
 
-Las últimas ocho no tienen fondo aún. Los cuatro fondos activos, incluida la variante poblada, requieren aprobación y despiece antes de considerarse arte final. Faltan música, ambiente y efectos; los controles de audio actúan sobre buses preparados, actualmente sin pistas.
+La tabla recoge la dirección inicial de doce vistas; el inventario completo y sus conexiones están en el diseño espacial aprobado. Los 21 fondos activos son candidatos aplanados, pendientes de aprobación y despiece antes de considerarse arte final. Los seis fondos de Los Puntales muestran un lenguaje de render más detallado que los retratos y otros fondos; esa coherencia debe valorarse junto con la continuidad arquitectónica. Faltan música, ambiente y efectos; los controles de audio actúan sobre buses preparados, actualmente sin pistas.
 
 ## Originales históricos
 

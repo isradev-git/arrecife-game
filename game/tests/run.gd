@@ -136,6 +136,25 @@ func run() -> void:
 		if content.world.screens.has(sid):
 			var screen_data: Dictionary = content.world.screens[sid]
 			check(screen_data.implemented and FileAccess.file_exists("res://assets/backgrounds/candidates/%s.png" % screen_data.get("art", "")), "Fondo propio " + sid)
+	var links := {}
+	var returns := {}
+	for sid in content.world.screens:
+		links[sid] = []
+		returns[sid] = []
+	for sid in content.world.screens:
+		for hotspot in content.world.screens[sid].hotspots:
+			if hotspot.type == "NAVIGATION" and content.world.screens.has(hotspot.target):
+				links[sid].append(hotspot.target)
+				returns[hotspot.target].append(sid)
+	for graph in [links, returns]:
+		var reached := {"ap_dormitorio": true}
+		var pending := ["ap_dormitorio"]
+		while not pending.is_empty():
+			for target in graph[pending.pop_front()]:
+				if not reached.has(target):
+					reached[target] = true
+					pending.append(target)
+		check(reached.size() == 21, "Todas las vistas alcanzables y con regreso" if graph == returns else "Todas las vistas alcanzables desde casa")
 	check(content.world.screens.fiebre_calle.hotspots[0].type == "OBJECT" and content.world.screens.fiebre_calle.hotspots[1].type == "PERSON", "Velvet y Jefa permanecen en el pasaje")
 	for sid in content.world.screens:
 		var screen: Dictionary = content.world.screens[sid]
@@ -156,6 +175,17 @@ func run() -> void:
 				check(dialogue.nodes.has(node.next), "Enlace diálogo")
 			for choice in node.get("choices", []):
 				check(choice.get("end", false) or dialogue.nodes.has(choice.get("next", "")), "Elección enlazada")
+	var fixture_path := "res://tests/fixtures/partida_h1_v1.json"
+	check(DirAccess.copy_absolute(ProjectSettings.globalize_path(fixture_path), ProjectSettings.globalize_path(state.save_path)) == OK, "Fixture de partida anterior copiado")
+	check(state.load_game(), "Partida v1 anterior cargada")
+	check(state.data.screen == "fiebre_calle" and state.data.zone == "fiebre", "Ubicación v1 conservada")
+	check(state.data.missions == {"retorno_agua": "ACTIVE"} and state.data.flags.has("orden_visita") and state.data.flags.has("acreditacion_residencia"), "Misión y permisos v1 conservados")
+	check(state.data.documents == ["recibo"] and state.data.choices.has("jefa:saludo"), "Documentos y elección v1 conservados")
+	var exploration_state: Dictionary = state.data.duplicate(true)
+	for target in ["fiebre_descenso", "nudo_acceso", "nudo_paso_inferior", "puntales_acceso", "puntales_taller", "puntales_observatorio", "puntales_soportes", "puntales_presion", "puntales_verificacion", "puntales_acceso", "nudo_paso_inferior", "nudo_acceso", "fiebre_descenso", "fiebre_calle"]:
+		check(state.navigate(target), "Partida anterior navega a " + target)
+	for field in ["missions", "flags", "documents", "choices"]:
+		check(state.data[field] == exploration_state[field], "Explorar conserva " + field)
 	state.new_game()
 	check(state.data.screen == "ap_dormitorio" and state.data.missions.retorno_agua == "LOCKED", "Inicio limpio")
 	check(not state.navigate("fiebre_calle"), "Salida bloqueada antes del contrato")
@@ -462,6 +492,11 @@ func run() -> void:
 			for spot in app.current_view.spots:
 				check(app.current_view.art_rect().encloses(Rect2(spot.position, spot.size)), "Hotspot visible " + sid + " " + str(resolution))
 			await capture("zona_%s_%dx%d" % [sid, resolution.x, resolution.y])
+			if resolution == Vector2i(844, 390) and sid in ["nudo_acceso", "puntales_acceso"]:
+				await press("Pistas")
+				check(app.overlay.visible and app.modal_body.get_global_rect().end.y <= app.overlay.get_global_rect().end.y, "Pistas de " + sid + " cabe en móvil horizontal")
+				await capture("zona_%s_pistas_844x390" % sid)
+				await press("Cerrar ×")
 	state.new_game()
 	check(state.data.documents.is_empty() and state.data.discoveries.is_empty() and state.data.choices.is_empty(), "Nueva partida limpia progreso")
 	for filename in DirAccess.get_files_at("user://"):

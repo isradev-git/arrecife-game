@@ -1,10 +1,38 @@
-# Validación del hito 1
+# Validación del juego y las 21 vistas
 
 Actualizado el 21 de octubre de 2026. Godot 4.7.2 oficial, Mac mini M4, Compatibility. Estas pruebas certifican el alcance descrito; no aprueban el arte ni la ficción.
 
+## Mapa completo · 21 oct 2026
+
+Las 21 vistas están registradas e implementadas con 21 fondos propios: apartamento 3; La Fiebre, El Nudo y Los Puntales 6 cada una. Se comprobó que todas son alcanzables desde el dormitorio y tienen camino de vuelta. Las parejas de salidas aprobadas funcionan en ambos sentidos. La bajada a Los Puntales se bloquea sin `orden_visita` y la subida a La Fiebre se bloquea sin `acreditacion_residencia`; con sus condiciones se recorren. La regresión carga [un guardado v1 anterior](../game/tests/fixtures/partida_h1_v1.json), entra en El Nudo y Los Puntales, regresa y confirma que misiones, permisos, documentos y elecciones no cambian por explorar.
+
+Se ejecutaron los cuatro comandos de «Comprobar» del README con Godot 4.7.2: importación correcta, **609/609 comprobaciones headless**, **674/674 nativas con GPU** y preservación de canon/originales correcta. La exportación Web se generó sin error. En Helium/Chromium con servidor local se abrió una partida, se aceptó el contrato, se salió a La Fiebre y se probó [recarga al menú](evidence/zonas_web_recarga.png) y [«Continuar» en el pasaje](evidence/zonas_web_continuar.png), sin repetir el aviso del parte; `errors` no mostró errores de página. Ese recorrido Web no llegó a El Nudo ni a Los Puntales; los fondos de esas cotas se probaron y capturaron en ejecución nativa.
+
+La prueba nativa capturó cada vista nueva a 1280×720 y 844×390. Se inspeccionaron las salidas, puntos y bandas en ambos tamaños; muestras: [control de La Fiebre](evidence/zona_fiebre_descenso_1280x720.png), [El Nudo en horizontal móvil](evidence/zona_nudo_acceso_844x390.png), [Los Puntales en escritorio](evidence/zona_puntales_acceso_1280x720.png) y [Los Puntales en horizontal móvil](evidence/zona_puntales_acceso_844x390.png). Se abrieron además [«Pistas» en El Nudo](evidence/zona_nudo_acceso_pistas_844x390.png) y [«Pistas» en Los Puntales](evidence/zona_puntales_acceso_pistas_844x390.png), ambas dentro del área móvil. Los fondos son candidatos aplanados: hay que revisar continuidad visual entre vistas, pequeños detalles de las figuras y coherencia del acabado de Los Puntales con los retratos antes de aprobarlos. No se ha probado el toque en teléfono físico ni Safari, Android, Windows o Linux. Las misiones 2 y 3, la resolución y el final siguen pendientes.
+
+Las secciones siguientes conservan resultados históricos de las iteraciones del hito 1. Los conteos vigentes del mapa completo son los de esta sección.
+
+## Aviso repetido al navegar · 21 oct 2026
+
+Se reprodujo el defecto tras contrastar el parte con la Jefa: entrar en otra habitación y pulsar «Continuar» volvían a mostrar el mismo estado del contrato porque cada reconstrucción de la vista abría la banda inferior. La prueba falló en ambos casos antes del cambio. Ahora la primera entrada conserva la ayuda para explorar y, después, la banda se abre cuando una acción aporta información; al reconstruir la escena empieza oculta. La prueba confirma que el diálogo informa una vez, el regreso desde La Fiebre muestra su texto de trayecto y el paso al baño y «Continuar» no repiten el aviso.
+
+Importación, **239/239 comprobaciones headless**, **268/268 nativas con GPU**, integridad de originales y exportación Web correctas. Se inspeccionó [la navegación sin aviso](evidence/navegacion_sin_aviso.png) y, en la Web final, «Continuar» y el cambio de la cocina al baño sin banda inferior. La comodidad táctil sigue pendiente de teléfono físico.
+
+## Corrección de paneles · 21 oct 2026
+
+Tras la captura enviada por el autor, «Pistas» pasó a un panel lateral compacto: las acciones son filas de texto sin recuadros, la escena permanece visible y el control de puntos queda separado de los destinos. El terminal y las listas del deck siguen el mismo tratamiento; la aceptación del contrato mantiene su botón destacado. Se revisaron visualmente [Pistas a 1280×720](evidence/pistas_1280x720.png), [Pistas a 844×390](evidence/pistas_844x390.png), [contrato](evidence/04_contrato.png), [documento](evidence/06_documento.png) y [terminal](evidence/07_terminal.png). En el apartamento, cuya lista es más larga, el panel permite desplazarse.
+
+La versión corregida obtuvo **234/234 comprobaciones headless** y **262/262 nativas con GPU**. Las nuevas aserciones cubren anchura del panel, ausencia de desplazamiento innecesario en la lista corta, acciones sin recuadro, separación de pestañas y encaje del panel en horizontal móvil. Se generó de nuevo la exportación Web y se abrió «Pistas» en Helium/Chromium: conserva el panel y el desplazamiento de la lista larga. No se ha repetido en Web el recorrido completo del contrato tras esta corrección; las capturas de contrato, documento y terminal son nativas.
+
+## Comprobación de cierre técnico · 21 oct 2026
+
+Se repitieron los cuatro comandos de «Comprobar» del README con Godot 4.7.2: importación correcta, **228/228 comprobaciones headless**, **254/254 nativas con GPU** e integridad de canon y originales correcta. La prueba nativa regeneró capturas; se restauraron las evidencias versionadas, que ya documentaban el mismo recorrido, para no introducir cambios binarios ajenos al cierre.
+
+Se exportó de nuevo la versión Web actual y se recorrió en Helium/Chromium desde un origen local aislado, sin tocar la partida que ya existía en el puerto habitual: apertura, menú, nueva partida, dormitorio, observación de la cama con cierre por X, mensaje, aceptación del contrato, cocina, lectura del terminal, La Fiebre, conversación con la Jefa y límite de El Nudo. Al recargar apareció directamente el menú; «Continuar» recuperó La Fiebre y el avance del parte. La revisión visual confirmó en escritorio los puntos circulares y el texto de la observación actual. No se inspeccionó la consola ni se repitió el recorrido Web en tamaño móvil, Safari o teléfono físico.
+
 ## Observaciones temporales · 21 oct 2026
 
-La banda de información aparece al tocar un objeto y se oculta tras **14 segundos** o al pulsar la X. Un nuevo clic o toque sobre el mismo objeto la reabre con el tiempo completo. La prueba automatizada ejercita la cama con ratón y toque, el cierre manual, el vencimiento automático y una nueva apertura; también toca la observación de Velvet y su X a 844×390. En esa resolución se amplió temporalmente la banda para mostrar el texto entero sin desplazarlo. [Dormitorio con observación](evidence/03_observacion.png) · [La Fiebre en móvil horizontal](evidence/observacion_844x390.png). Son capturas nativas reales; Web se exportó, pero esta corrección aún no se inspeccionó en navegador ni en teléfono físico.
+La banda de información aparece al tocar un objeto y se oculta tras **14 segundos** o al pulsar la X. Un nuevo clic o toque sobre el mismo objeto la reabre con el tiempo completo. La prueba automatizada ejercita la cama con ratón y toque, el cierre manual, el vencimiento automático y una nueva apertura; también toca la observación de Velvet y su X a 844×390. En esa resolución se amplió temporalmente la banda para mostrar el texto entero sin desplazarlo. [Dormitorio con observación](evidence/03_observacion.png) · [La Fiebre en móvil horizontal](evidence/observacion_844x390.png). Son capturas nativas reales; en la revisión Web posterior de escritorio se comprobó la X de la cama. El texto de Velvet sigue sin revisión Web en móvil ni en teléfono físico.
 
 ## Revisión de menú, escala y textos · 21 oct 2026
 
@@ -12,7 +40,7 @@ El menú muestra el nuevo fondo de ventana con ciudad, sin Sota; cuatro enlaces 
 
 **Corrección tras captura del autor:** los cuadrados resultaban demasiado visibles. Cada hotspot vuelve a tener un punto circular de 10 unidades dentro de un área pulsable acotada de 36 o 48 unidades; el área completa no se dibuja. En ventanas horizontales bajas, los textos y botones aumentan de tamaño sin alterar la escala de escritorio. El menú se reconstruye a 844×390 en la prueba para mostrar su tamaño móvil real. [Pasaje horizontal](evidence/viewport_844x390.png) y [diálogo horizontal](evidence/dialogo_844x390.png) inspeccionados; los puntos y la letra se distinguen mejor sin tapar la ilustración. La comodidad del toque aún requiere un teléfono físico.
 
-Importación y exportación Web sin errores. El recorrido automatizado actual obtuvo **228/228 comprobaciones headless** y **254/254 nativas**, incluidas **26 capturas**. Se inspeccionaron [menú de escritorio](evidence/01_menu.png), [menú a 844×390](evidence/menu_844x390.png), [dormitorio](evidence/03_dormitorio.png) y [diálogo horizontal](evidence/dialogo_844x390.png): el paisaje ocupa la pantalla, el menú deja visible la ciudad y la jerarquía amarillo/gris se distingue. La exportación anterior a esta corrección se abrió en Helium/Chromium y mostró el menú y el dormitorio; el paquete Web corregido se regeneró, pero no se ha repetido la revisión visual en navegador. Falta verificar la nueva interfaz en Safari y teléfonos físicos.
+Importación y exportación Web sin errores. El recorrido automatizado de esa revisión obtuvo **228/228 comprobaciones headless** y **254/254 nativas**, incluidas **26 capturas**. Se inspeccionaron [menú de escritorio](evidence/01_menu.png), [menú a 844×390](evidence/menu_844x390.png), [dormitorio](evidence/03_dormitorio.png) y [diálogo horizontal](evidence/dialogo_844x390.png): el paisaje ocupa la pantalla, el menú deja visible la ciudad y la jerarquía amarillo/gris se distingue. La revisión Web de la interfaz corregida se completó después, en el recorrido de cierre descrito arriba. Falta verificarla en Safari y teléfonos físicos.
 
 ## Revisión del pasaje poblado · 21 oct 2026
 
@@ -25,8 +53,8 @@ Inspección visual del asistente: las dos entradas y el paso central se leen, la
 | Comprobación | Resultado |
 | --- | --- |
 | Importación del proyecto y arranque | Sin errores de script/importación registrados |
-| `tests/run.gd`, headless | **228 comprobaciones, 0 fallos** |
-| Mismo recorrido nativo con GPU Apple M4 | **254 comprobaciones, 0 fallos**; incluye 26 capturas |
+| `tests/run.gd`, headless | **239 comprobaciones, 0 fallos** |
+| Mismo recorrido nativo con GPU Apple M4 | **268 comprobaciones, 0 fallos**; incluye captura de navegación sin aviso |
 | `tests/preservation.py` | Canon, cinco originales, dos copias de diálogo y logo original idénticos; un proyecto activo; ninguna dependencia 3D |
 | Exportación Web, sin hilos | Generada correctamente con las plantillas 4.7.2 |
 
@@ -65,6 +93,8 @@ La persistencia observada es entre recargas del mismo origen y perfil. Borrar al
 - [Web iPhone emulado vertical inicial](evidence/web_iphone_vertical.png), [horizontal con menú](evidence/web_iphone_horizontal.png), [vertical tras menú](evidence/web_iphone_giro_en_menu.png).
 - [Menú](evidence/01_menu.png), [menú horizontal pequeño](evidence/menu_844x390.png), [introducción](evidence/02_introduccion.png), [dormitorio](evidence/03_dormitorio.png).
 - [Contrato](evidence/04_contrato.png), [cocina](evidence/05_cocina.png), [documento](evidence/06_documento.png), [terminal](evidence/07_terminal.png).
+- [Pistas en escritorio](evidence/pistas_1280x720.png) y [Pistas en horizontal pequeño](evidence/pistas_844x390.png).
+- [Habitación tras navegar, sin aviso repetido](evidence/navegacion_sin_aviso.png).
 - [Baño](evidence/08_bano.png), [Sota sola](evidence/09_monologo.png), [La Fiebre](evidence/10_fiebre.png), [diálogo](evidence/11_dialogo.png).
 - [Horizontal móvil](evidence/dialogo_844x390.png), [vertical](evidence/viewport_390x844.png).
 - [Dormitorio Web con puntos discretos](evidence/web_movil_sutil_dormitorio.png), [cocina tras toque directo](evidence/web_movil_sutil_toque.png), [acciones a petición](evidence/web_movil_sutil_pistas.png).

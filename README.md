@@ -2,11 +2,11 @@
 
 Aventura narrativa **2D ilustrada, en primera persona**, en el universo de *CARGA ADMISIBLE*. Exploras a través de los ojos de Sota: clic o toque sobre objetos, personas y accesos. Godot **4.7.2**, GDScript y español de España.
 
-## Estado: hito 1 jugable
+## Estado: 21 vistas jugables
 
-Tres pantallas de apertura (logo, autoría y orientación), menú, introducción saltable, tres habitaciones, una primera vista de La Fiebre, interacciones, diálogo con retratos originales, deck, mensajes, contrato, documentos, terminal y guardado local. El contrato puede recibirse, aceptarse y avanzar hasta contrastar el parte con la Jefa.
+Tres pantallas de apertura (logo, autoría y orientación), menú, introducción saltable, tres habitaciones y seis vistas de cada cota: La Fiebre, El Nudo y Los Puntales. Hay exploración por clic/toque, diálogo con retratos originales, deck, mensajes, contrato, documentos, terminal y guardado local. El contrato puede recibirse, aceptarse y avanzar hasta contrastar el parte con la Jefa.
 
-**No es todavía la aventura completa de 30 minutos.** El Nudo, Los Puntales, la resolución y el final están pendientes. Los cuatro fondos de exploración y el nuevo fondo de menú son candidatos ilustrados; la ficción nueva y el arte requieren revisión del autor.
+**No es todavía la aventura completa de 30 minutos.** Las misiones 2 y 3, la resolución y el final están pendientes. Los 21 fondos de exploración y el fondo de menú son candidatos ilustrados; la ficción nueva y el arte requieren revisión del autor.
 
 ## Abrir y jugar
 
@@ -31,7 +31,7 @@ Mientras la exportación Web descarga el motor aparece un fondo neutro; el logo 
 
 ### Recorrido de comprobación
 
-Deck → mensaje de la Jefa → revisar y aceptar contrato → cocina → terminal doméstico → copiar lectura → cerrar → salir a La Fiebre → hablar con la Jefa → mostrar la lectura. Puedes visitar el baño, mirar el espejo y leer el recibo antes o después. El acceso a El Nudo explica el límite del hito. Menú → Continuar recupera el progreso.
+Deck → mensaje de la Jefa → revisar y aceptar contrato → cocina → terminal doméstico → copiar lectura → cerrar → salir a La Fiebre → hablar con la Jefa → mostrar la lectura. Puedes visitar el baño, mirar el espejo y leer el recibo antes o después. Desde el pasaje, llega al control de descenso para bajar a El Nudo; desde su archivo, pasa por el control inferior hasta Los Puntales. Los permisos vigentes se conservan. Menú → Continuar recupera el progreso.
 
 ### Web local
 

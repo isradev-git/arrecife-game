@@ -20,7 +20,7 @@ La estructura propone una actividad concreta: comprobar un cargo de reparación 
 | Nómina, cuotas y fondo limitado | Canon, decisión D31. No autoridad universal ni refugio garantizado |
 | Jefa como titular de Velvet | No se establece: su encuentro es en un pasaje adyacente |
 | Sota protagonista y retratos originales | Decisión artística y de juego del autor |
-| Vivienda de Sota cerca de La Fiebre, en la misma cota | **Propuesta no aprobada**, `cota_status: PROPUESTA`; cambiar junto con las rutas si el autor elige otra residencia |
+| Sota vive en La Fiebre, cota 4, porque su trabajo se lo permite | **Decisión del autor del 21 oct 2026 para el juego**; el oficio y los ingresos concretos no quedan definidos. `world.json` registra `APROBADA_JUEGO` |
 | Contrato «El parte del agua», afectada, recibo, orden de visita y diálogos | **Ficción nueva pendiente de aprobación** |
 | Deck de Sota: memoria local, mensajes, contratos y notas | Interfaz propuesta compatible con tecnología canónica; no teléfono mágico ni transporte |
 
@@ -30,14 +30,14 @@ No se incorporan tramas ni revelaciones de los protagonistas de las novelas. No 
 
 | Zona | Vistas registradas | Construido |
 | --- | --- | --- |
-| Apartamento | Dormitorio, salón/cocina, baño | Las tres navegables |
-| La Fiebre | Pasaje, umbral, encuentro | Pasaje y conversación con Jefa; otras dos vistas pendientes |
-| El Nudo | Acceso, reparaciones, puesto de red | Identificadores y reglas; vistas pendientes |
-| Los Puntales | Acceso estructural, taller, zona de trabajo | Identificadores y reglas; vistas pendientes |
+| Apartamento | Dormitorio, salón/cocina, baño | 3 navegables |
+| La Fiebre | Pasaje, umbral, rincón, galería, suministros, control de descenso | 6 navegables |
+| El Nudo | Acceso, taller, puesto de red, mercado, archivo, paso inferior | 6 navegables |
+| Los Puntales | Acceso, taller, frente de trabajo, soportes, presión, verificación | 6 navegables |
 
-Las cotas urbanas visitadas son **La Fiebre (4), El Nudo (3) y Los Puntales (2)**. El apartamento es la cuarta zona jugable, pero su ubicación precisa sigue siendo una propuesta. Las vistas de calles y pasos públicos deben transmitir ciudades muy pobladas: en La Fiebre coinciden residentes, personal de servicio y visitantes de mayores recursos. La densidad ambiental no crea por sí sola nuevos personajes conversables ni altera las restricciones de acceso entre cotas.
+Las cotas urbanas visitadas son **La Fiebre (4), El Nudo (3) y Los Puntales (2)**. El apartamento es la cuarta zona jugable y está en La Fiebre. El autor aprobó 3 vistas del apartamento y 6 por cota, con sus nombres y conexiones en [el diseño de 21 vistas](superpowers/specs/2026-10-21-21-vistas-zonas-design.md). Las vistas de calles y pasos públicos deben transmitir ciudades muy pobladas: en La Fiebre coinciden residentes, personal de servicio y visitantes de mayores recursos. La densidad ambiental no crea por sí sola nuevos personajes conversables ni altera las restricciones de acceso entre cotas.
 
-Las puertas conectan habitaciones. La salida del apartamento se habilita al aceptar el contrato. Los trayectos entre cotas tienen rutas explícitas en `world.json`; bajar y subir se comprueban por separado. La residencia y la orden de visita justifican regresos concretos. El deck informa de los lugares y nunca permite saltarse estos accesos. Los destinos no construidos explican su estado sin cambiar de pantalla.
+Las puertas conectan habitaciones. La salida del apartamento se habilita al aceptar el contrato. Los trayectos entre cotas tienen rutas explícitas en `world.json`; bajar y subir se comprueban por separado. La residencia y la orden de visita justifican regresos concretos. El deck informa de los lugares y nunca permite saltarse estos accesos. Las 21 vistas forman un grafo alcanzable con camino de vuelta.
 
 ## Contrato principal
 
@@ -47,9 +47,11 @@ Las fases futuras se prueban con datos sintéticos, pero **no se completan en el
 
 ## Interacciones
 
-Hotspots con ID por pantalla, tipo, etiqueta, rectángulo normalizado, condición visible y disponible, y destino. El centro del rectángulo sitúa un punto circular de 10 unidades lógicas. Su área pulsable acotada mide 36×36 unidades en escritorio y 48×48 en horizontal bajo; el rectángulo normalizado completo no captura toques. No hay rótulos sobre la ilustración. «Pistas» abre, sólo a petición, la lista de acciones disponibles en la vista y permite ocultar los puntos. La ilustración llena la ventana y puede recortarse por arriba/abajo en proporciones distintas de 16:9; los puntos se calculan sobre la imagen renderizada y permanecen dentro de la zona visible.
+Hotspots con ID por pantalla, tipo, etiqueta, rectángulo normalizado, condición visible y disponible, y destino. El centro del rectángulo sitúa un punto circular de 10 unidades lógicas. Su área pulsable acotada mide 36×36 unidades en escritorio y 48×48 en horizontal bajo; el rectángulo normalizado completo no captura toques. No hay rótulos sobre la ilustración. «Pistas» abre, sólo a petición, un panel lateral compacto con acciones tipográficas y permite ocultar los puntos; las listas largas se desplazan dentro del panel. El deck y el terminal emplean el mismo lenguaje para sus entradas; las decisiones principales conservan mayor peso visual. La ilustración llena la ventana y puede recortarse por arriba/abajo en proporciones distintas de 16:9; los puntos se calculan sobre la imagen renderizada y permanecen dentro de la zona visible.
 
 La experiencia móvil sólo está disponible en horizontal. La condición de candidata de los fondos se documenta fuera de la interfaz jugable.
+
+La banda inferior aparece una vez como ayuda al terminar o saltar la introducción, y después cuando una acción aporta información, como observar, completar un diálogo o recorrer un trayecto con texto propio. Se puede cerrar con la X y también desaparece tras 14 segundos. Entrar en otra habitación o continuar una partida no repite el estado del contrato.
 
 - OBJECT: observación breve, sin diálogo modal.
 - PERSON: diálogo con temas, condiciones, efectos, elecciones y salida.
@@ -57,7 +59,7 @@ La experiencia móvil sólo está disponible en horizontal. La condición de can
 - DOCUMENT: visor de papel, páginas y lectura persistente.
 - DEVICE: interfaz del deck.
 - NAVIGATION: ruta y cambio de vista.
-- SPECIAL_EVENT: acceso contextual; actualmente el límite de El Nudo.
+- SPECIAL_EVENT: evento contextual; los descensos ya son NAVIGATION.
 
 En conversaciones, Sota izquierda e interlocutora derecha, mirando al centro con sus PNG originales. Sólo Sota en monólogos. Escena oscurecida, hablante iluminado y oyente atenuado. Texto central, desplazable. Las decisiones que avanzan el contrato se identifican en amarillo; las preguntas y salidas opcionales, en gris, con nombre accesible que explicita el papel de la opción. Los parlamentos, documentos y observaciones del primer tramo se ampliaron sin convertirlos en exposición enciclopédica. Texto completo inmediatamente: no se necesita ajuste de velocidad de escritura.
 
@@ -71,7 +73,7 @@ Guardado v1: vista/zona, misiones, flags, descubrimientos, documentos, mensajes,
 
 ## Próximos hitos
 
-1. **H1 actual:** fundación y primer tramo, revisión narrativa/artística pendiente.
-2. **H2:** aprobar propuesta de vivienda/contrato, completar La Fiebre y El Nudo con una consecuencia jugable; producir fondos por capas.
-3. **H3:** Puntales, resolución, final, edición del ritmo hasta la duración objetivo.
+1. **H1 técnico:** fundación y primer tramo comprobados; revisión narrativa/artística del autor pendiente.
+2. **H2 técnico:** 21 vistas, navegación y fondos candidatos implementados y comprobados; producir fuentes por capas tras la aprobación artística.
+3. **H3:** diseñar las misiones 2 y 3, resolver el contrato y el final, y editar el ritmo hasta la duración objetivo.
 4. **H4:** sonido, arte definitivo, accesibilidad, dispositivos reales y exportaciones de escritorio.
