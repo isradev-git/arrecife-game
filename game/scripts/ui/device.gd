@@ -4,9 +4,10 @@ const STATUS_LABELS := {"LOCKED":"Sin recibir", "AVAILABLE":"Disponible", "ACTIV
 
 func show_tab(host: Control, selected: String) -> void:
 	var tabs := HFlowContainer.new()
+	tabs.add_theme_constant_override("h_separation", 18)
 	add_child(tabs)
 	for tab in ["Mensajes", "Contratos", "Archivo", "Noticias", "Contactos", "Lugares"]:
-		var button := GameUI.button(tabs, tab, func(): host.show_device(tab))
+		var button := GameUI.action(tabs, tab, func(): host.show_device(tab))
 		button.size_flags_horizontal = Control.SIZE_SHRINK_BEGIN
 		if tab == selected:
 			button.modulate = GameUI.AMBER
@@ -15,7 +16,7 @@ func show_tab(host: Control, selected: String) -> void:
 		"Mensajes":
 			for id in Content.story.messages:
 				var message: Dictionary = Content.story.messages[id]
-				GameUI.button(self, ("[ok] " if id in State.data.messages else "* ") + message.subject + " · " + message.from, func():
+				GameUI.action(self, ("[ok] " if id in State.data.messages else "* ") + message.subject + " · " + message.from, func():
 					State.apply({"message":id})
 					State.apply(message.effects)
 					host.open_panel(message.subject, "MENSAJE / " + message.from)
@@ -41,7 +42,7 @@ func show_tab(host: Control, selected: String) -> void:
 		"Archivo":
 			GameUI.label(self, "Documentos leídos y notas guardadas", 24)
 			for id in State.data.documents:
-				GameUI.button(self, Content.story.documents[id].title, func(): host.show_document(id))
+				GameUI.action(self, Content.story.documents[id].title, func(): host.show_document(id))
 			for id in State.data.discoveries:
 				GameUI.label(self, "— " + Content.story.records[id], 22)
 			if State.data.discoveries.is_empty() and State.data.documents.is_empty():

@@ -136,7 +136,7 @@ func menu_link(parent: Node, title: String, action: Callable) -> Button:
 
 func request_new_game() -> void:
 	if FileAccess.file_exists(State.save_path) or FileAccess.file_exists(State.save_path + ".bak"):
-		open_panel("Empezar otra historia", "NUEVA PARTIDA")
+		open_panel("Empezar otra historia", "NUEVA PARTIDA", false, true, 280)
 		GameUI.label(modal_body, "Se reiniciará el progreso activo. La partida anterior quedará como copia local de respaldo.")
 		GameUI.button(modal_body, "Empezar de nuevo", start_new_game)
 	else:
@@ -176,10 +176,14 @@ func show_intro() -> void:
 	GameUI.button(column, "Entrar" if intro_index == Content.story.intro.size()-1 else "Continuar", func():
 		intro_index += 1
 		if intro_index >= Content.story.intro.size():
-			show_exploration()
+			enter_exploration()
 		else:
 			show_intro())
-	GameUI.button(column, "Saltar introducción", show_exploration)
+	GameUI.button(column, "Saltar introducción", enter_exploration)
+
+func enter_exploration() -> void:
+	show_exploration()
+	observe("Toca los puntos de luz para explorar. El deck contiene un mensaje nuevo.")
 
 func show_exploration() -> void:
 	dismiss_observation()
@@ -219,6 +223,7 @@ func show_exploration() -> void:
 	exploration_footer = footer
 	footer.add_theme_stylebox_override("panel", GameUI.box(Color(0.04, 0.08, 0.10, 0.86)))
 	page.add_child(footer)
+	footer.hide()
 	footer.anchor_left = 0
 	footer.anchor_right = 1
 	footer.anchor_top = 1
@@ -230,7 +235,7 @@ func show_exploration() -> void:
 	var footer_row := HBoxContainer.new()
 	footer.add_child(footer_row)
 	var footer_column := GameUI.scroll(footer_row)
-	observation = GameUI.label(footer_column, "Toca los puntos de luz para explorar. El deck contiene un mensaje nuevo.", 20)
+	observation = GameUI.label(footer_column, "", 20)
 	var close_observation := Button.new()
 	close_observation.text = "×"
 	close_observation.tooltip_text = "Cerrar observación"
@@ -243,23 +248,19 @@ func show_exploration() -> void:
 	close_observation.add_theme_color_override("font_hover_color", GameUI.AMBER)
 	close_observation.pressed.connect(dismiss_observation)
 	footer_row.add_child(close_observation)
-	if State.data.missions.retorno_agua == "ACTIVE":
-		observation.text = "Contrato activo: copia la lectura del terminal y contrasta el parte con la Jefa."
-	if State.data.flags.get("parte_contrastado", false):
-		observation.text = "El parte y la lectura están guardados. El siguiente contraste corresponde al equipo de El Nudo."
-	observe(observation.text)
 
 func show_hints_panel() -> void:
-	open_panel("Pistas", "ACCIONES DE ESTA VISTA")
-	GameUI.button(modal_body, "Ocultar puntos de luz" if State.settings.hints else "Mostrar puntos de luz", func():
+	open_panel("Pistas", "", false, true, 375)
+	for spot in current_view.get("spots"):
+		var hotspot: Dictionary = spot.get_meta("hotspot")
+		GameUI.action(modal_body, hotspot.label, func():
+			close_modal()
+			interact(hotspot))
+	modal_body.add_child(HSeparator.new())
+	GameUI.action(modal_body, "Ocultar puntos de luz" if State.settings.hints else "Mostrar puntos de luz", func():
 		State.set_option("hints", not State.settings.hints)
 		current_view.set_hints(State.settings.hints)
 		show_hints_panel())
-	for spot in current_view.get("spots"):
-		var hotspot: Dictionary = spot.get_meta("hotspot")
-		GameUI.button(modal_body, hotspot.label, func():
-			close_modal()
-			interact(hotspot))
 
 func observe(text: String) -> void:
 	if is_instance_valid(observation) and is_instance_valid(exploration_footer):
@@ -309,30 +310,37 @@ func close_modal() -> void:
 	if is_instance_valid(focus_before_modal):
 		focus_before_modal.grab_focus()
 
-func open_panel(title: String, eyebrow: String = "DECK EXTERNO / ENLACE LOCAL", paper: bool = false) -> void:
+func open_panel(title: String, eyebrow: String = "DECK EXTERNO / ENLACE LOCAL", paper: bool = false, compact: bool = false, compact_height: int = 350) -> void:
 	if not overlay.visible:
 		focus_before_modal = get_viewport().gui_get_focus_owner()
 	GameUI.clear(overlay)
 	overlay.show()
 	var dim := ColorRect.new()
-	dim.color = Color(0.015,0.025,0.035,0.94)
+	dim.color = Color(0.015,0.025,0.035,0.42 if compact else 0.68)
 	overlay.add_child(dim)
 	GameUI.fill(dim)
-	var margin := GameUI.margin(overlay, 28)
-	GameUI.fill(margin)
 	var panel := PanelContainer.new()
-	panel.add_theme_stylebox_override("panel", GameUI.box(Color("d5c8aa") if paper else Color("10242a"), GameUI.AMBER))
-	margin.add_child(panel)
+	panel.add_theme_stylebox_override("panel", GameUI.box(Color("d5c8aa") if paper else Color("10242a"), Color("50646a")))
+	overlay.add_child(panel)
+	if compact:
+		panel.position = Vector2(24, 24)
+		panel.size = Vector2(360, compact_height)
+	else:
+		panel.anchor_left = 0.13
+		panel.anchor_top = 0.12
+		panel.anchor_right = 0.87
+		panel.anchor_bottom = 0.88
 	var column := VBoxContainer.new()
 	panel.add_child(column)
+	if not eyebrow.is_empty():
+		GameUI.label(column, eyebrow, 16).modulate = Color("33484a") if paper else GameUI.AMBER
 	var row := HBoxContainer.new()
 	column.add_child(row)
 	var title_box := VBoxContainer.new()
 	title_box.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	row.add_child(title_box)
-	GameUI.label(title_box, eyebrow, 16).modulate = Color("33484a") if paper else GameUI.AMBER
 	GameUI.label(title_box, title, 30).modulate = Color("293336") if paper else Color.WHITE
-	var close := GameUI.button(row, "Cerrar ×", close_modal)
+	var close := GameUI.action(row, "Cerrar ×", close_modal)
 	close.size_flags_horizontal = Control.SIZE_SHRINK_END
 	close.grab_focus()
 	modal_body = GameUI.scroll(column)
@@ -371,10 +379,10 @@ func show_document(id: String, page_number: int = 0) -> void:
 
 func show_terminal(id: String) -> void:
 	var terminal: Dictionary = Content.story.terminals[id]
-	open_panel(terminal.title, terminal.status)
+	open_panel(terminal.title, terminal.status, false, true)
 	GameUI.label(modal_body, "*  CONEXIÓN DISPONIBLE\n\nSelecciona un registro de la memoria doméstica.", 24).modulate = Color("97c2ac")
 	for entry in terminal.entries:
-		GameUI.button(modal_body, entry.label, func(): show_document(entry.document))
+		GameUI.action(modal_body, entry.label, func(): show_document(entry.document))
 	if not State.settings.reduced_motion:
 		modal_body.modulate.a = 0.0
 		create_tween().tween_property(modal_body, "modulate:a", 1.0, 0.2)

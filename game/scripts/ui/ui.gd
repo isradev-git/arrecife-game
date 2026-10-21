@@ -67,6 +67,23 @@ static func button(parent: Node, text: String, callback: Callable) -> Button:
 	parent.add_child(node)
 	return node
 
+static func action(parent: Node, text: String, callback: Callable) -> Button:
+	var node := button(parent, text, callback)
+	node.alignment = HORIZONTAL_ALIGNMENT_LEFT
+	node.custom_minimum_size.y = 48
+	node.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	for state in ["normal", "hover", "pressed", "disabled"]:
+		node.add_theme_stylebox_override(state, StyleBoxEmpty.new())
+	var focus := StyleBoxFlat.new()
+	focus.bg_color = Color.TRANSPARENT
+	focus.border_color = MUTED
+	focus.border_width_bottom = 1
+	node.add_theme_stylebox_override("focus", focus)
+	node.add_theme_color_override("font_hover_color", AMBER)
+	node.add_theme_color_override("font_pressed_color", AMBER)
+	node.mouse_default_cursor_shape = Control.CURSOR_POINTING_HAND
+	return node
+
 static func margin(parent: Node, inset: int = 24) -> MarginContainer:
 	var node := MarginContainer.new()
 	for side in ["left", "right", "top", "bottom"]:

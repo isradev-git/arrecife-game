@@ -57,7 +57,7 @@
   "terminals": {
     "domestico": {
       "title": "Terminal doméstico",
-      "status": "ENLACE FÍSICO · REGISTRO LOCAL DISPONIBLE",
+      "status": "ENLACE FÍSICO",
       "entries": [
         {
           "label": "Consultar lectura de la conducción",
