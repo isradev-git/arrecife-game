@@ -30,7 +30,10 @@
       "screens": [
         "nudo_acceso",
         "nudo_taller",
-        "nudo_terminal"
+        "nudo_terminal",
+        "nudo_mercado",
+        "nudo_archivo",
+        "nudo_paso_inferior"
       ]
     },
     "puntales": {
@@ -439,26 +442,76 @@
       "hotspots": [
         {"id": "pasaje", "label": "Volver al pasaje", "type": "NAVIGATION", "bounds": [0.08, 0.29, 0.15, 0.26], "target": "fiebre_calle"},
         {"id": "galeria", "label": "Volver a la galería", "type": "NAVIGATION", "bounds": [0.81, 0.29, 0.15, 0.26], "target": "fiebre_galeria"},
-        {"id": "nudo", "label": "Bajar a El Nudo", "type": "SPECIAL_EVENT", "bounds": [0.39, 0.44, 0.2, 0.22], "target": "nudo_acceso"}
+        {"id": "nudo", "label": "Bajar a El Nudo", "type": "NAVIGATION", "bounds": [0.39, 0.44, 0.2, 0.22], "target": "nudo_acceso"}
       ]
     },
     "nudo_acceso": {
       "zone": "nudo",
       "title": "Acceso a El Nudo",
-      "implemented": false,
-      "hotspots": []
+      "subtitle": "EL NUDO · LLEGADA DESDE LA FIEBRE",
+      "art": "nudo_acceso",
+      "implemented": true,
+      "hotspots": [
+        {"id": "fiebre", "label": "Subir a La Fiebre", "type": "NAVIGATION", "bounds": [0.84, 0.28, 0.14, 0.31], "target": "fiebre_descenso"},
+        {"id": "taller", "label": "Taller de reparaciones", "type": "NAVIGATION", "bounds": [0.03, 0.31, 0.17, 0.25], "target": "nudo_taller"},
+        {"id": "mercado", "label": "Mercado de componentes", "type": "NAVIGATION", "bounds": [0.67, 0.36, 0.13, 0.22], "target": "nudo_mercado"}
+      ]
     },
     "nudo_taller": {
       "zone": "nudo",
-      "title": "Reparaciones",
-      "implemented": false,
-      "hotspots": []
+      "title": "Taller de reparaciones",
+      "subtitle": "EL NUDO · TRABAJO DE REPARACIÓN",
+      "art": "nudo_taller",
+      "implemented": true,
+      "hotspots": [
+        {"id": "acceso", "label": "Acceso a El Nudo", "type": "NAVIGATION", "bounds": [0.02, 0.29, 0.15, 0.28], "target": "nudo_acceso"},
+        {"id": "terminal", "label": "Puesto de red", "type": "NAVIGATION", "bounds": [0.82, 0.31, 0.16, 0.27], "target": "nudo_terminal"}
+      ]
     },
     "nudo_terminal": {
       "zone": "nudo",
       "title": "Puesto de red",
-      "implemented": false,
-      "hotspots": []
+      "subtitle": "EL NUDO · CONEXIÓN FÍSICA",
+      "art": "nudo_terminal",
+      "implemented": true,
+      "hotspots": [
+        {"id": "taller", "label": "Taller de reparaciones", "type": "NAVIGATION", "bounds": [0.02, 0.32, 0.16, 0.27], "target": "nudo_taller"},
+        {"id": "archivo", "label": "Archivo de órdenes", "type": "NAVIGATION", "bounds": [0.83, 0.35, 0.15, 0.28], "target": "nudo_archivo"}
+      ]
+    },
+    "nudo_mercado": {
+      "zone": "nudo",
+      "title": "Mercado de componentes",
+      "subtitle": "EL NUDO · INTERCAMBIO DE PIEZAS",
+      "art": "nudo_mercado",
+      "implemented": true,
+      "hotspots": [
+        {"id": "acceso", "label": "Acceso a El Nudo", "type": "NAVIGATION", "bounds": [0.02, 0.31, 0.15, 0.26], "target": "nudo_acceso"},
+        {"id": "archivo", "label": "Archivo de órdenes", "type": "NAVIGATION", "bounds": [0.83, 0.32, 0.15, 0.28], "target": "nudo_archivo"}
+      ]
+    },
+    "nudo_archivo": {
+      "zone": "nudo",
+      "title": "Archivo de órdenes",
+      "subtitle": "EL NUDO · REGISTROS MATERIALES",
+      "art": "nudo_archivo",
+      "implemented": true,
+      "hotspots": [
+        {"id": "terminal", "label": "Puesto de red", "type": "NAVIGATION", "bounds": [0.02, 0.3, 0.15, 0.27], "target": "nudo_terminal"},
+        {"id": "mercado", "label": "Mercado de componentes", "type": "NAVIGATION", "bounds": [0.82, 0.3, 0.16, 0.27], "target": "nudo_mercado"},
+        {"id": "paso", "label": "Paso inferior", "type": "NAVIGATION", "bounds": [0.51, 0.57, 0.15, 0.26], "target": "nudo_paso_inferior"}
+      ]
+    },
+    "nudo_paso_inferior": {
+      "zone": "nudo",
+      "title": "Paso inferior",
+      "subtitle": "EL NUDO · CONTROL A LOS PUNTALES",
+      "art": "nudo_paso_inferior",
+      "implemented": true,
+      "hotspots": [
+        {"id": "archivo", "label": "Archivo de órdenes", "type": "NAVIGATION", "bounds": [0.03, 0.3, 0.16, 0.3], "target": "nudo_archivo"},
+        {"id": "puntales", "label": "Bajar a Los Puntales", "type": "SPECIAL_EVENT", "bounds": [0.77, 0.57, 0.19, 0.3], "target": "puntales_acceso"}
+      ]
     },
     "puntales_acceso": {
       "zone": "puntales",
