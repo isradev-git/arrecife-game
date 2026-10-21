@@ -131,9 +131,12 @@ func run() -> void:
 	await capture("01_menu")
 	check(all_buttons(app.page).size() == 4, "Menú tipográfico sin avatar")
 	root.size = Vector2i(844, 390)
+	app.show_menu()
 	await frames(8)
+	check(all_buttons(app.page)[0].get_theme_font_size("font_size") == 18, "Menú móvil con texto ampliado")
 	await capture("menu_844x390")
 	root.size = Vector2i(1280, 720)
+	app.show_menu()
 	await frames(8)
 	await press("Opciones")
 	check(app.overlay.visible, "Opciones desde menú")
@@ -247,10 +250,13 @@ func run() -> void:
 		app.show_exploration()
 		await frames(8)
 		check(app.current_view.size.is_equal_approx(app.page.size), "Paisaje ocupa la pantalla " + str(resolution))
+		if resolution == Vector2i(844,390):
+			check(app.observation.get_theme_font_size("font_size") >= 18, "Lectura ampliada en horizontal móvil")
 		for button in app.current_view.spots:
 			check(button.visible and app.current_view.art_rect().encloses(Rect2(button.position, button.size)), "Área táctil sobre la ilustración " + str(resolution))
 			check(button.size.x <= 48.1 and button.size.y <= 48.1, "Área táctil acotada " + str(resolution) + " " + str(button.size))
-			check(button.text.is_empty() and button.get_child(0).size.is_equal_approx(button.size), "Área táctil igual a la marca visible " + str(resolution))
+			check(button.text.is_empty() and button.get_child(0).size.is_equal_approx(Vector2(10,10)), "Indicador circular discreto " + str(resolution))
+			check(button.get_child(0).position.is_equal_approx((button.size - Vector2(10,10)) * 0.5), "Indicador centrado en el área pulsable " + str(resolution))
 		await capture("viewport_%dx%d" % [resolution.x,resolution.y])
 		if resolution == Vector2i(390,844):
 			check(app.current_view.image.size.y <= app.current_view.size.x * 0.6, "Ilustración vertical contenida")

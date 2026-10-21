@@ -42,11 +42,12 @@ func show_screen(value: Dictionary) -> void:
 		var marker := Panel.new()
 		marker.mouse_filter = Control.MOUSE_FILTER_IGNORE
 		var style := StyleBoxFlat.new()
-		style.bg_color = Color(0.04, 0.08, 0.10, 0.42)
-		style.border_color = Color(0.91, 0.75, 0.52, 0.8)
+		style.bg_color = Color(0.91, 0.75, 0.52, 0.78)
+		style.border_color = Color(0.04, 0.08, 0.10, 0.9)
 		style.set_border_width_all(1)
-		style.set_corner_radius_all(3)
+		style.set_corner_radius_all(5)
 		marker.add_theme_stylebox_override("panel", style)
+		marker.size = Vector2(10, 10)
 		node.add_child(marker)
 	set_hints(State.settings.hints)
 	layout_spots()
@@ -73,4 +74,4 @@ func layout_spots() -> void:
 		var center := image.position + drawn * Vector2(bounds[0] + bounds[2]*0.5, bounds[1] + bounds[3]*0.5)
 		node.size = extent
 		node.position = Vector2(clampf(center.x - extent.x*0.5, area.position.x, area.end.x-extent.x), clampf(center.y - extent.y*0.5, area.position.y, area.end.y-extent.y))
-		node.get_child(0).set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+		node.get_child(0).position = (extent - node.get_child(0).size) * 0.5

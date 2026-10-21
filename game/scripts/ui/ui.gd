@@ -45,7 +45,10 @@ static func clear(parent: Node) -> void:
 static func label(parent: Node, text: String, font_size: int = 22, wrap: bool = true) -> Label:
 	var node := Label.new()
 	node.text = text
-	node.add_theme_font_size_override("font_size", maxi(16, roundi(font_size * 0.65)))
+	var size := maxi(16, roundi(font_size * 0.65))
+	if parent.get_window().size.y < 500:
+		size = maxi(18, roundi(size * 1.15))
+	node.add_theme_font_size_override("font_size", size)
 	if wrap:
 		node.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 		node.size_flags_horizontal = Control.SIZE_EXPAND_FILL
@@ -56,6 +59,8 @@ static func button(parent: Node, text: String, callback: Callable) -> Button:
 	var node := Button.new()
 	node.text = text
 	node.custom_minimum_size.y = 44 if parent.get_window().size.y < 500 else 36
+	if parent.get_window().size.y < 500:
+		node.add_theme_font_size_override("font_size", 18)
 	node.size_flags_horizontal = Control.SIZE_SHRINK_BEGIN
 	node.focus_mode = Control.FOCUS_ALL
 	node.pressed.connect(callback)

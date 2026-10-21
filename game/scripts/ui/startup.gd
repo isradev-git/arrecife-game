@@ -136,7 +136,7 @@ func show_logo_screen() -> void:
 	bottom.text = "Toca la pantalla para continuar" if mobile else "Haz clic o pulsa Intro para continuar"
 	bottom.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	bottom.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
-	bottom.add_theme_font_size_override("font_size", 17)
+	bottom.add_theme_font_size_override("font_size", 19 if mobile else 17)
 	bottom.add_theme_color_override("font_color", Color("8f2525"))
 	bottom.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	bottom.anchor_left = 0

@@ -28,7 +28,7 @@ Dirección del autor, 20 oct 2026: aventura **2D ilustrada en primera persona**,
 - [x] Sustituir la orientación móvil vertical por apertura de tres pantallas y aviso persistente de giro; conservar el uso libre de la ventana en ordenador.
 - [x] Usar el logo original facilitado por el autor, con original/copia íntegros; en Web mostrar la apertura una vez por pestaña, saltarla al recargar y repetirla en pestaña nueva.
 - [x] Menú ilustrado de ventana a la ciudad sin Sota y con enlaces tipográficos; apertura con texto discreto y avance por clic/toque/Intro.
-- [x] Paisaje a pantalla completa, controles superpuestos, marcas interactivas iguales a su área pulsable, tipografía y botones reducidos.
+- [x] Paisaje a pantalla completa, controles superpuestos, puntos circulares con áreas acotadas, tipografía de PC contenida y letra móvil ampliada.
 - [x] Opciones de misión amarillas e información opcional gris; ampliar los textos del primer recorrido.
 - [x] Importación, pruebas automáticas, ejecución nativa con GPU y capturas reales.
 - [x] Exportación Web, clic/toque sintético, recarga y persistencia en navegador de escritorio.

@@ -47,7 +47,7 @@ Las fases futuras se prueban con datos sintéticos, pero **no se completan en el
 
 ## Interacciones
 
-Hotspots con ID por pantalla, tipo, etiqueta, rectángulo normalizado, condición visible y disponible, y destino. El centro del rectángulo sitúa una marca sutil que coincide exactamente con su área pulsable: 36×36 unidades lógicas en escritorio y 48×48 en móvil horizontal. El rectángulo normalizado completo no captura toques. No hay rótulos sobre la ilustración. «Pistas» abre, sólo a petición, la lista de acciones disponibles en la vista y permite ocultar las marcas. La ilustración llena la ventana y puede recortarse por arriba/abajo en proporciones distintas de 16:9; los puntos se calculan sobre la imagen renderizada y permanecen dentro de la zona visible.
+Hotspots con ID por pantalla, tipo, etiqueta, rectángulo normalizado, condición visible y disponible, y destino. El centro del rectángulo sitúa un punto circular de 10 unidades lógicas. Su área pulsable acotada mide 36×36 unidades en escritorio y 48×48 en horizontal bajo; el rectángulo normalizado completo no captura toques. No hay rótulos sobre la ilustración. «Pistas» abre, sólo a petición, la lista de acciones disponibles en la vista y permite ocultar los puntos. La ilustración llena la ventana y puede recortarse por arriba/abajo en proporciones distintas de 16:9; los puntos se calculan sobre la imagen renderizada y permanecen dentro de la zona visible.
 
 La experiencia móvil sólo está disponible en horizontal. La condición de candidata de los fondos se documenta fuera de la interfaz jugable.
 

@@ -112,7 +112,7 @@ func menu_link(parent: Node, title: String, action: Callable) -> Button:
 	link.alignment = HORIZONTAL_ALIGNMENT_LEFT
 	link.size_flags_horizontal = Control.SIZE_SHRINK_BEGIN
 	link.custom_minimum_size.y = 36 if get_window().size.y >= 500 else 48
-	link.add_theme_font_size_override("font_size", 16 if get_window().size.y < 500 else 15)
+	link.add_theme_font_size_override("font_size", 18 if get_window().size.y < 500 else 15)
 	link.focus_mode = Control.FOCUS_ALL
 	for state in ["normal", "hover", "pressed", "disabled"]:
 		link.add_theme_stylebox_override(state, StyleBoxEmpty.new())
