@@ -1,6 +1,6 @@
 # Diseño espacial de las 21 vistas
 
-**Estado:** mapa de zonas y residencia de Sota aprobados por el autor el 21 de octubre de 2026; conexiones internas, nombres de las vistas nuevas y composiciones pendientes de su revisión. Este documento especifica geografía jugable, no aprueba misiones, personajes nuevos ni fondos finales.
+**Estado:** mapa, nombres, conexiones y residencia de Sota aprobados por el autor el 21 de octubre de 2026. Las composiciones y los fondos finales requieren revisión artística; las situaciones, diálogos y misiones nuevos requieren aprobación narrativa.
 
 ## Objetivo y límite
 
@@ -16,7 +16,7 @@ Una secuencia lineal de 18 vistas urbanas sería sencilla, pero haría artificia
 
 ## Inventario
 
-Los IDs existentes se conservan. Los nombres y funciones de las nueve vistas nuevas son propuestas espaciales para revisar; no establecen hechos nuevos del canon.
+Los IDs existentes se conservan. El autor aprobó los nombres y funciones espaciales de las nueve vistas nuevas para este juego; no establecen hechos nuevos del canon.
 
 | Zona | ID | Vista y función espacial | Estado actual |
 | --- | --- | --- | --- |
@@ -44,7 +44,7 @@ Los IDs existentes se conservan. Los nombres y funciones de las nueve vistas nue
 
 Las 21 vistas son 3 + 6 + 6 + 6. Hay 12 IDs registrados hoy y 4 fondos jugables; faltan 9 IDs y 17 fondos candidatos para hacerlas todas navegables.
 
-## Conexiones propuestas
+## Conexiones aprobadas para el juego
 
 Cada pareja indicada admite ida y vuelta. Los trayectos entre cotas conservan la regla canónica de que bajar es más fácil que subir; cada sentido se valida por separado. Los controles concretos, la residencia y la orden de visita mantienen las condiciones actuales de `world.json` hasta que se diseñen las misiones.
 
