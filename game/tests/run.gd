@@ -150,6 +150,20 @@ func run() -> void:
 	await press("Saltar introducción")
 	check(is_instance_valid(app.current_view), "Introducción saltable")
 	await capture("03_dormitorio")
+	await press("· La cama")
+	check(app.exploration_footer.visible and app.observation.text == content.story.observations.bed, "La observación aparece al tocar la cama")
+	check(app.observation.get_global_rect().end.y < app.exploration_footer.get_global_rect().end.y, "Texto completo de la cama dentro de la banda")
+	await capture("03_observacion")
+	await press("×")
+	check(not app.exploration_footer.visible and app.observation_timer.is_stopped(), "La X cierra la observación y detiene su tiempo")
+	await press("· La cama", null, true)
+	check(app.exploration_footer.visible and not app.observation_timer.is_stopped(), "La cama reabre la observación con toque")
+	app.observation_timer.start(0.04)
+	await app.observation_timer.timeout
+	check(not app.exploration_footer.visible, "La observación desaparece al vencer el tiempo")
+	await press("· La cama")
+	check(app.exploration_footer.visible, "La observación puede leerse otra vez")
+	await press("×")
 	var door: Button = app.current_view.spots.back()
 	var miss := door.get_global_rect().get_center() + Vector2(35, 0)
 	for down in [true, false]:
@@ -252,6 +266,12 @@ func run() -> void:
 		check(app.current_view.size.is_equal_approx(app.page.size), "Paisaje ocupa la pantalla " + str(resolution))
 		if resolution == Vector2i(844,390):
 			check(app.observation.get_theme_font_size("font_size") >= 18, "Lectura ampliada en horizontal móvil")
+			await press("· Entrada de Velvet", null, true)
+			check(app.exploration_footer.visible, "Observación visible en móvil horizontal")
+			check(app.observation.get_global_rect().end.y < app.exploration_footer.get_global_rect().end.y, "Texto completo de Velvet dentro de la banda móvil")
+			await capture("observacion_844x390")
+			await press("×", null, true)
+			check(not app.exploration_footer.visible, "Cerrar observación mediante toque móvil")
 		for button in app.current_view.spots:
 			check(button.visible and app.current_view.art_rect().encloses(Rect2(button.position, button.size)), "Área táctil sobre la ilustración " + str(resolution))
 			check(button.size.x <= 48.1 and button.size.y <= 48.1, "Área táctil acotada " + str(resolution) + " " + str(button.size))

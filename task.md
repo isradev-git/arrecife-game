@@ -17,6 +17,7 @@ Dirección del autor, 20 oct 2026: aventura **2D ilustrada en primera persona**,
 - [x] Tres vistas del apartamento; una vista navegable de La Fiebre.
 - [x] Hotspots reutilizables con tipos, condiciones y coordenadas normalizadas.
 - [x] Objetos con observación breve; terminal y documentos con interfaces diferenciadas.
+- [x] Observaciones temporales: cierre con X, desaparición a los 14 s y reapertura al tocar el objeto.
 - [x] Diálogos estructurados, retratos originales, hablante iluminado, temas, elecciones y revisita.
 - [x] Deck con mensajes, contratos, archivo, noticias, contactos y lugares.
 - [x] Recepción, aceptación y dos avances del contrato `retorno_agua`.

@@ -2,13 +2,17 @@
 
 Actualizado el 21 de octubre de 2026. Godot 4.7.2 oficial, Mac mini M4, Compatibility. Estas pruebas certifican el alcance descrito; no aprueban el arte ni la ficción.
 
+## Observaciones temporales · 21 oct 2026
+
+La banda de información aparece al tocar un objeto y se oculta tras **14 segundos** o al pulsar la X. Un nuevo clic o toque sobre el mismo objeto la reabre con el tiempo completo. La prueba automatizada ejercita la cama con ratón y toque, el cierre manual, el vencimiento automático y una nueva apertura; también toca la observación de Velvet y su X a 844×390. En esa resolución se amplió temporalmente la banda para mostrar el texto entero sin desplazarlo. [Dormitorio con observación](evidence/03_observacion.png) · [La Fiebre en móvil horizontal](evidence/observacion_844x390.png). Son capturas nativas reales; Web se exportó, pero esta corrección aún no se inspeccionó en navegador ni en teléfono físico.
+
 ## Revisión de menú, escala y textos · 21 oct 2026
 
 El menú muestra el nuevo fondo de ventana con ciudad, sin Sota; cuatro enlaces tipográficos sustituyen las cajas. Las tres pantallas previas se adelantan con clic, toque o Intro y carecen de botón visible. La exploración usa imagen a pantalla completa con controles superpuestos. La elección que avanza el contrato aparece en amarillo y las preguntas/salidas en gris; el nombre accesible también explica su función. Se ampliaron introducción, observaciones, mensaje, documentos, noticia y conversación con la Jefa.
 
 **Corrección tras captura del autor:** los cuadrados resultaban demasiado visibles. Cada hotspot vuelve a tener un punto circular de 10 unidades dentro de un área pulsable acotada de 36 o 48 unidades; el área completa no se dibuja. En ventanas horizontales bajas, los textos y botones aumentan de tamaño sin alterar la escala de escritorio. El menú se reconstruye a 844×390 en la prueba para mostrar su tamaño móvil real. [Pasaje horizontal](evidence/viewport_844x390.png) y [diálogo horizontal](evidence/dialogo_844x390.png) inspeccionados; los puntos y la letra se distinguen mejor sin tapar la ilustración. La comodidad del toque aún requiere un teléfono físico.
 
-Importación y exportación Web sin errores. El recorrido automatizado actual obtuvo **219/219 comprobaciones headless** y **243/243 nativas**, incluidas **24 capturas**. Se inspeccionaron [menú de escritorio](evidence/01_menu.png), [menú a 844×390](evidence/menu_844x390.png), [dormitorio](evidence/03_dormitorio.png) y [diálogo horizontal](evidence/dialogo_844x390.png): el paisaje ocupa la pantalla, el menú deja visible la ciudad y la jerarquía amarillo/gris se distingue. La exportación anterior a esta corrección se abrió en Helium/Chromium y mostró el menú y el dormitorio; el paquete Web corregido se regeneró, pero no se ha repetido la revisión visual en navegador. Falta verificar la nueva interfaz en Safari y teléfonos físicos.
+Importación y exportación Web sin errores. El recorrido automatizado actual obtuvo **228/228 comprobaciones headless** y **254/254 nativas**, incluidas **26 capturas**. Se inspeccionaron [menú de escritorio](evidence/01_menu.png), [menú a 844×390](evidence/menu_844x390.png), [dormitorio](evidence/03_dormitorio.png) y [diálogo horizontal](evidence/dialogo_844x390.png): el paisaje ocupa la pantalla, el menú deja visible la ciudad y la jerarquía amarillo/gris se distingue. La exportación anterior a esta corrección se abrió en Helium/Chromium y mostró el menú y el dormitorio; el paquete Web corregido se regeneró, pero no se ha repetido la revisión visual en navegador. Falta verificar la nueva interfaz en Safari y teléfonos físicos.
 
 ## Revisión del pasaje poblado · 21 oct 2026
 
@@ -21,8 +25,8 @@ Inspección visual del asistente: las dos entradas y el paso central se leen, la
 | Comprobación | Resultado |
 | --- | --- |
 | Importación del proyecto y arranque | Sin errores de script/importación registrados |
-| `tests/run.gd`, headless | **219 comprobaciones, 0 fallos** |
-| Mismo recorrido nativo con GPU Apple M4 | **243 comprobaciones, 0 fallos**; incluye 24 capturas |
+| `tests/run.gd`, headless | **228 comprobaciones, 0 fallos** |
+| Mismo recorrido nativo con GPU Apple M4 | **254 comprobaciones, 0 fallos**; incluye 26 capturas |
 | `tests/preservation.py` | Canon, cinco originales, dos copias de diálogo y logo original idénticos; un proyecto activo; ninguna dependencia 3D |
 | Exportación Web, sin hilos | Generada correctamente con las plantillas 4.7.2 |
 

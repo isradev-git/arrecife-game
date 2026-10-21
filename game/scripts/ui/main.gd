@@ -4,8 +4,10 @@ const Viewpoint = preload("res://scripts/ui/viewpoint.gd")
 const Dialogue = preload("res://scripts/ui/dialogue.gd")
 const Device = preload("res://scripts/ui/device.gd")
 const Startup = preload("res://scripts/ui/startup.gd")
+const OBSERVATION_SECONDS := 14.0
 var page := Control.new()
 var overlay := Control.new()
+var observation_timer := Timer.new()
 var orientation_gate := Startup.new()
 var opening
 var current_view: Control
@@ -28,6 +30,9 @@ func _ready() -> void:
 	add_child(overlay)
 	GameUI.fill(overlay)
 	overlay.hide()
+	observation_timer.one_shot = true
+	observation_timer.timeout.connect(dismiss_observation)
+	add_child(observation_timer)
 	orientation_gate.orientation_only = true
 	add_child(orientation_gate)
 	GameUI.fill(orientation_gate)
@@ -82,6 +87,7 @@ func background(parent: Control, id: String, dim: float = 0.0) -> void:
 	GameUI.fill(shade)
 
 func show_menu() -> void:
+	dismiss_observation()
 	close_modal()
 	menu_visible = true
 	GameUI.clear(page)
@@ -154,6 +160,7 @@ func continue_game() -> void:
 		show_notice("No se pudo continuar", State.last_error)
 
 func show_intro() -> void:
+	dismiss_observation()
 	menu_visible = false
 	GameUI.clear(page)
 	background(page, "dormitorio", 0.84)
@@ -175,6 +182,7 @@ func show_intro() -> void:
 	GameUI.button(column, "Saltar introducción", show_exploration)
 
 func show_exploration() -> void:
+	dismiss_observation()
 	close_modal()
 	menu_visible = false
 	GameUI.clear(page)
@@ -217,14 +225,29 @@ func show_exploration() -> void:
 	footer.anchor_bottom = 1
 	footer.offset_left = 8
 	footer.offset_right = -8
-	footer.offset_top = -82
+	footer.offset_top = -118 if get_window().size.y < 500 else -104
 	footer.offset_bottom = -8
-	var footer_column := GameUI.scroll(footer)
+	var footer_row := HBoxContainer.new()
+	footer.add_child(footer_row)
+	var footer_column := GameUI.scroll(footer_row)
 	observation = GameUI.label(footer_column, "Toca los puntos de luz para explorar. El deck contiene un mensaje nuevo.", 20)
+	var close_observation := Button.new()
+	close_observation.text = "×"
+	close_observation.tooltip_text = "Cerrar observación"
+	close_observation.accessibility_name = "Cerrar observación"
+	close_observation.custom_minimum_size = Vector2(40, 40)
+	close_observation.size_flags_vertical = Control.SIZE_SHRINK_BEGIN
+	close_observation.add_theme_font_size_override("font_size", 23)
+	for state in ["normal", "hover", "pressed"]:
+		close_observation.add_theme_stylebox_override(state, StyleBoxEmpty.new())
+	close_observation.add_theme_color_override("font_hover_color", GameUI.AMBER)
+	close_observation.pressed.connect(dismiss_observation)
+	footer_row.add_child(close_observation)
 	if State.data.missions.retorno_agua == "ACTIVE":
 		observation.text = "Contrato activo: copia la lectura del terminal y contrasta el parte con la Jefa."
 	if State.data.flags.get("parte_contrastado", false):
 		observation.text = "El parte y la lectura están guardados. El siguiente contraste corresponde al equipo de El Nudo."
+	observe(observation.text)
 
 func show_hints_panel() -> void:
 	open_panel("Pistas", "ACCIONES DE ESTA VISTA")
@@ -239,8 +262,15 @@ func show_hints_panel() -> void:
 			interact(hotspot))
 
 func observe(text: String) -> void:
-	if is_instance_valid(observation):
+	if is_instance_valid(observation) and is_instance_valid(exploration_footer):
 		observation.text = text
+		exploration_footer.show()
+		observation_timer.start(OBSERVATION_SECONDS)
+
+func dismiss_observation() -> void:
+	observation_timer.stop()
+	if is_instance_valid(exploration_footer):
+		exploration_footer.hide()
 
 func interact(hotspot: Dictionary) -> void:
 	if not State.matches(hotspot.get("available_if", {})):
