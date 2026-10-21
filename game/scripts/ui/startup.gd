@@ -8,7 +8,7 @@ var mobile := OS.has_feature("mobile") or OS.has_feature("web_android") or OS.ha
 var timer := Timer.new()
 var canvas := Control.new()
 var phone_tween: Tween
-var last_tap_ms := 0
+var last_tap_ms := -1000
 
 func _input(event: InputEvent) -> void:
 	if orientation_only or not is_visible_in_tree():

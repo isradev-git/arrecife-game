@@ -36,6 +36,14 @@ func all_buttons(node: Node) -> Array[Button]:
 		result.append_array(all_buttons(child))
 	return result
 
+func has_navigation(from_id: String, to_id: String) -> bool:
+	if not content.world.screens.has(from_id):
+		return false
+	for hotspot in content.world.screens[from_id].hotspots:
+		if hotspot.type == "NAVIGATION" and hotspot.target == to_id:
+			return true
+	return false
+
 func press(text: String, in_node: Node = null, touch: bool = false) -> void:
 	var scope := in_node if in_node else app
 	for button in all_buttons(scope):
@@ -89,7 +97,23 @@ func run() -> void:
 	screenshots = DisplayServer.get_name() != "headless"
 	state.save_path = "user://prueba_" + str(OS.get_process_id()) + ".json"
 	check(content.world.zones.size() == 4, "Cuatro zonas")
-	check(content.world.screens.size() == 12, "Doce puntos de vista registrados")
+	check(content.world.screens.size() == 15, "Quince puntos de vista registrados tras La Fiebre")
+	var fiebre_ids := ["fiebre_calle", "fiebre_entrada", "fiebre_encuentro", "fiebre_galeria", "fiebre_suministros", "fiebre_descenso"]
+	var fiebre_count := 0
+	var implemented_count := 0
+	for sid in content.world.screens:
+		implemented_count += int(content.world.screens[sid].implemented)
+		if sid in fiebre_ids:
+			fiebre_count += 1
+	check(fiebre_count == 6 and content.world.zones.fiebre.screens.size() == 6, "Seis vistas de La Fiebre")
+	check(implemented_count == 9, "Nueve fondos jugables tras La Fiebre")
+	for pair in [["fiebre_calle", "fiebre_entrada"], ["fiebre_calle", "fiebre_encuentro"], ["fiebre_calle", "fiebre_galeria"], ["fiebre_calle", "fiebre_descenso"], ["fiebre_galeria", "fiebre_suministros"], ["fiebre_galeria", "fiebre_descenso"]]:
+		check(has_navigation(pair[0], pair[1]) and has_navigation(pair[1], pair[0]), "Ruta doble " + pair[0] + "/" + pair[1])
+	for sid in fiebre_ids:
+		if content.world.screens.has(sid):
+			var screen_data: Dictionary = content.world.screens[sid]
+			check(screen_data.implemented and FileAccess.file_exists("res://assets/backgrounds/candidates/%s.png" % screen_data.get("art", "")), "Fondo propio " + sid)
+	check(content.world.screens.fiebre_calle.hotspots[0].type == "OBJECT" and content.world.screens.fiebre_calle.hotspots[1].type == "PERSON", "Velvet y Jefa permanecen en el pasaje")
 	for sid in content.world.screens:
 		var screen: Dictionary = content.world.screens[sid]
 		check(content.world.zones.has(screen.zone), "Zona de " + sid)
@@ -149,6 +173,7 @@ func run() -> void:
 	await capture("02_introduccion")
 	await press("Saltar introducción")
 	check(is_instance_valid(app.current_view), "Introducción saltable")
+	check(app.exploration_footer.visible and app.observation.text.begins_with("Toca los puntos de luz"), "Primera entrada conserva la ayuda para explorar")
 	await capture("03_dormitorio")
 	await press("· La cama")
 	check(app.exploration_footer.visible and app.observation.text == content.story.observations.bed, "La observación aparece al tocar la cama")
@@ -176,6 +201,12 @@ func run() -> void:
 	check(state.data.screen == "ap_dormitorio", "Toque junto a la puerta no activa un área invisible grande")
 	await press("Pistas")
 	check(app.overlay.visible, "Pistas abre acciones accesibles")
+	check(app.modal_body.size.x < app.overlay.size.x * 0.55, "Pistas deja visible la escena")
+	check(not app.modal_body.get_parent().get_v_scroll_bar().visible, "Pistas muestra las acciones actuales sin barra de desplazamiento")
+	for button in all_buttons(app.overlay):
+		if button.text in ["Deck externo", "Cerrar ×"]:
+			check(button.get_theme_stylebox("normal") is StyleBoxEmpty, "Acción de Pistas sin recuadro: " + button.text)
+	await capture("pistas_1280x720")
 	await press("Ocultar puntos de luz")
 	check(not app.current_view.spots[0].get_child(0).visible, "Pistas oculta marcas sin desactivar hotspots")
 	await press("Mostrar puntos de luz")
@@ -188,6 +219,13 @@ func run() -> void:
 	await press("* Un parte que no cuadra · La Jefa")
 	check(state.data.missions.retorno_agua == "AVAILABLE", "Mensaje recibe contrato")
 	await press("Revisar contrato")
+	var tabs := all_buttons(app.overlay)
+	var first_tab: Button
+	var second_tab: Button
+	for button in tabs:
+		if button.text == "Mensajes": first_tab = button
+		if button.text == "Contratos": second_tab = button
+	check(first_tab != null and second_tab != null and second_tab.get_global_rect().position.x - first_tab.get_global_rect().end.x >= 12, "Pestañas del deck separadas")
 	await capture("04_contrato")
 	await press("Aceptar contrato")
 	check(state.data.missions.retorno_agua == "ACTIVE", "Contrato activo mediante UI")
@@ -217,6 +255,23 @@ func run() -> void:
 	await press("> Salir a La Fiebre")
 	check(state.data.screen == "fiebre_calle", "Ruta entre zonas autorizada")
 	await capture("10_fiebre")
+	await press("> Umbral de Velvet")
+	check(state.data.screen == "fiebre_entrada", "Entrada física al umbral de Velvet")
+	await press("> Volver al pasaje", null, true)
+	check(state.data.screen == "fiebre_calle", "Regreso táctil desde el umbral")
+	await press("> Rincón de trato")
+	check(state.data.screen == "fiebre_encuentro", "Rincón de trato navegable")
+	await press("> Volver al pasaje")
+	await press("> Galería de residentes")
+	check(state.data.screen == "fiebre_galeria", "Galería navegable")
+	await press("> Pasarela de suministros", null, true)
+	check(state.data.screen == "fiebre_suministros", "Pasarela accesible por toque")
+	await press("> Volver a la galería")
+	await press("> Control de descenso")
+	check(state.data.screen == "fiebre_descenso", "Control de descenso navegable")
+	check(not state.travel_reason("nudo_acceso").is_empty(), "El Nudo aún conserva el límite del hito")
+	await press("> Volver al pasaje")
+	check(state.data.screen == "fiebre_calle", "Regreso del control al pasaje")
 	await press("· Hablar con la Jefa")
 	await capture("11_dialogo")
 	var dialogue = app.overlay.get_child(0)
@@ -234,6 +289,15 @@ func run() -> void:
 	check(state.data.flags.get("parte_contrastado", false), "Diálogo actualiza contrato")
 	check(state.data.choices.has("jefa:saludo"), "Elección persistente")
 	await press("Volver a la escena")
+	check(app.exploration_footer.visible and app.observation.text.begins_with("El parte y la lectura están guardados"), "El cierre del diálogo informa una vez")
+	await press("×")
+	await press("> Volver a casa")
+	check(app.exploration_footer.visible and app.observation.text == "Vuelves por el pasaje hasta tu puerta.", "El trayecto conserva su aviso propio")
+	await press("> Baño")
+	check(not app.exploration_footer.visible and app.observation_timer.is_stopped(), "Cambiar de habitación no repite el estado del contrato")
+	await capture("navegacion_sin_aviso")
+	await press("> Salón / cocina")
+	await press("> Salir a La Fiebre")
 	check(not state.navigate("nudo_acceso"), "Zona futura no simula estar terminada")
 	check(state.data.missions.retorno_agua == "ACTIVE", "Hito no completa falsamente misión")
 	var snapshot: Dictionary = state.data.duplicate(true)
@@ -246,6 +310,7 @@ func run() -> void:
 	await frames()
 	await press("Continuar")
 	check(state.data.screen == snapshot.screen and not app.menu_visible, "Continuar desde menú restaura la vista")
+	check(not app.exploration_footer.visible, "Continuar no repite el estado del contrato")
 	# Datos truncados, versiones futuras y estructuras mal tipadas.
 	for invalid in [null, [], {"version":999}, {"version":1}, {"version":1,"screen":[]}]:
 		check(not state.valid(invalid), "Guardado inválido rechazado")
@@ -266,6 +331,12 @@ func run() -> void:
 		check(app.current_view.size.is_equal_approx(app.page.size), "Paisaje ocupa la pantalla " + str(resolution))
 		if resolution == Vector2i(844,390):
 			check(app.observation.get_theme_font_size("font_size") >= 18, "Lectura ampliada en horizontal móvil")
+			await press("Pistas")
+			var hints_scroll := app.modal_body.get_parent() as ScrollContainer
+			check(hints_scroll.get_global_rect().end.x <= app.overlay.get_global_rect().end.x and hints_scroll.get_global_rect().end.y <= app.overlay.get_global_rect().end.y, "Pistas cabe en móvil horizontal")
+			check(hints_scroll.get_v_scroll_bar().visible, "Pistas desplaza sus acciones adicionales en móvil")
+			await capture("pistas_844x390")
+			await press("Cerrar ×")
 			await press("· Entrada de Velvet", null, true)
 			check(app.exploration_footer.visible, "Observación visible en móvil horizontal")
 			check(app.observation.get_global_rect().end.y < app.exploration_footer.get_global_rect().end.y, "Texto completo de Velvet dentro de la banda móvil")
@@ -321,6 +392,19 @@ func run() -> void:
 	check(state.data.missions.retorno_agua == "READY_TO_COMPLETE", "Misión lista para entregar")
 	state.apply({"flag":"resolucion_entregada"})
 	check(state.data.missions.retorno_agua == "COMPLETED", "Misión completada explícitamente")
+	for resolution in [Vector2i(1280, 720), Vector2i(844, 390)]:
+		root.size = resolution
+		for sid in fiebre_ids:
+			if sid == "fiebre_calle":
+				continue
+			state.data.screen = sid
+			state.data.zone = "fiebre"
+			app.show_exploration()
+			await frames(8)
+			check(app.current_view.image.texture != null, "Textura visible " + sid)
+			for spot in app.current_view.spots:
+				check(app.current_view.art_rect().encloses(Rect2(spot.position, spot.size)), "Hotspot visible " + sid + " " + str(resolution))
+			await capture("zona_%s_%dx%d" % [sid, resolution.x, resolution.y])
 	state.new_game()
 	check(state.data.documents.is_empty() and state.data.discoveries.is_empty() and state.data.choices.is_empty(), "Nueva partida limpia progreso")
 	for filename in DirAccess.get_files_at("user://"):

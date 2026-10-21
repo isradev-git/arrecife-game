@@ -1,11 +1,11 @@
 {
   "start": "ap_dormitorio",
-  "proposal": "Ficción de juego pendiente de aprobación. Vivienda en el entorno de La Fiebre: propuesta, no canon.",
+  "proposal": "La residencia de Sota en La Fiebre está aprobada para el juego; el contrato y los diálogos nuevos siguen pendientes de aprobación narrativa, no son canon literario.",
   "zones": {
     "apartamento": {
       "name": "La habitación alquilada",
       "cota": 4,
-      "cota_status": "PROPUESTA",
+      "cota_status": "APROBADA_JUEGO",
       "screens": [
         "ap_dormitorio",
         "ap_cocina",
@@ -18,7 +18,10 @@
       "screens": [
         "fiebre_calle",
         "fiebre_entrada",
-        "fiebre_encuentro"
+        "fiebre_encuentro",
+        "fiebre_galeria",
+        "fiebre_suministros",
+        "fiebre_descenso"
       ]
     },
     "nudo": {
@@ -340,15 +343,36 @@
         },
         {
           "id": "transit",
-          "label": "Acceso a El Nudo",
-          "type": "SPECIAL_EVENT",
+          "label": "Control de descenso",
+          "type": "NAVIGATION",
           "bounds": [
             0.42,
             0.24,
             0.17,
             0.32
           ],
-          "target": "nudo_acceso"
+          "target": "fiebre_descenso"
+        },
+        {
+          "id": "umbral",
+          "label": "Umbral de Velvet",
+          "type": "NAVIGATION",
+          "bounds": [0.12, 0.58, 0.12, 0.16],
+          "target": "fiebre_entrada"
+        },
+        {
+          "id": "encuentro",
+          "label": "Rincón de trato",
+          "type": "NAVIGATION",
+          "bounds": [0.83, 0.22, 0.12, 0.17],
+          "target": "fiebre_encuentro"
+        },
+        {
+          "id": "galeria",
+          "label": "Galería de residentes",
+          "type": "NAVIGATION",
+          "bounds": [0.48, 0.08, 0.14, 0.18],
+          "target": "fiebre_galeria"
         },
         {
           "id": "home",
@@ -367,14 +391,56 @@
     "fiebre_entrada": {
       "zone": "fiebre",
       "title": "Umbral de Velvet",
-      "implemented": false,
-      "hotspots": []
+      "subtitle": "LA FIEBRE · UMBRAL DE VELVET",
+      "art": "fiebre_entrada",
+      "implemented": true,
+      "hotspots": [
+        {"id": "pasaje", "label": "Volver al pasaje", "type": "NAVIGATION", "bounds": [0.83, 0.37, 0.13, 0.26], "target": "fiebre_calle"}
+      ]
     },
     "fiebre_encuentro": {
       "zone": "fiebre",
-      "title": "Mesa de la Nómina",
-      "implemented": false,
-      "hotspots": []
+      "title": "Rincón de trato",
+      "subtitle": "LA FIEBRE · LOCAL CONTIGUO",
+      "art": "fiebre_encuentro",
+      "implemented": true,
+      "hotspots": [
+        {"id": "pasaje", "label": "Volver al pasaje", "type": "NAVIGATION", "bounds": [0.08, 0.25, 0.19, 0.4], "target": "fiebre_calle"}
+      ]
+    },
+    "fiebre_galeria": {
+      "zone": "fiebre",
+      "title": "Galería de residentes",
+      "subtitle": "LA FIEBRE · PASARELAS HABITADAS",
+      "art": "fiebre_galeria",
+      "implemented": true,
+      "hotspots": [
+        {"id": "pasaje", "label": "Bajar al pasaje", "type": "NAVIGATION", "bounds": [0.12, 0.6, 0.16, 0.2], "target": "fiebre_calle"},
+        {"id": "suministros", "label": "Pasarela de suministros", "type": "NAVIGATION", "bounds": [0.55, 0.24, 0.14, 0.21], "target": "fiebre_suministros"},
+        {"id": "descenso", "label": "Control de descenso", "type": "NAVIGATION", "bounds": [0.86, 0.28, 0.12, 0.22], "target": "fiebre_descenso"}
+      ]
+    },
+    "fiebre_suministros": {
+      "zone": "fiebre",
+      "title": "Pasarela de suministros",
+      "subtitle": "LA FIEBRE · REPARTO Y SERVICIO",
+      "art": "fiebre_suministros",
+      "implemented": true,
+      "hotspots": [
+        {"id": "galeria", "label": "Volver a la galería", "type": "NAVIGATION", "bounds": [0.08, 0.37, 0.17, 0.25], "target": "fiebre_galeria"}
+      ]
+    },
+    "fiebre_descenso": {
+      "zone": "fiebre",
+      "title": "Control de descenso",
+      "subtitle": "LA FIEBRE · PASO A EL NUDO",
+      "art": "fiebre_descenso",
+      "implemented": true,
+      "hotspots": [
+        {"id": "pasaje", "label": "Volver al pasaje", "type": "NAVIGATION", "bounds": [0.08, 0.29, 0.15, 0.26], "target": "fiebre_calle"},
+        {"id": "galeria", "label": "Volver a la galería", "type": "NAVIGATION", "bounds": [0.81, 0.29, 0.15, 0.26], "target": "fiebre_galeria"},
+        {"id": "nudo", "label": "Bajar a El Nudo", "type": "SPECIAL_EVENT", "bounds": [0.39, 0.44, 0.2, 0.22], "target": "nudo_acceso"}
+      ]
     },
     "nudo_acceso": {
       "zone": "nudo",
