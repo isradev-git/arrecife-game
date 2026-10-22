@@ -2,6 +2,16 @@
 
 Actualizado el 22 de octubre de 2026. Godot 4.7.2 oficial, Mac mini M4, Compatibility. Estas pruebas certifican el alcance descrito; no aprueban el arte ni la ficción.
 
+## Versión 0.2.0 · primera prueba · 22 oct 2026
+
+La importación terminó sin errores. El recorrido automatizado pasó **827/827 comprobaciones headless** y **899/899 nativas con GPU**, sin errores de script; incluye las 21 vistas, los tres contratos, ambos desenlaces, una partida v1 anterior, aparición de chats por hitos, respuestas guardadas y una oferta recuperada tras simular una interrupción del guardado. `preservation.py` confirmó canon, cinco originales, las copias de los dos retratos, logo intacto y un único proyecto activo. La exportación Web 4.7.2 se generó sin errores.
+
+Se inspeccionaron capturas nativas de [conversación a 1280×720](evidence/v0_2_dialogo_1280x720.png) y [844×390](evidence/v0_2_dialogo_844x390.png): el texto comienza junto a los retratos y los torsos terminan en el borde inferior. Los [hilos a 1280×720](evidence/v0_2_chat_1280x720.png) y [844×390](evidence/v0_2_chat_844x390.png) muestran burbujas diferenciadas y respuesta completa. En horizontal pequeño, la prueba abrió el seguimiento de la madre, desplazó al mensaje nuevo y respondió. Se corrigieron dos símbolos que la exportación Web mostraba como glifos rotos.
+
+La Web final se abrió desde HTTP local en Chromium a **844×390**. Se vieron [dormitorio](evidence/v0_2_web_dormitorio.png), [listado del deck](evidence/v0_2_web_deck.png) y [chat con respuestas](evidence/v0_2_web_chat.png). Se eligió una respuesta, se recargó la página, se pulsó «Continuar» y [la réplica seguía guardada](evidence/v0_2_web_respuesta_recarga.png). `agent-browser errors` no registró errores de página. La prueba Web llegó al inicio del contrato, sin repetir allí el recorrido completo de las tres misiones; éste sí pasó en Godot nativo. Quedan por probar teléfonos físicos, Safari/iOS, Android, Windows/Linux y la duración de una partida humana. Los fondos y la ficción del juego aún requieren valoración del autor.
+
+[Log headless 0.2.0](evidence/v0_2_pruebas_headless.log) · [Log nativo 0.2.0](evidence/v0_2_pruebas_nativas.log) · [Preservación 0.2.0](evidence/v0_2_preservacion.log).
+
 ## Retratos de diálogo · 22 oct 2026
 
 La prueba nueva reprodujo el fallo de ambos retratos en escritorio y horizontal móvil: cuatro comprobaciones fallaron porque el torso terminaba lejos del borde inferior. Se ajustó el control de imagen sin modificar los PNG originales. La importación, **797/797 comprobaciones headless**, **867/867 nativas con GPU**, preservación y exportación Web pasaron después del cambio. Se inspeccionaron las capturas nuevas de [1280×720](evidence/v1_retratos_1280x720.png) y [844×390](evidence/v1_retratos_844x390.png): ambos torsos descansan en el borde inferior del diálogo. Falta probar el render en un teléfono físico.
@@ -22,7 +32,7 @@ Se ejecutaron los cuatro comandos de «Comprobar» del README con Godot 4.7.2: i
 
 La prueba nativa de H2 capturó cada vista nueva a 1280×720 y 844×390. Se inspeccionaron las salidas, puntos y bandas en ambos tamaños; muestras: [control de La Fiebre](evidence/zona_fiebre_descenso_1280x720.png), [El Nudo en horizontal móvil](evidence/zona_nudo_acceso_844x390.png), [Los Puntales en escritorio](evidence/zona_puntales_acceso_1280x720.png) y [Los Puntales en horizontal móvil](evidence/zona_puntales_acceso_844x390.png). Se abrieron además [«Pistas» en El Nudo](evidence/zona_nudo_acceso_pistas_844x390.png) y [«Pistas» en Los Puntales](evidence/zona_puntales_acceso_pistas_844x390.png), ambas dentro del área móvil. Los fondos son candidatos aplanados: hay que revisar continuidad visual entre vistas, pequeños detalles de las figuras y coherencia del acabado de Los Puntales con los retratos antes de aprobarlos. En la fecha de H2 todavía estaban pendientes las misiones 2 y 3; se completaron en la candidata 1.0 descrita arriba.
 
-Las secciones siguientes conservan resultados históricos de las iteraciones de H1 y H2. Los conteos vigentes son los de «Retratos de diálogo» y de la tabla «Automatización».
+Las secciones siguientes conservan resultados históricos de las iteraciones de H1 y H2. Los conteos vigentes son los de «Versión 0.2.0» arriba.
 
 ## Aviso repetido al navegar · 21 oct 2026
 
@@ -65,8 +75,8 @@ Inspección visual del asistente: las dos entradas y el paso central se leen, la
 | Comprobación | Resultado |
 | --- | --- |
 | Importación del proyecto y arranque | Sin errores de script/importación registrados |
-| `tests/run.gd`, headless | **797 comprobaciones, 0 fallos** |
-| Mismo recorrido nativo con GPU Apple M4 | **867 comprobaciones, 0 fallos**; incluye los tres contratos y capturas de 1.0 |
+| `tests/run.gd`, headless | **827 comprobaciones, 0 fallos** |
+| Mismo recorrido nativo con GPU Apple M4 | **899 comprobaciones, 0 fallos**; incluye los tres contratos y capturas de 0.2.0 |
 | `tests/preservation.py` | Canon, cinco originales, dos copias de diálogo y logo original idénticos; un proyecto activo; ninguna dependencia 3D |
 | Exportación Web, sin hilos | Generada correctamente con las plantillas 4.7.2 |
 

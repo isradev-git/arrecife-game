@@ -1,8 +1,8 @@
-# Diseño vigente · El Arrecife 1.0
+# Diseño vigente · El Arrecife 0.2.0
 
 ## Experiencia
 
-Primera persona desde Sota. Vistas fijas, exploración por clic/toque, conversaciones y decisiones breves. La versión 1.0 contiene tres contratos y un desenlace con dos decisiones posibles. Su duración objetivo es unos 30 minutos; todavía requiere una partida cronometrada del autor.
+Primera persona desde Sota. Vistas fijas, exploración por clic/toque, conversaciones y decisiones breves. La versión 0.2.0 contiene tres contratos y un desenlace con dos decisiones posibles. Su duración objetivo es unos 30 minutos; todavía requiere una partida cronometrada del autor.
 
 Al arrancar: logo original «EL ARRECIFE PRODUCTS» suministrado por el autor → crédito del universo original de Israel Zamora → aviso de orientación → menú. Cada pantalla avanza sola tras una breve espera o al tocar la pantalla, hacer clic o pulsar Intro; no muestra un botón de salto. En Web se marca al empezar la apertura en `sessionStorage`: recargar la misma pestaña va directamente al menú, mientras que una pestaña nueva muestra la secuencia. La carga del motor usa fondo neutro, sin otro logo. En móvil, la tercera espera a que la pantalla esté horizontal; si se vuelve a vertical durante el juego, un aviso cubre la interfaz hasta recuperar la orientación. El ordenador muestra «disfruta» y no se bloquea por la forma de su ventana. Los textos de crédito y orientación están en `story.json`; la imagen original del logo se conserva sin modificar.
 
@@ -24,7 +24,7 @@ La estructura sigue un cargo de reparación de agua, una orden duplicada y una v
 | Los tres contratos, personas afectadas, recibos, orden de visita y diálogos | **Ficción del videojuego pendiente de revisión final del autor** |
 | Deck de Sota: memoria local, mensajes, contratos y notas | Interfaz propuesta compatible con tecnología canónica; no teléfono mágico ni transporte |
 
-No se incorporan tramas ni revelaciones de los protagonistas de las novelas. El autor amplió el canon con Sota y la regla sobre la policía el 22 oct 2026, y delegó el desarrollo de 1.0; los contratos y diálogos del juego siguen pendientes de revisión final. `sources/`, `universo/` y los documentos literarios externos citados por el canon no existen en el checkout inspeccionado; esta entrega contrasta con el canon local disponible, no certifica revisión de fuentes ausentes.
+No se incorporan tramas ni revelaciones de los protagonistas de las novelas. El autor amplió el canon con Sota y la regla sobre la policía el 22 oct 2026, y delegó el desarrollo del juego; los contratos, diálogos y relaciones de los mensajes siguen pendientes de revisión final. `sources/`, `universo/` y los documentos literarios externos citados por el canon no existen en el checkout inspeccionado; esta entrega contrasta con el canon local disponible, no certifica revisión de fuentes ausentes.
 
 ## Mapa y alcance
 
@@ -61,7 +61,7 @@ La banda inferior aparece una vez como ayuda al terminar o saltar la introducci�
 - NAVIGATION: ruta y cambio de vista.
 - SPECIAL_EVENT: evento contextual; los descensos ya son NAVIGATION.
 
-En conversaciones, Sota izquierda e interlocutora derecha, mirando al centro con sus PNG originales. Los torsos se apoyan en el borde inferior del diálogo para que el corte del retrato no flote a media pantalla. Sólo Sota en monólogos. Escena oscurecida, hablante iluminado y oyente atenuado. Texto central, desplazable. Las decisiones que avanzan el contrato se identifican en amarillo; las preguntas y salidas opcionales, en gris, con nombre accesible que explicita el papel de la opción. Los parlamentos, documentos y observaciones del primer tramo se ampliaron sin convertirlos en exposición enciclopédica. Texto completo inmediatamente: no se necesita ajuste de velocidad de escritura.
+En conversaciones, Sota izquierda e interlocutora derecha, mirando al centro con sus PNG originales. Los torsos se apoyan en el borde inferior del diálogo para que el corte del retrato no flote a media pantalla. Sólo Sota en monólogos. Escena oscurecida, hablante iluminado y oyente atenuado. El texto central empieza junto a los retratos y se desplaza dentro de su columna. Las decisiones que avanzan el contrato se identifican en amarillo; las preguntas y salidas opcionales, en gris, con nombre accesible que explicita el papel de la opción. Los parlamentos, documentos y observaciones del primer tramo se ampliaron sin convertirlos en exposición enciclopédica. Texto completo inmediatamente: no se necesita ajuste de velocidad de escritura.
 
 ## Arquitectura
 
@@ -71,8 +71,8 @@ En conversaciones, Sota izquierda e interlocutora derecha, mirando al centro con
 
 Guardado v1: vista/zona, misiones, flags, descubrimientos, documentos, mensajes, lugares y elecciones. Validación de tipos e IDs, escritura temporal verificada, copia anterior, rechazo de versiones desconocidas y recuperación de `.bak`. Una partida anterior con sólo `retorno_agua` incorpora las dos misiones nuevas como bloqueadas al cargar, sin perder progreso. Nueva partida pide confirmación y conserva copia fechada. Opciones en archivo separado. No hay migración desde los prototipos retirados.
 
-## Estado de 1.0
+## Estado de 0.2.0
 
-El contenido completo se recorre por interfaz y el guardado v1 anterior sigue cargando. Hay un ambiente mecánico en bucle, con tono distinto por zona, y un sonido de toque; los controles «Ambiente» y «Acciones» ajustan sus buses. La ausencia de partitura musical es una decisión de esta versión centrada en la lectura.
+El contenido completo se recorre por interfaz y el guardado v1 anterior sigue cargando. La versión interna del guardado sigue siendo 1; las respuestas a mensajes se conservan en las elecciones existentes. Los hilos de Madre, Hermana, Lía, Jefa y Enlace policial llegan por hitos y se abren en el deck. Hay un ambiente mecánico en bucle, con tono distinto por zona, y un sonido de toque; los controles «Ambiente» y «Acciones» ajustan sus buses. La ausencia de partitura musical es una decisión de esta versión centrada en la lectura.
 
 La comprobación técnica se registra en [VALIDACION](VALIDACION.md). Quedan para revisión del autor la continuidad y aprobación de los fondos, la ficción del juego, la duración real y el texto legal. Falta probar dispositivos físicos y exportaciones de escritorio antes de publicar la versión final.

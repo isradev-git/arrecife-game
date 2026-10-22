@@ -23,6 +23,7 @@ func start(id: String) -> void:
 	sota = GameUI.portrait(row, "sota")
 	var center := VBoxContainer.new()
 	center.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	center.size_flags_vertical = Control.SIZE_SHRINK_END
 	row.add_child(center)
 	GameUI.label(center, "CONVERSACIÓN", 16)
 	column = GameUI.scroll(center)
@@ -32,10 +33,12 @@ func start(id: String) -> void:
 	else:
 		other = null
 	fit_portrait(sota)
+	center.custom_minimum_size.y = sota.custom_minimum_size.y + 64
 	if other:
 		fit_portrait(other)
 	resized.connect(func():
 		fit_portrait(sota)
+		center.custom_minimum_size.y = sota.custom_minimum_size.y + 64
 		if other: fit_portrait(other))
 	advance(content.start)
 

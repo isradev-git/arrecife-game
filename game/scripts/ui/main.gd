@@ -19,6 +19,7 @@ var modal_body: VBoxContainer
 var focus_before_modal: Control
 var exploration_header: BoxContainer
 var exploration_footer: PanelContainer
+var deck_unread_label: Label
 var ambience_player := AudioStreamPlayer.new()
 var touch_player := AudioStreamPlayer.new()
 
@@ -49,6 +50,7 @@ func _ready() -> void:
 	GameUI.fill(orientation_gate)
 	orientation_gate.hide()
 	State.save_failed.connect(func(message: String): show_notice("Guardado pendiente", message))
+	State.changed.connect(update_deck_unread)
 	if should_show_opening():
 		opening = Startup.new()
 		add_child(opening)
@@ -196,7 +198,7 @@ func show_intro() -> void:
 
 func enter_exploration() -> void:
 	show_exploration()
-	observe("Toca los puntos de luz para explorar. El deck contiene un mensaje nuevo.")
+	observe("Toca los puntos de luz para explorar. El deck contiene mensajes nuevos.")
 
 func show_exploration() -> void:
 	dismiss_observation()
@@ -231,6 +233,9 @@ func show_exploration() -> void:
 	header.add_child(controls)
 	controls.size_flags_vertical = Control.SIZE_SHRINK_CENTER
 	GameUI.button(controls, "Deck", func(): show_device())
+	deck_unread_label = GameUI.label(controls, "", 16, false)
+	deck_unread_label.modulate = GameUI.AMBER
+	update_deck_unread()
 	GameUI.button(controls, "Pistas", show_hints_panel)
 	GameUI.button(controls, "Menú", func():
 		State.save_game()
@@ -413,11 +418,23 @@ func show_terminal(id: String) -> void:
 		modal_body.modulate.a = 0.0
 		create_tween().tween_property(modal_body, "modulate:a", 1.0, 0.2)
 
-func show_device(tab: String = "Mensajes") -> void:
-	open_panel("Deck externo", "MEMORIA LOCAL / PUERTO FÍSICO")
+func show_device(tab: String = "Mensajes", contact: String = "", focus_message: String = "") -> void:
+	open_panel("Mensajes · " + contact if not contact.is_empty() else "Deck", "")
+	var panel := modal_body.get_parent().get_parent().get_parent() as PanelContainer
+	panel.anchor_left = 0.07
+	panel.anchor_top = 0.05
+	panel.anchor_right = 0.93
+	panel.anchor_bottom = 0.95
 	var device := Device.new()
 	modal_body.add_child(device)
-	device.show_tab(self, tab)
+	device.show_tab(self, tab, contact, focus_message)
+
+func update_deck_unread() -> void:
+	if not is_instance_valid(deck_unread_label) or not deck_unread_label.is_inside_tree():
+		return
+	var unread := State.unread_messages().size()
+	deck_unread_label.text = str(unread)
+	deck_unread_label.visible = unread > 0
 
 func show_options() -> void:
 	open_panel("Opciones", "AJUSTES LOCALES")

@@ -2,11 +2,11 @@
 
 Aventura narrativa **2D ilustrada, en primera persona**, en el universo de *CARGA ADMISIBLE*. Exploras a través de los ojos de Sota: clic o toque sobre objetos, personas y accesos. Godot **4.7.2**, GDScript y español de España.
 
-## Estado: versión 1.0 candidata
+## Estado: versión 0.2.0 para primera prueba
 
 Tres pantallas de apertura (logo, autoría y orientación), menú, introducción saltable, tres habitaciones y seis vistas de cada cota: La Fiebre, El Nudo y Los Puntales. Hay exploración por clic/toque, diálogo con retratos originales, deck, mensajes, tres contratos completos, documentos, terminal, ambiente sonoro y guardado local.
 
-El arco narrativo y sus dos decisiones de cierre están implementados. La duración objetivo de unos 30 minutos aún no se ha medido en una partida del autor. Los 21 fondos de exploración y el fondo de menú son candidatos ilustrados; la ficción nueva y el arte requieren su revisión antes de publicar la versión final.
+El arco narrativo y sus dos decisiones de cierre están implementados. El deck reúne conversaciones con la madre, la hermana, Lía, la Jefa y el enlace policial; llegan según el progreso, permiten respuestas breves y conservan lo leído. La duración objetivo de unos 30 minutos aún no se ha medido en una partida del autor. Los 21 fondos de exploración y el fondo de menú son candidatos ilustrados; la ficción nueva y el arte requieren su revisión antes de publicar la versión final. [Guía para la primera partida](docs/GUIA_PRIMERA_PARTIDA.md).
 
 ## Abrir y jugar
 
@@ -31,7 +31,7 @@ Mientras la exportación Web descarga el motor aparece un fondo neutro; el logo 
 
 ### Recorrido de comprobación
 
-Deck → mensaje de la Jefa → aceptar el parte del agua → copiar la lectura doméstica → hablar con la Jefa → comprobar la ficha en El Nudo y la conducción en Los Puntales → entregar el parte. Tras cada entrega aparece el siguiente mensaje: la orden duplicada se cierra con un informe en el puesto de red; la prueba de presión vuelve a la Jefa y termina con una decisión sobre las copias. **Menú → Continuar** recupera el progreso.
+Deck → hilo de la Jefa → aceptar el parte del agua → copiar la lectura doméstica → hablar con la Jefa → comprobar la ficha en El Nudo y la conducción en Los Puntales → entregar el parte. Tras cada entrega aparece el siguiente mensaje: la orden duplicada se cierra con un informe en el puesto de red; la prueba de presión vuelve a la Jefa y termina con una decisión sobre las copias. Los demás hilos son personales y pueden responderse cuando lleguen. **Menú → Continuar** recupera el progreso.
 
 ### Web local
 
@@ -45,6 +45,8 @@ python3 -m http.server 8767 --bind 127.0.0.1 --directory game/build/web
 Abre `http://127.0.0.1:8767`. El directorio `build/` es regenerable y está excluido de Git. No abras el HTML con `file://`. La exportación Web usa Compatibility, sin hilos ni extensiones.
 
 El guardado usa `user://partida.json` y una copia `.bak`; una partida nueva conserva además una copia `.previa-*`. En navegador depende del almacenamiento del sitio: borrar sus datos, cambiar de origen o usar modo privado puede hacer perder el acceso al progreso. No hay guardado en la nube.
+
+El paquete local para la primera prueba es `game/build/el-arrecife-0.2.0-web.zip`. Incluye la exportación y la guía; al extraerlo, sirve la carpeta por HTTP o súbela como contenido estático al alojamiento. `build/` se regenera y no se versiona.
 
 ## Comprobar
 

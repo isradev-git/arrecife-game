@@ -45,6 +45,28 @@ func matches(condition: Dictionary) -> bool:
 		return false
 	return true
 
+func unread_messages() -> Array[String]:
+	var result: Array[String] = []
+	if data.is_empty():
+		return result
+	for id in Content.story.messages:
+		if matches(Content.story.messages[id].get("visible_if", {})) and id not in data.messages:
+			result.append(id)
+	return result
+
+func reply_to_message(id: String, reply_id: String) -> bool:
+	if not Content.story.messages.has(id) or id not in data.messages or data.choices.has("message:" + id):
+		return false
+	var message: Dictionary = Content.story.messages[id]
+	if not matches(message.get("visible_if", {})):
+		return false
+	for reply in message.get("replies", []):
+		if reply.id == reply_id:
+			data.choices["message:" + id] = reply_id
+			apply(reply.get("effects", {}))
+			return true
+	return false
+
 func apply(effects: Dictionary) -> void:
 	if effects.has("offer") and data.missions[effects.offer] == "LOCKED":
 		data.missions[effects.offer] = "AVAILABLE"

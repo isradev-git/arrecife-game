@@ -62,7 +62,7 @@ Dirección del autor, 20 oct 2026: aventura **2D ilustrada en primera persona**,
 - [ ] Autor: revisar y aprobar o corregir los 17 fondos candidatos nuevos y la continuidad visual de las cuatro zonas.
 - [x] Autor: autorizar el commit y push de `feat/interactive-arrecife-reboot` al remoto (22 oct 2026).
 
-## Versión 1.0 · aventura completa, candidata a publicación
+## Versión 0.2.0 · primera prueba completa
 
 - [x] Autor: definir e incorporar al canon a Sota como protagonista del videojuego, su pasado Vesta, oficio y relación con la policía (22 oct 2026).
 - [x] Diseñar e implementar las misiones 2 y 3, la entrega del parte del agua y dos decisiones de cierre; ficción del juego separada del canon.
@@ -70,9 +70,12 @@ Dirección del autor, 20 oct 2026: aventura **2D ilustrada en primera persona**,
 - [x] Cargar partidas v1 anteriores con los dos contratos nuevos bloqueados, sin perder ubicación ni pruebas.
 - [x] Ordenar los contratos pendientes de acción antes de los completados y ocultar los mensajes futuros.
 - [x] Añadir ambiente sonoro discreto y toque de interfaz, con volumen separado. La versión narrativa no usa partitura musical.
-- [x] Validar importación, recorrido completo con ambos desenlaces, migración de guardado, preservación, render nativo y exportación Web de la candidata 1.0.
+- [x] Validar históricamente importación, recorrido completo con ambos desenlaces, migración de guardado, preservación, render nativo y exportación Web de la candidata previa, rotulada 1.0.
 - [x] Apoyar los retratos originales de Sota y la Jefa en el borde inferior del diálogo; comprobar escritorio y horizontal móvil.
-- [ ] Diseñar e implementar conversaciones por mensajes con respuestas guardadas y llegada por hitos, tras fijar las relaciones propuestas para el juego.
+- [x] Alinear la conversación con la parte superior de los retratos, manteniendo el texto desplazable.
+- [x] Diseñar e implementar conversaciones por mensajes con respuestas guardadas y llegada por hitos. Madre, Hermana y Lía son ficción de juego, pendientes de revisión del autor; no se añaden al canon.
+- [x] Rotular 0.2.0 en proyecto, créditos y documentación vigente; preparar guía de primera partida.
+- [x] Cerrar la validación técnica y visual de 0.2.0, incluida Web local, y preparar el paquete de prueba.
 - [ ] Revisar ritmo/duración en una partida completa de unos 30 minutos.
 - [ ] Aprobar y finalizar todas las ilustraciones y capas animadas necesarias.
 - [ ] Pruebas en teléfonos físicos, Safari/iOS, Android, Windows y Linux.

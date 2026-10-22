@@ -43,7 +43,7 @@ El autor aprobó tres vistas del apartamento y seis de cada cota, incluidos los 
 | Puntales: taller | Herramientas, piezas de conducción, registros de trabajo | Luz útil y materiales gastados; objeto comprobable separable |
 | Puntales: trabajo | Estructura que soporta otras cotas, intervención local concreta | Bruma y puntos de servicio; cierre visual pendiente de guion |
 
-La tabla recoge la dirección inicial de doce vistas; el inventario completo y sus conexiones están en el diseño espacial aprobado. Los 21 fondos activos son candidatos aplanados, pendientes de aprobación y despiece antes de considerarse arte final. Los seis fondos de Los Puntales muestran un lenguaje de render más detallado que los retratos y otros fondos; esa coherencia debe valorarse junto con la continuidad arquitectónica. Faltan música, ambiente y efectos; los controles de audio actúan sobre buses preparados, actualmente sin pistas.
+La tabla recoge la dirección inicial de doce vistas; el inventario completo y sus conexiones están en el diseño espacial aprobado. Los 21 fondos activos son candidatos aplanados, pendientes de aprobación y despiece antes de considerarse arte final. Los seis fondos de Los Puntales muestran un lenguaje de render más detallado que los retratos y otros fondos; esa coherencia debe valorarse junto con la continuidad arquitectónica. La versión 0.2.0 incluye ambiente mecánico y un toque de interfaz; no tiene partitura musical.
 
 ## Originales históricos
 

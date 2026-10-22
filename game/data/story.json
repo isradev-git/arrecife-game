@@ -223,16 +223,69 @@
         "offer": "orden_duplicada"
       }
     },
+    "madre_inicio": {
+      "from": "Madre",
+      "subject": "¿Sigues ahí?",
+      "text": "Sota, hace días que no respondes. No necesito detalles del trabajo. Dime sólo que estás bien cuando puedas.",
+      "replies": [
+        {"id": "broma", "text": "Estoy bien. Hasta he desayunado.", "answer": "Eso ya es más de lo que esperaba. Escríbeme cuando pares."},
+        {"id": "breve", "text": "Estoy bien. Hablamos luego.", "answer": "Me basta por hoy. Cuídate."}
+      ]
+    },
+    "hermana_grupo": {
+      "from": "Hermana",
+      "subject": "Escucha esto",
+      "visible_if": {"flag": "lectura_copiada"},
+      "text": "He descubierto un grupo nuevo: Ruido de Fondo. Escucha el primer tema cuando salgas de tus cuentas. ¿Te gusta o me estoy dejando llevar?",
+      "replies": [
+        {"id": "gusta", "text": "Tiene pulso. Pásame el resto.", "answer": "¡Lo sabía! Luego te mando el directo."},
+        {"id": "critica", "text": "Me gusta más el bajo que la voz.", "answer": "Ya empezamos con tus críticas. Te envío otra canción."}
+      ]
+    },
+    "jefa_contacto": {
+      "from": "La Jefa",
+      "subject": "Contacto directo",
+      "visible_if": {"flag": "parte_contrastado"},
+      "text": "El primer encargo te llegó por el canal de trabajo. Guarda este contacto directo en tu deck. Si tengo que localizarte antes de que cierren otra orden, escribiré aquí.",
+      "replies": [
+        {"id": "guardar", "text": "Contacto guardado. Si surge algo, dime qué necesitas.", "answer": "Así lo haré. Y cobrarás cada comprobación, como acordamos.", "effects": {"flag": "contacto_jefa_guardado"}}
+      ]
+    },
     "ultima_prueba": {
       "from": "La Jefa",
       "subject": "Antes de otra revisión",
-      "visible_if": {
-        "flag": "informe_enviado"
-      },
+      "visible_if": {"flag": "informe_enviado"},
       "text": "Han aceptado suspender el cobro mientras se repite la prueba. Falta demostrar qué pasa ahora con la presión y quiénes recibieron el cargo. Te encargo reunir las copias antes de hablar con las viviendas afectadas. Yo pediré una verificación independiente.",
-      "effects": {
-        "offer": "prueba_presion"
-      }
+      "effects": {"offer": "prueba_presion"}
+    },
+    "lia_pasaje": {
+      "from": "Lía",
+      "subject": "¿Sigues por el pasaje?",
+      "visible_if": {"flag": "parte_contrastado"},
+      "text": "Te vi salir del rincón de la Jefa con cara de haber encontrado otra cuenta mal hecha. Si bajas al Nudo, vuelve por aquí. Te guardo algo caliente.",
+      "replies": [
+        {"id": "volvere", "text": "Volveré. No prometo la hora.", "answer": "Con que vuelvas entera me vale."},
+        {"id": "broma", "text": "¿Qué cuesta ese plato?", "answer": "Para ti, una historia que no sea de tuberías."}
+      ]
+    },
+    "madre_seguimiento": {
+      "from": "Madre",
+      "subject": "Sin preguntas",
+      "visible_if": {"flag": "informe_enviado"},
+      "text": "No voy a preguntarte por el encargo. Sólo quería saber si has dormido algo esta semana.",
+      "replies": [
+        {"id": "descanso", "text": "Dormiré cuando cierre lo que falta.", "answer": "Eso también me lo decías de pequeña. Descansa en cuanto puedas."},
+        {"id": "bien", "text": "Sí. Estoy cuidándome.", "answer": "Bien. No hace falta que me cuentes más."}
+      ]
+    },
+    "lia_cierre": {
+      "from": "Lía",
+      "subject": "Mesa libre",
+      "visible_if": {"flag": "prueba_cerrada"},
+      "text": "Dicen que han parado el cobro. Buen trabajo. La mesa sigue libre si te apetece quedarte sin hablar de ello.",
+      "replies": [
+        {"id": "ir", "text": "Voy cuando cierre el deck.", "answer": "Te espero. Sin partes sobre la mesa."}
+      ]
     }
   },
   "news": [
@@ -258,8 +311,12 @@
   "contacts": [
     {
       "name": "La Jefa",
-      "text": "La Jefa conoce a quienes recibieron el cargo del agua. Suele hablar contigo en el pasaje junto a Velvet."
-    }
+      "text": "Contacto directo de la Jefa. Te avisará si necesita una nueva comprobación.",
+      "visible_if": {"flag": "contacto_jefa_guardado"}
+    },
+    {"name": "Madre", "text": "Pregunta por ti sin exigir detalles del trabajo."},
+    {"name": "Hermana", "text": "Comparte música y te pide una opinión sincera.", "visible_if": {"flag": "lectura_copiada"}},
+    {"name": "Lía", "text": "Conocida de La Fiebre. Te guarda sitio en el pasaje.", "visible_if": {"flag": "parte_contrastado"}}
   ],
-  "credits": "EL ARRECIFE\nUna aventura en el universo de CARGA ADMISIBLE.\n\nUniverso y personajes originales: Israel Zamora.\nDesarrollo: autor y asistente.\nRetratos: originales aportados por el autor, conservados sin modificación.\nFondos: candidatos generados con imagegen; pendientes de aprobación.\nAmbiente y toque: síntesis original para el juego.\nMotor: Godot Engine, licencia MIT (incluida en Créditos del motor).\n\nVersión 1.0. Historia del videojuego pendiente de revisión final del autor. Fondos candidatos pendientes de aprobación artística."
+  "credits": "EL ARRECIFE\nUna aventura en el universo de CARGA ADMISIBLE.\n\nUniverso y personajes originales: Israel Zamora.\nDesarrollo: autor y asistente.\nRetratos: originales aportados por el autor, conservados sin modificación.\nFondos: candidatos generados con imagegen; pendientes de aprobación.\nAmbiente y toque: síntesis original para el juego.\nMotor: Godot Engine, licencia MIT (incluida en Créditos del motor).\n\nVersión 0.2.0. Historia del videojuego pendiente de revisión final del autor. Fondos candidatos pendientes de aprobación artística."
 }
