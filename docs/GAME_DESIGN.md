@@ -61,7 +61,7 @@ La banda inferior aparece una vez como ayuda al terminar o saltar la introducci�
 - NAVIGATION: ruta y cambio de vista.
 - SPECIAL_EVENT: evento contextual; los descensos ya son NAVIGATION.
 
-En conversaciones, Sota izquierda e interlocutora derecha, mirando al centro con sus PNG originales. Sólo Sota en monólogos. Escena oscurecida, hablante iluminado y oyente atenuado. Texto central, desplazable. Las decisiones que avanzan el contrato se identifican en amarillo; las preguntas y salidas opcionales, en gris, con nombre accesible que explicita el papel de la opción. Los parlamentos, documentos y observaciones del primer tramo se ampliaron sin convertirlos en exposición enciclopédica. Texto completo inmediatamente: no se necesita ajuste de velocidad de escritura.
+En conversaciones, Sota izquierda e interlocutora derecha, mirando al centro con sus PNG originales. Los torsos se apoyan en el borde inferior del diálogo para que el corte del retrato no flote a media pantalla. Sólo Sota en monólogos. Escena oscurecida, hablante iluminado y oyente atenuado. Texto central, desplazable. Las decisiones que avanzan el contrato se identifican en amarillo; las preguntas y salidas opcionales, en gris, con nombre accesible que explicita el papel de la opción. Los parlamentos, documentos y observaciones del primer tramo se ampliaron sin convertirlos en exposición enciclopédica. Texto completo inmediatamente: no se necesita ajuste de velocidad de escritura.
 
 ## Arquitectura
 

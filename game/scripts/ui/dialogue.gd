@@ -21,7 +21,6 @@ func start(id: String) -> void:
 	var row := HBoxContainer.new()
 	margins.add_child(row)
 	sota = GameUI.portrait(row, "sota")
-	sota.custom_minimum_size.x = 86 if size.x < 700 else 200
 	var center := VBoxContainer.new()
 	center.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	row.add_child(center)
@@ -30,13 +29,19 @@ func start(id: String) -> void:
 	GameUI.button(center, "Volver a la escena", func(): finished.emit())
 	if not content.other.is_empty():
 		other = GameUI.portrait(row, content.other)
-		other.custom_minimum_size.x = 86 if size.x < 700 else 200
 	else:
 		other = null
+	fit_portrait(sota)
+	if other:
+		fit_portrait(other)
 	resized.connect(func():
-		sota.custom_minimum_size.x = 86 if size.x < 700 else 200
-		if other: other.custom_minimum_size.x = sota.custom_minimum_size.x)
+		fit_portrait(sota)
+		if other: fit_portrait(other))
 	advance(content.start)
+
+func fit_portrait(portrait: TextureRect) -> void:
+	var width := 86 if size.x < 700 else 200
+	portrait.custom_minimum_size = Vector2(width, ceilf(width * float(portrait.texture.get_height()) / portrait.texture.get_width()))
 
 func advance(id: String) -> void:
 	node_id = id

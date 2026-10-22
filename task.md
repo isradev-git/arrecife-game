@@ -71,6 +71,8 @@ Dirección del autor, 20 oct 2026: aventura **2D ilustrada en primera persona**,
 - [x] Ordenar los contratos pendientes de acción antes de los completados y ocultar los mensajes futuros.
 - [x] Añadir ambiente sonoro discreto y toque de interfaz, con volumen separado. La versión narrativa no usa partitura musical.
 - [x] Validar importación, recorrido completo con ambos desenlaces, migración de guardado, preservación, render nativo y exportación Web de la candidata 1.0.
+- [x] Apoyar los retratos originales de Sota y la Jefa en el borde inferior del diálogo; comprobar escritorio y horizontal móvil.
+- [ ] Diseñar e implementar conversaciones por mensajes con respuestas guardadas y llegada por hitos, tras fijar las relaciones propuestas para el juego.
 - [ ] Revisar ritmo/duración en una partida completa de unos 30 minutos.
 - [ ] Aprobar y finalizar todas las ilustraciones y capas animadas necesarias.
 - [ ] Pruebas en teléfonos físicos, Safari/iOS, Android, Windows y Linux.

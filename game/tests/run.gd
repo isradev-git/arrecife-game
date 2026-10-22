@@ -42,6 +42,10 @@ func has_button(label: String, node: Node) -> bool:
 			return true
 	return false
 
+func portrait_floor_gap(portrait: TextureRect, floor_y: float) -> float:
+	var drawn_height := minf(portrait.size.y, portrait.size.x * float(portrait.texture.get_height()) / portrait.texture.get_width())
+	return floor_y - portrait.global_position.y - (portrait.size.y + drawn_height) * 0.5
+
 func has_navigation(from_id: String, to_id: String) -> bool:
 	if not content.world.screens.has(from_id):
 		return false
@@ -342,6 +346,16 @@ func run() -> void:
 	await capture("11_dialogo")
 	var dialogue = app.overlay.get_child(0)
 	check(dialogue.content.other == "jefa", "Interlocutora original")
+	for portrait in [dialogue.sota, dialogue.other]:
+		check(portrait_floor_gap(portrait, dialogue.get_global_rect().end.y) <= 28.0, "Retrato apoyado abajo en escritorio: " + portrait.texture.resource_path)
+	await capture("v1_retratos_1280x720")
+	root.size = Vector2i(844, 390)
+	await frames(8)
+	for portrait in [dialogue.sota, dialogue.other]:
+		check(portrait_floor_gap(portrait, dialogue.get_global_rect().end.y) <= 28.0, "Retrato apoyado abajo en horizontal móvil: " + portrait.texture.resource_path)
+	await capture("v1_retratos_844x390")
+	root.size = Vector2i(1280, 720)
+	await frames(8)
 	var choice: Dictionary = content.dialogues.jefa.nodes.saludo.choices[2]
 	for button in all_buttons(dialogue):
 		if button.text == choice.text:

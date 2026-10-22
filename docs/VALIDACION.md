@@ -2,11 +2,15 @@
 
 Actualizado el 22 de octubre de 2026. Godot 4.7.2 oficial, Mac mini M4, Compatibility. Estas pruebas certifican el alcance descrito; no aprueban el arte ni la ficción.
 
+## Retratos de diálogo · 22 oct 2026
+
+La prueba nueva reprodujo el fallo de ambos retratos en escritorio y horizontal móvil: cuatro comprobaciones fallaron porque el torso terminaba lejos del borde inferior. Se ajustó el control de imagen sin modificar los PNG originales. La importación, **797/797 comprobaciones headless**, **867/867 nativas con GPU**, preservación y exportación Web pasaron después del cambio. Se inspeccionaron las capturas nuevas de [1280×720](evidence/v1_retratos_1280x720.png) y [844×390](evidence/v1_retratos_844x390.png): ambos torsos descansan en el borde inferior del diálogo. Falta probar el render en un teléfono físico.
+
 ## Versión 1.0 candidata · 22 oct 2026
 
 El recorrido automatizado abrió una partida nueva y completó **los tres contratos por la interfaz**, incluidos el informe policial y las dos decisiones del desenlace. Comprobó que los mensajes posteriores no se muestran antes de tiempo, que cada misión llega a `READY_TO_COMPLETE` y sólo se marca `COMPLETED` tras la entrega, y que `Continuar` recupera el final. Salir del último parlamento antes de cerrarlo permite volver a la Jefa; el cierre se abre automáticamente sólo después de «Cerrar la historia». Una partida v1 anterior con sólo `retorno_agua` conserva ubicación, permisos, documentos y elecciones; los dos contratos nuevos entran bloqueados. Un guardado sin la misión original se rechaza.
 
-La importación terminó sin errores. La suite obtuvo **793/793 comprobaciones headless** y **861/861 en ejecución nativa con GPU**; `preservation.py` confirmó canon, originales, retratos y proyecto único. La exportación Web se generó y abrió en Chrome local mediante HTTP: se vieron apertura, menú, dormitorio y deck con sólo el primer mensaje; `agent-browser errors` quedó vacío. El recorrido completo de las tres misiones **no se repitió en Web**; sí pasó en Godot nativo. Los dos WAV de ambiente/toque están empaquetados en la exportación. El audio se comprobó por carga, bucle y cambio de tono, no mediante una sesión de escucha del autor.
+La importación terminó sin errores. La suite obtuvo **793/793 comprobaciones headless** y **861/861 en ejecución nativa con GPU** en el cierre original de 1.0; `preservation.py` confirmó canon, originales, retratos y proyecto único. La exportación Web se generó y abrió en Chrome local mediante HTTP: se vieron apertura, menú, dormitorio y deck con sólo el primer mensaje; `agent-browser errors` quedó vacío. El recorrido completo de las tres misiones **no se repitió en Web**; sí pasó en Godot nativo. Los dos WAV de ambiente/toque están empaquetados en la exportación. El audio se comprobó por carga, bucle y cambio de tono, no mediante una sesión de escucha del autor.
 
 Se inspeccionaron capturas reales de [contratos en 844×390](evidence/v1_contratos_844x390.png), [cierre a 1280×720](evidence/v1_cierre_1280x720.png) y [cierre a 844×390](evidence/v1_cierre_844x390.png). El contrato activo aparece primero; el panel de cierre encaja en horizontal pequeño y su texto se desplaza. Las 21 vistas conservan fondo y puntos dentro de la ilustración. El objetivo de 30 minutos, la comodidad en teléfonos físicos, Safari/iOS, Android, Windows/Linux, la continuidad artística y la aprobación del guion siguen sin comprobarse. La versión es candidata técnica, pendiente de revisión del autor antes de publicarla.
 
@@ -18,7 +22,7 @@ Se ejecutaron los cuatro comandos de «Comprobar» del README con Godot 4.7.2: i
 
 La prueba nativa de H2 capturó cada vista nueva a 1280×720 y 844×390. Se inspeccionaron las salidas, puntos y bandas en ambos tamaños; muestras: [control de La Fiebre](evidence/zona_fiebre_descenso_1280x720.png), [El Nudo en horizontal móvil](evidence/zona_nudo_acceso_844x390.png), [Los Puntales en escritorio](evidence/zona_puntales_acceso_1280x720.png) y [Los Puntales en horizontal móvil](evidence/zona_puntales_acceso_844x390.png). Se abrieron además [«Pistas» en El Nudo](evidence/zona_nudo_acceso_pistas_844x390.png) y [«Pistas» en Los Puntales](evidence/zona_puntales_acceso_pistas_844x390.png), ambas dentro del área móvil. Los fondos son candidatos aplanados: hay que revisar continuidad visual entre vistas, pequeños detalles de las figuras y coherencia del acabado de Los Puntales con los retratos antes de aprobarlos. En la fecha de H2 todavía estaban pendientes las misiones 2 y 3; se completaron en la candidata 1.0 descrita arriba.
 
-Las secciones siguientes conservan resultados históricos de las iteraciones de H1 y H2. Los conteos vigentes son los de «Versión 1.0 candidata».
+Las secciones siguientes conservan resultados históricos de las iteraciones de H1 y H2. Los conteos vigentes son los de «Retratos de diálogo» y de la tabla «Automatización».
 
 ## Aviso repetido al navegar · 21 oct 2026
 
@@ -61,8 +65,8 @@ Inspección visual del asistente: las dos entradas y el paso central se leen, la
 | Comprobación | Resultado |
 | --- | --- |
 | Importación del proyecto y arranque | Sin errores de script/importación registrados |
-| `tests/run.gd`, headless | **793 comprobaciones, 0 fallos** |
-| Mismo recorrido nativo con GPU Apple M4 | **861 comprobaciones, 0 fallos**; incluye los tres contratos y capturas de 1.0 |
+| `tests/run.gd`, headless | **797 comprobaciones, 0 fallos** |
+| Mismo recorrido nativo con GPU Apple M4 | **867 comprobaciones, 0 fallos**; incluye los tres contratos y capturas de 1.0 |
 | `tests/preservation.py` | Canon, cinco originales, dos copias de diálogo y logo original idénticos; un proyecto activo; ninguna dependencia 3D |
 | Exportación Web, sin hilos | Generada correctamente con las plantillas 4.7.2 |
 

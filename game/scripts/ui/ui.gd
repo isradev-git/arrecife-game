@@ -108,6 +108,6 @@ static func portrait(parent: Node, who: String) -> TextureRect:
 	node.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 	node.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
 	node.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	node.size_flags_vertical = Control.SIZE_EXPAND_FILL
+	node.size_flags_vertical = Control.SIZE_SHRINK_END
 	parent.add_child(node)
 	return node
