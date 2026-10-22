@@ -68,4 +68,4 @@ La prueba con GPU guarda capturas reales en `docs/evidence/`; usa partidas tempo
 
 [Diseño](docs/GAME_DESIGN.md) · [Arte](docs/ART_DIRECTION.md) · [Tareas](task.md) · [Recuperación de las etapas anteriores](docs/RECUPERACION.md).
 
-El reinicio vive en `feat/interactive-arrecife-reboot`. Las etapas anteriores están respaldadas en `backup/pre-reboot-20261020`, desde `433e099`. **Este reinicio no se ha enviado al remoto.**
+El reinicio vive en `feat/interactive-arrecife-reboot`. El autor autorizó el 22 de octubre de 2026 su publicación en `origin` como rama de trabajo. Las etapas anteriores están respaldadas en la rama local `backup/pre-reboot-20261020`, desde `433e099`; `main` permanece en ese checkpoint.

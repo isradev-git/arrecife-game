@@ -1,6 +1,6 @@
 # EL ARRECIFE · continuidad vigente
 
-Actualizado: **21 de octubre de 2026**.
+Actualizado: **22 de octubre de 2026**.
 
 ## Dirección del autor
 
@@ -18,7 +18,7 @@ Inspección inicial limpia en `main`, checkpoint previo ya publicado **433e099**
 
 Canon intacto. Dos retratos originales ilustrados (Sota/Jefa) migrados sin alterar bytes; guardia, figurante y acompañante del acceso conservados como originales históricos pixel, no confundidos con retratos. Licencias/atribución conservadas. No existen `sources/` ni `universo/` en este checkout; no se ha certificado lectura de fuentes ausentes. Todo el historial y los prompts anteriores permanecen recuperables.
 
-**El reinicio no se ha enviado al remoto.** Requiere autorización explícita para publicar esta limpieza.
+El autor autorizó el **22 de octubre de 2026** el commit y push de la rama de trabajo `feat/interactive-arrecife-reboot`. La rama de respaldo sigue local y `main` permanece en `433e099`.
 
 ## Entrega del asistente: hito 1
 
@@ -40,11 +40,11 @@ Cuatro fondos candidatos generados con imagegen desde referencia de retrato, en 
 
 ## H2 · zonas completas, validación y aprobación separadas
 
-**Implementado el 21 oct 2026:** 21 vistas jugables (apartamento 3; La Fiebre, El Nudo y Los Puntales 6 por cota), con 21 fondos candidatos distintos, áreas de toque sobre salidas visibles y conexiones de ida y vuelta. Se conservaron los IDs y el guardado v1. Los pasos entre cotas son físicos; siguen exigiendo `orden_visita` para bajar y `acreditacion_residencia` para subir cuando corresponde. Los originales, prompts y la primera variante de soportes están preservados. Los commits locales del mapa son `53619c2`, `874dc2d` y `c04e2e0`.
+**Implementado el 21 oct 2026:** 21 vistas jugables (apartamento 3; La Fiebre, El Nudo y Los Puntales 6 por cota), con 21 fondos candidatos distintos, áreas de toque sobre salidas visibles y conexiones de ida y vuelta. Se conservaron los IDs y el guardado v1. Los pasos entre cotas son físicos; siguen exigiendo `orden_visita` para bajar y `acreditacion_residencia` para subir cuando corresponde. Los originales, prompts y la primera variante de soportes están preservados. Los commits del mapa son `53619c2`, `874dc2d` y `c04e2e0`.
 
 **Comprobado técnicamente:** importación; **633/633** pruebas headless y **698/698** nativas con GPU, incluido el grafo de las 21 vistas, un fixture representativo de partida v1 de H1, permisos, trayecto físico de ida/vuelta, persistencia sin avance accidental y capturas a 1280×720 y 844×390; preservación correcta; exportación Web correcta. En Helium/Chromium local se aceptó el contrato, se llegó a La Fiebre, se recargó y «Continuar» recuperó el pasaje sin repetir el aviso. No se ha recorrido El Nudo o Los Puntales en Web ni probado teléfonos físicos. [Resultados y muestras](../docs/VALIDACION.md).
 
-**Aprobado por el autor:** reparto de 21 vistas, nombres, conexiones, residencia de Sota en La Fiebre, plan de implementación y trabajo en la rama actual. **Pendiente de aprobación:** cada fondo candidato y su continuidad visual, la ficción propuesta del contrato y diálogos, la presentación final de interfaz, las misiones 2 y 3 y el final. La prueba técnica no cambia ese estado. El reinicio sigue local, sin publicar.
+**Aprobado por el autor:** reparto de 21 vistas, nombres, conexiones, residencia de Sota en La Fiebre, plan de implementación, trabajo en la rama actual y publicación de esa rama de trabajo. **Pendiente de aprobación:** cada fondo candidato y su continuidad visual, la ficción propuesta del contrato y diálogos, la presentación final de interfaz, las misiones 2 y 3 y el final. La prueba técnica no cambia ese estado.
 
 ## Canon frente a propuesta
 
@@ -92,5 +92,6 @@ Revisión del autor sobre la propuesta narrativa y los detalles de los 21 fondos
 - **21 oct 2026 · observación del autor:** los menús como «Pistas» presentan demasiados botones cuadrados. **Entrega del asistente:** panel lateral compacto, acciones de texto y deck/terminal coherentes. **Comprobado:** 234/262 pruebas, capturas nativas y apertura Web de «Pistas». Pendiente valoración visual del autor y teléfono físico.
 - **21 oct 2026 · fallo observado por el autor:** el estado del parte reaparecía en cada cambio de vista. **Entrega del asistente:** ayuda inicial una vez y avisos ligados al diálogo y al trayecto correspondiente, sin repetición al navegar o continuar. **Comprobado:** regresión antes/después, 239/268 pruebas y revisión Web del cambio de habitación.
 - **21 oct 2026 · decisión del autor:** 21 vistas, Sota residente en La Fiebre y ejecución del plan de zonas en la rama actual. **Entrega del asistente:** cinco vistas nuevas de La Fiebre, seis de El Nudo y seis de Los Puntales, con fondos candidatos y conexiones completas. **Comprobado:** 633/698 pruebas, preservación y exportación Web; recarga y «Continuar» en navegador hasta La Fiebre. **Pendiente:** aprobación artística y narrativa, misiones 2 y 3, final y dispositivos reales.
+- **22 oct 2026 · decisión del autor:** autoriza commit y push de la rama de trabajo; después, debatir el siguiente paso de desarrollo. `main` y el respaldo local conservan el estado previo.
 
 El historial de las etapas anteriores está íntegro en la rama de respaldo y la copia local; no describe la producción actual.

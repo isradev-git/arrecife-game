@@ -60,6 +60,7 @@ Dirección del autor, 20 oct 2026: aventura **2D ilustrada en primera persona**,
 - [x] Completar las seis vistas de Los Puntales y verificar los controles de cota, el guardado v1 anterior y el render de las 21 vistas.
 - [x] Comprobar grafo completo, importación, pruebas headless/nativas, preservación y exportación Web; resultados en [VALIDACION](docs/VALIDACION.md).
 - [ ] Autor: revisar y aprobar o corregir los 17 fondos candidatos nuevos y la continuidad visual de las cuatro zonas.
+- [x] Autor: autorizar el commit y push de `feat/interactive-arrecife-reboot` al remoto (22 oct 2026).
 
 ## H3/H4 · primera aventura completa
 
@@ -70,4 +71,4 @@ Dirección del autor, 20 oct 2026: aventura **2D ilustrada en primera persona**,
 - [ ] Pruebas en teléfonos físicos, Safari/iOS, Android, Windows y Linux.
 - [ ] Revisar la redacción del crédito legal.
 - [ ] Exportaciones de escritorio y comprobación final de rendimiento/accesibilidad.
-- [ ] Publicación del reinicio cuando el autor la autorice.
+- [ ] Publicación de la versión final tras las aprobaciones narrativas, artísticas y técnicas.
