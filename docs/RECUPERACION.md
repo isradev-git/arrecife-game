@@ -16,7 +16,7 @@ Es un respaldo local en el mismo equipo. La base publicada y el historial Git pr
 
 ## Protegido
 
-- `canon_el_arrecife.md` intacto; SHA256 en `PRESERVACION.json`.
+- Canon original del checkpoint `433e099` intacto en Git; el autor aprobó su ampliación con Sota el 22 oct 2026. SHA256 original y vigente en `PRESERVACION.json`.
 - Retratos originales Sota/Jefa, copias de producción idénticas y procedencia.
 - Guardia y dos figuras del acceso en originales históricos; no eran retratos ilustrados.
 - Licencias y atribución Quaternius en `docs/attribution/`. Los ZIP y todos sus recursos siguen en el respaldo, no en el juego.

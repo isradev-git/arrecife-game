@@ -64,6 +64,7 @@ Dirección del autor, 20 oct 2026: aventura **2D ilustrada en primera persona**,
 
 ## H3/H4 · primera aventura completa
 
+- [x] Autor: definir e incorporar al canon a Sota como protagonista del videojuego, su pasado Vesta, oficio y relación con la policía (22 oct 2026).
 - [ ] Tras terminar las zonas, diseñar las misiones 2 y 3, sus consecuencias, la resolución del contrato y el final narrativo.
 - [ ] Revisar ritmo/duración en una partida completa de unos 30 minutos.
 - [ ] Aprobar y finalizar todas las ilustraciones y capas animadas necesarias.

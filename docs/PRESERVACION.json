@@ -2,7 +2,8 @@
   "base": "433e0998172180466cdb832060e653ecfc3cd6d1",
   "rama_respaldo": "backup/pre-reboot-20261020",
   "archivo_local": "/Users/glitchbane/Documents/proyectos/el-arrecife-respaldos/pre-reboot-20261020-433e099",
-  "canon_sha256": "3b1408e4ce04f144c8d1da6acdcf0d3a79f090b29e5b1dbd217f37ed7c0c56a5",
+  "canon_base_sha256": "3b1408e4ce04f144c8d1da6acdcf0d3a79f090b29e5b1dbd217f37ed7c0c56a5",
+  "canon_sha256": "1ad447749be87c7a5657fb80f901409205509167f3c1704787f3c05163c7a924",
   "logo_apertura": {
     "preservado": "art/originals/branding/el_arrecife_products.png",
     "copia_juego": "game/assets/branding/el_arrecife_products.png",

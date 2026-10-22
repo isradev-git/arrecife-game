@@ -1,8 +1,10 @@
-# Canon de *El Arrecife* · Trilogía de novelas · v1
+# Canon de *El Arrecife* · Trilogía de novelas y videojuego · v1
 
 > **Estado:** canon matriz cerrado para diseñar y escribir el libro 1. Sólo quedan diferidos detalles propios del libro 3: identidades individuales Nadir y nombre/estructura interna del grupo de Gabriel.
 >
 > **Propósito:** reunir las leyes del universo y cerrar la arquitectura de tres novelas independientes antes de escribir *Carga admisible*.
+>
+> **Videojuego:** Sota es su protagonista. Su biografía aprobada figura en la sección 8; los contratos, situaciones y diálogos propuestos para el juego requieren aprobación aparte.
 >
 > **Precedencia durante la migración:** este documento > `universo/` > piezas terminadas > `canon_arrecife_v22.md`.
 >
@@ -222,6 +224,7 @@ Quedan **[ARCHIVADAS]** como reglas exclusivas de la antigua antología:
 
 - **[HEREDADO]** Corps y bandas poseen el poder real. El gobierno queda por debajo de ambas.
 - **[HEREDADO]** El gobierno administra el subsuelo, vigila el Reducto, expide licencias y sostiene la policía. Sobrevive porque ninguna corporación quiere que otra controle la infraestructura común.
+- **[DECIDIDO D81]** La policía necesita permiso de los de arriba, quienes mandan, para intervenir. El sistema policial es estructuralmente corrupto: deja casos ignorados o demasiado turbios para una actuación oficial.
 - **[HEREDADO]** Mirage fabrica la versión pública de los hechos; no necesita conocer toda la verdad para beneficiar al poder vencedor.
 - **[HEREDADO]** Moneda oficial: **dólar universal**; en la calle, **universales**.
 - **[HEREDADO]** Una **lámina** equivale a cien universales al portador y no pasa por el libro de la red.
@@ -243,6 +246,13 @@ Quedan **[ARCHIVADAS]** como reglas exclusivas de la antigua antología:
 - **[HEREDADO]** Kurohashi y Soma-Vanguard se reparten el mercado por clase: calidad crítica arriba, volumen barato abajo.
 - **[HEREDADO]** Mirage y la política viven en simbiosis, con Mirage controlando la cara pública.
 - **[HEREDADO]** **Bioprocesos Albar** es el laboratorio deniable del cinturón donde se realiza el trabajo fuera de plan y la I+D del Intus.
+
+### Sota, protagonista del videojuego
+
+- **[DECIDIDO D81]** Sota es ex-Vesta. Creció en un asentamiento Vesta hasta los once años y se marchó por decisión propia: los Vesta eran gente muy cerrada y, para llegar a ser «alguien», quería entrar en el Arrecife. Su trayectoria parte del suelo, la cota 0.
+- **[DECIDIDO D81]** Empezó haciendo contrabando entre las cotas 0 y 3. En La Fiebre aprendió cómo funcionaba la ciudad escuchando a los ricos cuando hablaban. Con el tiempo se convirtió en investigadora independiente.
+- **[DECIDIDO D81]** Cobra directamente a sus clientes por cada encargo. Su trabajo le permite vivir en La Fiebre, cota 4. No pertenece a la policía: la ayuda cuando ésta la llama y sólo presenta informes por los trabajos que realiza para ella.
+- **[DECIDIDO D81]** También está preparada para actuar como «limpiadora» si un encargo se complica y debe quitar de en medio a quienes se interponen. No acepta encargos cuyo objetivo sea asesinar a alguien.
 
 ---
 
@@ -727,3 +737,4 @@ Se cierra **una decisión cada vez** y se actualiza este documento inmediatament
 - **12 sep 2026 — Olvido conoce el precio (D80).** El registro de Teo incluye el sello y el manifiesto del transporte. Olvido ve las catorce altas, guarda la verdad de su nieto y devuelve a Marcus el soporte con el coste.
 - **11 sep 2026 — Extensión y lectura.** Objetivo aproximado de 50.000–57.000 palabras, capítulos breves y pausas naturales, con ambición comercial sin degradar la identidad del proyecto.
 - **11 sep 2026 — Intus.** Se reabre su uso: dejan de ser andamiaje condenado a permanecer fuera de página y pasan a formar parte narrativa de la trilogía.
+- **22 oct 2026 — Sota y la policía (D81).** El autor fijó a Sota como protagonista del videojuego: ex-Vesta criada en un asentamiento hasta los once años, contrabandista entre las cotas 0 y 3, investigadora independiente y residente de La Fiebre. Cobra por encargo, colabora con la policía sólo cuando la llaman y presenta informes únicamente para esos trabajos. Puede recurrir a su preparación de «limpiadora» si el caso se complica, pero no acepta asesinatos por encargo. La policía necesita permiso de quienes mandan para intervenir y deja asuntos sin atender.

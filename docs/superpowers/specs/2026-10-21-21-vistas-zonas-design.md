@@ -2,6 +2,8 @@
 
 **Estado:** mapa, nombres, conexiones y residencia de Sota aprobados por el autor el 21 de octubre de 2026. Las composiciones y los fondos finales requieren revisión artística; las situaciones, diálogos y misiones nuevos requieren aprobación narrativa.
 
+**Actualización del 22 oct 2026:** el autor incorporó a Sota y su oficio al canon. Las menciones posteriores a su oficio aún abierto y al canon sin modificar describen el estado de esta propuesta espacial cuando se aprobó; prevalece [el canon vigente](../../../canon_el_arrecife.md).
+
 ## Objetivo y límite
 
 El juego tendrá 21 vistas fijas en primera persona: 3 del apartamento y 6 de cada una de las cotas La Fiebre, El Nudo y Los Puntales. Cada vista será un lugar reconocible y navegable por clic o toque, con regreso claro. El deck informa de lugares, pero no transporta. Se conserva el único proyecto `game/project.godot` y el recorrido jugable actual.

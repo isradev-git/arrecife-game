@@ -19,12 +19,12 @@ La estructura propone una actividad concreta: comprobar un cargo de reparación 
 | Subida restringida, puertos físicos, decks externos | Canon; los permisos concretos de Sota son ficción de juego |
 | Nómina, cuotas y fondo limitado | Canon, decisión D31. No autoridad universal ni refugio garantizado |
 | Jefa como titular de Velvet | No se establece: su encuentro es en un pasaje adyacente |
-| Sota protagonista y retratos originales | Decisión artística y de juego del autor |
-| Sota vive en La Fiebre, cota 4, porque su trabajo se lo permite | **Decisión del autor del 21 oct 2026 para el juego**; el oficio y los ingresos concretos no quedan definidos. `world.json` registra `APROBADA_JUEGO` |
+| Sota protagonista del videojuego y retratos originales | Protagonismo y biografía fijados en el canon por el autor el 22 oct 2026; retratos originales aprobados |
+| Sota, ex-Vesta del suelo, investigadora independiente y colaboradora ocasional de la policía | Canon, sección 8: cobra directamente por encargo, informa sólo en los trabajos policiales y vive en La Fiebre gracias a su oficio |
 | Contrato «El parte del agua», afectada, recibo, orden de visita y diálogos | **Ficción nueva pendiente de aprobación** |
 | Deck de Sota: memoria local, mensajes, contratos y notas | Interfaz propuesta compatible con tecnología canónica; no teléfono mágico ni transporte |
 
-No se incorporan tramas ni revelaciones de los protagonistas de las novelas. No se ha alterado el canon. `sources/`, `universo/` y los documentos literarios externos citados por el canon no existen en el checkout inspeccionado; esta entrega contrasta con el canon local disponible, no certifica revisión de fuentes ausentes.
+No se incorporan tramas ni revelaciones de los protagonistas de las novelas. El autor amplió el canon con Sota y la regla sobre la policía el 22 oct 2026; los contratos y diálogos actuales del juego siguen pendientes de aprobación. `sources/`, `universo/` y los documentos literarios externos citados por el canon no existen en el checkout inspeccionado; esta entrega contrasta con el canon local disponible, no certifica revisión de fuentes ausentes.
 
 ## Mapa y alcance
 
