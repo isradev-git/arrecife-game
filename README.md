@@ -2,11 +2,11 @@
 
 Aventura narrativa **2D ilustrada, en primera persona**, en el universo de *CARGA ADMISIBLE*. Exploras a través de los ojos de Sota: clic o toque sobre objetos, personas y accesos. Godot **4.7.2**, GDScript y español de España.
 
-## Estado: 21 vistas jugables
+## Estado: versión 1.0 candidata
 
-Tres pantallas de apertura (logo, autoría y orientación), menú, introducción saltable, tres habitaciones y seis vistas de cada cota: La Fiebre, El Nudo y Los Puntales. Hay exploración por clic/toque, diálogo con retratos originales, deck, mensajes, contrato, documentos, terminal y guardado local. El contrato puede recibirse, aceptarse y avanzar hasta contrastar el parte con la Jefa.
+Tres pantallas de apertura (logo, autoría y orientación), menú, introducción saltable, tres habitaciones y seis vistas de cada cota: La Fiebre, El Nudo y Los Puntales. Hay exploración por clic/toque, diálogo con retratos originales, deck, mensajes, tres contratos completos, documentos, terminal, ambiente sonoro y guardado local.
 
-**No es todavía la aventura completa de 30 minutos.** Las misiones 2 y 3, la resolución y el final están pendientes. Los 21 fondos de exploración y el fondo de menú son candidatos ilustrados; la ficción nueva y el arte requieren revisión del autor.
+El arco narrativo y sus dos decisiones de cierre están implementados. La duración objetivo de unos 30 minutos aún no se ha medido en una partida del autor. Los 21 fondos de exploración y el fondo de menú son candidatos ilustrados; la ficción nueva y el arte requieren su revisión antes de publicar la versión final.
 
 ## Abrir y jugar
 
@@ -23,7 +23,7 @@ En este Mac:
 /Applications/Godot.app/Contents/MacOS/Godot --path game
 ```
 
-Todo se juega con clic o toque. **En móvil se juega sólo en horizontal**: el aviso de giro aparece antes del menú y vuelve a cubrir la partida si se gira el dispositivo a vertical. En ordenador se puede usar cualquier orientación de ventana. El menú muestra la ciudad desde una ventana, sin retrato de Sota; sus opciones son enlaces de texto. **Deck** abre mensajes, contratos, archivo, noticias, contactos y lugares. Toca los pequeños puntos de luz sobre los objetos y accesos; cada uno tiene un área pulsable acotada alrededor. **Pistas** abre la lista de acciones y permite ocultarlos. Los textos extensos se desplazan. En diálogo, el amarillo avanza el contrato y el gris ofrece información opcional.
+Todo se juega con clic o toque. **En móvil se juega sólo en horizontal**: el aviso de giro aparece antes del menú y vuelve a cubrir la partida si se gira el dispositivo a vertical. En ordenador se puede usar cualquier orientación de ventana. El menú muestra la ciudad desde una ventana, sin retrato de Sota; sus opciones son enlaces de texto. **Deck** abre mensajes, contratos, archivo, noticias, contactos y lugares; tras el tercer contrato conserva el cierre. Toca los pequeños puntos de luz sobre los objetos y accesos; cada uno tiene un área pulsable acotada alrededor. **Pistas** abre la lista de acciones y permite ocultarlos. Los textos extensos se desplazan. En diálogo, el amarillo avanza el contrato y el gris ofrece información opcional. Opciones permite ajustar por separado ambiente y sonidos de acción.
 
 El logo original de **EL ARRECIFE PRODUCTS**, suministrado por el autor, abre el juego. En Web, la secuencia de apertura se muestra una vez por pestaña: **recargar lleva directamente al menú** y abrir el juego en una pestaña nueva vuelve a mostrarla. El aviso de orientación sigue activo incluso cuando se omite la apertura.
 
@@ -31,7 +31,7 @@ Mientras la exportación Web descarga el motor aparece un fondo neutro; el logo 
 
 ### Recorrido de comprobación
 
-Deck → mensaje de la Jefa → revisar y aceptar contrato → cocina → terminal doméstico → copiar lectura → cerrar → salir a La Fiebre → hablar con la Jefa → mostrar la lectura. Puedes visitar el baño, mirar el espejo y leer el recibo antes o después. Desde el pasaje, llega al control de descenso para bajar a El Nudo; desde su archivo, pasa por el control inferior hasta Los Puntales. Los permisos vigentes se conservan. Menú → Continuar recupera el progreso.
+Deck → mensaje de la Jefa → aceptar el parte del agua → copiar la lectura doméstica → hablar con la Jefa → comprobar la ficha en El Nudo y la conducción en Los Puntales → entregar el parte. Tras cada entrega aparece el siguiente mensaje: la orden duplicada se cierra con un informe en el puesto de red; la prueba de presión vuelve a la Jefa y termina con una decisión sobre las copias. **Menú → Continuar** recupera el progreso.
 
 ### Web local
 

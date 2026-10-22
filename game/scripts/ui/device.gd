@@ -6,7 +6,10 @@ func show_tab(host: Control, selected: String) -> void:
 	var tabs := HFlowContainer.new()
 	tabs.add_theme_constant_override("h_separation", 18)
 	add_child(tabs)
-	for tab in ["Mensajes", "Contratos", "Archivo", "Noticias", "Contactos", "Lugares"]:
+	var sections := ["Mensajes", "Contratos", "Archivo", "Noticias", "Contactos", "Lugares"]
+	if State.data.missions.get("prueba_presion") == "COMPLETED":
+		sections.append("Cierre")
+	for tab in sections:
 		var button := GameUI.action(tabs, tab, func(): host.show_device(tab))
 		button.size_flags_horizontal = Control.SIZE_SHRINK_BEGIN
 		if tab == selected:
@@ -16,6 +19,8 @@ func show_tab(host: Control, selected: String) -> void:
 		"Mensajes":
 			for id in Content.story.messages:
 				var message: Dictionary = Content.story.messages[id]
+				if not State.matches(message.get("visible_if", {})):
+					continue
 				GameUI.action(self, ("[ok] " if id in State.data.messages else "* ") + message.subject + " · " + message.from, func():
 					State.apply({"message":id})
 					State.apply(message.effects)
@@ -24,21 +29,25 @@ func show_tab(host: Control, selected: String) -> void:
 					GameUI.button(host.modal_body, "Revisar contrato", func(): host.show_device("Contratos"))
 					GameUI.button(host.modal_body, "Volver a mensajes", func(): host.show_device("Mensajes")))
 		"Contratos":
-			for id in Content.missions:
+			var received := false
+			var mission_ids := Content.missions.keys()
+			var priority := {"AVAILABLE": 0, "READY_TO_COMPLETE": 1, "ACTIVE": 2, "COMPLETED": 3, "LOCKED": 4}
+			mission_ids.sort_custom(func(a, b): return priority[State.data.missions[a]] < priority[State.data.missions[b]])
+			for id in mission_ids:
 				var mission: Dictionary = Content.missions[id]
 				var status: String = State.data.missions[id]
 				if status == "LOCKED":
-					GameUI.label(self, "No hay contratos recibidos. Revisa los mensajes.")
 					continue
+				received = true
 				GameUI.label(self, mission.title + " / " + STATUS_LABELS[status], 28)
 				GameUI.label(self, mission.summary + "\n\n" + mission.terms, 24)
 				if status == "AVAILABLE":
-					GameUI.button(self, "Aceptar contrato", func():
-						State.accept(id)
-						host.show_device("Contratos"))
+					GameUI.button(self, "Aceptar contrato", accept_contract.bind(host, id))
 				else:
 					for step in mission.steps:
 						GameUI.label(self, ("[ok]  " if State.data.flags.get(step.flag, false) else "o  ") + step.label, 22)
+			if not received:
+				GameUI.label(self, "No hay contratos recibidos. Revisa los mensajes.")
 		"Archivo":
 			GameUI.label(self, "Documentos leídos y notas guardadas", 24)
 			for id in State.data.documents:
@@ -54,11 +63,17 @@ func show_tab(host: Control, selected: String) -> void:
 		"Contactos":
 			for contact in Content.story.contacts:
 				GameUI.label(self, contact.name, 26)
-				GameUI.label(self, "La encontrarás en el pasaje junto a Velvet al aceptar el contrato.")
+				GameUI.label(self, contact.text)
 		"Lugares":
 			GameUI.label(self, "Rutas conocidas · el deck informa; los trayectos parten de los accesos de cada escena.", 22)
 			for id in Content.world.zones:
 				var zone: Dictionary = Content.world.zones[id]
 				GameUI.label(self, zone.name + (" · conocida" if id in State.data.unlocked else " · sin acceso"), 26)
-				if id in ["nudo", "puntales"]:
-					GameUI.label(self, "Continuación prevista en otro hito.", 20)
+		"Cierre":
+			GameUI.label(self, "EL ARRECIFE · FIN", 30).modulate = GameUI.AMBER
+			GameUI.label(self, "El cargo discutido permanece suspendido. La Jefa ha concertado una verificación independiente de la conducción.", 24)
+			GameUI.label(self, Content.dialogues.jefa.nodes.final_vecinos.text if State.data.flags.get("vecinos_primero", false) else Content.dialogues.jefa.nodes.final_policia.text, 24)
+
+func accept_contract(host: Control, id: String) -> void:
+	if State.accept(id):
+		host.show_device("Contratos")

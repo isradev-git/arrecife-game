@@ -95,7 +95,7 @@ func travel_reason(target: String) -> String:
 		if not authorized:
 			return "No tienes una ruta autorizada hasta ese destino. Revisa el contrato y tus acreditaciones."
 	if not destination.implemented:
-		return "Este trayecto continúa en el próximo hito. Tu progreso ya está guardado; puedes seguir explorando el apartamento y La Fiebre."
+		return "Este destino aún no está disponible."
 	return ""
 
 func navigate(target: String) -> bool:
@@ -122,8 +122,10 @@ func valid(value: Variant) -> bool:
 		return false
 	if not Content.world.screens[value.screen].implemented or value.get("zone") != Content.world.screens[value.screen].zone:
 		return false
+	if value.missions.get("retorno_agua") not in STATUSES:
+		return false
 	for id in Content.missions:
-		if value.missions.get(id) not in STATUSES:
+		if value.missions.has(id) and value.missions[id] not in STATUSES:
 			return false
 	for flag in value.flags:
 		if not flag is String or not value.flags[flag] is bool:
@@ -162,6 +164,10 @@ func load_game() -> bool:
 		last_error = "No se ha encontrado una partida compatible. Los archivos existentes se conservan."
 		return false
 	data = value
+	for id in Content.missions:
+		if not data.missions.has(id):
+			data.missions[id] = "LOCKED"
+	refresh_missions()
 	changed.emit()
 	return true
 

@@ -1,6 +1,6 @@
 {
   "start": "ap_dormitorio",
-  "proposal": "La residencia de Sota en La Fiebre está aprobada para el juego; el contrato y los diálogos nuevos siguen pendientes de aprobación narrativa, no son canon literario.",
+  "proposal": "Las cotas y la residencia de Sota están aprobadas para el juego. La trama de los tres contratos es ficción del videojuego pendiente de revisión final del autor; no amplía el canon literario.",
   "zones": {
     "apartamento": {
       "name": "La habitación alquilada",
@@ -363,21 +363,36 @@
           "id": "umbral",
           "label": "Umbral de Velvet",
           "type": "NAVIGATION",
-          "bounds": [0.12, 0.58, 0.12, 0.16],
+          "bounds": [
+            0.12,
+            0.58,
+            0.12,
+            0.16
+          ],
           "target": "fiebre_entrada"
         },
         {
           "id": "encuentro",
           "label": "Rincón de trato",
           "type": "NAVIGATION",
-          "bounds": [0.83, 0.22, 0.12, 0.17],
+          "bounds": [
+            0.83,
+            0.22,
+            0.12,
+            0.17
+          ],
           "target": "fiebre_encuentro"
         },
         {
           "id": "galeria",
           "label": "Galería de residentes",
           "type": "NAVIGATION",
-          "bounds": [0.48, 0.08, 0.14, 0.18],
+          "bounds": [
+            0.48,
+            0.08,
+            0.14,
+            0.18
+          ],
           "target": "fiebre_galeria"
         },
         {
@@ -401,7 +416,30 @@
       "art": "fiebre_entrada",
       "implemented": true,
       "hotspots": [
-        {"id": "pasaje", "label": "Volver al pasaje", "type": "NAVIGATION", "bounds": [0.83, 0.37, 0.13, 0.26], "target": "fiebre_calle"}
+        {
+          "id": "pasaje",
+          "label": "Volver al pasaje",
+          "type": "NAVIGATION",
+          "bounds": [
+            0.83,
+            0.37,
+            0.13,
+            0.26
+          ],
+          "target": "fiebre_calle"
+        },
+        {
+          "id": "mirar",
+          "label": "Observar el lugar",
+          "type": "OBJECT",
+          "bounds": [
+            0.5,
+            0.42,
+            0.1,
+            0.12
+          ],
+          "target": "umbral"
+        }
       ]
     },
     "fiebre_encuentro": {
@@ -411,7 +449,30 @@
       "art": "fiebre_encuentro",
       "implemented": true,
       "hotspots": [
-        {"id": "pasaje", "label": "Volver al pasaje", "type": "NAVIGATION", "bounds": [0.08, 0.25, 0.19, 0.4], "target": "fiebre_calle"}
+        {
+          "id": "pasaje",
+          "label": "Volver al pasaje",
+          "type": "NAVIGATION",
+          "bounds": [
+            0.08,
+            0.25,
+            0.19,
+            0.4
+          ],
+          "target": "fiebre_calle"
+        },
+        {
+          "id": "mirar",
+          "label": "Observar el lugar",
+          "type": "OBJECT",
+          "bounds": [
+            0.52,
+            0.48,
+            0.1,
+            0.12
+          ],
+          "target": "trato"
+        }
       ]
     },
     "fiebre_galeria": {
@@ -421,9 +482,74 @@
       "art": "fiebre_galeria",
       "implemented": true,
       "hotspots": [
-        {"id": "pasaje", "label": "Bajar al pasaje", "type": "NAVIGATION", "bounds": [0.12, 0.6, 0.16, 0.2], "target": "fiebre_calle"},
-        {"id": "suministros", "label": "Pasarela de suministros", "type": "NAVIGATION", "bounds": [0.55, 0.24, 0.14, 0.21], "target": "fiebre_suministros"},
-        {"id": "descenso", "label": "Control de descenso", "type": "NAVIGATION", "bounds": [0.86, 0.28, 0.12, 0.22], "target": "fiebre_descenso"}
+        {
+          "id": "pasaje",
+          "label": "Bajar al pasaje",
+          "type": "NAVIGATION",
+          "bounds": [
+            0.12,
+            0.6,
+            0.16,
+            0.2
+          ],
+          "target": "fiebre_calle"
+        },
+        {
+          "id": "suministros",
+          "label": "Pasarela de suministros",
+          "type": "NAVIGATION",
+          "bounds": [
+            0.55,
+            0.24,
+            0.14,
+            0.21
+          ],
+          "target": "fiebre_suministros"
+        },
+        {
+          "id": "descenso",
+          "label": "Control de descenso",
+          "type": "NAVIGATION",
+          "bounds": [
+            0.86,
+            0.28,
+            0.12,
+            0.22
+          ],
+          "target": "fiebre_descenso"
+        },
+        {
+          "id": "mirar",
+          "label": "Observar el lugar",
+          "type": "OBJECT",
+          "bounds": [
+            0.37,
+            0.55,
+            0.1,
+            0.12
+          ],
+          "target": "galeria"
+        },
+        {
+          "id": "cargos",
+          "label": "Lista de cargos",
+          "type": "DOCUMENT",
+          "bounds": [
+            0.75,
+            0.45,
+            0.1,
+            0.12
+          ],
+          "target": "lista_cargos",
+          "visible_if": {
+            "mission": "prueba_presion",
+            "states": [
+              "ACTIVE",
+              "READY_TO_COMPLETE",
+              "COMPLETED"
+            ]
+          }
+        }
       ]
     },
     "fiebre_suministros": {
@@ -433,7 +559,50 @@
       "art": "fiebre_suministros",
       "implemented": true,
       "hotspots": [
-        {"id": "galeria", "label": "Volver a la galería", "type": "NAVIGATION", "bounds": [0.08, 0.37, 0.17, 0.25], "target": "fiebre_galeria"}
+        {
+          "id": "galeria",
+          "label": "Volver a la galería",
+          "type": "NAVIGATION",
+          "bounds": [
+            0.08,
+            0.37,
+            0.17,
+            0.25
+          ],
+          "target": "fiebre_galeria"
+        },
+        {
+          "id": "mirar",
+          "label": "Observar el lugar",
+          "type": "OBJECT",
+          "bounds": [
+            0.42,
+            0.42,
+            0.1,
+            0.12
+          ],
+          "target": "suministros"
+        },
+        {
+          "id": "remesa",
+          "label": "Remesa de filtros",
+          "type": "DOCUMENT",
+          "bounds": [
+            0.65,
+            0.27,
+            0.1,
+            0.12
+          ],
+          "target": "remesa",
+          "visible_if": {
+            "mission": "orden_duplicada",
+            "states": [
+              "ACTIVE",
+              "READY_TO_COMPLETE",
+              "COMPLETED"
+            ]
+          }
+        }
       ]
     },
     "fiebre_descenso": {
@@ -443,9 +612,54 @@
       "art": "fiebre_descenso",
       "implemented": true,
       "hotspots": [
-        {"id": "pasaje", "label": "Volver al pasaje", "type": "NAVIGATION", "bounds": [0.08, 0.29, 0.15, 0.26], "target": "fiebre_calle"},
-        {"id": "galeria", "label": "Volver a la galería", "type": "NAVIGATION", "bounds": [0.81, 0.29, 0.15, 0.26], "target": "fiebre_galeria"},
-        {"id": "nudo", "label": "Bajar a El Nudo", "type": "NAVIGATION", "bounds": [0.39, 0.44, 0.2, 0.22], "target": "nudo_acceso"}
+        {
+          "id": "pasaje",
+          "label": "Volver al pasaje",
+          "type": "NAVIGATION",
+          "bounds": [
+            0.08,
+            0.29,
+            0.15,
+            0.26
+          ],
+          "target": "fiebre_calle"
+        },
+        {
+          "id": "galeria",
+          "label": "Volver a la galería",
+          "type": "NAVIGATION",
+          "bounds": [
+            0.81,
+            0.29,
+            0.15,
+            0.26
+          ],
+          "target": "fiebre_galeria"
+        },
+        {
+          "id": "nudo",
+          "label": "Bajar a El Nudo",
+          "type": "NAVIGATION",
+          "bounds": [
+            0.39,
+            0.44,
+            0.2,
+            0.22
+          ],
+          "target": "nudo_acceso"
+        },
+        {
+          "id": "mirar",
+          "label": "Observar el lugar",
+          "type": "OBJECT",
+          "bounds": [
+            0.65,
+            0.45,
+            0.1,
+            0.12
+          ],
+          "target": "control"
+        }
       ]
     },
     "nudo_acceso": {
@@ -455,9 +669,54 @@
       "art": "nudo_acceso",
       "implemented": true,
       "hotspots": [
-        {"id": "fiebre", "label": "Subir a La Fiebre", "type": "NAVIGATION", "bounds": [0.84, 0.28, 0.14, 0.31], "target": "fiebre_descenso"},
-        {"id": "taller", "label": "Taller de reparaciones", "type": "NAVIGATION", "bounds": [0.03, 0.31, 0.17, 0.25], "target": "nudo_taller"},
-        {"id": "mercado", "label": "Mercado de componentes", "type": "NAVIGATION", "bounds": [0.67, 0.36, 0.13, 0.22], "target": "nudo_mercado"}
+        {
+          "id": "fiebre",
+          "label": "Subir a La Fiebre",
+          "type": "NAVIGATION",
+          "bounds": [
+            0.84,
+            0.28,
+            0.14,
+            0.31
+          ],
+          "target": "fiebre_descenso"
+        },
+        {
+          "id": "taller",
+          "label": "Taller de reparaciones",
+          "type": "NAVIGATION",
+          "bounds": [
+            0.03,
+            0.31,
+            0.17,
+            0.25
+          ],
+          "target": "nudo_taller"
+        },
+        {
+          "id": "mercado",
+          "label": "Mercado de componentes",
+          "type": "NAVIGATION",
+          "bounds": [
+            0.67,
+            0.36,
+            0.13,
+            0.22
+          ],
+          "target": "nudo_mercado"
+        },
+        {
+          "id": "mirar",
+          "label": "Observar el lugar",
+          "type": "OBJECT",
+          "bounds": [
+            0.42,
+            0.42,
+            0.1,
+            0.12
+          ],
+          "target": "acceso_nudo"
+        }
       ]
     },
     "nudo_taller": {
@@ -467,8 +726,57 @@
       "art": "nudo_taller",
       "implemented": true,
       "hotspots": [
-        {"id": "acceso", "label": "Acceso a El Nudo", "type": "NAVIGATION", "bounds": [0.02, 0.29, 0.15, 0.28], "target": "nudo_acceso"},
-        {"id": "terminal", "label": "Puesto de red", "type": "NAVIGATION", "bounds": [0.82, 0.31, 0.16, 0.27], "target": "nudo_terminal"}
+        {
+          "id": "acceso",
+          "label": "Acceso a El Nudo",
+          "type": "NAVIGATION",
+          "bounds": [
+            0.02,
+            0.29,
+            0.15,
+            0.28
+          ],
+          "target": "nudo_acceso"
+        },
+        {
+          "id": "terminal",
+          "label": "Puesto de red",
+          "type": "NAVIGATION",
+          "bounds": [
+            0.82,
+            0.31,
+            0.16,
+            0.27
+          ],
+          "target": "nudo_terminal"
+        },
+        {
+          "id": "mirar",
+          "label": "Observar el lugar",
+          "type": "OBJECT",
+          "bounds": [
+            0.47,
+            0.48,
+            0.1,
+            0.12
+          ],
+          "target": "taller_nudo"
+        },
+        {
+          "id": "ficha",
+          "label": "Ficha del equipo",
+          "type": "DOCUMENT",
+          "bounds": [
+            0.3,
+            0.26,
+            0.1,
+            0.12
+          ],
+          "target": "ficha_equipo",
+          "visible_if": {
+            "flag": "parte_contrastado"
+          }
+        }
       ]
     },
     "nudo_terminal": {
@@ -478,8 +786,62 @@
       "art": "nudo_terminal",
       "implemented": true,
       "hotspots": [
-        {"id": "taller", "label": "Taller de reparaciones", "type": "NAVIGATION", "bounds": [0.02, 0.32, 0.16, 0.27], "target": "nudo_taller"},
-        {"id": "archivo", "label": "Archivo de órdenes", "type": "NAVIGATION", "bounds": [0.83, 0.35, 0.15, 0.28], "target": "nudo_archivo"}
+        {
+          "id": "taller",
+          "label": "Taller de reparaciones",
+          "type": "NAVIGATION",
+          "bounds": [
+            0.02,
+            0.32,
+            0.16,
+            0.27
+          ],
+          "target": "nudo_taller"
+        },
+        {
+          "id": "archivo",
+          "label": "Archivo de órdenes",
+          "type": "NAVIGATION",
+          "bounds": [
+            0.83,
+            0.35,
+            0.15,
+            0.28
+          ],
+          "target": "nudo_archivo"
+        },
+        {
+          "id": "mirar",
+          "label": "Observar el lugar",
+          "type": "OBJECT",
+          "bounds": [
+            0.48,
+            0.46,
+            0.1,
+            0.12
+          ],
+          "target": "red_nudo"
+        },
+        {
+          "id": "puesto",
+          "label": "Puesto de red",
+          "type": "TERMINAL",
+          "bounds": [
+            0.68,
+            0.28,
+            0.1,
+            0.12
+          ],
+          "target": "red_nudo",
+          "visible_if": {
+            "mission": "orden_duplicada",
+            "states": [
+              "ACTIVE",
+              "READY_TO_COMPLETE",
+              "COMPLETED"
+            ]
+          }
+        }
       ]
     },
     "nudo_mercado": {
@@ -489,8 +851,42 @@
       "art": "nudo_mercado",
       "implemented": true,
       "hotspots": [
-        {"id": "acceso", "label": "Acceso a El Nudo", "type": "NAVIGATION", "bounds": [0.02, 0.31, 0.15, 0.26], "target": "nudo_acceso"},
-        {"id": "archivo", "label": "Archivo de órdenes", "type": "NAVIGATION", "bounds": [0.83, 0.32, 0.15, 0.28], "target": "nudo_archivo"}
+        {
+          "id": "acceso",
+          "label": "Acceso a El Nudo",
+          "type": "NAVIGATION",
+          "bounds": [
+            0.02,
+            0.31,
+            0.15,
+            0.26
+          ],
+          "target": "nudo_acceso"
+        },
+        {
+          "id": "archivo",
+          "label": "Archivo de órdenes",
+          "type": "NAVIGATION",
+          "bounds": [
+            0.83,
+            0.32,
+            0.15,
+            0.28
+          ],
+          "target": "nudo_archivo"
+        },
+        {
+          "id": "mirar",
+          "label": "Observar el lugar",
+          "type": "OBJECT",
+          "bounds": [
+            0.46,
+            0.45,
+            0.1,
+            0.12
+          ],
+          "target": "mercado_nudo"
+        }
       ]
     },
     "nudo_archivo": {
@@ -500,9 +896,74 @@
       "art": "nudo_archivo",
       "implemented": true,
       "hotspots": [
-        {"id": "terminal", "label": "Puesto de red", "type": "NAVIGATION", "bounds": [0.02, 0.3, 0.15, 0.27], "target": "nudo_terminal"},
-        {"id": "mercado", "label": "Mercado de componentes", "type": "NAVIGATION", "bounds": [0.82, 0.3, 0.16, 0.27], "target": "nudo_mercado"},
-        {"id": "paso", "label": "Paso inferior", "type": "NAVIGATION", "bounds": [0.51, 0.57, 0.15, 0.26], "target": "nudo_paso_inferior"}
+        {
+          "id": "terminal",
+          "label": "Puesto de red",
+          "type": "NAVIGATION",
+          "bounds": [
+            0.02,
+            0.3,
+            0.15,
+            0.27
+          ],
+          "target": "nudo_terminal"
+        },
+        {
+          "id": "mercado",
+          "label": "Mercado de componentes",
+          "type": "NAVIGATION",
+          "bounds": [
+            0.82,
+            0.3,
+            0.16,
+            0.27
+          ],
+          "target": "nudo_mercado"
+        },
+        {
+          "id": "paso",
+          "label": "Paso inferior",
+          "type": "NAVIGATION",
+          "bounds": [
+            0.51,
+            0.57,
+            0.15,
+            0.26
+          ],
+          "target": "nudo_paso_inferior"
+        },
+        {
+          "id": "mirar",
+          "label": "Observar el lugar",
+          "type": "OBJECT",
+          "bounds": [
+            0.42,
+            0.42,
+            0.1,
+            0.12
+          ],
+          "target": "archivo_nudo"
+        },
+        {
+          "id": "duplicado",
+          "label": "Orden duplicada",
+          "type": "DOCUMENT",
+          "bounds": [
+            0.36,
+            0.23,
+            0.1,
+            0.12
+          ],
+          "target": "orden_copia",
+          "visible_if": {
+            "mission": "orden_duplicada",
+            "states": [
+              "ACTIVE",
+              "READY_TO_COMPLETE",
+              "COMPLETED"
+            ]
+          }
+        }
       ]
     },
     "nudo_paso_inferior": {
@@ -512,8 +973,42 @@
       "art": "nudo_paso_inferior",
       "implemented": true,
       "hotspots": [
-        {"id": "archivo", "label": "Archivo de órdenes", "type": "NAVIGATION", "bounds": [0.03, 0.3, 0.16, 0.3], "target": "nudo_archivo"},
-        {"id": "puntales", "label": "Bajar a Los Puntales", "type": "NAVIGATION", "bounds": [0.77, 0.57, 0.19, 0.3], "target": "puntales_acceso"}
+        {
+          "id": "archivo",
+          "label": "Archivo de órdenes",
+          "type": "NAVIGATION",
+          "bounds": [
+            0.03,
+            0.3,
+            0.16,
+            0.3
+          ],
+          "target": "nudo_archivo"
+        },
+        {
+          "id": "puntales",
+          "label": "Bajar a Los Puntales",
+          "type": "NAVIGATION",
+          "bounds": [
+            0.77,
+            0.57,
+            0.19,
+            0.3
+          ],
+          "target": "puntales_acceso"
+        },
+        {
+          "id": "mirar",
+          "label": "Observar el lugar",
+          "type": "OBJECT",
+          "bounds": [
+            0.43,
+            0.43,
+            0.1,
+            0.12
+          ],
+          "target": "paso_nudo"
+        }
       ]
     },
     "puntales_acceso": {
@@ -523,9 +1018,54 @@
       "art": "puntales_acceso",
       "implemented": true,
       "hotspots": [
-        {"id": "nudo", "label": "Subir a El Nudo", "type": "NAVIGATION", "bounds": [0.04, 0.32, 0.24, 0.32], "target": "nudo_paso_inferior"},
-        {"id": "taller", "label": "Taller de conducción", "type": "NAVIGATION", "bounds": [0.52, 0.33, 0.18, 0.32], "target": "puntales_taller"},
-        {"id": "verificacion", "label": "Puesto de verificación", "type": "NAVIGATION", "bounds": [0.79, 0.36, 0.19, 0.29], "target": "puntales_verificacion"}
+        {
+          "id": "nudo",
+          "label": "Subir a El Nudo",
+          "type": "NAVIGATION",
+          "bounds": [
+            0.04,
+            0.32,
+            0.24,
+            0.32
+          ],
+          "target": "nudo_paso_inferior"
+        },
+        {
+          "id": "taller",
+          "label": "Taller de conducción",
+          "type": "NAVIGATION",
+          "bounds": [
+            0.52,
+            0.33,
+            0.18,
+            0.32
+          ],
+          "target": "puntales_taller"
+        },
+        {
+          "id": "verificacion",
+          "label": "Puesto de verificación",
+          "type": "NAVIGATION",
+          "bounds": [
+            0.79,
+            0.36,
+            0.19,
+            0.29
+          ],
+          "target": "puntales_verificacion"
+        },
+        {
+          "id": "mirar",
+          "label": "Observar el lugar",
+          "type": "OBJECT",
+          "bounds": [
+            0.37,
+            0.46,
+            0.1,
+            0.12
+          ],
+          "target": "acceso_puntales"
+        }
       ]
     },
     "puntales_taller": {
@@ -535,8 +1075,42 @@
       "art": "puntales_taller",
       "implemented": true,
       "hotspots": [
-        {"id": "acceso", "label": "Acceso a Los Puntales", "type": "NAVIGATION", "bounds": [0.05, 0.32, 0.22, 0.32], "target": "puntales_acceso"},
-        {"id": "trabajo", "label": "Frente de trabajo", "type": "NAVIGATION", "bounds": [0.81, 0.34, 0.17, 0.3], "target": "puntales_observatorio"}
+        {
+          "id": "acceso",
+          "label": "Acceso a Los Puntales",
+          "type": "NAVIGATION",
+          "bounds": [
+            0.05,
+            0.32,
+            0.22,
+            0.32
+          ],
+          "target": "puntales_acceso"
+        },
+        {
+          "id": "trabajo",
+          "label": "Frente de trabajo",
+          "type": "NAVIGATION",
+          "bounds": [
+            0.81,
+            0.34,
+            0.17,
+            0.3
+          ],
+          "target": "puntales_observatorio"
+        },
+        {
+          "id": "mirar",
+          "label": "Observar el lugar",
+          "type": "OBJECT",
+          "bounds": [
+            0.42,
+            0.45,
+            0.1,
+            0.12
+          ],
+          "target": "taller_puntales"
+        }
       ]
     },
     "puntales_observatorio": {
@@ -546,8 +1120,42 @@
       "art": "puntales_observatorio",
       "implemented": true,
       "hotspots": [
-        {"id": "taller", "label": "Taller de conducción", "type": "NAVIGATION", "bounds": [0.02, 0.33, 0.18, 0.31], "target": "puntales_taller"},
-        {"id": "soportes", "label": "Galería de soportes", "type": "NAVIGATION", "bounds": [0.81, 0.33, 0.17, 0.31], "target": "puntales_soportes"}
+        {
+          "id": "taller",
+          "label": "Taller de conducción",
+          "type": "NAVIGATION",
+          "bounds": [
+            0.02,
+            0.33,
+            0.18,
+            0.31
+          ],
+          "target": "puntales_taller"
+        },
+        {
+          "id": "soportes",
+          "label": "Galería de soportes",
+          "type": "NAVIGATION",
+          "bounds": [
+            0.81,
+            0.33,
+            0.17,
+            0.31
+          ],
+          "target": "puntales_soportes"
+        },
+        {
+          "id": "mirar",
+          "label": "Observar el lugar",
+          "type": "OBJECT",
+          "bounds": [
+            0.45,
+            0.46,
+            0.1,
+            0.12
+          ],
+          "target": "frente_puntales"
+        }
       ]
     },
     "puntales_soportes": {
@@ -557,8 +1165,62 @@
       "art": "puntales_soportes",
       "implemented": true,
       "hotspots": [
-        {"id": "trabajo", "label": "Frente de trabajo", "type": "NAVIGATION", "bounds": [0.02, 0.29, 0.2, 0.34], "target": "puntales_observatorio"},
-        {"id": "presion", "label": "Cámara de presión", "type": "NAVIGATION", "bounds": [0.76, 0.34, 0.2, 0.31], "target": "puntales_presion"}
+        {
+          "id": "trabajo",
+          "label": "Frente de trabajo",
+          "type": "NAVIGATION",
+          "bounds": [
+            0.02,
+            0.29,
+            0.2,
+            0.34
+          ],
+          "target": "puntales_observatorio"
+        },
+        {
+          "id": "presion",
+          "label": "Cámara de presión",
+          "type": "NAVIGATION",
+          "bounds": [
+            0.76,
+            0.34,
+            0.2,
+            0.31
+          ],
+          "target": "puntales_presion"
+        },
+        {
+          "id": "mirar",
+          "label": "Observar el lugar",
+          "type": "OBJECT",
+          "bounds": [
+            0.44,
+            0.45,
+            0.1,
+            0.12
+          ],
+          "target": "soportes_puntales"
+        },
+        {
+          "id": "marca",
+          "label": "Marca del soporte",
+          "type": "DOCUMENT",
+          "bounds": [
+            0.65,
+            0.23,
+            0.1,
+            0.12
+          ],
+          "target": "marca_soporte",
+          "visible_if": {
+            "mission": "prueba_presion",
+            "states": [
+              "ACTIVE",
+              "READY_TO_COMPLETE",
+              "COMPLETED"
+            ]
+          }
+        }
       ]
     },
     "puntales_presion": {
@@ -568,8 +1230,62 @@
       "art": "puntales_presion",
       "implemented": true,
       "hotspots": [
-        {"id": "soportes", "label": "Galería de soportes", "type": "NAVIGATION", "bounds": [0.02, 0.31, 0.23, 0.34], "target": "puntales_soportes"},
-        {"id": "verificacion", "label": "Puesto de verificación", "type": "NAVIGATION", "bounds": [0.82, 0.31, 0.16, 0.33], "target": "puntales_verificacion"}
+        {
+          "id": "soportes",
+          "label": "Galería de soportes",
+          "type": "NAVIGATION",
+          "bounds": [
+            0.02,
+            0.31,
+            0.23,
+            0.34
+          ],
+          "target": "puntales_soportes"
+        },
+        {
+          "id": "verificacion",
+          "label": "Puesto de verificación",
+          "type": "NAVIGATION",
+          "bounds": [
+            0.82,
+            0.31,
+            0.16,
+            0.33
+          ],
+          "target": "puntales_verificacion"
+        },
+        {
+          "id": "mirar",
+          "label": "Observar el lugar",
+          "type": "OBJECT",
+          "bounds": [
+            0.44,
+            0.45,
+            0.1,
+            0.12
+          ],
+          "target": "presion_puntales"
+        },
+        {
+          "id": "lectura",
+          "label": "Lectura de presión",
+          "type": "DOCUMENT",
+          "bounds": [
+            0.65,
+            0.25,
+            0.1,
+            0.12
+          ],
+          "target": "lectura_actual",
+          "visible_if": {
+            "mission": "prueba_presion",
+            "states": [
+              "ACTIVE",
+              "READY_TO_COMPLETE",
+              "COMPLETED"
+            ]
+          }
+        }
       ]
     },
     "puntales_verificacion": {
@@ -579,8 +1295,57 @@
       "art": "puntales_verificacion",
       "implemented": true,
       "hotspots": [
-        {"id": "presion", "label": "Cámara de presión", "type": "NAVIGATION", "bounds": [0.02, 0.31, 0.18, 0.34], "target": "puntales_presion"},
-        {"id": "acceso", "label": "Acceso a Los Puntales", "type": "NAVIGATION", "bounds": [0.8, 0.29, 0.18, 0.35], "target": "puntales_acceso"}
+        {
+          "id": "presion",
+          "label": "Cámara de presión",
+          "type": "NAVIGATION",
+          "bounds": [
+            0.02,
+            0.31,
+            0.18,
+            0.34
+          ],
+          "target": "puntales_presion"
+        },
+        {
+          "id": "acceso",
+          "label": "Acceso a Los Puntales",
+          "type": "NAVIGATION",
+          "bounds": [
+            0.8,
+            0.29,
+            0.18,
+            0.35
+          ],
+          "target": "puntales_acceso"
+        },
+        {
+          "id": "mirar",
+          "label": "Observar el lugar",
+          "type": "OBJECT",
+          "bounds": [
+            0.45,
+            0.46,
+            0.1,
+            0.12
+          ],
+          "target": "verificacion_puntales"
+        },
+        {
+          "id": "registro",
+          "label": "Control de la conducción",
+          "type": "DOCUMENT",
+          "bounds": [
+            0.65,
+            0.28,
+            0.1,
+            0.12
+          ],
+          "target": "verificacion_fisica",
+          "visible_if": {
+            "flag": "parte_contrastado"
+          }
+        }
       ]
     }
   }

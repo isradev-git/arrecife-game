@@ -1,6 +1,14 @@
 # Validación del juego y las 21 vistas
 
-Actualizado el 21 de octubre de 2026. Godot 4.7.2 oficial, Mac mini M4, Compatibility. Estas pruebas certifican el alcance descrito; no aprueban el arte ni la ficción.
+Actualizado el 22 de octubre de 2026. Godot 4.7.2 oficial, Mac mini M4, Compatibility. Estas pruebas certifican el alcance descrito; no aprueban el arte ni la ficción.
+
+## Versión 1.0 candidata · 22 oct 2026
+
+El recorrido automatizado abrió una partida nueva y completó **los tres contratos por la interfaz**, incluidos el informe policial y las dos decisiones del desenlace. Comprobó que los mensajes posteriores no se muestran antes de tiempo, que cada misión llega a `READY_TO_COMPLETE` y sólo se marca `COMPLETED` tras la entrega, y que `Continuar` recupera el final. Salir del último parlamento antes de cerrarlo permite volver a la Jefa; el cierre se abre automáticamente sólo después de «Cerrar la historia». Una partida v1 anterior con sólo `retorno_agua` conserva ubicación, permisos, documentos y elecciones; los dos contratos nuevos entran bloqueados. Un guardado sin la misión original se rechaza.
+
+La importación terminó sin errores. La suite obtuvo **793/793 comprobaciones headless** y **861/861 en ejecución nativa con GPU**; `preservation.py` confirmó canon, originales, retratos y proyecto único. La exportación Web se generó y abrió en Chrome local mediante HTTP: se vieron apertura, menú, dormitorio y deck con sólo el primer mensaje; `agent-browser errors` quedó vacío. El recorrido completo de las tres misiones **no se repitió en Web**; sí pasó en Godot nativo. Los dos WAV de ambiente/toque están empaquetados en la exportación. El audio se comprobó por carga, bucle y cambio de tono, no mediante una sesión de escucha del autor.
+
+Se inspeccionaron capturas reales de [contratos en 844×390](evidence/v1_contratos_844x390.png), [cierre a 1280×720](evidence/v1_cierre_1280x720.png) y [cierre a 844×390](evidence/v1_cierre_844x390.png). El contrato activo aparece primero; el panel de cierre encaja en horizontal pequeño y su texto se desplaza. Las 21 vistas conservan fondo y puntos dentro de la ilustración. El objetivo de 30 minutos, la comodidad en teléfonos físicos, Safari/iOS, Android, Windows/Linux, la continuidad artística y la aprobación del guion siguen sin comprobarse. La versión es candidata técnica, pendiente de revisión del autor antes de publicarla.
 
 ## Mapa completo · 21 oct 2026
 
@@ -8,9 +16,9 @@ Las 21 vistas están registradas e implementadas con 21 fondos propios: apartame
 
 Se ejecutaron los cuatro comandos de «Comprobar» del README con Godot 4.7.2: importación correcta, **633/633 comprobaciones headless**, **698/698 nativas con GPU** y preservación de canon/originales correcta. La exportación Web se generó sin error. En Helium/Chromium con servidor local se abrió una partida, se aceptó el contrato, se salió a La Fiebre y se probó [recarga al menú](evidence/zonas_web_recarga.png) y [«Continuar» en el pasaje](evidence/zonas_web_continuar.png), sin repetir el aviso del parte; `errors` no mostró errores de página. Ese recorrido Web no llegó a El Nudo ni a Los Puntales; los fondos de esas cotas se probaron y capturaron en ejecución nativa.
 
-La prueba nativa capturó cada vista nueva a 1280×720 y 844×390. Se inspeccionaron las salidas, puntos y bandas en ambos tamaños; muestras: [control de La Fiebre](evidence/zona_fiebre_descenso_1280x720.png), [El Nudo en horizontal móvil](evidence/zona_nudo_acceso_844x390.png), [Los Puntales en escritorio](evidence/zona_puntales_acceso_1280x720.png) y [Los Puntales en horizontal móvil](evidence/zona_puntales_acceso_844x390.png). Se abrieron además [«Pistas» en El Nudo](evidence/zona_nudo_acceso_pistas_844x390.png) y [«Pistas» en Los Puntales](evidence/zona_puntales_acceso_pistas_844x390.png), ambas dentro del área móvil. Los fondos son candidatos aplanados: hay que revisar continuidad visual entre vistas, pequeños detalles de las figuras y coherencia del acabado de Los Puntales con los retratos antes de aprobarlos. No se ha probado el toque en teléfono físico ni Safari, Android, Windows o Linux. Las misiones 2 y 3, la resolución y el final siguen pendientes.
+La prueba nativa de H2 capturó cada vista nueva a 1280×720 y 844×390. Se inspeccionaron las salidas, puntos y bandas en ambos tamaños; muestras: [control de La Fiebre](evidence/zona_fiebre_descenso_1280x720.png), [El Nudo en horizontal móvil](evidence/zona_nudo_acceso_844x390.png), [Los Puntales en escritorio](evidence/zona_puntales_acceso_1280x720.png) y [Los Puntales en horizontal móvil](evidence/zona_puntales_acceso_844x390.png). Se abrieron además [«Pistas» en El Nudo](evidence/zona_nudo_acceso_pistas_844x390.png) y [«Pistas» en Los Puntales](evidence/zona_puntales_acceso_pistas_844x390.png), ambas dentro del área móvil. Los fondos son candidatos aplanados: hay que revisar continuidad visual entre vistas, pequeños detalles de las figuras y coherencia del acabado de Los Puntales con los retratos antes de aprobarlos. En la fecha de H2 todavía estaban pendientes las misiones 2 y 3; se completaron en la candidata 1.0 descrita arriba.
 
-Las secciones siguientes conservan resultados históricos de las iteraciones del hito 1. Los conteos vigentes del mapa completo son los de esta sección.
+Las secciones siguientes conservan resultados históricos de las iteraciones de H1 y H2. Los conteos vigentes son los de «Versión 1.0 candidata».
 
 ## Aviso repetido al navegar · 21 oct 2026
 
@@ -53,14 +61,14 @@ Inspección visual del asistente: las dos entradas y el paso central se leen, la
 | Comprobación | Resultado |
 | --- | --- |
 | Importación del proyecto y arranque | Sin errores de script/importación registrados |
-| `tests/run.gd`, headless | **239 comprobaciones, 0 fallos** |
-| Mismo recorrido nativo con GPU Apple M4 | **268 comprobaciones, 0 fallos**; incluye captura de navegación sin aviso |
+| `tests/run.gd`, headless | **793 comprobaciones, 0 fallos** |
+| Mismo recorrido nativo con GPU Apple M4 | **861 comprobaciones, 0 fallos**; incluye los tres contratos y capturas de 1.0 |
 | `tests/preservation.py` | Canon, cinco originales, dos copias de diálogo y logo original idénticos; un proyecto activo; ninguna dependencia 3D |
 | Exportación Web, sin hilos | Generada correctamente con las plantillas 4.7.2 |
 
 Los conteos difieren porque la ejecución GPU incluye comprobaciones de escritura de capturas. Se comprueba logo → autoría → aviso → menú, avance por clic/toque sin botón, espera en móvil vertical, cobertura del menú hasta volver a horizontal y configuración nativa por sensor para que el aviso pueda verse con el teléfono erguido. En las cuatro proporciones se comprueba que cada área táctil sea de 36 o 48 unidades lógicas, contenga un punto de 10 unidades centrado, permanezca sobre la ilustración y no tenga rótulos superpuestos. Un clic cercano a la puerta, fuera del área acotada, no navega; el clic central sí. La prueba vertical de interacción de la escena se ejecuta en modo ordenador dentro de Godot para conservar la regresión de layout; en un móvil la escena queda cubierta. No sumar las cifras como si fuesen casos independientes.
 
-Las pruebas cubren: IDs/destinos y condiciones, cuatro zonas/doce vistas registradas, partida nueva, bloqueo previo al contrato, menú/opciones/créditos/continuar, intro saltable, deck, mensaje, aceptación, cocina/baño, documentos y paginación, terminal y registro, conversación/elección/flags, ruta a La Fiebre, persistencia de cada campo y rechazo de formatos inválidos, recuperación de `.bak`, rechazo de zona futura y limpieza de nueva partida. Se prueban READY_TO_COMPLETE y COMPLETED con efectos sintéticos de futuros hitos, sin atribuir esos contenidos al juego actual.
+Las pruebas cubren: IDs/destinos y condiciones, cuatro zonas y 21 vistas, partida nueva, bloqueo previo al contrato, menú/opciones/créditos/continuar, intro saltable, deck y mensajes condicionados, aceptación y entrega de los tres contratos, documentos y paginación, terminal e informe, conversaciones y ambas decisiones finales, persistencia, migración desde H1, rechazo de formatos inválidos, recuperación de `.bak` y limpieza de nueva partida. `READY_TO_COMPLETE` y `COMPLETED` se alcanzan con acciones reales de la partida.
 
 Entrada: eventos `InputEventMouseButton` y `InputEventScreenTouch` entregados al viewport. Se pulsa también la opción de diálogo mediante su botón. No son pruebas con un dedo físico.
 
@@ -104,4 +112,4 @@ Son capturas del juego ejecutándose, no maquetas. Los PNG fuente de fondos no s
 
 ## Límites pendientes
 
-No se han probado Windows/Linux, Safari/iOS, Android real ni teléfonos físicos. La detección móvil Web usa los indicadores `web_android`/`web_ios` de Godot, comprobada con iPhone emulado; queda por validar en Safari y Android físicos. El logo original fue suministrado por el autor para esta pantalla; el texto de derechos requiere revisión editorial. No hay aventura de 30 minutos completa, desenlace, sonido final, capas ambientales animadas ni arte aprobado para estos escenarios. Los fondos son candidatos aplanados. La ventana y la continuidad de las habitaciones requieren revisión artística. La Jefa aparece en el retrato de conversación; falta su figura ambiental. No se declara ninguna aprobación del autor sobre el resto de esta entrega.
+No se han probado Windows/Linux, Safari/iOS, Android real ni teléfonos físicos. La detección móvil Web usa los indicadores `web_android`/`web_ios` de Godot, comprobada con iPhone emulado en H1; queda por validar en Safari y Android físicos. El logo original fue suministrado por el autor para esta pantalla; el texto de derechos requiere revisión editorial. El arco y el sonido básico existen, pero no hay medición de duración ni prueba de escucha del autor. Los fondos son candidatos aplanados sin capas ambientales animadas aprobadas. La ventana y la continuidad de las habitaciones requieren revisión artística. La Jefa aparece en el retrato de conversación; falta su figura ambiental. No se declara ninguna aprobación del autor sobre la ficción o los fondos de esta entrega.

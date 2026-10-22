@@ -19,6 +19,8 @@ var modal_body: VBoxContainer
 var focus_before_modal: Control
 var exploration_header: BoxContainer
 var exploration_footer: PanelContainer
+var ambience_player := AudioStreamPlayer.new()
+var touch_player := AudioStreamPlayer.new()
 
 func _ready() -> void:
 	theme = GameUI.theme()
@@ -30,6 +32,15 @@ func _ready() -> void:
 	add_child(overlay)
 	GameUI.fill(overlay)
 	overlay.hide()
+	ambience_player.bus = "Music"
+	ambience_player.volume_db = -7.0
+	ambience_player.stream = load("res://assets/audio/arrecife_ambiente.wav")
+	if ambience_player.stream is AudioStreamWAV:
+		ambience_player.stream.loop_mode = AudioStreamWAV.LOOP_FORWARD
+	add_child(ambience_player)
+	touch_player.bus = "Effects"
+	touch_player.stream = load("res://assets/audio/arrecife_toque.wav")
+	add_child(touch_player)
 	observation_timer.one_shot = true
 	observation_timer.timeout.connect(dismiss_observation)
 	add_child(observation_timer)
@@ -87,6 +98,7 @@ func background(parent: Control, id: String, dim: float = 0.0) -> void:
 	GameUI.fill(shade)
 
 func show_menu() -> void:
+	ambience_player.stop()
 	dismiss_observation()
 	close_modal()
 	menu_visible = true
@@ -160,6 +172,7 @@ func continue_game() -> void:
 		show_notice("No se pudo continuar", State.last_error)
 
 func show_intro() -> void:
+	ambience_player.stop()
 	dismiss_observation()
 	menu_visible = false
 	GameUI.clear(page)
@@ -195,6 +208,9 @@ func show_exploration() -> void:
 	GameUI.fill(current_view)
 	current_view.activated.connect(interact)
 	var screen: Dictionary = Content.world.screens[State.data.screen]
+	ambience_player.pitch_scale = {"apartamento": 0.9, "fiebre": 1.0, "nudo": 0.82, "puntales": 0.68}[screen.zone]
+	if not ambience_player.playing:
+		ambience_player.play()
 	current_view.show_screen(screen)
 	var top := PanelContainer.new()
 	top.add_theme_stylebox_override("panel", GameUI.box(Color(0.035, 0.065, 0.08, 0.88)))
@@ -274,6 +290,7 @@ func dismiss_observation() -> void:
 		exploration_footer.hide()
 
 func interact(hotspot: Dictionary) -> void:
+	touch_player.play()
 	if not State.matches(hotspot.get("available_if", {})):
 		observe(hotspot.get("locked_text", "Todavía no está disponible."))
 		return
@@ -352,6 +369,8 @@ func show_notice(title: String, text: String) -> void:
 	GameUI.label(modal_body, text, 26)
 
 func show_dialogue(id: String) -> void:
+	var had_part: bool = State.data.flags.get("parte_contrastado", false)
+	var had_final: bool = State.data.missions.get("prueba_presion") == "COMPLETED"
 	focus_before_modal = get_viewport().gui_get_focus_owner()
 	GameUI.clear(overlay)
 	overlay.show()
@@ -360,7 +379,9 @@ func show_dialogue(id: String) -> void:
 	GameUI.fill(dialogue)
 	dialogue.finished.connect(func():
 		close_modal()
-		if State.data.flags.get("parte_contrastado", false):
+		if not had_final and State.data.missions.get("prueba_presion") == "COMPLETED":
+			show_device("Cierre")
+		elif not had_part and State.data.flags.get("parte_contrastado", false):
 			observe("El parte y la lectura están guardados. El siguiente contraste corresponde al equipo de El Nudo."))
 	dialogue.start(id)
 
@@ -380,9 +401,14 @@ func show_document(id: String, page_number: int = 0) -> void:
 func show_terminal(id: String) -> void:
 	var terminal: Dictionary = Content.story.terminals[id]
 	open_panel(terminal.title, terminal.status, false, true)
-	GameUI.label(modal_body, "*  CONEXIÓN DISPONIBLE\n\nSelecciona un registro de la memoria doméstica.", 24).modulate = Color("97c2ac")
+	GameUI.label(modal_body, "*  CONEXIÓN DISPONIBLE\n\nSelecciona un registro local.", 24).modulate = Color("97c2ac")
 	for entry in terminal.entries:
-		GameUI.action(modal_body, entry.label, func(): show_document(entry.document))
+		if not State.matches(entry.get("available_if", {})):
+			continue
+		if entry.has("document"):
+			GameUI.action(modal_body, entry.label, func(): show_document(entry.document))
+		else:
+			GameUI.action(modal_body, entry.label, func(): show_dialogue(entry.dialogue))
 	if not State.settings.reduced_motion:
 		modal_body.modulate.a = 0.0
 		create_tween().tween_property(modal_body, "modulate:a", 1.0, 0.2)
@@ -395,8 +421,8 @@ func show_device(tab: String = "Mensajes") -> void:
 
 func show_options() -> void:
 	open_panel("Opciones", "AJUSTES LOCALES")
-	GameUI.label(modal_body, "Sonido · buses preparados; este hito aún no incluye música ni efectos.", 20)
-	for pair in [["master", "Volumen general"],["music", "Música"],["effects", "Efectos"]]:
+	GameUI.label(modal_body, "Ajustes de sonido y lectura", 20)
+	for pair in [["master", "Volumen general"],["music", "Ambiente"],["effects", "Acciones"]]:
 		GameUI.label(modal_body, pair[1], 22)
 		var slider := HSlider.new()
 		slider.min_value = 0

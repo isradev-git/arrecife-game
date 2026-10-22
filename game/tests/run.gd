@@ -36,6 +36,12 @@ func all_buttons(node: Node) -> Array[Button]:
 		result.append_array(all_buttons(child))
 	return result
 
+func has_button(label: String, node: Node) -> bool:
+	for button in all_buttons(node):
+		if button.text == label and button.is_visible_in_tree():
+			return true
+	return false
+
 func has_navigation(from_id: String, to_id: String) -> bool:
 	if not content.world.screens.has(from_id):
 		return false
@@ -96,6 +102,7 @@ func run() -> void:
 	check(ProjectSettings.get_setting("display/window/handheld/orientation") == 6, "Orientación por sensor para mostrar el aviso en móvil nativo")
 	screenshots = DisplayServer.get_name() != "headless"
 	state.save_path = "user://prueba_" + str(OS.get_process_id()) + ".json"
+	check(content.missions.size() == 3, "Tres contratos para la versión 1.0")
 	check(content.world.zones.size() == 4, "Cuatro zonas")
 	check(content.world.screens.size() == 21, "Veintiún puntos de vista registrados")
 	var fiebre_ids := ["fiebre_calle", "fiebre_entrada", "fiebre_encuentro", "fiebre_galeria", "fiebre_suministros", "fiebre_descenso"]
@@ -179,7 +186,7 @@ func run() -> void:
 	check(DirAccess.copy_absolute(ProjectSettings.globalize_path(fixture_path), ProjectSettings.globalize_path(state.save_path)) == OK, "Fixture de partida anterior copiado")
 	check(state.load_game(), "Partida v1 anterior cargada")
 	check(state.data.screen == "fiebre_calle" and state.data.zone == "fiebre", "Ubicación v1 conservada")
-	check(state.data.missions == {"retorno_agua": "ACTIVE"} and state.data.flags.has("orden_visita") and state.data.flags.has("acreditacion_residencia"), "Misión y permisos v1 conservados")
+	check(state.data.missions == {"retorno_agua": "ACTIVE", "orden_duplicada": "LOCKED", "prueba_presion": "LOCKED"} and state.data.flags.has("orden_visita") and state.data.flags.has("acreditacion_residencia"), "Partida v1 amplía misiones sin perder permisos")
 	check(state.data.documents == ["recibo"] and state.data.choices.has("jefa:saludo"), "Documentos y elección v1 conservados")
 	var exploration_state: Dictionary = state.data.duplicate(true)
 	for target in ["fiebre_descenso", "nudo_acceso", "nudo_taller", "nudo_terminal", "nudo_archivo", "nudo_paso_inferior", "puntales_acceso", "puntales_taller", "puntales_observatorio", "puntales_soportes", "puntales_presion", "puntales_verificacion", "puntales_acceso", "nudo_paso_inferior", "nudo_archivo", "nudo_mercado", "nudo_acceso", "fiebre_descenso", "fiebre_calle"]:
@@ -228,6 +235,7 @@ func run() -> void:
 	await capture("02_introduccion")
 	await press("Saltar introducción")
 	check(is_instance_valid(app.current_view), "Introducción saltable")
+	check(app.get("ambience_player") is AudioStreamPlayer and app.ambience_player.stream is AudioStreamWAV and app.ambience_player.stream.loop_mode == AudioStreamWAV.LOOP_FORWARD, "Ambiente sonoro en bucle en exploración")
 	check(app.exploration_footer.visible and app.observation.text.begins_with("Toca los puntos de luz"), "Primera entrada conserva la ayuda para explorar")
 	await capture("03_dormitorio")
 	await press("· La cama")
@@ -271,6 +279,8 @@ func run() -> void:
 	await press("Cerrar ×")
 	await press("· Deck externo")
 	check(app.overlay.visible, "Hotspot abre deck con ratón")
+	check(not has_button("* Orden repetida · Enlace policial", app.overlay), "Mensaje policial aún oculto")
+	check(not has_button("* Antes de otra revisión · La Jefa", app.overlay), "Tercer contrato aún oculto")
 	await press("* Un parte que no cuadra · La Jefa")
 	check(state.data.missions.retorno_agua == "AVAILABLE", "Mensaje recibe contrato")
 	await press("Revisar contrato")
@@ -309,6 +319,7 @@ func run() -> void:
 	check(state.data.screen == "ap_cocina", "Navegación mediante toque")
 	await press("> Salir a La Fiebre")
 	check(state.data.screen == "fiebre_calle", "Ruta entre zonas autorizada")
+	check(app.get("ambience_player") is AudioStreamPlayer and app.ambience_player.stream is AudioStreamWAV and app.ambience_player.pitch_scale == 1.0, "Ambiente cambia con la zona")
 	await capture("10_fiebre")
 	await press("> Umbral de Velvet")
 	check(state.data.screen == "fiebre_entrada", "Entrada física al umbral de Velvet")
@@ -331,7 +342,7 @@ func run() -> void:
 	await capture("11_dialogo")
 	var dialogue = app.overlay.get_child(0)
 	check(dialogue.content.other == "jefa", "Interlocutora original")
-	var choice: Dictionary = content.dialogues.jefa.nodes.saludo.choices[0]
+	var choice: Dictionary = content.dialogues.jefa.nodes.saludo.choices[2]
 	for button in all_buttons(dialogue):
 		if button.text == choice.text:
 			check(button.get_theme_color("font_color") == Color("e9c46a"), "Respuesta de misión en amarillo")
@@ -352,12 +363,16 @@ func run() -> void:
 	check(not app.exploration_footer.visible and app.observation_timer.is_stopped(), "Cambiar de habitación no repite el estado del contrato")
 	await capture("navegacion_sin_aviso")
 	await press("> Salón / cocina")
+	check(state.data.screen == "ap_cocina", "Regreso del baño a cocina tras captura: " + state.data.screen)
 	await press("> Salir a La Fiebre")
 	await press("> Control de descenso")
 	await press("> Bajar a El Nudo")
 	check(state.data.screen == "nudo_acceso", "Bajada autorizada hasta El Nudo")
 	await press("> Taller de reparaciones")
 	check(state.data.screen == "nudo_taller", "Taller de El Nudo navegable")
+	await press("· Ficha del equipo")
+	check(state.data.flags.get("equipo_comprobado", false), "Ficha del equipo comprobada en El Nudo")
+	await press("Cerrar documento")
 	await press("> Puesto de red", null, true)
 	check(state.data.screen == "nudo_terminal", "Puesto de red accesible por toque")
 	await press("> Archivo de órdenes")
@@ -374,6 +389,9 @@ func run() -> void:
 	await press("> Cámara de presión")
 	await press("> Puesto de verificación")
 	check(state.data.screen == "puntales_verificacion", "Anillo de Los Puntales accesible por toque")
+	await press("· Control de la conducción")
+	check(state.data.missions.retorno_agua == "READY_TO_COMPLETE", "El parte queda listo con prueba física")
+	await press("Cerrar documento")
 	await press("> Acceso a Los Puntales")
 	await press("> Subir a El Nudo")
 	check(state.data.screen == "nudo_paso_inferior", "Subida autorizada a El Nudo")
@@ -387,7 +405,92 @@ func run() -> void:
 	await press("> Subir a La Fiebre")
 	check(state.data.screen == "fiebre_descenso", "Subida con acreditación autorizada")
 	await press("> Volver al pasaje")
-	check(state.data.missions.retorno_agua == "ACTIVE", "Hito no completa falsamente misión")
+	check(state.data.missions.retorno_agua == "READY_TO_COMPLETE", "La comprobación exige entrega explícita")
+	await press("· Hablar con la Jefa")
+	await press("Entregar la comprobación del agua.")
+	await press("Continuar >")
+	await press("Guardar la conclusión")
+	check(state.data.missions.retorno_agua == "COMPLETED" and not app.exploration_footer.visible, "Primer contrato entregado sin aviso repetido")
+	await press("Deck")
+	check(has_button("* Orden repetida · Enlace policial", app.overlay), "La policía escribe tras el primer contrato")
+	await press("* Orden repetida · Enlace policial")
+	await press("Revisar contrato")
+	await press("Aceptar contrato")
+	check(state.data.missions.orden_duplicada == "ACTIVE", "Segundo contrato aceptado: " + JSON.stringify(state.data.missions))
+	await press("Cerrar ×")
+	for label in ["> Galería de residentes", "> Pasarela de suministros"]:
+		await press(label)
+	await press("· Remesa de filtros")
+	await press("Cerrar documento")
+	for label in ["> Volver a la galería", "> Control de descenso", "> Bajar a El Nudo", "> Taller de reparaciones", "> Puesto de red", "> Archivo de órdenes"]:
+		await press(label)
+	await press("· Orden duplicada")
+	await press("Cerrar documento")
+	await press("> Puesto de red")
+	await press("· Puesto de red")
+	await press("Leer traza de transmisión")
+	check(state.data.missions.orden_duplicada == "READY_TO_COMPLETE", "Segundo contrato reúne tres pruebas")
+	await press("Cerrar documento")
+	await press("· Puesto de red")
+	await press("Redactar y enviar informe policial")
+	await press("Enviar el informe de hechos.")
+	await press("Guardar el acuse")
+	check(state.data.missions.orden_duplicada == "COMPLETED", "Informe policial entregado")
+	await press("Deck")
+	check(has_button("* Antes de otra revisión · La Jefa", app.overlay), "Tercer encargo recibido tras el informe")
+	await press("* Antes de otra revisión · La Jefa")
+	await press("Revisar contrato")
+	await press("Aceptar contrato")
+	check(state.data.missions.prueba_presion == "ACTIVE", "Tercer contrato aceptado")
+	root.size = Vector2i(844, 390)
+	app.show_device("Contratos")
+	await frames(8)
+	await capture("v1_contratos_844x390")
+	root.size = Vector2i(1280, 720)
+	await press("Cerrar ×")
+	for label in ["> Taller de reparaciones", "> Acceso a El Nudo", "> Subir a La Fiebre", "> Volver a la galería"]:
+		await press(label)
+	await press("· Lista de cargos")
+	await press("Cerrar documento")
+	for label in ["> Control de descenso", "> Bajar a El Nudo", "> Mercado de componentes", "> Archivo de órdenes", "> Paso inferior", "> Bajar a Los Puntales", "> Puesto de verificación", "> Cámara de presión", "> Galería de soportes"]:
+		await press(label)
+	await press("· Marca del soporte")
+	await press("Cerrar documento")
+	await press("> Cámara de presión")
+	await press("· Lectura de presión")
+	await press("Cerrar documento")
+	check(state.data.missions.prueba_presion == "READY_TO_COMPLETE", "Tercer contrato listo para cerrar")
+	for label in ["> Puesto de verificación", "> Acceso a Los Puntales", "> Subir a El Nudo", "> Archivo de órdenes", "> Mercado de componentes", "> Acceso a El Nudo", "> Subir a La Fiebre", "> Volver al pasaje"]:
+		await press(label)
+	var before_final: Dictionary = state.data.duplicate(true)
+	await press("· Hablar con la Jefa")
+	await press("Entregar las copias de la prueba final.")
+	await press("Informar primero a las viviendas afectadas.")
+	check(state.data.missions.prueba_presion == "READY_TO_COMPLETE" and not state.data.flags.get("vecinos_primero", false), "Elegir destinatario aún permite releer el último parlamento")
+	await press("Volver a la escena")
+	check(state.data.missions.prueba_presion == "READY_TO_COMPLETE" and not app.overlay.visible, "Salir antes del cierre conserva el contrato entregable")
+	await press("· Hablar con la Jefa")
+	await press("Entregar las copias de la prueba final.")
+	await press("Informar primero a las viviendas afectadas.")
+	await press("Cerrar la historia")
+	check(state.data.missions.prueba_presion == "COMPLETED" and state.data.flags.get("vecinos_primero", false), "Final de viviendas registrado")
+	check(app.overlay.visible and has_button("Cierre", app.overlay), "El cierre se abre automáticamente tras terminar")
+	await capture("v1_cierre_1280x720")
+	root.size = Vector2i(844, 390)
+	app.show_device("Cierre")
+	await frames(8)
+	await capture("v1_cierre_844x390")
+	root.size = Vector2i(1280, 720)
+	await press("Cerrar ×")
+	state.data = before_final
+	check(state.save_game(), "Estado previo al final conservado para probar segunda decisión")
+	app.show_exploration()
+	await press("· Hablar con la Jefa")
+	await press("Entregar las copias de la prueba final.")
+	await press("Enviar primero las copias al canal policial.")
+	await press("Cerrar la historia")
+	check(state.data.missions.prueba_presion == "COMPLETED" and state.data.flags.get("policia_primero", false) and not state.data.flags.get("vecinos_primero", false), "Final policial registrado sin mezclar decisiones")
+	check(app.overlay.visible and has_button("Cierre", app.overlay), "El cierre policial se abre automáticamente")
 	var snapshot: Dictionary = state.data.duplicate(true)
 	state.data = {}
 	var loaded: bool = state.load_game()
@@ -405,6 +508,9 @@ func run() -> void:
 	var malformed: Dictionary = snapshot.duplicate(true)
 	malformed.documents = [42]
 	check(not state.valid(malformed), "IDs de documento inválidos")
+	var missing_original: Dictionary = snapshot.duplicate(true)
+	missing_original.missions.erase("retorno_agua")
+	check(not state.valid(missing_original), "Guardado sin misión original rechazado")
 	var file := FileAccess.open(state.save_path, FileAccess.WRITE)
 	file.store_string("{ truncado")
 	file.close()
@@ -474,12 +580,7 @@ func run() -> void:
 	await frames(8)
 	check(not app.orientation_gate.visible, "Partida recuperada al volver a horizontal")
 	app.orientation_gate.mobile = false
-	# Toda la máquina de misión puede concluir con datos de futuros hitos.
-	for step in content.missions.retorno_agua.steps:
-		state.apply({"flag":step.flag})
-	check(state.data.missions.retorno_agua == "READY_TO_COMPLETE", "Misión lista para entregar")
-	state.apply({"flag":"resolucion_entregada"})
-	check(state.data.missions.retorno_agua == "COMPLETED", "Misión completada explícitamente")
+	check(state.data.missions.retorno_agua == "COMPLETED" and state.data.missions.orden_duplicada == "COMPLETED" and state.data.missions.prueba_presion == "COMPLETED", "Las tres misiones siguen completas tras carga")
 	for resolution in [Vector2i(1280, 720), Vector2i(844, 390)]:
 		root.size = resolution
 		for sid in fiebre_ids + nudo_ids + puntales_ids:
@@ -503,5 +604,8 @@ func run() -> void:
 	for filename in DirAccess.get_files_at("user://"):
 		if filename.begins_with("prueba_" + str(OS.get_process_id())):
 			DirAccess.remove_absolute("user://" + filename)
+	app.ambience_player.stop()
+	app.queue_free()
+	await frames(2)
 	print("RESULTADO: %d comprobaciones, %d fallos" % [count, failures.size()])
 	quit(0 if failures.is_empty() else 1)

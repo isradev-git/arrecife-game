@@ -27,13 +27,39 @@
     "nodes": {
       "saludo": {
         "speaker": "jefa",
-        "text": "—Ya han cargado la reparación a una de las nuestras y el agua sigue llegando a tirones. Para quien firmó el parte, la casilla del filtro basta. Para ella, es dinero que no tiene. ¿Traes algo que podamos enseñar, o todavía es sólo nuestra palabra contra la suya?",
+        "text": "—Cuéntame qué has encontrado. Un cargo cerrado sin prueba no se sostiene por mucho que repitan su número de orden. Si tenemos las horas y las copias, podremos mover algo.",
         "choices": [
+          {
+            "text": "Entregar la comprobación del agua.",
+            "role": "main",
+            "if": {
+              "mission": "retorno_agua",
+              "states": [
+                "READY_TO_COMPLETE"
+              ]
+            },
+            "next": "entrega_agua"
+          },
+          {
+            "text": "Entregar las copias de la prueba final.",
+            "role": "main",
+            "if": {
+              "mission": "prueba_presion",
+              "states": [
+                "READY_TO_COMPLETE"
+              ]
+            },
+            "next": "entrega_final"
+          },
           {
             "text": "La lectura no coincide con el parte.",
             "role": "main",
             "if": {
-              "flag": "lectura_copiada"
+              "flag": "lectura_copiada",
+              "mission": "retorno_agua",
+              "states": [
+                "ACTIVE"
+              ]
             },
             "next": "lectura"
           },
@@ -54,7 +80,12 @@
             "text": "Repasar lo que sabemos.",
             "role": "info",
             "if": {
-              "flag": "parte_contrastado"
+              "flag": "parte_contrastado",
+              "mission": "retorno_agua",
+              "states": [
+                "ACTIVE",
+                "READY_TO_COMPLETE"
+              ]
             },
             "next": "siguiente"
           },
@@ -104,6 +135,117 @@
         "choices": [
           {
             "text": "Guardar el parte y volver",
+            "role": "main",
+            "end": true
+          }
+        ]
+      },
+      "entrega_agua": {
+        "speaker": "sota",
+        "text": "—El equipo no tiene sustitución firmada y abajo no hay prueba de salida. La caída de presión continuó. No puedo decir quién cerró la orden, pero sí que el cobro no está justificado con este parte.",
+        "next": "cierre_agua"
+      },
+      "cierre_agua": {
+        "speaker": "jefa",
+        "text": "—Con eso puedo pedir que congelen el cargo y repitan la comprobación. Aquí está lo acordado por tu trabajo. Si aparece otra orden, te llamaré; de momento no voy a cargar el fallo a quien no puede defenderse.",
+        "effects": {
+          "flag": "resolucion_entregada"
+        },
+        "choices": [
+          {
+            "text": "Guardar la conclusión",
+            "role": "main",
+            "end": true
+          }
+        ]
+      },
+      "entrega_final": {
+        "speaker": "jefa",
+        "text": "—La revisión independiente está concertada y el cobro sigue suspendido. Tenemos tres cargos, el soporte intacto y una lectura actual. Tú has hecho tu trabajo; falta decidir quién recibe primero las copias.",
+        "choices": [
+          {
+            "text": "Informar primero a las viviendas afectadas.",
+            "role": "main",
+            "next": "final_vecinos"
+          },
+          {
+            "text": "Enviar primero las copias al canal policial.",
+            "role": "main",
+            "next": "final_policia"
+          }
+        ]
+      },
+      "final_vecinos": {
+        "speaker": "sota",
+        "text": "—Las viviendas tienen las horas y los importes antes que nadie. Pueden impugnar el cargo juntas. La policía recibe después la copia del informe, sin nombres que no hayan autorizado compartir. La reparación sigue pendiente de la nueva prueba, pero ya no pueden cobrarla como si estuviera resuelta.",
+        "choices": [
+          {
+            "text": "Cerrar la historia",
+            "role": "main",
+            "end": true,
+            "effects": {
+              "flags": [
+                "prueba_cerrada",
+                "vecinos_primero"
+              ]
+            }
+          }
+        ]
+      },
+      "final_policia": {
+        "speaker": "sota",
+        "text": "—La unidad recibe primero la cadena de documentos y registra el duplicado. Después llevamos las copias a las viviendas. El expediente puede moverse aunque alguien arriba retrase la actuación; el cargo permanece congelado hasta una verificación real.",
+        "choices": [
+          {
+            "text": "Cerrar la historia",
+            "role": "main",
+            "end": true,
+            "effects": {
+              "flags": [
+                "prueba_cerrada",
+                "policia_primero"
+              ]
+            }
+          }
+        ]
+      }
+    }
+  },
+  "informe_policial": {
+    "other": "",
+    "start": "redactar",
+    "nodes": {
+      "redactar": {
+        "speaker": "sota",
+        "text": "Hay dos órdenes para el mismo tramo. El segundo envío salió después del cierre y una caja declarada como instalada volvió sellada. Falta la firma de autorización. El informe debe decir exactamente eso: nada de nombres imaginados para llenar una casilla.",
+        "choices": [
+          {
+            "text": "Enviar el informe de hechos.",
+            "role": "main",
+            "if": {
+              "mission": "orden_duplicada",
+              "states": [
+                "READY_TO_COMPLETE"
+              ]
+            },
+            "next": "enviado"
+          },
+          {
+            "text": "Volver a los registros.",
+            "role": "exit",
+            "end": true
+          }
+        ]
+      },
+      "enviado": {
+        "speaker": "sota",
+        "text": "El acuse queda guardado en el deck. La unidad puede actuar con lo que hay y tendrá que pedir permiso para ir más allá. Mi contrato termina con el informe; la siguiente decisión es suya.",
+        "effects": {
+          "flag": "informe_enviado"
+        },
+        "choices": [
+          {
+            "text": "Guardar el acuse",
             "role": "main",
             "end": true
           }

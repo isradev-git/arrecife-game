@@ -1,14 +1,14 @@
-# Diseño vigente · aventura ilustrada
+# Diseño vigente · El Arrecife 1.0
 
 ## Experiencia
 
-Primera persona desde Sota. Vistas fijas, exploración por clic/toque, conversaciones y decisiones breves. Objetivo de la primera entrega completa: unos 30 minutos, ampliables con nuevos contratos y localizaciones. El hito actual es una base jugable más corta; su duración no se ha medido con una sesión del autor.
+Primera persona desde Sota. Vistas fijas, exploración por clic/toque, conversaciones y decisiones breves. La versión 1.0 contiene tres contratos y un desenlace con dos decisiones posibles. Su duración objetivo es unos 30 minutos; todavía requiere una partida cronometrada del autor.
 
 Al arrancar: logo original «EL ARRECIFE PRODUCTS» suministrado por el autor → crédito del universo original de Israel Zamora → aviso de orientación → menú. Cada pantalla avanza sola tras una breve espera o al tocar la pantalla, hacer clic o pulsar Intro; no muestra un botón de salto. En Web se marca al empezar la apertura en `sessionStorage`: recargar la misma pestaña va directamente al menú, mientras que una pestaña nueva muestra la secuencia. La carga del motor usa fondo neutro, sin otro logo. En móvil, la tercera espera a que la pantalla esté horizontal; si se vuelve a vertical durante el juego, un aviso cubre la interfaz hasta recuperar la orientación. El ordenador muestra «disfruta» y no se bloquea por la forma de su ventana. Los textos de crédito y orientación están en `story.json`; la imagen original del logo se conserva sin modificar.
 
 El menú usa una vista ilustrada de ciudad desde una ventana de una cota aún sin identificar, ajena al dormitorio de Sota. Los enlaces son líneas tipográficas sin cajas ni retrato de protagonista. Es una candidata visual del asistente, no arte final aprobado. Las vistas jugables dejan la ilustración a pantalla completa y sitúan los controles en bandas translúcidas sobre la propia escena.
 
-La estructura propone una actividad concreta: comprobar un cargo de reparación de agua. El mundo aparece en recibos, lecturas, desplazamientos y conversaciones. No hay combate, avatar caminando ni cámara libre.
+La estructura sigue un cargo de reparación de agua, una orden duplicada y una verificación final de presión. El mundo aparece en recibos, lecturas, desplazamientos y conversaciones. No hay combate, avatar caminando ni cámara libre.
 
 ## Canon y propuesta
 
@@ -21,10 +21,10 @@ La estructura propone una actividad concreta: comprobar un cargo de reparación 
 | Jefa como titular de Velvet | No se establece: su encuentro es en un pasaje adyacente |
 | Sota protagonista del videojuego y retratos originales | Protagonismo y biografía fijados en el canon por el autor el 22 oct 2026; retratos originales aprobados |
 | Sota, ex-Vesta del suelo, investigadora independiente y colaboradora ocasional de la policía | Canon, sección 8: cobra directamente por encargo, informa sólo en los trabajos policiales y vive en La Fiebre gracias a su oficio |
-| Contrato «El parte del agua», afectada, recibo, orden de visita y diálogos | **Ficción nueva pendiente de aprobación** |
+| Los tres contratos, personas afectadas, recibos, orden de visita y diálogos | **Ficción del videojuego pendiente de revisión final del autor** |
 | Deck de Sota: memoria local, mensajes, contratos y notas | Interfaz propuesta compatible con tecnología canónica; no teléfono mágico ni transporte |
 
-No se incorporan tramas ni revelaciones de los protagonistas de las novelas. El autor amplió el canon con Sota y la regla sobre la policía el 22 oct 2026; los contratos y diálogos actuales del juego siguen pendientes de aprobación. `sources/`, `universo/` y los documentos literarios externos citados por el canon no existen en el checkout inspeccionado; esta entrega contrasta con el canon local disponible, no certifica revisión de fuentes ausentes.
+No se incorporan tramas ni revelaciones de los protagonistas de las novelas. El autor amplió el canon con Sota y la regla sobre la policía el 22 oct 2026, y delegó el desarrollo de 1.0; los contratos y diálogos del juego siguen pendientes de revisión final. `sources/`, `universo/` y los documentos literarios externos citados por el canon no existen en el checkout inspeccionado; esta entrega contrasta con el canon local disponible, no certifica revisión de fuentes ausentes.
 
 ## Mapa y alcance
 
@@ -41,9 +41,9 @@ Las puertas conectan habitaciones. La salida del apartamento se habilita al acep
 
 ## Contrato principal
 
-ID `retorno_agua`. Mensaje recibido → AVAILABLE → aceptación → ACTIVE → copia de lectura → contraste con Jefa → equipo en El Nudo (pendiente) → comprobación física en Puntales (pendiente) → READY_TO_COMPLETE → entrega explícita → COMPLETED.
+ID `retorno_agua`. Mensaje recibido → AVAILABLE → aceptación → ACTIVE → copia de lectura → contraste con Jefa → ficha del equipo en El Nudo → verificación física en Los Puntales → READY_TO_COMPLETE → entrega explícita a la Jefa → COMPLETED.
 
-Las fases futuras se prueban con datos sintéticos, pero **no se completan en el juego actual**. El hito termina mostrando el siguiente paso y conserva el contrato activo. El cierre narrativo, los honorarios concretos y una decisión con consecuencias finales se escribirán en otro hito.
+Tras esa entrega, `orden_duplicada` llega por mensaje de un enlace policial. Sota coteja archivo, red y remesa; sólo este contrato exige un informe policial. Tras enviarlo, `prueba_presion` llega de la Jefa: Sota reúne cargos, marca del soporte y lectura actual, y entrega las copias. El jugador elige si las reciben primero las viviendas afectadas o la unidad policial. La misión se completa al cerrar el último parlamento; salir antes permite releerlo y cambiar la elección. Entonces se abre automáticamente el cierre, que permanece en el deck. El cobro sigue suspendido y se acuerda una verificación independiente; no se atribuye culpabilidad sin pruebas ni se resuelve toda la corrupción. La [especificación de 1.0](superpowers/specs/2026-10-22-version-1-design.md) detalla el arco.
 
 ## Interacciones
 
@@ -69,11 +69,10 @@ En conversaciones, Sota izquierda e interlocutora derecha, mirando al centro con
 
 `main.gd`: menú, intro, exploración y apertura de paneles. `startup.gd`: tres pantallas previas y aviso reutilizado al girar el móvil. `viewpoint.gd`: imagen e indicadores. `dialogue.gd`: secuencia de nodos y opciones. `device.gd`: secciones del deck. `ui.gd`: controles y tema compartidos. Una escena raíz; las vistas son datos y usan el mismo componente. Sin dependencias externas ni frameworks.
 
-Guardado v1: vista/zona, misiones, flags, descubrimientos, documentos, mensajes, lugares y elecciones. Validación de tipos e IDs, escritura temporal verificada, copia anterior, rechazo de versiones desconocidas y recuperación de `.bak`. Nueva partida pide confirmación y conserva copia fechada. Opciones en archivo separado. No hay migración desde los prototipos retirados.
+Guardado v1: vista/zona, misiones, flags, descubrimientos, documentos, mensajes, lugares y elecciones. Validación de tipos e IDs, escritura temporal verificada, copia anterior, rechazo de versiones desconocidas y recuperación de `.bak`. Una partida anterior con sólo `retorno_agua` incorpora las dos misiones nuevas como bloqueadas al cargar, sin perder progreso. Nueva partida pide confirmación y conserva copia fechada. Opciones en archivo separado. No hay migración desde los prototipos retirados.
 
-## Próximos hitos
+## Estado de 1.0
 
-1. **H1 técnico:** fundación y primer tramo comprobados; revisión narrativa/artística del autor pendiente.
-2. **H2 técnico:** 21 vistas, navegación y fondos candidatos implementados y comprobados; producir fuentes por capas tras la aprobación artística.
-3. **H3:** diseñar las misiones 2 y 3, resolver el contrato y el final, y editar el ritmo hasta la duración objetivo.
-4. **H4:** sonido, arte definitivo, accesibilidad, dispositivos reales y exportaciones de escritorio.
+El contenido completo se recorre por interfaz y el guardado v1 anterior sigue cargando. Hay un ambiente mecánico en bucle, con tono distinto por zona, y un sonido de toque; los controles «Ambiente» y «Acciones» ajustan sus buses. La ausencia de partitura musical es una decisión de esta versión centrada en la lectura.
+
+La comprobación técnica se registra en [VALIDACION](VALIDACION.md). Quedan para revisión del autor la continuidad y aprobación de los fondos, la ficción del juego, la duración real y el texto legal. Falta probar dispositivos físicos y exportaciones de escritorio antes de publicar la versión final.

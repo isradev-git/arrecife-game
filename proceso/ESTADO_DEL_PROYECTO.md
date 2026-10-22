@@ -12,6 +12,16 @@ Actualizado: **22 de octubre de 2026**.
 
 La orden actual sustituye las decisiones jugables anteriores. El único proyecto activo es **`game/project.godot`**, Godot 4.7.2. [Diseño vigente](../docs/GAME_DESIGN.md) y [dirección artística](../docs/ART_DIRECTION.md).
 
+## Versión 1.0 candidata · 22 oct 2026
+
+**Decisión del autor:** «Puedes continuar con libertad para tener la versión 1.0 completa». Se interpreta como delegación para diseñar e implementar la ficción del videojuego en la rama actual, no como incorporación de esa ficción al canon literario ni como aprobación individual de los fondos. La [especificación](../docs/superpowers/specs/2026-10-22-version-1-design.md) y el [plan](../docs/superpowers/plans/2026-10-22-version-1.md) dejan registrado el alcance.
+
+**Implementado:** tres contratos enlazados con entrega explícita: `retorno_agua` concluye en la Jefa; `orden_duplicada` es un encargo policial y se cierra con un informe de hechos en El Nudo; `prueba_presion` termina con la elección de entregar primero las copias a viviendas o policía. La resolución suspende el cargo y concierta una verificación independiente. Las 21 vistas conservan navegación y tienen observaciones o pruebas contextuales. El deck oculta mensajes futuros, prioriza contratos accionables y conserva el cierre. Hay ambiente mecánico en bucle y toque breve con volumen separado. El guardado v1 anterior recibe las misiones nuevas bloqueadas sin perder progreso. `project.godot` declara `1.0.0`.
+
+**Comprobado técnicamente:** importación, 793/793 pruebas headless y 861/861 nativas con GPU, incluyendo las tres misiones y ambos desenlaces; preservación de canon/originales; exportación Web; apertura local en Chrome con menú, dormitorio y deck sin errores de página. Se inspeccionaron contratos y cierre en 844×390. [Resultados y capturas](../docs/VALIDACION.md). El recorrido completo de Web, teléfonos físicos, otras plataformas y la duración de una partida humana no se han comprobado.
+
+**Pendiente del autor:** revisión narrativa y artística final, continuidad entre fondos, luz de Penumbra en la vivienda, figura ambiental de la Jefa, redacción legal y escucha del ambiente. Los fondos siguen siendo candidatos aplanados. La candidata 1.0 no está publicada como versión final.
+
 ## Respaldo y preservación
 
 Inspección inicial limpia en `main`, checkpoint previo ya publicado **433e099**. Se creó `backup/pre-reboot-20261020` y se trabajó en **`feat/interactive-arrecife-reboot`**. Las carpetas retiradas se trasladaron completas a `../el-arrecife-respaldos/pre-reboot-20261020-433e099/`. [Recuperación exacta](../docs/RECUPERACION.md), [manifiesto SHA256](../docs/PRESERVACION.json).
@@ -68,13 +78,11 @@ La carga previa del motor Web se dejó con fondo neutro: el HTML exportado ocult
 
 **Corrección del aviso repetido, 21 oct:** el autor mostró que «El parte y la lectura están guardados…» reaparecía al cambiar de zona. La causa era `show_exploration()`, que abría el estado del contrato al reconstruir cualquier vista, incluida la carga de «Continuar». Se eliminó esa apertura automática y se conservó la ayuda inicial una sola vez. El diálogo y los trayectos siguen mostrando sus avisos propios. Las regresiones fallaron antes de cada corrección y pasaron después; 239/239 pruebas headless y 268/268 nativas, importación, preservación y Web exportada correctas. En la Web final se revisaron «Continuar» y el cambio de la cocina al baño sin el aviso. [Detalle](../docs/VALIDACION.md).
 
-[Resultados, evidencias y límites](../docs/VALIDACION.md). No se han probado móviles físicos, Safari/iOS, Windows ni Linux. El navegador depende de su almacenamiento local. No hay música ni efectos finales; los buses están preparados. Las pruebas técnicas no constituyen aprobación artística.
+[Resultados, evidencias y límites de H2](../docs/VALIDACION.md). A esa fecha no se habían probado móviles físicos, Safari/iOS, Windows ni Linux. El navegador depende de su almacenamiento local. En H2 los buses estaban preparados, aún sin ambiente ni efectos; la candidata 1.0 añade ambos. Las pruebas técnicas no constituyen aprobación artística.
 
 ## Siguiente trabajo
 
-El autor aprobó el reparto de **21 vistas** (apartamento 3; La Fiebre, El Nudo y Los Puntales 6 cada una), sus nombres/conexiones, la residencia de Sota en La Fiebre y el [plan de implementación](../docs/superpowers/plans/2026-10-21-21-vistas-zonas.md). Las zonas ya son jugables. Las misiones 2 y 3 quedan para el trabajo siguiente.
-
-Revisión del autor sobre la propuesta narrativa y los detalles de los 21 fondos, incluido el menú desde la ventana y la multitud de La Fiebre a tamaño de juego. Tras esa revisión, diseñar las misiones 2 y 3, el final y sus consecuencias; producir capas y sonido, revisar ritmo y validar dispositivos reales. [Tareas completas](../task.md).
+Revisión del autor de una partida completa: voz de Sota, ritmo, desenlace, fondos y continuidad visual a tamaño de juego. Medir la duración, probar la Web completa y teléfonos físicos, decidir correcciones de arte y preparar exportaciones de escritorio antes de la publicación final. [Tareas completas](../task.md).
 
 ## Historial breve
 

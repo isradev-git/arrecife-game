@@ -28,7 +28,24 @@
     "water": "El contador avanza aunque el grifo esté cerrado. Una gota queda suspendida en la boquilla antes de caer al fregadero y el número vuelve a moverse. Si hay un cargo nuevo por la reparación, quiero leer el recibo antes de pagarlo.",
     "pipes": "La abrazadera brilla más que el tubo que sujeta. Alguien limpió la zona exacta donde trabajó y dejó el resto tal como estaba. El goteo continúa detrás del panel; por fuera no hay manera de saber si la intervención llegó hasta allí.",
     "shelf": "Queda jabón para dos días, quizá tres si no se deshace en el agua. El estante está torcido y alguien lo sujetó con una arandela que no pertenece a este lavabo. Aquí hasta las cosas pequeñas parecen haber pasado por varias manos.",
-    "velvet": "La fila de la entrada mezcla ropa que no ha conocido un remiendo con chaquetas reparadas para aguantar otro turno. Dos personas salen discutiendo el precio de un trayecto; otra comprueba la hora y vuelve adentro. El pasaje sigue funcionando alrededor de todos ellos."
+    "velvet": "La fila de la entrada mezcla ropa que no ha conocido un remiendo con chaquetas reparadas para aguantar otro turno. Dos personas salen discutiendo el precio de un trayecto; otra comprueba la hora y vuelve adentro. El pasaje sigue funcionando alrededor de todos ellos.",
+    "umbral": "La puerta de Velvet deja pasar música y conversaciones entrecortadas. Sota conoce el valor de quedarse a un lado y escuchar antes de preguntar.",
+    "trato": "En este rincón se negocian trayectos y favores sin alzar la voz. Nadie parece dispuesto a poner por escrito lo que acaba de prometer.",
+    "galeria": "Las pasarelas habitadas comparten una misma conducción. Varias puertas tienen apuntado el importe de la última revisión.",
+    "suministros": "Las cajas llegan desde abajo y vuelven vacías. Una etiqueta repetida en dos remesas merece más atención que la discusión de los repartidores.",
+    "control": "El control separa la residencia de la orden de visita. La acreditación permite volver; la orden sólo explica por qué bajas.",
+    "acceso_nudo": "El ruido de los talleres tapa casi todas las conversaciones. Sota aprendió a reconocer una pieza por la forma de envolverla.",
+    "taller_nudo": "Hay filtros abiertos, abrazaderas usadas y herramientas que todavía conservan humedad. Una ficha técnica puede decir más que el parte cerrado.",
+    "red_nudo": "El puesto de red guarda copias locales de cada transmisión. Si una orden se envió dos veces, aquí quedarán dos marcas de tiempo.",
+    "mercado_nudo": "Las piezas cambian de mano sin ceremonia. Un sello intacto indica que una caja nunca se abrió, aunque figure como consumida.",
+    "archivo_nudo": "Los partes de papel se archivan por jornada. El duplicado no está junto al original: alguien quiso que pareciera otra visita.",
+    "paso_nudo": "Abajo el aire trae metal mojado. Las órdenes de visita se comprueban de nuevo antes de dejar pasar a Los Puntales.",
+    "acceso_puntales": "El suelo vibra con los cambios de presión. Las marcas de pintura en el pasamanos miden reparaciones anteriores.",
+    "taller_puntales": "El banco de mantenimiento tiene una abrazadera de repuesto sin usar. Una sustitución real debería dejar constancia aquí.",
+    "frente_puntales": "En el frente de trabajo se ve el tramo que conecta el retorno con la conducción principal. Nadie ha detenido el flujo para probarlo.",
+    "soportes_puntales": "Una línea de pintura cruza el soporte. Si se desmontó el filtro, la marca tendría que estar interrumpida.",
+    "presion_puntales": "El manómetro responde con retraso al pulso de la tubería. Hay que guardar la hora y la lectura completa, no sólo el valor más cómodo.",
+    "verificacion_puntales": "El puesto conserva el espacio para la firma de salida. Sigue vacío; el parte, sin embargo, está cerrado."
   },
   "documents": {
     "recibo": {
@@ -52,6 +69,94 @@
         "flag": "lectura_copiada",
         "discover": "lectura_agua"
       }
+    },
+    "ficha_equipo": {
+      "title": "Ficha del filtro",
+      "issuer": "EL NUDO · TALLER",
+      "pages": [
+        "La ficha del equipo registra una limpieza y la retirada de una junta. No registra un filtro nuevo ni una prueba de presión. El número de serie coincide con el recibo que lleva Sota, pero la casilla de sustitución quedó sin firmar. Copiar la ficha no demuestra una intención; sí impide dar por verificada la reparación."
+      ],
+      "effects": {
+        "flag": "equipo_comprobado",
+        "discover": "equipo"
+      }
+    },
+    "verificacion_fisica": {
+      "title": "Control de la conducción",
+      "issuer": "LOS PUNTALES · VERIFICACIÓN",
+      "pages": [
+        "El registro del puesto muestra una caída de presión posterior a la visita. La prueba de salida está en blanco. Sota fotografía el instrumento, su fecha y el tramo de tubo: no hay constancia de que se haya comprobado el resultado antes de cerrar el cobro."
+      ],
+      "effects": {
+        "flag": "reparacion_verificada",
+        "discover": "verificacion"
+      }
+    },
+    "orden_copia": {
+      "title": "Segunda orden",
+      "issuer": "EL NUDO · ARCHIVO FÍSICO",
+      "pages": [
+        "Una segunda orden cita el mismo tramo y la misma franja horaria. Su número es distinto y lleva una casilla de autorización superior sin firma visible. Sota copia ambas hojas completas para que el informe pueda distinguir duplicado de falsificación."
+      ],
+      "effects": {
+        "flag": "orden_duplicada_copiada",
+        "discover": "duplicado"
+      }
+    },
+    "traza_red": {
+      "title": "Traza de transmisión",
+      "issuer": "EL NUDO · PUESTO DE RED",
+      "pages": [
+        "El puesto registra dos envíos. El segundo salió después de que el primero quedara marcado como cerrado. La copia local no conserva el nombre de quien lo autorizó; sí conserva las horas y el puerto físico usado. Sota evita convertir esa ausencia en una acusación."
+      ],
+      "effects": {
+        "flag": "transmision_comprobada",
+        "discover": "traza"
+      }
+    },
+    "remesa": {
+      "title": "Remesa de suministros",
+      "issuer": "LA FIEBRE · PASARELA",
+      "pages": [
+        "Dos cajas comparten la referencia del filtro. Una volvió sellada y, aun así, figura como pieza instalada en la segunda orden. La etiqueta confirma la anomalía de inventario, no quién la anotó."
+      ],
+      "effects": {
+        "flag": "remesa_comparada",
+        "discover": "remesa"
+      }
+    },
+    "lista_cargos": {
+      "title": "Lista de cargos",
+      "issuer": "LA FIEBRE · GALERÍA",
+      "pages": [
+        "Tres viviendas recibieron un cargo por la misma franja de intervención. Sólo una conserva lectura final. Sota copia los importes y las horas, tapando los nombres de quienes no participan en el encargo."
+      ],
+      "effects": {
+        "flag": "cargos_copiados",
+        "discover": "cargos"
+      }
+    },
+    "marca_soporte": {
+      "title": "Marca del soporte",
+      "issuer": "LOS PUNTALES · GALERÍA",
+      "pages": [
+        "La pintura de control sigue continua sobre la unión que habría que abrir para cambiar el filtro. Hay corrosión vieja bajo la marca. Sota registra la posición y la fecha; una inspección independiente deberá confirmarlo antes de tocar la conducción."
+      ],
+      "effects": {
+        "flag": "marca_revisada",
+        "discover": "marca"
+      }
+    },
+    "lectura_actual": {
+      "title": "Lectura actual",
+      "issuer": "LOS PUNTALES · CÁMARA DE PRESIÓN",
+      "pages": [
+        "La presión vuelve a caer en el mismo intervalo. Sota guarda la serie completa y el número del instrumento. Es suficiente para exigir una nueva comprobación, no para reparar la red por su cuenta."
+      ],
+      "effects": {
+        "flag": "presion_comparada",
+        "discover": "presion"
+      }
     }
   },
   "terminals": {
@@ -68,6 +173,34 @@
           "document": "recibo"
         }
       ]
+    },
+    "red_nudo": {
+      "title": "Puesto de red",
+      "status": "ENLACE FÍSICO · EL NUDO",
+      "entries": [
+        {
+          "label": "Leer traza de transmisión",
+          "document": "traza_red",
+          "available_if": {
+            "mission": "orden_duplicada",
+            "states": [
+              "ACTIVE",
+              "READY_TO_COMPLETE",
+              "COMPLETED"
+            ]
+          }
+        },
+        {
+          "label": "Redactar y enviar informe policial",
+          "dialogue": "informe_policial",
+          "available_if": {
+            "mission": "orden_duplicada",
+            "states": [
+              "READY_TO_COMPLETE"
+            ]
+          }
+        }
+      ]
     }
   },
   "messages": {
@@ -77,6 +210,28 @@
       "text": "Han pasado a una de las nuestras el coste de una reparación. El agua sigue fallando y en el recibo ya aparece la intervención como cerrada. Discutirlo de palabra no va a mover el cargo.\n\nNecesito a alguien que compare el parte con las lecturas y, si hace falta, con el equipo que tocaron. Lee las condiciones antes de aceptar. No te pido que des por buena nuestra versión: te pido que compruebes la suya.\n\nSi te interesa, te espero en el pasaje junto a Velvet. Llevaré mi copia.",
       "effects": {
         "offer": "retorno_agua"
+      }
+    },
+    "policia": {
+      "from": "Enlace policial",
+      "subject": "Orden repetida",
+      "visible_if": {
+        "flag": "resolucion_entregada"
+      },
+      "text": "La segunda orden de mantenimiento aparece en un trámite interno. La unidad no puede abrir una actuación sin autorización superior; te contratamos para comprobar los registros que sí están a tu alcance. Envía un informe de hechos desde el puesto de red de El Nudo. No necesitamos una acusación sin pruebas.",
+      "effects": {
+        "offer": "orden_duplicada"
+      }
+    },
+    "ultima_prueba": {
+      "from": "La Jefa",
+      "subject": "Antes de otra revisión",
+      "visible_if": {
+        "flag": "informe_enviado"
+      },
+      "text": "Han aceptado suspender el cobro mientras se repite la prueba. Falta demostrar qué pasa ahora con la presión y quiénes recibieron el cargo. Te encargo reunir las copias antes de hablar con las viviendas afectadas. Yo pediré una verificación independiente.",
+      "effects": {
+        "offer": "prueba_presion"
       }
     }
   },
@@ -90,13 +245,21 @@
     "recibo_agua": "Recibo: filtro marcado como sustituido; presión sin verificar.",
     "lectura_agua": "Registro: la presión ya había caído antes de la intervención.",
     "nomina": "La Nómina cubre a quienes aportan a su caja, hasta donde llega el fondo.",
-    "parte_jefa": "La Jefa conserva una copia del parte. El siguiente contraste requiere un taller de El Nudo."
+    "parte_jefa": "La Jefa conserva una copia del parte. El siguiente contraste requiere un taller de El Nudo.",
+    "equipo": "Ficha: limpieza y junta retirada; sustitución sin firma.",
+    "verificacion": "Conducción: caída posterior; prueba final ausente.",
+    "duplicado": "Archivo: dos órdenes del mismo tramo y horario.",
+    "traza": "Red: segundo envío después del cierre; autor no identificado.",
+    "remesa": "Remesa: la caja declarada como instalada volvió sellada.",
+    "cargos": "Tres viviendas recibieron el mismo cargo; nombres protegidos.",
+    "marca": "La pintura del soporte está intacta.",
+    "presion": "La lectura actual reproduce la caída de presión."
   },
   "contacts": [
     {
       "name": "La Jefa",
-      "text": "Contacto para el parte del agua. Su presencia en el pasaje es una propuesta de esta historia."
+      "text": "La Jefa conoce a quienes recibieron el cargo del agua. Suele hablar contigo en el pasaje junto a Velvet."
     }
   ],
-  "credits": "EL ARRECIFE\nUna aventura en el universo de CARGA ADMISIBLE.\n\nUniverso y personajes originales: Israel Zamora.\nDesarrollo: autor y asistente.\nRetratos: originales aportados por el autor, conservados sin modificación.\nFondos: candidatos generados con imagegen; pendientes de aprobación.\nMotor: Godot Engine, licencia MIT (incluida en Créditos del motor).\n\nHito 1. Texto y situaciones nuevos pendientes de revisión narrativa. Sin música ni efectos finales."
+  "credits": "EL ARRECIFE\nUna aventura en el universo de CARGA ADMISIBLE.\n\nUniverso y personajes originales: Israel Zamora.\nDesarrollo: autor y asistente.\nRetratos: originales aportados por el autor, conservados sin modificación.\nFondos: candidatos generados con imagegen; pendientes de aprobación.\nAmbiente y toque: síntesis original para el juego.\nMotor: Godot Engine, licencia MIT (incluida en Créditos del motor).\n\nVersión 1.0. Historia del videojuego pendiente de revisión final del autor. Fondos candidatos pendientes de aprobación artística."
 }

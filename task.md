@@ -62,13 +62,17 @@ Dirección del autor, 20 oct 2026: aventura **2D ilustrada en primera persona**,
 - [ ] Autor: revisar y aprobar o corregir los 17 fondos candidatos nuevos y la continuidad visual de las cuatro zonas.
 - [x] Autor: autorizar el commit y push de `feat/interactive-arrecife-reboot` al remoto (22 oct 2026).
 
-## H3/H4 · primera aventura completa
+## Versión 1.0 · aventura completa, candidata a publicación
 
 - [x] Autor: definir e incorporar al canon a Sota como protagonista del videojuego, su pasado Vesta, oficio y relación con la policía (22 oct 2026).
-- [ ] Tras terminar las zonas, diseñar las misiones 2 y 3, sus consecuencias, la resolución del contrato y el final narrativo.
+- [x] Diseñar e implementar las misiones 2 y 3, la entrega del parte del agua y dos decisiones de cierre; ficción del juego separada del canon.
+- [x] Dotar a cada vista de las tres cotas de una observación o prueba contextual y completar el recorrido de las tres misiones por interfaz.
+- [x] Cargar partidas v1 anteriores con los dos contratos nuevos bloqueados, sin perder ubicación ni pruebas.
+- [x] Ordenar los contratos pendientes de acción antes de los completados y ocultar los mensajes futuros.
+- [x] Añadir ambiente sonoro discreto y toque de interfaz, con volumen separado. La versión narrativa no usa partitura musical.
+- [x] Validar importación, recorrido completo con ambos desenlaces, migración de guardado, preservación, render nativo y exportación Web de la candidata 1.0.
 - [ ] Revisar ritmo/duración en una partida completa de unos 30 minutos.
 - [ ] Aprobar y finalizar todas las ilustraciones y capas animadas necesarias.
-- [ ] Música, ambiente y efectos; ahora sólo están preparados los buses.
 - [ ] Pruebas en teléfonos físicos, Safari/iOS, Android, Windows y Linux.
 - [ ] Revisar la redacción del crédito legal.
 - [ ] Exportaciones de escritorio y comprobación final de rendimiento/accesibilidad.

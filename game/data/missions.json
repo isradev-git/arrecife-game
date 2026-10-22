@@ -3,8 +3,8 @@
     "title": "El parte del agua",
     "status": "PROPUESTA NARRATIVA",
     "client": "La Jefa",
-    "summary": "Contrasta un cargo de reparación con la lectura de la conducción. Lleva los datos a la Jefa antes de buscar una comprobación técnica.",
-    "terms": "Trabajo de comprobación, sin cobrar a la persona afectada. Honorarios pendientes de acordar al cerrar el parte. Puedes leer el contrato antes de aceptarlo.",
+    "summary": "Comprueba por qué se ha cobrado una reparación que nadie verificó. Contrasta el equipo y la conducción antes de entregar el parte a la Jefa.",
+    "terms": "Trabajo de comprobación pagado por la Jefa al entregar el parte. La persona afectada no adelanta el coste. Puedes leer el contrato antes de aceptarlo.",
     "steps": [
       {
         "id": "registro",
@@ -18,12 +18,12 @@
       },
       {
         "id": "nudo",
-        "label": "Comprobar el equipo en El Nudo · próximo hito",
+        "label": "Comprobar la ficha del equipo en El Nudo",
         "flag": "equipo_comprobado"
       },
       {
         "id": "puntales",
-        "label": "Verificar la reparación en Los Puntales · próximo hito",
+        "label": "Verificar la conducción en Los Puntales",
         "flag": "reparacion_verificada"
       }
     ],
@@ -31,5 +31,57 @@
     "unlocks_on_accept": [
       "fiebre"
     ]
+  },
+  "orden_duplicada": {
+    "title": "La orden duplicada",
+    "status": "FICCIÓN DEL VIDEOJUEGO",
+    "client": "Enlace policial",
+    "summary": "Una unidad policial pide un contraste externo de la segunda orden. Su trámite interno está detenido hasta recibir permiso superior.",
+    "terms": "La policía te llama para un encargo concreto. Cobras el trabajo y entregas un informe de hechos; la documentación no identifica por sí sola a una persona culpable.",
+    "steps": [
+      {
+        "id": "archivo",
+        "label": "Copiar la orden física del archivo",
+        "flag": "orden_duplicada_copiada"
+      },
+      {
+        "id": "red",
+        "label": "Comparar la transmisión del puesto de red",
+        "flag": "transmision_comprobada"
+      },
+      {
+        "id": "remesa",
+        "label": "Contrastar la remesa en La Fiebre",
+        "flag": "remesa_comparada"
+      }
+    ],
+    "completion_flag": "informe_enviado",
+    "unlocks_on_accept": []
+  },
+  "prueba_presion": {
+    "title": "La prueba de presión",
+    "status": "FICCIÓN DEL VIDEOJUEGO",
+    "client": "La Jefa",
+    "summary": "Antes de la revisión independiente, reúne los cargos, la marca del soporte y la lectura actual. Lleva las copias a la Jefa.",
+    "terms": "Encargo de comprobación pagado por la Jefa. La afectada no adelanta el coste. La entrega final decide quién recibe primero las copias.",
+    "steps": [
+      {
+        "id": "cargos",
+        "label": "Copiar la lista de cargos en La Fiebre",
+        "flag": "cargos_copiados"
+      },
+      {
+        "id": "soporte",
+        "label": "Revisar la marca del soporte en Los Puntales",
+        "flag": "marca_revisada"
+      },
+      {
+        "id": "presion",
+        "label": "Comparar la presión actual",
+        "flag": "presion_comparada"
+      }
+    ],
+    "completion_flag": "prueba_cerrada",
+    "unlocks_on_accept": []
   }
 }
