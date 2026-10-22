@@ -1,8 +1,8 @@
 # Preservación y recuperación
 
-20 de octubre de 2026. Inspección inicial: rama `main` limpia, sin trabajo valioso sin seguimiento. `HEAD` y remoto coincidían en **433e0998172180466cdb832060e653ecfc3cd6d1**. El checkpoint previo ya estaba publicado. El autor autorizó el 22 de octubre de 2026 publicar la nueva rama de trabajo.
+20 de octubre de 2026. Inspección inicial: rama `main` limpia, sin trabajo valioso sin seguimiento. `HEAD` y remoto coincidían en **433e0998172180466cdb832060e653ecfc3cd6d1**. El checkpoint previo ya estaba publicado. El autor autorizó el 22 de octubre de 2026 publicar la nueva rama de trabajo y, posteriormente, integrar el proyecto 2D completo en `main`.
 
-Antes de retirar archivos se creó **`backup/pre-reboot-20261020`** en ese commit. El reinicio se desarrolla en **`feat/interactive-arrecife-reboot`**.
+Antes de retirar archivos se creó **`backup/pre-reboot-20261020`** en ese commit. El reinicio se desarrolló en **`feat/interactive-arrecife-reboot`** y se integró en **`main`**.
 
 Además, las carpetas retiradas se trasladaron completas, incluidos los archivos ignorados locales, a:
 
@@ -40,4 +40,4 @@ git worktree add ../arrecife-etapa-anterior backup/pre-reboot-20261020
 
 Si se recupera desde un clon remoto, el mismo estado es `433e099`. El ZIP histórico Universal Base Characters usa Git LFS: instala Git LFS y ejecuta `git lfs pull` dentro de ese checkout para obtenerlo. La copia local trasladada ya conserva el ZIP completo.
 
-`python3 game/tests/preservation.py` comprueba canon, recursos protegidos y que sólo haya un proyecto activo. La autorización del 22 de octubre se refiere al push de `feat/interactive-arrecife-reboot`; no cambia `main` ni publica la rama local de respaldo.
+`python3 game/tests/preservation.py` comprueba canon, recursos protegidos y que sólo haya un proyecto activo. La integración autorizada cambia `main`; la rama local de respaldo no se ha publicado.

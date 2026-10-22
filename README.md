@@ -8,6 +8,28 @@ Tres pantallas de apertura (logo, autoría y orientación), menú, introducción
 
 El arco narrativo y sus dos decisiones de cierre están implementados. El deck reúne conversaciones con la madre, la hermana, Lía, la Jefa y el enlace policial; llegan según el progreso, permiten respuestas breves y conservan lo leído. La duración objetivo de unos 30 minutos aún no se ha medido en una partida del autor. Los 21 fondos de exploración y el fondo de menú son candidatos ilustrados; la ficción nueva y el arte requieren su revisión antes de publicar la versión final. [Guía para la primera partida](docs/GUIA_PRIMERA_PARTIDA.md).
 
+## Rumbo actual
+
+El único juego activo es [`game/project.godot`](game/project.godot): aventura **2D de vistas ilustradas fijas en primera persona**. Sota es la protagonista, pero el jugador ve el mundo a través de sus ojos y explora con clic o toque. La antigua demo de movimiento lateral en 3D pertenece a la etapa archivada y no forma parte de esta versión.
+
+El alcance acordado por ahora es el apartamento y tres cotas, con **21 vistas en total y tres misiones**. La 0.2.0 reúne ese recorrido para la primera prueba con un jugador. El siguiente paso es observar una partida completa, medir su duración y corregir claridad, ritmo, controles, mensajes y continuidad visual. Después vendrán la revisión artística y narrativa del autor, las pruebas en dispositivos reales y la preparación de una publicación final. [Estado y pendientes](proceso/ESTADO_DEL_PROYECTO.md).
+
+## Imágenes del juego
+
+Capturas del juego ejecutándose; los fondos y la presentación aún pueden cambiar tras la revisión artística.
+
+![Menú actual: El Arrecife visto desde una ventana](docs/evidence/01_menu.png)
+
+| Apartamento de Sota | La Fiebre |
+| --- | --- |
+| ![Dormitorio del apartamento, con puntos de exploración](docs/evidence/03_dormitorio.png) | ![Paso de La Fiebre hacia El Nudo](docs/evidence/zona_fiebre_descenso_1280x720.png) |
+| El Nudo | Los Puntales |
+| ![Llegada a El Nudo en formato horizontal móvil](docs/evidence/zona_nudo_acceso_844x390.png) | ![Entrada industrial de Los Puntales](docs/evidence/zona_puntales_acceso_1280x720.png) |
+| Conversación | Mensajes del deck |
+| ![Sota y la Jefa conversan con el texto a la altura de sus retratos](docs/evidence/v0_2_dialogo_1280x720.png) | ![Conversación por mensajes con la madre de Sota](docs/evidence/v0_2_chat_1280x720.png) |
+
+[Más capturas y resultados de las pruebas](docs/VALIDACION.md).
+
 ## Abrir y jugar
 
 1. Abre Godot 4.7.2 e importa **`game/project.godot`**.
@@ -70,4 +92,4 @@ La prueba con GPU guarda capturas reales en `docs/evidence/`; usa partidas tempo
 
 [Diseño](docs/GAME_DESIGN.md) · [Arte](docs/ART_DIRECTION.md) · [Tareas](task.md) · [Recuperación de las etapas anteriores](docs/RECUPERACION.md).
 
-El reinicio vive en `feat/interactive-arrecife-reboot`. El autor autorizó el 22 de octubre de 2026 su publicación en `origin` como rama de trabajo. Las etapas anteriores están respaldadas en la rama local `backup/pre-reboot-20261020`, desde `433e099`; `main` permanece en ese checkpoint.
+La producción 2D está en **`main`**, la rama predeterminada. La etapa anterior sigue recuperable desde el checkpoint `433e099` y la rama local `backup/pre-reboot-20261020`; sus prototipos 3D no forman parte del juego activo.

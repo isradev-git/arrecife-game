@@ -40,7 +40,7 @@ Inspección inicial limpia en `main`, checkpoint previo ya publicado **433e099**
 
 Canon original conservado en el checkpoint `433e099` y ampliado por decisión explícita del autor el 22 oct 2026 con la biografía de Sota y la regla policial. Dos retratos originales ilustrados (Sota/Jefa) migrados sin alterar bytes; guardia, figurante y acompañante del acceso conservados como originales históricos pixel, no confundidos con retratos. Licencias/atribución conservadas. No existen `sources/` ni `universo/` en este checkout; no se ha certificado lectura de fuentes ausentes. Todo el historial y los prompts anteriores permanecen recuperables.
 
-El autor autorizó el **22 de octubre de 2026** el commit y push de la rama de trabajo `feat/interactive-arrecife-reboot`. La rama de respaldo sigue local y `main` permanece en `433e099`.
+El autor autorizó el **22 de octubre de 2026** el commit y push de la rama de trabajo `feat/interactive-arrecife-reboot` y después pidió integrar **todo el proyecto 2D en `main`**, con un README completo y capturas reales. `main` contiene ahora el único juego activo, `game/project.godot`; el checkpoint previo `433e099` y la rama local de respaldo conservan la etapa anterior. La integración no supone aprobación narrativa o artística de la 0.2.0.
 
 ## Entrega del asistente: hito 1
 
@@ -112,7 +112,8 @@ Revisión del autor de una partida completa: voz de Sota, ritmo, desenlace, fond
 - **21 oct 2026 · observación del autor:** los menús como «Pistas» presentan demasiados botones cuadrados. **Entrega del asistente:** panel lateral compacto, acciones de texto y deck/terminal coherentes. **Comprobado:** 234/262 pruebas, capturas nativas y apertura Web de «Pistas». Pendiente valoración visual del autor y teléfono físico.
 - **21 oct 2026 · fallo observado por el autor:** el estado del parte reaparecía en cada cambio de vista. **Entrega del asistente:** ayuda inicial una vez y avisos ligados al diálogo y al trayecto correspondiente, sin repetición al navegar o continuar. **Comprobado:** regresión antes/después, 239/268 pruebas y revisión Web del cambio de habitación.
 - **21 oct 2026 · decisión del autor:** 21 vistas, Sota residente en La Fiebre y ejecución del plan de zonas en la rama actual. **Entrega del asistente:** cinco vistas nuevas de La Fiebre, seis de El Nudo y seis de Los Puntales, con fondos candidatos y conexiones completas. **Comprobado:** 633/698 pruebas, preservación y exportación Web; recarga y «Continuar» en navegador hasta La Fiebre. **Pendiente:** aprobación artística y narrativa, misiones 2 y 3, final y dispositivos reales.
-- **22 oct 2026 · decisión del autor:** autoriza commit y push de la rama de trabajo; después, debatir el siguiente paso de desarrollo. `main` y el respaldo local conservan el estado previo.
+- **22 oct 2026 · decisión del autor:** autoriza commit y push de la rama de trabajo; en ese momento `main` conservaba el estado previo.
 - **22 oct 2026 · decisión del autor:** aprueba incorporar a Sota al canon como protagonista del videojuego, con origen Vesta, trayectoria desde el contrabando hasta la investigación privada, residencia en La Fiebre y colaboración puntual con la policía. Aclara que sólo actúa como «limpiadora» si el encargo se complica y no acepta asesinatos por encargo. La policía necesita permiso de quienes mandan para intervenir; el autor aprobó la redacción antes de incorporarla.
+- **22 oct 2026 · decisión del autor:** integrar el proyecto 2D completo en `main` y mostrar el juego actual en su README. El respaldo histórico permanece local; las ilustraciones y la ficción aún esperan valoración final.
 
 El historial de las etapas anteriores está íntegro en la rama de respaldo y la copia local; no describe la producción actual.

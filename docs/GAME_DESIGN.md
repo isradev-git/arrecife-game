@@ -2,7 +2,7 @@
 
 ## Experiencia
 
-Primera persona desde Sota. Vistas fijas, exploración por clic/toque, conversaciones y decisiones breves. La versión 0.2.0 contiene tres contratos y un desenlace con dos decisiones posibles. Su duración objetivo es unos 30 minutos; todavía requiere una partida cronometrada del autor.
+Aventura 2D ilustrada en primera persona desde Sota. Vistas fijas, exploración por clic/toque, conversaciones y decisiones breves. La versión 0.2.0 contiene tres contratos y un desenlace con dos decisiones posibles. Su duración objetivo es unos 30 minutos; todavía requiere una partida cronometrada del autor.
 
 Al arrancar: logo original «EL ARRECIFE PRODUCTS» suministrado por el autor → crédito del universo original de Israel Zamora → aviso de orientación → menú. Cada pantalla avanza sola tras una breve espera o al tocar la pantalla, hacer clic o pulsar Intro; no muestra un botón de salto. En Web se marca al empezar la apertura en `sessionStorage`: recargar la misma pestaña va directamente al menú, mientras que una pestaña nueva muestra la secuencia. La carga del motor usa fondo neutro, sin otro logo. En móvil, la tercera espera a que la pantalla esté horizontal; si se vuelve a vertical durante el juego, un aviso cubre la interfaz hasta recuperar la orientación. El ordenador muestra «disfruta» y no se bloquea por la forma de su ventana. Los textos de crédito y orientación están en `story.json`; la imagen original del logo se conserva sin modificar.
 

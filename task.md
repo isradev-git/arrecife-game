@@ -76,6 +76,7 @@ Dirección del autor, 20 oct 2026: aventura **2D ilustrada en primera persona**,
 - [x] Diseñar e implementar conversaciones por mensajes con respuestas guardadas y llegada por hitos. Madre, Hermana y Lía son ficción de juego, pendientes de revisión del autor; no se añaden al canon.
 - [x] Rotular 0.2.0 en proyecto, créditos y documentación vigente; preparar guía de primera partida.
 - [x] Cerrar la validación técnica y visual de 0.2.0, incluida Web local, y preparar el paquete de prueba.
+- [x] Integrar el proyecto 2D completo en `main` y actualizar su README con capturas reales (autorización del autor, 22 oct 2026).
 - [ ] Revisar ritmo/duración en una partida completa de unos 30 minutos.
 - [ ] Aprobar y finalizar todas las ilustraciones y capas animadas necesarias.
 - [ ] Pruebas en teléfonos físicos, Safari/iOS, Android, Windows y Linux.
