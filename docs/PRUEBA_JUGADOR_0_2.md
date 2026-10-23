@@ -17,7 +17,7 @@ Anotar cada bloqueo o sorpresa en el momento. Usar el ID de vista si se conoce; 
 | --- | --- | --- | --- | --- | --- | --- |
 | 00:00 | | | | | | |
 
-Marcar inicio y cierre de cada contrato: `retorno_agua`, `orden_duplicada` y `prueba_presion`; anotar el final elegido y el tiempo total hasta créditos o abandono. Registrar también cuándo consulta «Pistas», vuelve al Deck sin avanzar, recorre una ruta ya visitada, intenta tocar fuera de un hotspot, omite texto o deja una conversación abierta. Una pausa deliberada para leer no es un bloqueo.
+Marcar inicio y cierre de cada contrato: `retorno_agua`, `orden_duplicada` y `prueba_presion`; anotar el final elegido y el tiempo total hasta abrir «Cierre» en el Deck o abandonar. Registrar también cuándo consulta «Pistas», vuelve al Deck sin avanzar, recorre una ruta ya visitada, intenta tocar fuera de un hotspot, omite texto o deja una conversación abierta. Una pausa deliberada para leer no es un bloqueo.
 
 Si se atasca, esperar a que explique qué cree que falta. Sólo después de que pida ayuda se puede dar **una pista mínima** y registrar su texto literal. No guiarlo paso a paso; si no puede continuar, cerrar el caso como bloqueo y pasar a la siguiente observación.
 
