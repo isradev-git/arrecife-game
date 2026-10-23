@@ -39,6 +39,8 @@ Las cotas urbanas visitadas son **La Fiebre (4), El Nudo (3) y Los Puntales (2)*
 
 Las puertas conectan habitaciones. La salida del apartamento se habilita al aceptar el contrato. Los trayectos entre cotas tienen rutas explícitas en `world.json`; bajar y subir se comprueban por separado. La residencia y la orden de visita justifican regresos concretos. El deck informa de los lugares y nunca permite saltarse estos accesos. Las 21 vistas forman un grafo alcanzable con camino de vuelta.
 
+Al intentar cruzar un control sin permiso, el juego indica cuál falta en un aviso lateral compacto. Es información de orientación, sin cambiar las reglas de acceso ni añadir destinos.
+
 ## Contrato principal
 
 ID `retorno_agua`. Mensaje recibido → AVAILABLE → aceptación → ACTIVE → copia de lectura → contraste con Jefa → ficha del equipo en El Nudo → verificación física en Los Puntales → READY_TO_COMPLETE → entrega explícita a la Jefa → COMPLETED.

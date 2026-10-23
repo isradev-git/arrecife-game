@@ -123,11 +123,15 @@ func travel_reason(target: String) -> String:
 	var destination: Dictionary = Content.world.screens[target]
 	if destination.zone != data.zone:
 		var authorized := false
+		var blocked_reason := "No tienes una ruta autorizada hasta ese destino. Revisa el contrato y tus acreditaciones."
 		for route in Content.world.routes:
-			if route.from == data.zone and route.to == destination.zone and matches(route.requires):
-				authorized = true
+			if route.from == data.zone and route.to == destination.zone:
+				if matches(route.requires):
+					authorized = true
+				else:
+					blocked_reason = route.get("locked_text", blocked_reason)
 		if not authorized:
-			return "No tienes una ruta autorizada hasta ese destino. Revisa el contrato y tus acreditaciones."
+			return blocked_reason
 	if not destination.implemented:
 		return "Este destino aún no está disponible."
 	return ""

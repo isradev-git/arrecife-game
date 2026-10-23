@@ -61,7 +61,8 @@
           "COMPLETED"
         ]
       },
-      "text": "Cierras la puerta y atraviesas el pasaje. El ruido de los locales llega antes que sus luces."
+      "text": "Cierras la puerta y atraviesas el pasaje. El ruido de los locales llega antes que sus luces.",
+      "locked_text": "Revisa el mensaje de la Jefa y acepta el contrato antes de salir."
     },
     {
       "from": "fiebre",
@@ -75,7 +76,8 @@
       "requires": {
         "flag": "orden_visita"
       },
-      "text": "Descenso por el acceso público."
+      "text": "Descenso por el acceso público.",
+      "locked_text": "Necesitas una orden de visita para bajar a El Nudo. Contrasta el parte con la Jefa."
     },
     {
       "from": "nudo",
@@ -83,7 +85,8 @@
       "requires": {
         "flag": "acreditacion_residencia"
       },
-      "text": "El control comprueba tu acreditación de residencia antes de dejarte subir."
+      "text": "El control comprueba tu acreditación de residencia antes de dejarte subir.",
+      "locked_text": "Este control exige una acreditación de residencia para subir a La Fiebre."
     },
     {
       "from": "nudo",
@@ -91,7 +94,8 @@
       "requires": {
         "flag": "orden_visita"
       },
-      "text": "Descenso al acceso de mantenimiento."
+      "text": "Descenso al acceso de mantenimiento.",
+      "locked_text": "Necesitas una orden de visita para bajar a Los Puntales."
     },
     {
       "from": "puntales",
@@ -99,7 +103,8 @@
       "requires": {
         "flag": "orden_visita"
       },
-      "text": "Presentas la orden de visita al control de subida."
+      "text": "Presentas la orden de visita al control de subida.",
+      "locked_text": "Este control exige una orden de visita para subir a El Nudo."
     }
   ],
   "screens": {

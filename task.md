@@ -7,6 +7,7 @@ Dirección del autor, 20 oct 2026: aventura **2D ilustrada en primera persona**,
 Decisión del autor, 23 oct 2026: dejar en pendiente la siguiente tanda de guardado y nube; concentrar el desarrollo en la experiencia jugable. Se conserva lo ya implementado en la rama `feat/save-integrity-021`, sin presentarlo como copia remota activa.
 
 - [x] Revalidar la base actual: importación Godot 4.7.2, recorrido principal 827/827 headless y 899/899 nativas, preservación de canon y originales.
+- [x] Explicar el permiso concreto cuando una ruta entre cotas está bloqueada y mostrar el aviso en un panel compacto. Prueba previa: 2 fallos; después 831/831 headless y 905/905 nativas, con capturas de escritorio y horizontal móvil.
 - [ ] Revisar el recorrido de los tres contratos, ambos finales, acciones repetidas y bloqueos desde la perspectiva de un jugador nuevo (P0-06/07).
 - [ ] Observar una primera partida humana completa, sin guía de soluciones y cronometrada; registrar dónde se atasca el jugador antes de cambiar ritmo o mecánicas (P1-01–05). [Protocolo preparado](docs/PRUEBA_JUGADOR_0_2.md).
 - [ ] Preparar para revisión del autor las fichas de los tres contratos, la voz de Sota, los mensajes y las consecuencias del final; mantener separado el canon (P1-06–10).

@@ -457,7 +457,7 @@ func interact(hotspot: Dictionary) -> void:
 func travel(target: String) -> void:
 	var reason := State.travel_reason(target)
 	if not reason.is_empty():
-		show_notice("El trayecto", reason)
+		show_notice("El trayecto", reason, true)
 		return
 	var from: String = State.data.zone
 	var to: String = Content.world.screens[target].zone
@@ -517,8 +517,8 @@ func open_panel(title: String, eyebrow: String = "DECK EXTERNO / ENLACE LOCAL", 
 	if paper:
 		modal_body.add_theme_color_override("font_color", Color("18252b"))
 
-func show_notice(title: String, text: String) -> void:
-	open_panel(title, "EL ARRECIFE")
+func show_notice(title: String, text: String, compact: bool = false) -> void:
+	open_panel(title, "EL ARRECIFE", false, compact, 210)
 	GameUI.label(modal_body, text, 26)
 
 func show_dialogue(id: String) -> void:
