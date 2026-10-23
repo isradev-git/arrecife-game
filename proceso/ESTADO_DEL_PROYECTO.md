@@ -4,6 +4,8 @@ Actualizado: **23 de octubre de 2026**.
 
 ## Tanda de protección del progreso · 23 oct 2026
 
+**Segunda tanda comprobada:** el menú **Partidas** permite exportar e importar archivos JSON en escritorio y Web. La importación exige confirmación y conserva una copia local anterior accesible desde **Copias anteriores**. Se probó en Chromium bajo `/ensayo-022/`: descarga, archivo inválido, perfil vacío, borrado de IndexedDB, restauración desde archivo y recuperación de un respaldo interno del salón/cocina. Las pruebas nuevas de interfaz pasaron 13/13 headless y 16/16 nativas; el recorrido principal pasó 827/827 headless y 899/899 nativas, además de integridad, mock de sincronización, importación, exportación Web y preservación. La nube sigue sin estar configurada y el hosting real no se ha tocado. [Resultados](../docs/VALIDACION.md).
+
 **Rama de trabajo:** `feat/save-integrity-021`, desde `main`; sin despliegue ni push a `main`. El usuario pidió comenzar la [hoja de mejoras](../docs/EL_ARRECIFE_AUDITORIA_Y_PLAN_DE_MEJORA.md) por P0 y preparar una futura nube opcional. La dirección jugable 2D y el contenido existente se mantienen.
 
 **Implementado:** resultado explícito del guardado, rollback de memoria, acciones de documento/elección en una escritura, recuperación de `.tmp`, protección de archivos de versión incompatible, migración v1 probada y API local de exportación/importación con copia previa. Menú con aviso de partida invitada local. `save_sync.gd` es sólo un modelo de estados y revisiones con mock; no está conectado al juego ni a un servicio real. Web se exportó a `/ensayo/` local con rutas relativas. [Diseño técnico](../docs/SAVE_SYSTEM_ARCHITECTURE.md).

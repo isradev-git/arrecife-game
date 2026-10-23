@@ -22,6 +22,8 @@ var exploration_footer: PanelContainer
 var deck_unread_label: Label
 var ambience_player := AudioStreamPlayer.new()
 var touch_player := AudioStreamPlayer.new()
+var pending_import := ""
+var web_import_callback
 
 func _ready() -> void:
 	theme = GameUI.theme()
@@ -121,6 +123,7 @@ func show_menu() -> void:
 	menu_link(links, "Jugar", request_new_game)
 	var continue_button := menu_link(links, "Continuar", continue_game)
 	continue_button.disabled = not State.has_save()
+	menu_link(links, "Partidas", show_save_panel)
 	menu_link(links, "Opciones", show_options)
 	menu_link(links, "Créditos", show_credits)
 	if State.has_save():
@@ -174,6 +177,150 @@ func continue_game() -> void:
 			observe(notice)
 	else:
 		show_notice("No se pudo continuar", State.last_error)
+
+func show_save_panel() -> void:
+	open_panel("Tus partidas", "COPIA LOCAL / RECUPERACIÓN", false, true, 390)
+	GameUI.label(modal_body, "Sólo en este dispositivo: borrar los datos del navegador puede perderla.", 20)
+	var export_button := GameUI.action(modal_body, "Exportar copia", choose_export_file)
+	export_button.disabled = not State.has_save()
+	GameUI.action(modal_body, "Importar copia", choose_import_file)
+	if not previous_save_paths().is_empty():
+		GameUI.action(modal_body, "Copias anteriores", show_previous_saves)
+	GameUI.label(modal_body, "El archivo incluye tus decisiones. Guárdalo en privado.", 17)
+
+func previous_save_paths() -> Array[String]:
+	var folder := State.save_path.get_base_dir()
+	var prefix := State.save_path.get_file() + ".previa-"
+	var paths: Array[String] = []
+	for filename in DirAccess.get_files_at(folder):
+		if filename.begins_with(prefix):
+			var path := folder.path_join(filename)
+			if State.read_save(path) != null:
+				paths.append(path)
+	paths.sort_custom(func(a: String, b: String):
+		var left := FileAccess.get_modified_time(a)
+		var right := FileAccess.get_modified_time(b)
+		return left > right if left != right else a > b)
+	return paths
+
+func show_previous_saves() -> void:
+	open_panel("Copias anteriores", "RECUPERACIÓN LOCAL", false, true, 390)
+	GameUI.label(modal_body, "Elige una copia para revisarla. La partida activa no cambiará hasta que confirmes.", 19)
+	for path in previous_save_paths():
+		var saved: Dictionary = State.read_save(path)
+		var date := Time.get_datetime_string_from_unix_time(FileAccess.get_modified_time(path), true)
+		var place: String = Content.world.screens[saved.screen].subtitle.get_slice("·", 1).strip_edges().capitalize()
+		GameUI.action(modal_body, "Copia local · %s UTC · %s" % [date, place], func(): prepare_import(FileAccess.get_file_as_string(path), "Copia local " + date + " UTC"))
+
+func choose_export_file() -> void:
+	var contents: String = State.export_save()
+	if contents.is_empty():
+		show_notice("No se pudo exportar", State.last_error)
+		return
+	if OS.has_feature("web"):
+		JavaScriptBridge.download_buffer(contents.to_utf8_buffer(), "el-arrecife-partida-%s.json" % Time.get_date_string_from_system(), "application/json")
+		show_notice("Descarga solicitada", "Comprueba que el navegador haya descargado el archivo antes de borrar datos o cambiar de dispositivo.")
+		return
+	var dialog := FileDialog.new()
+	dialog.access = FileDialog.ACCESS_FILESYSTEM
+	dialog.file_mode = FileDialog.FILE_MODE_SAVE_FILE
+	dialog.use_native_dialog = true
+	dialog.add_filter("*.json", "Partida JSON")
+	dialog.current_file = "el-arrecife-partida-%s.json" % Time.get_date_string_from_system()
+	add_child(dialog)
+	dialog.file_selected.connect(func(path: String):
+		if export_save_file(path):
+			show_notice("Copia exportada", "Se ha escrito el archivo elegido. Guárdalo en un lugar privado.")
+		else:
+			show_notice("No se pudo exportar", "El archivo ya existe o no pudo escribirse. Elige otro nombre o carpeta.")
+		dialog.queue_free())
+	dialog.canceled.connect(dialog.queue_free)
+	dialog.popup_centered()
+
+func export_save_file(path: String) -> bool:
+	var contents: String = State.export_save()
+	if contents.is_empty() or FileAccess.file_exists(path) or FileAccess.file_exists(path + ".tmp"):
+		return false
+	var file := FileAccess.open(path + ".tmp", FileAccess.WRITE)
+	if file == null:
+		return false
+	var written := file.store_string(contents)
+	file.flush()
+	var error := file.get_error()
+	file.close()
+	if not written or error != OK or FileAccess.get_file_as_string(path + ".tmp") != contents:
+		DirAccess.remove_absolute(path + ".tmp")
+		return false
+	if DirAccess.rename_absolute(path + ".tmp", path) != OK:
+		DirAccess.remove_absolute(path + ".tmp")
+		return false
+	return true
+
+func choose_import_file() -> void:
+	if OS.has_feature("web"):
+		if web_import_callback == null:
+			web_import_callback = JavaScriptBridge.create_callback(web_import_result)
+			JavaScriptBridge.get_interface("window").el_arrecife_import_result = web_import_callback
+		JavaScriptBridge.eval("""(function(){
+			var previous=document.getElementById('el-arrecife-import-file'); if(previous)previous.remove();
+			var input=document.createElement('input');
+			input.id='el-arrecife-import-file'; input.type='file'; input.accept='.json,application/json';
+			input.style.display='none'; document.body.appendChild(input);
+			input.onchange=function(){
+				var file=input.files[0]; input.remove(); if(!file)return;
+				if(file.size>1048576){window.el_arrecife_import_result('large',file.name,'');return;}
+				file.text().then(function(value){window.el_arrecife_import_result('ok',file.name,value);},function(){window.el_arrecife_import_result('error',file.name,'');});
+			};
+			input.click();
+		})()""")
+		return
+	var dialog := FileDialog.new()
+	dialog.access = FileDialog.ACCESS_FILESYSTEM
+	dialog.file_mode = FileDialog.FILE_MODE_OPEN_FILE
+	dialog.use_native_dialog = true
+	dialog.add_filter("*.json", "Partida JSON")
+	add_child(dialog)
+	dialog.file_selected.connect(func(path: String):
+		var file := FileAccess.open(path, FileAccess.READ)
+		if file == null or file.get_length() > 1048576:
+			show_notice("Archivo no válido", "No se pudo leer la copia o supera 1 MiB. La partida activa se conserva.")
+		else:
+			prepare_import(file.get_as_text(), path.get_file())
+		dialog.queue_free())
+	dialog.canceled.connect(dialog.queue_free)
+	dialog.popup_centered()
+
+func web_import_result(args: Array) -> void:
+	if args.size() != 3 or args[0] != "ok":
+		show_notice("Archivo no válido", "No se pudo leer la copia o supera 1 MiB. La partida activa se conserva.")
+		return
+	prepare_import(str(args[2]), str(args[1]))
+
+func prepare_import(contents: String, filename: String) -> void:
+	pending_import = ""
+	var parser := JSON.new()
+	if contents.to_utf8_buffer().size() > 1048576 or parser.parse(contents) != OK or not State.valid(parser.data):
+		show_notice("Archivo no válido", "La copia no es una partida compatible. La partida activa se conserva.")
+		return
+	if State.incompatible_local():
+		show_notice("Importación detenida", "Hay una partida de otra versión en este dispositivo. Actualiza el juego; sus archivos se conservan.")
+		return
+	pending_import = contents
+	open_panel("Recuperar partida", "CONFIRMAR SUSTITUCIÓN", false, true, 310)
+	GameUI.label(modal_body, "Archivo: " + filename.get_file(), 19)
+	GameUI.label(modal_body, "Se sustituirá la partida activa. Antes se guardará una copia local de respaldo." if State.has_save() else "Esta copia se guardará en este dispositivo.", 20)
+	GameUI.action(modal_body, "Sustituir partida", confirm_import)
+
+func confirm_import() -> void:
+	if pending_import.is_empty():
+		return
+	var contents := pending_import
+	pending_import = ""
+	if not State.import_save(contents):
+		show_notice("No se pudo importar", State.last_error)
+		return
+	show_menu()
+	show_notice("Partida recuperada", "La copia está guardada en este dispositivo. Pulsa Continuar para volver a la historia.")
 
 func show_intro() -> void:
 	ambience_player.stop()
@@ -327,6 +474,7 @@ func travel(target: String) -> void:
 			create_tween().tween_property(page, "modulate:a", 1.0, 0.25)
 
 func close_modal() -> void:
+	pending_import = ""
 	GameUI.clear(overlay)
 	overlay.hide()
 	if is_instance_valid(focus_before_modal):

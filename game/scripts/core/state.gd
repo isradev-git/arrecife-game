@@ -237,7 +237,8 @@ func migrate_save(value: Dictionary) -> Dictionary:
 func archive_current() -> bool:
 	for previous in [save_path, save_path + ".bak", save_path + ".tmp"]:
 		if read_save(previous) != null:
-			if DirAccess.copy_absolute(previous, save_path + ".previa-" + str(Time.get_ticks_usec())) != OK:
+			var archive := save_path + ".previa-" + str(Time.get_unix_time_from_system()) + "-" + str(Time.get_ticks_usec())
+			if FileAccess.file_exists(archive) or DirAccess.copy_absolute(previous, archive) != OK:
 				last_error = "No se pudo respaldar la partida anterior. No se ha sustituido."
 				return false
 			break

@@ -49,6 +49,8 @@ Todo se juega con clic o toque. **En móvil se juega sólo en horizontal**: el a
 
 El logo original de **EL ARRECIFE PRODUCTS**, suministrado por el autor, abre el juego. En Web, la secuencia de apertura se muestra una vez por pestaña: **recargar lleva directamente al menú** y abrir el juego en una pestaña nueva vuelve a mostrarla. El aviso de orientación sigue activo incluso cuando se omite la apertura.
 
+**Menú → Partidas** permite exportar un archivo JSON de la partida guardada e importar una copia. La importación comprueba el archivo y pide confirmación antes de sustituir el progreso activo; **Copias anteriores** permite recuperar los respaldos locales creados al reiniciar o importar. En Web, revisa que el navegador haya descargado el archivo antes de borrar datos del sitio: borrar esos datos elimina también las copias locales anteriores. El JSON contiene decisiones de la historia; guárdalo en privado. [Panel de partidas](docs/evidence/partidas_1280x720.png).
+
 Mientras la exportación Web descarga el motor aparece un fondo neutro; el logo sólo se muestra dentro de la secuencia de apertura.
 
 ### Recorrido de comprobación
@@ -66,7 +68,7 @@ python3 -m http.server 8767 --bind 127.0.0.1 --directory game/build/web
 
 Abre `http://127.0.0.1:8767`. El directorio `build/` es regenerable y está excluido de Git. No abras el HTML con `file://`. La exportación Web usa Compatibility, sin hilos ni extensiones.
 
-El guardado usa `user://partida.json`, `.tmp` y `.bak`; una partida nueva conserva además una copia `.previa-*`. El menú avisa de que el progreso del invitado está sólo en el dispositivo. En navegador, borrar los datos del sitio, cambiar de origen o usar modo privado puede hacer perder el acceso. **No hay guardado en la nube ni cuentas activas.** La base de migración, exportación/importación por API y sincronización simulada se explica en [Protección del progreso](docs/SAVE_SYSTEM_ARCHITECTURE.md); todavía faltan los controles de archivo para el jugador.
+El guardado usa `user://partida.json`, `.tmp` y `.bak`; una partida nueva conserva además una copia `.previa-*`. El menú avisa de que el progreso del invitado está sólo en el dispositivo. En navegador, borrar los datos del sitio, cambiar de origen o usar modo privado puede hacer perder el acceso; el archivo exportado permite restaurarlo manualmente. **No hay guardado en la nube ni cuentas activas.** La base de migración y la sincronización simulada se explican en [Protección del progreso](docs/SAVE_SYSTEM_ARCHITECTURE.md).
 
 ### Ensayo de Web en una subruta
 
@@ -90,6 +92,7 @@ godot --headless --path game --editor --import --quit
 godot --headless --path game --script tests/run.gd
 godot --path game --script tests/run.gd
 godot --headless --path game --script tests/save_integrity.gd
+godot --headless --path game --script tests/save_file_ui.gd
 godot --headless --path game --script tests/save_sync.gd
 python3 game/tests/preservation.py
 ```

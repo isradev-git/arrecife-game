@@ -233,7 +233,7 @@ func run() -> void:
 	await tap_opening(true)
 	check(app.menu_visible, "Menú después de las tres pantallas")
 	await capture("01_menu")
-	check(all_buttons(app.page).size() == 4, "Menú tipográfico sin avatar")
+	check(all_buttons(app.page).size() == 5, "Menú tipográfico sin avatar")
 	root.size = Vector2i(844, 390)
 	app.show_menu()
 	await frames(8)

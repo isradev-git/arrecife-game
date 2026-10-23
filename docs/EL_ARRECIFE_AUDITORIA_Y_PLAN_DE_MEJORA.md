@@ -1128,7 +1128,7 @@ No hace falta un login diferente para la página del libro y otro para el juego:
 ### Tramo 1 — Empezar con la siguiente iteración (`0.2.1`)
 
 - [ ] **`SAVE-01` · P0 · Estado y esquema de guardado.** Documentar cada campo existente de `State.data`, inmutabilidad de IDs de misión/mensaje, valor de `VERSION`, versión de contenido, validaciones y política de migración. Crear fixtures de partidas de varias edades y versiones. **Aceptación:** una partida v1 y una nueva pueden leerse de forma controlada; datos incompatibles no se borran.
-- [ ] **`SAVE-02` · P0 · Guardado local fiable.** Corregir `new_game()`/`persist()` y guardados atómicos por evento, `tmp`/`.bak`, fallos de escritura y estados de error. Diseñar exportación/importación manual de partida como segunda vía de recuperación, con aviso de información sensible y pruebas de manipulación. **Aceptación:** nunca se presenta como guardada una partida que falló; importación incorrecta no sustituye el estado sano.
+- [x] **`SAVE-02` · P0 · Guardado local fiable.** Corregir `new_game()`/`persist()` y guardados atómicos por evento, `tmp`/`.bak`, fallos de escritura y estados de error. Diseñar exportación/importación manual de partida como segunda vía de recuperación, con aviso de información sensible y pruebas de manipulación. **Aceptación:** nunca se presenta como guardada una partida que falló; importación incorrecta no sustituye el estado sano. Alcance local y comprobaciones en el registro de ejecución; cuota real y otros navegadores siguen en P0-03/P0-05.
 - [ ] **`SAVE-03` · P0 · Prueba vertical de identidad.** Elegir proveedor candidato, definir correo + código/enlace, flujo de recuperar sesión y posibilidad de empezar como invitado. Probar realmente desde Godot Web y la página bajo subruta. **Aceptación:** una persona puede salir, identificarse y volver a entrar con el mismo ID sin contraseña propia del juego.
 - [ ] **`WEB-01` · P0 · Diseño de la web y URL canónica.** Registrar `universo.israelzamora.es` como destino editorial, confirmar alojamiento y elegir slug sin choque entre página «universo» y página «juego». Montar un entorno de pruebas independiente del público. **Aceptación:** mapa de rutas aprobado y Godot carga en HTTPS desde su subdirectorio de ensayo.
 
@@ -1236,7 +1236,7 @@ Si falla cualquiera de estos puntos críticos, **no abrir el lanzamiento al púb
 
 ## Registro de ejecución · 23 oct 2026
 
-Esta actualización registra una **primera tanda local**, no cambia las decisiones pendientes de la sección 32. [Formato, límites y arquitectura](SAVE_SYSTEM_ARCHITECTURE.md) y [resultados](VALIDACION.md).
+Esta actualización registra **dos tandas locales**, sin cambiar las decisiones pendientes de la sección 32. [Formato, límites y arquitectura](SAVE_SYSTEM_ARCHITECTURE.md) y [resultados](VALIDACION.md).
 
 | Tarea | Estado comprobado | Falta para aceptación completa |
 | --- | --- | --- |
@@ -1244,9 +1244,9 @@ Esta actualización registra una **primera tanda local**, no cambia las decision
 | P0-02 | Hecha: documento y efectos en una escritura; repetición idempotente. | Ensayo de interrupción real en navegador. |
 | P0-03 | Parcial: `.bak`, `.tmp`, primario/backup corruptos y renombrado fallido en tests locales. | Cuota Web, corte real y más etapas del renombrado. |
 | P0-04 / SAVE-01 | Parcial: esquema v1 documentado, fixture v1 cargado, misiones nuevas bloqueadas, versión futura protegida. | Matriz exhaustiva de transiciones imposibles y fixtures de futuras versiones cuando existan. |
-| SAVE-02 | Parcial: API de exportación/importación validada; copia previa y rechazo de archivo alterado. | Controles de archivo para el jugador y recorrido Web de descarga/restauración. |
+| SAVE-02 | Hecha en el alcance local: controles nativos y Web, confirmación, copia previa recuperable desde el juego, archivo alterado rechazado, descarga y restauración tras borrar IndexedDB probadas. | Pruebas de cuota real Web y otros navegadores/dispositivos corresponden a P0-03/P0-05. |
 | SAVE-03 | Diseño técnico candidato, sin identidad configurada. | Prototipo real de correo/sesión bajo HTTPS y subruta. |
 | SAVE-04 / SAVE-05 | Modelo de revisiones, offline y conflicto probado con mock; sin backend. | Auth, RLS y repositorio reales, cola durable, historial, pruebas con dos cuentas y dispositivos. |
-| WEB-01 | Parcial: exportación Godot 4.7.2 servida localmente en `/ensayo-021/`; rutas relativas y MIME básicos comprobados. | Slug aprobado, staging HTTPS y configuración real de Ginernet. |
+| WEB-01 | Parcial: exportación Godot 4.7.2 servida y ejecutada en Chromium desde `/ensayo-022/`; rutas relativas, MIME, archivo y recuperación local comprobados. | Slug aprobado, staging HTTPS y configuración real de Ginernet. |
 
-**Ejecución:** baseline 827/827 headless y 899/899 nativas; después 73/73 de integridad, 7/7 de sincronización simulada, 827/827 headless, 899/899 nativas y preservación correcta. La revisión de código añadió la preservación del único `.tmp` válido y el aislamiento de identidad del modelo. El aislamiento del mock no equivale a autorización RLS. Nada se ha desplegado ni vinculado a una cuenta.
+**Ejecución:** primera tanda: baseline 827/827 headless y 899/899 nativas; después 73/73 de integridad, 7/7 de sincronización simulada, 827/827 headless, 899/899 nativas y preservación correcta. Segunda tanda: nueva prueba de interfaz 13/13 headless y 16/16 nativa, suite principal 827/827 headless y 899/899 nativa; recorrido Web de exportación, archivo incompatible, perfil nuevo, restauración tras borrar IndexedDB y recuperación de una copia local anterior. La revisión inicial añadió la preservación del único `.tmp` válido y el aislamiento de identidad del modelo; la segunda detectó y permitió cerrar la falta de acceso a `.previa-*` desde Web. El aislamiento del mock no equivale a autorización RLS. Nada se ha desplegado ni vinculado a una cuenta.
