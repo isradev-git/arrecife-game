@@ -83,3 +83,15 @@ Dirección del autor, 20 oct 2026: aventura **2D ilustrada en primera persona**,
 - [ ] Revisar la redacción del crédito legal.
 - [ ] Exportaciones de escritorio y comprobación final de rendimiento/accesibilidad.
 - [ ] Publicación de la versión final tras las aprobaciones narrativas, artísticas y técnicas.
+
+## Protección del progreso · primera tanda técnica · 23 oct 2026
+
+- [x] P0-01: nueva partida y mutaciones informan fallos; conservar memoria y archivo válido en fallos simulados.
+- [x] P0-02: documento, efectos y elecciones se confirman por acción lógica única; pruebas de repetición y fallo.
+- [ ] P0-03/P0-04: completar matriz real de cuota/renombres Web y validación de transiciones imposibles. Recuperación local y fixture v1 ya probados.
+- [ ] SAVE-01/SAVE-02: completar controles de archivo para exportar/importar y pruebas Web reales. Esquema v1, migración y API local documentados y probados.
+- [ ] SAVE-03/SAVE-04/SAVE-05: configurar entorno de ensayo, identidad verificable, RLS, repositorio remoto, cola persistente y conflictos en dos clientes. Modelo local con mock probado; **no hay nube real**.
+- [ ] WEB-01: aprobar slug y comprobar carga HTTPS en subruta del hosting. Exportación en `/ensayo/` servida localmente y empaquetado limpio probados.
+- [ ] SAVE-06–09 y WEB-02–04: integración multidispositivo, seguridad, restauración y publicación; pendientes.
+
+[Arquitectura y límites](docs/SAVE_SYSTEM_ARCHITECTURE.md) · [Resultados](docs/VALIDACION.md). Implementación técnica pendiente de revisión; ninguna aprobación nueva de arte o ficción.

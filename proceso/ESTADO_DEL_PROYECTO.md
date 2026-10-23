@@ -1,6 +1,16 @@
 # EL ARRECIFE · continuidad vigente
 
-Actualizado: **22 de octubre de 2026**.
+Actualizado: **23 de octubre de 2026**.
+
+## Tanda de protección del progreso · 23 oct 2026
+
+**Rama de trabajo:** `feat/save-integrity-021`, desde `main`; sin despliegue ni push a `main`. El usuario pidió comenzar la [hoja de mejoras](../docs/EL_ARRECIFE_AUDITORIA_Y_PLAN_DE_MEJORA.md) por P0 y preparar una futura nube opcional. La dirección jugable 2D y el contenido existente se mantienen.
+
+**Implementado:** resultado explícito del guardado, rollback de memoria, acciones de documento/elección en una escritura, recuperación de `.tmp`, protección de archivos de versión incompatible, migración v1 probada y API local de exportación/importación con copia previa. Menú con aviso de partida invitada local. `save_sync.gd` es sólo un modelo de estados y revisiones con mock; no está conectado al juego ni a un servicio real. Web se exportó a `/ensayo/` local con rutas relativas. [Diseño técnico](../docs/SAVE_SYSTEM_ARCHITECTURE.md).
+
+**Comprobación:** baseline 827/899; tras revisión y correcciones 73 pruebas de integridad, 7 de sincronización simulada, 827 headless, 899 nativas con GPU y preservación sin fallos. La revisión detectó y permitió cerrar la pérdida de un único `.tmp` válido, el bloqueo por temporal corrupto junto a primario sano y el cruce de identidad en el modelo. Ensayo de archivos estáticos por HTTP local, no prueba de navegador ni hosting. [Detalle](../docs/VALIDACION.md).
+
+**Pendiente:** controles de exportación/importación para el jugador; integración de Auth, servidor con autorización real, cola persistente e historial; pruebas de cuota/interrupción Web, conflictos reales y recuperación entre equipos; slug, HTTPS y MIME/caché en Ginernet. La revisión del autor sobre ficción y arte sigue pendiente. No se declara guardado cloud ni nueva aprobación editorial.
 
 ## Dirección del autor
 

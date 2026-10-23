@@ -66,7 +66,20 @@ python3 -m http.server 8767 --bind 127.0.0.1 --directory game/build/web
 
 Abre `http://127.0.0.1:8767`. El directorio `build/` es regenerable y está excluido de Git. No abras el HTML con `file://`. La exportación Web usa Compatibility, sin hilos ni extensiones.
 
-El guardado usa `user://partida.json` y una copia `.bak`; una partida nueva conserva además una copia `.previa-*`. En navegador depende del almacenamiento del sitio: borrar sus datos, cambiar de origen o usar modo privado puede hacer perder el acceso al progreso. No hay guardado en la nube.
+El guardado usa `user://partida.json`, `.tmp` y `.bak`; una partida nueva conserva además una copia `.previa-*`. El menú avisa de que el progreso del invitado está sólo en el dispositivo. En navegador, borrar los datos del sitio, cambiar de origen o usar modo privado puede hacer perder el acceso. **No hay guardado en la nube ni cuentas activas.** La base de migración, exportación/importación por API y sincronización simulada se explica en [Protección del progreso](docs/SAVE_SYSTEM_ARCHITECTURE.md); todavía faltan los controles de archivo para el jugador.
+
+### Ensayo de Web en una subruta
+
+Con una **carpeta de ensayo vacía** (usa un nombre nuevo para cada exportación), sin escoger el slug público:
+
+```sh
+mkdir -p game/build/staging/ensayo
+godot --headless --path game --editor --import --quit
+godot --headless --path game --export-release Web build/staging/ensayo/index.html
+python3 -m http.server 8767 --bind 127.0.0.1 --directory game/build/staging
+```
+
+Abre `http://127.0.0.1:8767/ensayo/`. La carpeta generada contiene los archivos estáticos que se subirían por FTP al subdirectorio aprobado, **sin llevar `build/` ni `tests/` dentro del PCK**. Esta prueba local no equivale a HTTPS, persistencia ni autenticación en `universo.israelzamora.es`. La ruta `/titulodeljuego/` de la planificación sigue siendo un marcador; el slug final requiere decisión del autor y ensayo en el hosting.
 
 El paquete local para la primera prueba es `game/build/el-arrecife-0.2.0-web.zip`. Incluye la exportación y la guía; al extraerlo, sirve la carpeta por HTTP o súbela como contenido estático al alojamiento. `build/` se regenera y no se versiona.
 
@@ -76,6 +89,8 @@ El paquete local para la primera prueba es `game/build/el-arrecife-0.2.0-web.zip
 godot --headless --path game --editor --import --quit
 godot --headless --path game --script tests/run.gd
 godot --path game --script tests/run.gd
+godot --headless --path game --script tests/save_integrity.gd
+godot --headless --path game --script tests/save_sync.gd
 python3 game/tests/preservation.py
 ```
 

@@ -69,7 +69,7 @@ En conversaciones, Sota izquierda e interlocutora derecha, mirando al centro con
 
 `main.gd`: menú, intro, exploración y apertura de paneles. `startup.gd`: tres pantallas previas y aviso reutilizado al girar el móvil. `viewpoint.gd`: imagen e indicadores. `dialogue.gd`: secuencia de nodos y opciones. `device.gd`: secciones del deck. `ui.gd`: controles y tema compartidos. Una escena raíz; las vistas son datos y usan el mismo componente. Sin dependencias externas ni frameworks.
 
-Guardado v1: vista/zona, misiones, flags, descubrimientos, documentos, mensajes, lugares y elecciones. Validación de tipos e IDs, escritura temporal verificada, copia anterior, rechazo de versiones desconocidas y recuperación de `.bak`. Una partida anterior con sólo `retorno_agua` incorpora las dos misiones nuevas como bloqueadas al cargar, sin perder progreso. Nueva partida pide confirmación y conserva copia fechada. Opciones en archivo separado. No hay migración desde los prototipos retirados.
+Guardado v1: vista/zona, misiones, flags, descubrimientos, documentos, mensajes, lugares y elecciones. Las acciones de juego se confirman sólo después de guardar; la lectura de un documento y sus efectos forman una sola transición. Se comprueba escritura temporal, se conserva copia anterior y se puede recuperar `.bak` o `.tmp` válido. Una partida anterior con sólo `retorno_agua` incorpora las dos misiones nuevas como bloqueadas al cargar, sin perder progreso. Los archivos incompatibles no se sobrescriben. Hay API probada de exportación/importación manual, aún sin controles de archivo en el menú. Opciones en archivo separado. No hay migración desde los prototipos retirados. [Detalles y límites](SAVE_SYSTEM_ARCHITECTURE.md).
 
 ## Estado de 0.2.0
 

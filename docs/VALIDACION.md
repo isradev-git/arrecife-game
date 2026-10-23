@@ -1,6 +1,14 @@
 # Validación del juego y las 21 vistas
 
-Actualizado el 22 de octubre de 2026. Godot 4.7.2 oficial, Mac mini M4, Compatibility. Estas pruebas certifican el alcance descrito; no aprueban el arte ni la ficción.
+Actualizado el 23 de octubre de 2026. Godot 4.7.2 oficial, Mac mini M4, Compatibility. Estas pruebas certifican el alcance descrito; no aprueban el arte ni la ficción.
+
+## Guardado y subruta Web · 23 oct 2026
+
+Antes de modificar el código: importación correcta; **827/827** comprobaciones headless, **899/899** nativas con GPU y preservación correcta. Después: `tests/save_integrity.gd` **73/73**; `tests/save_sync.gd` **7/7** con repositorio simulado; suite principal **827/827** headless y **899/899** nativas; `preservation.py` correcto. Se forzaron fallo de escritura, reinicio fallido, documento con varios efectos, aceptación y trayecto fallidos, primario/backup corruptos (JSON roto e incompleto), recuperación desde único temporal seguida de guardado/reinicio/importación, temporal enorme junto a primario sano, versión futura incluso en `.tmp`, renombrado/promoción fallidos, misión desconocida e importación inválida. La migración cargó el fixture v1 anterior a las misiones 2 y 3. La suite principal recorre los tres contratos y ambos desenlaces; conserva mensajes y decisiones tras recarga.
+
+La exportación Web final se generó con Godot 4.7.2 en una carpeta limpia `game/build/staging/ensayo-021/`. `index.html`, `.js`, `.pck`, `.wasm` y `.png` respondieron **HTTP 200** desde `/ensayo-021/` en servidor local; el tipo de `.wasm` fue `application/wasm`. La exportación usa rutas relativas y el PCK ya no empaqueta `build/` ni `tests/`. Se inspeccionó el aviso de partida local en la [captura nativa actualizada del menú](evidence/01_menu.png): es legible y cabe en la columna.
+
+**No ejecutado:** sesión de navegador en esta nueva exportación, cuota Web agotada, interrupción física, importación manual mediante UI, cuenta real, RLS, dos usuarios reales, sincronización entre dispositivos, HTTPS/cPanel en el dominio del autor y publicación FTP. El mock separa identificadores, pero **no demuestra aislamiento del servidor**. La aplicación no tiene nube activa. [Arquitectura](SAVE_SYSTEM_ARCHITECTURE.md).
 
 ## Versión 0.2.0 · primera prueba · 22 oct 2026
 
