@@ -50,7 +50,8 @@ func advance(id: String) -> void:
 	node_id = id
 	var entry: Dictionary = content.nodes[id]
 	if entry.has("effects"):
-		State.apply(entry.effects)
+		if not State.apply(entry.effects):
+			return
 	GameUI.clear(column)
 	GameUI.label(column, "SOTA" if entry.speaker == "sota" else "LA JEFA", 20).modulate = GameUI.AMBER
 	GameUI.label(column, entry.text, 28 if State.settings.large_text else 24)
@@ -72,8 +73,8 @@ func advance(id: String) -> void:
 			button.accessibility_name = ("Avanza la misión: " if main else "Pregunta u opción secundaria: ") + choice.text
 
 func choose(choice: Dictionary) -> void:
-	State.data.choices[dialogue_id + ":" + node_id] = choice.text
-	State.apply(choice.get("effects", {}))
+	if not State.apply(choice.get("effects", {}), dialogue_id + ":" + node_id, choice.text):
+		return
 	if choice.get("end", false):
 		finished.emit()
 	else:

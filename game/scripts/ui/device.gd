@@ -114,7 +114,8 @@ func show_thread(host: Control, contact: String, focus_message: String = "") -> 
 		if was_unread or (not offer.is_empty() and State.data.missions.get(offer) == "LOCKED"):
 			var effects: Dictionary = message.get("effects", {}).duplicate()
 			effects["message"] = id
-			State.apply(effects)
+			if not State.apply(effects):
+				return
 		newest = bubble(message.subject + "\n\n" + message.text, false)
 		if was_unread and not first_unread:
 			first_unread = newest

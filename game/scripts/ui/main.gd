@@ -49,7 +49,7 @@ func _ready() -> void:
 	add_child(orientation_gate)
 	GameUI.fill(orientation_gate)
 	orientation_gate.hide()
-	State.save_failed.connect(func(message: String): show_notice("Guardado pendiente", message))
+	State.save_failed.connect(func(message: String): show_notice("No se pudo guardar", message))
 	State.changed.connect(update_deck_unread)
 	if should_show_opening():
 		opening = Startup.new()
@@ -123,8 +123,10 @@ func show_menu() -> void:
 	continue_button.disabled = not State.has_save()
 	menu_link(links, "Opciones", show_options)
 	menu_link(links, "Créditos", show_credits)
-	if FileAccess.file_exists(State.save_path) and not State.has_save():
-		GameUI.label(column, "Guardado incompatible o dañado conservado. Puedes iniciar otra partida.", 18)
+	if State.has_save():
+		GameUI.label(column, "Sólo guardado local. Borrar datos del navegador puede perder la partida.", 13)
+	if not State.has_save() and (FileAccess.file_exists(State.save_path) or FileAccess.file_exists(State.save_path + ".bak") or FileAccess.file_exists(State.save_path + ".tmp")):
+		GameUI.label(column, "Partida incompatible conservada: actualiza el juego." if State.incompatible_local() else "Guardado dañado conservado. Puedes iniciar otra partida.", 18)
 
 func menu_link(parent: Node, title: String, action: Callable) -> Button:
 	var link := Button.new()
@@ -149,7 +151,7 @@ func menu_link(parent: Node, title: String, action: Callable) -> Button:
 	return link
 
 func request_new_game() -> void:
-	if FileAccess.file_exists(State.save_path) or FileAccess.file_exists(State.save_path + ".bak"):
+	if FileAccess.file_exists(State.save_path) or FileAccess.file_exists(State.save_path + ".bak") or FileAccess.file_exists(State.save_path + ".tmp"):
 		open_panel("Empezar otra historia", "NUEVA PARTIDA", false, true, 280)
 		GameUI.label(modal_body, "Se reiniciará el progreso activo. La partida anterior quedará como copia local de respaldo.")
 		GameUI.button(modal_body, "Empezar de nuevo", start_new_game)
@@ -237,9 +239,7 @@ func show_exploration() -> void:
 	deck_unread_label.modulate = GameUI.AMBER
 	update_deck_unread()
 	GameUI.button(controls, "Pistas", show_hints_panel)
-	GameUI.button(controls, "Menú", func():
-		State.save_game()
-		show_menu())
+	GameUI.button(controls, "Menú", show_menu)
 	var footer := PanelContainer.new()
 	exploration_footer = footer
 	footer.add_theme_stylebox_override("panel", GameUI.box(Color(0.04, 0.08, 0.10, 0.86)))
@@ -392,8 +392,10 @@ func show_dialogue(id: String) -> void:
 
 func show_document(id: String, page_number: int = 0) -> void:
 	var document: Dictionary = Content.story.documents[id]
-	State.apply({"document": id})
-	State.apply(document.get("effects", {}))
+	var effects: Dictionary = document.get("effects", {}).duplicate()
+	effects["document"] = id
+	if not State.apply(effects):
+		return
 	open_panel(document.title, document.issuer, true)
 	GameUI.label(modal_body, document.pages[page_number], 28 if State.settings.large_text else 24).add_theme_color_override("font_color", Color("18252b"))
 	GameUI.label(modal_body, "PÁGINA %d / %d · COPIA GUARDADA EN EL DECK" % [page_number+1, document.pages.size()], 16).add_theme_color_override("font_color", Color("35464a"))
