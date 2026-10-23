@@ -2,6 +2,19 @@
 
 Dirección del autor, 20 oct 2026: aventura **2D ilustrada en primera persona**, clic/toque, contratos y progresión. Sólo `game/` es jugable. [Diseño](docs/GAME_DESIGN.md).
 
+## Prioridad actual · juego antes que guardado
+
+Decisión del autor, 23 oct 2026: dejar en pendiente la siguiente tanda de guardado y nube; concentrar el desarrollo en la experiencia jugable. Se conserva lo ya implementado en la rama `feat/save-integrity-021`, sin presentarlo como copia remota activa.
+
+- [x] Revalidar la base actual: importación Godot 4.7.2, recorrido principal 827/827 headless y 899/899 nativas, preservación de canon y originales.
+- [ ] Revisar el recorrido de los tres contratos, ambos finales, acciones repetidas y bloqueos desde la perspectiva de un jugador nuevo (P0-06/07).
+- [ ] Observar una primera partida humana completa, sin guía de soluciones y cronometrada; registrar dónde se atasca el jugador antes de cambiar ritmo o mecánicas (P1-01–05). [Protocolo preparado](docs/PRUEBA_JUGADOR_0_2.md).
+- [ ] Preparar para revisión del autor las fichas de los tres contratos, la voz de Sota, los mensajes y las consecuencias del final; mantener separado el canon (P1-06–10).
+- [ ] Revisar individualmente las 21 vistas y el menú a tamaño de juego, junto con continuidad, personajes, sonido, lectura, accesibilidad y rendimiento (P1-11–17).
+- [ ] Corregir los problemas comprobados, repetir la partida y preparar una entrega de prueba identificada por versión y commit (P0-08, P1-19/20).
+
+Los pendientes de guardado y publicación Web siguen registrados al final de este archivo y en la [hoja de mejoras](docs/EL_ARRECIFE_AUDITORIA_Y_PLAN_DE_MEJORA.md); este cambio de prioridad no los da por completados.
+
 ## H0 · retiro recuperable
 
 - [x] Inspeccionar Git, canon, documentación, proyectos y arte.

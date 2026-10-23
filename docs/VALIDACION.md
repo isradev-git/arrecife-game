@@ -2,6 +2,10 @@
 
 Actualizado el 23 de octubre de 2026. Godot 4.7.2 oficial, Mac mini M4, Compatibility. Estas pruebas certifican el alcance descrito; no aprueban el arte ni la ficción.
 
+## Línea base al retomar el trabajo del juego · 23 oct 2026
+
+En la rama `feat/save-integrity-021`, antes de nuevos cambios jugables: importación `--editor --import --quit` correcta; `tests/run.gd` pasó **827/827 headless** y **899/899 nativas con GPU**; `preservation.py` confirmó originales, canon y único proyecto 2D activo. El recorrido automatizado cubre las 21 vistas, los tres contratos y ambos finales. La ejecución nativa regeneró capturas que se restauraron a la evidencia versionada: este pase no incluye una nueva valoración visual de las 21 vistas. La partida humana completa, su duración, el uso real de «Pistas», el sonido escuchado por el autor y los teléfonos físicos siguen pendientes.
+
 ## Guardado y subruta Web · 23 oct 2026
 
 **Segunda tanda, controles de archivo:** `tests/save_file_ui.gd` pasó **13/13 headless** y **16/16 nativas con GPU** después de añadir la recuperación de copias locales. Comprueba exportación a archivo nuevo, rechazo de sobrescritura, archivo inválido, espera de confirmación, cancelación, persistencia tras importar y deshacer una importación mediante respaldo interno. Tras el último ajuste, el recorrido principal pasó **827/827 headless** y **899/899 nativas**, integridad **73/73**, sincronización simulada **7/7**, preservación e importación Godot. Se inspeccionó el [panel a 1280×720](evidence/partidas_1280x720.png) y [844×390](evidence/partidas_844x390.png); el aviso de privacidad queda visible sin desplazar en horizontal móvil. La suite principal headless emitió ocasionalmente avisos de objetos/recursos al salir, con código 0; no son fallos de aserción.

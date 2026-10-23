@@ -2,6 +2,10 @@
 
 Actualizado: **23 de octubre de 2026**.
 
+## Prioridad vigente · juego
+
+El autor pidió abordar primero todo lo relativo al juego y dejar pendiente la siguiente tanda de guardado. La base de 21 vistas, tres contratos y dos desenlaces sigue en la rama `feat/save-integrity-021`; no se ha iniciado una misión nueva ni aprobado arte o ficción pendientes. Se reejecutaron con Godot 4.7.2 la importación, el recorrido principal (**827/827 headless, 899/899 nativas con GPU**) y la preservación de canon/originales, sin fallos. Las capturas regeneradas por la prueba nativa se restauraron a las evidencias versionadas, pues no representaban una nueva revisión artística. El trabajo siguiente se centra en recorrido y fricción de jugador, prueba humana, revisión editorial/visual y pulido comprobado; [tareas](../task.md). Los componentes de guardado existentes se conservan, pero su ampliación cloud queda pendiente.
+
 ## Tanda de protección del progreso · 23 oct 2026
 
 **Segunda tanda comprobada:** el menú **Partidas** permite exportar e importar archivos JSON en escritorio y Web. La importación exige confirmación y conserva una copia local anterior accesible desde **Copias anteriores**. Se probó en Chromium bajo `/ensayo-022/`: descarga, archivo inválido, perfil vacío, borrado de IndexedDB, restauración desde archivo y recuperación de un respaldo interno del salón/cocina. Las pruebas nuevas de interfaz pasaron 13/13 headless y 16/16 nativas; el recorrido principal pasó 827/827 headless y 899/899 nativas, además de integridad, mock de sincronización, importación, exportación Web y preservación. La nube sigue sin estar configurada y el hosting real no se ha tocado. [Resultados](../docs/VALIDACION.md).
