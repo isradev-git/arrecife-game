@@ -4,6 +4,10 @@ Actualizado el 23 de octubre de 2026. Godot 4.7.2 oficial, Mac mini M4, Compatib
 
 ## Línea base al retomar el trabajo del juego · 23 oct 2026
 
+### Paquete Web para primera prueba privada
+
+Se añadió `tools/build_playtest.py`, que exige Godot 4.7.2, importa y exporta en `game/build/playtest-web/`, exige los siete archivos Web, incorpora una hoja de juego sin soluciones y genera ZIP con `MANIFEST.json` y checksum SHA-256 externo. La comprobación `game/tests/playtest_package.py` falló contra el ZIP antiguo sin manifiesto y pasó con la nueva exportación: contenido exacto, versión, motor y hashes internos. `python3 -m zipfile -t` no detectó daños. El navegador abrió el menú con «Partidas» desde HTTP local y `agent-browser errors` no registró errores de página; se inspeccionó una captura de 1280×720. La primera ejecución llevaba sufijo `-dirty` porque script y documentación aún no estaban confirmados; el paquete identificable por commit limpio debe regenerarse después del commit. No se ha publicado una Release ni se ha probado en el dominio oficial.
+
 En la rama `feat/save-integrity-021`, antes de nuevos cambios jugables: importación `--editor --import --quit` correcta; `tests/run.gd` pasó **827/827 headless** y **899/899 nativas con GPU**; `preservation.py` confirmó originales, canon y único proyecto 2D activo. El recorrido automatizado cubre las 21 vistas, los tres contratos y ambos finales. La ejecución nativa regeneró capturas que se restauraron a la evidencia versionada: este pase no incluye una nueva valoración visual de las 21 vistas. La partida humana completa, su duración, el uso real de «Pistas», el sonido escuchado por el autor y los teléfonos físicos siguen pendientes.
 
 ### Bloqueos entre cotas

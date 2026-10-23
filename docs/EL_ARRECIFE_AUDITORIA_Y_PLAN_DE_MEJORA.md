@@ -434,7 +434,7 @@ La prioridad real depende de dónde vayamos a distribuir la demo. No declarar un
 - [ ] WEB-01 — Decidir subruta canónica y entorno de pruebas de la web de autor (sección 30).
 - [ ] P0-06 — Repetir los tres contratos y ambos finales desde la UI.
 - [ ] P0-07 — Cubrir acciones repetidas, salidas y respuestas.
-- [ ] P0-08 — Generar paquete Web reproducible con instrucciones.
+- [x] P0-08 — Generar paquete Web reproducible con instrucciones, versión de Godot, commit y checksum; apertura HTTP local verificada. La publicación o el despliegue público siguen pendientes de autorización.
 - [ ] Ejecutar importación, headless, GPU nativa y preservación.
 
 **Puerta de salida de la prueba privada:** cero fallos P0 locales conocidos, logs disponibles, paquete identificado por versión/commit y partida recuperable tras recarga. **Esta puerta NO autoriza la publicación pública sin copia remota y recuperación de cuenta.**

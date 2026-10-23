@@ -12,7 +12,8 @@ Decisión del autor, 23 oct 2026: dejar en pendiente la siguiente tanda de guard
 - [ ] Observar una primera partida humana completa, sin guía de soluciones y cronometrada; registrar dónde se atasca el jugador antes de cambiar ritmo o mecánicas (P1-01–05). [Protocolo preparado](docs/PRUEBA_JUGADOR_0_2.md).
 - [ ] Preparar para revisión del autor las fichas de los tres contratos, la voz de Sota, los mensajes y las consecuencias del final; mantener separado el canon (P1-06–10).
 - [ ] Revisar individualmente las 21 vistas y el menú a tamaño de juego, junto con continuidad, personajes, sonido, lectura, accesibilidad y rendimiento (P1-11–17).
-- [ ] Corregir los problemas comprobados, repetir la partida y preparar una entrega de prueba identificada por versión y commit (P0-08, P1-19/20).
+- [x] Preparar el empaquetado Web de prueba con versión, commit, Godot 4.7.2, hashes y hoja sin soluciones; comprobar su ZIP y apertura local (P0-08). Falta la sesión humana y su ronda de correcciones.
+- [ ] Corregir los problemas que revele la partida humana y repetirla antes de cerrar P1-19/20.
 
 Los pendientes de guardado y publicación Web siguen registrados al final de este archivo y en la [hoja de mejoras](docs/EL_ARRECIFE_AUDITORIA_Y_PLAN_DE_MEJORA.md); este cambio de prioridad no los da por completados.
 

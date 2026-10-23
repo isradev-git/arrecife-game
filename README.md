@@ -83,7 +83,17 @@ python3 -m http.server 8767 --bind 127.0.0.1 --directory game/build/staging
 
 Abre `http://127.0.0.1:8767/ensayo/`. La carpeta generada contiene los archivos estáticos que se subirían por FTP al subdirectorio aprobado, **sin llevar `build/` ni `tests/` dentro del PCK**. Esta prueba local no equivale a HTTPS, persistencia ni autenticación en `universo.israelzamora.es`. La ruta `/titulodeljuego/` de la planificación sigue siendo un marcador; el slug final requiere decisión del autor y ensayo en el hosting.
 
-El paquete local para la primera prueba es `game/build/el-arrecife-0.2.0-web.zip`. Incluye la exportación y la guía; al extraerlo, sirve la carpeta por HTTP o súbela como contenido estático al alojamiento. `build/` se regenera y no se versiona.
+### Paquete para la primera prueba privada
+
+Desde un checkout con Godot 4.7.2 y sus plantillas Web:
+
+```sh
+python3 tools/build_playtest.py
+```
+
+Si Godot no está en `PATH`, define `GODOT_BIN` con la ruta del ejecutable. El script importa, exporta en una carpeta nueva, comprueba los archivos y crea `game/build/el-arrecife-0.2.0-<commit>-web.zip` y su `.sha256`. Si hay cambios sin confirmar, el nombre lleva `-dirty`: no lo confundas con la entrega del commit. El ZIP contiene `MANIFEST.json` con versión, Godot, commit y hashes de cada archivo, además de [instrucciones sin soluciones](docs/LEEME_PRUEBA.md). No incluye la [guía detallada](docs/GUIA_PRIMERA_PARTIDA.md), que se entrega sólo después de la sesión observada.
+
+Comprueba un paquete concreto con `python3 game/tests/playtest_package.py game/build/<nombre>.zip`. Al extraerlo, sirve la carpeta por HTTP(S); la hoja incluida explica cómo hacerlo en local. `build/` se regenera y no se versiona. El paquete privado no autoriza despliegue en el dominio oficial.
 
 ## Comprobar
 
