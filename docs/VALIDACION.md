@@ -2,6 +2,12 @@
 
 Actualizado el 24 de octubre de 2026. Godot 4.7.2 oficial, Mac mini M4, Compatibility. Estas pruebas certifican el alcance descrito; no aprueban el arte ni la ficción.
 
+## Interior de Velvet · 24 oct 2026
+
+El autor detectó que el antiguo umbral seguía mostrando la calle. Se conservó el PNG anterior en `art/iterations/zonas_fiebre/velvet_umbral_exterior/` y se integró un salón interior candidato en `fiebre_entrada`, **sin cambiar el ID de guardado ni las seis vistas de La Fiebre**. En el pasaje, el punto sobre la puerta navega ahora al interior; la observación exterior quedó en la fila lateral. Dentro, la salida derecha devuelve al pasaje y la barra admite una observación. [Captura nativa 1280×720](evidence/velvet_interior_1280x720.png) · [captura 844×390](evidence/velvet_interior_844x390.png).
+
+La suite pasó **833/833 headless** y **909/909 nativas**. Comprueba el clic en la puerta real, regreso táctil, observación del salón, 21 fondos distintos y carga de guardados existentes. La importación y la exportación Web pasaron. En Chromium bajo `127.0.0.1:8768` se recorrió una partida nueva hasta el pasaje, se pulsó la puerta, se vio el interior y se salió de vuelta; `agent-browser errors` quedó vacío. Esta revisión prueba la navegación y el render, no la aprobación artística del nuevo fondo ni el rendimiento en teléfono físico.
+
 ## Movimiento ambiental del pasaje · 24 oct 2026
 
 El piloto aprobado se implementó sólo en `fiebre_calle`. La capa vectorial sigue las coordenadas del PNG completo y se sitúa bajo hotspots, bandas y paneles. `tests/ambient_fiebre.gd` pasó **19/19 headless** y **25/25 nativas con GPU** en la captura habitual; comprobó avance y parada del reloj, acceso real a Opciones desde la escena, cambio inmediato de `reduced_motion`, recorte 844×390, reentrada sin duplicar efectos, ausencia en el dormitorio y clic real sobre un hotspot bajo la capa. La ejecución opcional de 48 fotogramas pasó **73/73**. [GIF actual a 844×390](evidence/ambient_fiebre_visible_844x390.gif), [activo](evidence/ambient_fiebre_visible_844x390.png) y [reducido](evidence/ambient_fiebre_visible_reducido_844x390.png). Las capturas sin publicar de 1280×720 y 844×390, en dos momentos y con movimiento reducido, se regeneran con `ARRECIFE_AMBIENT_CAPTURE=1`; añadir `ARRECIFE_AMBIENT_CLIP=1` genera los 48 fotogramas.

@@ -322,13 +322,13 @@
       "hotspots": [
         {
           "id": "velvet",
-          "label": "Entrada de Velvet",
+          "label": "Fila de Velvet",
           "type": "OBJECT",
           "bounds": [
-            0.13,
-            0.28,
-            0.24,
-            0.33
+            0.02,
+            0.54,
+            0.08,
+            0.16
           ],
           "target": "velvet"
         },
@@ -366,13 +366,13 @@
         },
         {
           "id": "umbral",
-          "label": "Umbral de Velvet",
+          "label": "Entrar en Velvet",
           "type": "NAVIGATION",
           "bounds": [
-            0.12,
-            0.58,
-            0.12,
-            0.16
+            0.17,
+            0.40,
+            0.10,
+            0.12
           ],
           "target": "fiebre_entrada"
         },
@@ -416,32 +416,32 @@
     },
     "fiebre_entrada": {
       "zone": "fiebre",
-      "title": "Umbral de Velvet",
-      "subtitle": "LA FIEBRE · UMBRAL DE VELVET",
+      "title": "Interior de Velvet",
+      "subtitle": "LA FIEBRE · INTERIOR DE VELVET",
       "art": "fiebre_entrada",
       "implemented": true,
       "hotspots": [
         {
           "id": "pasaje",
-          "label": "Volver al pasaje",
+          "label": "Salir al pasaje",
           "type": "NAVIGATION",
           "bounds": [
-            0.83,
-            0.37,
-            0.13,
-            0.26
+            0.84,
+            0.27,
+            0.12,
+            0.35
           ],
           "target": "fiebre_calle"
         },
         {
           "id": "mirar",
-          "label": "Observar el lugar",
+          "label": "Observar el salón",
           "type": "OBJECT",
           "bounds": [
-            0.5,
-            0.42,
-            0.1,
-            0.12
+            0.31,
+            0.31,
+            0.12,
+            0.19
           ],
           "target": "umbral"
         }

@@ -8,6 +8,8 @@ Tres pantallas de apertura (logo, autoría y orientación), menú, introducción
 
 El pasaje de La Fiebre incorpora un primer ambiente visual animado: luz de Velvet y reflejos, vapor de la ventilación y bruma lejana. Desde la exploración, **Opciones → Reducir movimiento** detiene estos efectos. [Ver el piloto animado a 844×390](docs/evidence/ambient_fiebre_visible_844x390.gif). El menú y las demás vistas aún no tienen capas animadas.
 
+La puerta de Velvet en el pasaje conduce ahora a un [salón interior propio](docs/evidence/velvet_interior_1280x720.png), con salida de regreso visible. Se conserva el mismo ID de vista para que las partidas existentes puedan reanudar allí. El fondo es candidato y espera la aprobación artística del autor.
+
 El arco narrativo y sus dos decisiones de cierre están implementados. El deck reúne conversaciones con la madre, la hermana, Lía, la Jefa y el enlace policial; llegan según el progreso, permiten respuestas breves y conservan lo leído. La duración objetivo de unos 30 minutos aún no se ha medido en una partida del autor. Los 21 fondos de exploración y el fondo de menú son candidatos ilustrados; la ficción nueva y el arte requieren su revisión antes de publicar la versión final. [Guía para la primera partida](docs/GUIA_PRIMERA_PARTIDA.md).
 
 ## Rumbo actual
@@ -27,6 +29,8 @@ Capturas del juego ejecutándose; los fondos y la presentación aún pueden camb
 | ![Dormitorio del apartamento, con puntos de exploración](docs/evidence/03_dormitorio.png) | ![Paso de La Fiebre hacia El Nudo](docs/evidence/zona_fiebre_descenso_1280x720.png) |
 | El Nudo | Los Puntales |
 | ![Llegada a El Nudo en formato horizontal móvil](docs/evidence/zona_nudo_acceso_844x390.png) | ![Entrada industrial de Los Puntales](docs/evidence/zona_puntales_acceso_1280x720.png) |
+| Velvet por dentro | Velvet en horizontal pequeño |
+| ![Salón interior de Velvet](docs/evidence/velvet_interior_1280x720.png) | ![Velvet en 844 por 390](docs/evidence/velvet_interior_844x390.png) |
 | Conversación | Mensajes del deck |
 | ![Sota y la Jefa conversan con el texto a la altura de sus retratos](docs/evidence/v0_2_dialogo_1280x720.png) | ![Conversación por mensajes con la madre de Sota](docs/evidence/v0_2_chat_1280x720.png) |
 

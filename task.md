@@ -122,3 +122,10 @@ Los pendientes de guardado y publicación Web siguen registrados al final de est
 - [ ] Extender con fuentes de luz, bruma y vapor propios de cada vista aprobada; comprobar rendimiento y lectura en teléfono físico.
 
 La ampliación del guardado y de la nube permanece pendiente por decisión del autor; esta tanda no cambia partidas ni esquema de guardado.
+
+## Velvet por dentro · corrección del autor · 24 oct 2026
+
+- [x] Conservar el antiguo fondo exterior y su prompt; crear un candidato interior que no repita el pasaje.
+- [x] Mantener `fiebre_entrada` y las seis vistas de La Fiebre; colocar entrada, salida y observación sobre el arte nuevo.
+- [x] Comprobar clic en la puerta, retorno táctil, capturas 1280×720 y 844×390, suites nativa/headless y Web local.
+- [ ] Autor: valorar la [imagen interior candidata](docs/evidence/velvet_interior_1280x720.png) y su continuidad antes de darla por arte final.

@@ -20,6 +20,10 @@ El autor aprobó el [diseño del piloto](superpowers/specs/2026-10-23-ambiente-d
 
 El piloto está implementado y comprobado en escritorio, Web y horizontal pequeño. Después de que el autor no percibiera movimiento en una pestaña con el paquete antiguo, se aumentó el recorrido y la opacidad de vapor, bruma y pulso luminoso; su aspecto final aún espera valoración visual. [Animación actual de seis segundos](evidence/ambient_fiebre_visible_844x390.gif) · [con movimiento](evidence/ambient_fiebre_visible_844x390.png) · [con movimiento reducido](evidence/ambient_fiebre_visible_reducido_844x390.png). La solución vectorial evita un despiece completo del fondo, pero no sustituye máscaras artísticas si una vista futura requiere humo detrás de elementos del primer plano. El menú y las otras veinte vistas quedan para una tanda posterior.
 
+## Velvet visto desde dentro · corrección 24 oct 2026
+
+El autor observó que el antiguo `fiebre_entrada.png` repetía el exterior del pasaje. Se conservó esa variante en `art/iterations/zonas_fiebre/velvet_umbral_exterior/` y se generó un nuevo candidato con el [prompt y las referencias](../art/prompts/velvet_interior_2026-10-24.md). La vista ahora mira la barra, mesas y reservados desde dentro; a la derecha queda la salida a la calle, sin gente delante. [Render 1280×720](evidence/velvet_interior_1280x720.png) · [render 844×390](evidence/velvet_interior_844x390.png). Los retratos, originales y canon no se modificaron. El fondo nuevo está integrado para prueba técnica; **su aprobación artística final sigue pendiente**.
+
 ## Población en las cotas mostradas
 
 Las calles y pasos públicos deben tener vida en varias profundidades: gente circulando, esperando, trabajando y asomada a galerías. Mostrar la densidad sin tapar puertas, objetos clave, rutas ni puntos de interacción. La multitud es parte del entorno; sólo algunas personas tienen diálogo. La Fiebre mezcla visitantes con recursos, habitantes y personal de servicio, incluidos trabajadores del ocio y del sexo, representados como adultos con oficios y agencia, sin reducirlos a reclamos. Diferenciar recursos por confección, conservación de la ropa, transporte y mantenimiento de implantes. El Nudo deberá mostrar oficios de red y reparación; Los Puntales, tránsito de cuadrillas y mantenimiento estructural. Estas composiciones concretas son dirección de arte del juego, no nuevas afirmaciones de canon literario.
@@ -40,7 +44,7 @@ El autor aprobó tres vistas del apartamento y seis de cada cota, incluidos los 
 | Salón/cocina | Terminal, recibo en mesa, contador, puertas diferenciadas | Ocre y verde apagado; pantalla, indicador del contador |
 | Baño | Espejo sin duplicar avatar, tubería, estante, salida | Fluorescente frío y puerta cálida; goteo opcional ligado al agua |
 | Fiebre: pasaje | Velvet lateral, accesos despejados, multitud de vecinos, clientela y personal; lugar de reunión separado | Rojo local, sombra azul verdosa; humo/neón por capas |
-| Fiebre: umbral | Acceso y control, sin atribuir a Jefa propiedad del local | Contraste interior/exterior; luz de puerta |
+| Fiebre: interior de Velvet | Salón, barra y salida lateral al pasaje, sin atribuir a la Jefa propiedad del local | Rojo/ciruela y ámbar de interior; luz fría en la puerta |
 | Fiebre: encuentro | Mesa, libro y lugar propio de la Jefa, sin recepción permanente | Luz de trabajo contenida; figura por diseñar desde retrato |
 | Nudo: acceso | Conductos de red, control, circulación vertical y paso público concurrido | Verde/cian apagado, estado del lector |
 | Nudo: taller | Reparación de equipos, componentes y manos/oficios en segundo plano | Trabajo neutro, pantallas aisladas |

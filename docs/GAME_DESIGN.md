@@ -31,11 +31,13 @@ No se incorporan tramas ni revelaciones de los protagonistas de las novelas. El 
 | Zona | Vistas registradas | Construido |
 | --- | --- | --- |
 | Apartamento | Dormitorio, salón/cocina, baño | 3 navegables |
-| La Fiebre | Pasaje, umbral, rincón, galería, suministros, control de descenso | 6 navegables |
+| La Fiebre | Pasaje, interior de Velvet, rincón, galería, suministros, control de descenso | 6 navegables |
 | El Nudo | Acceso, taller, puesto de red, mercado, archivo, paso inferior | 6 navegables |
 | Los Puntales | Acceso, taller, frente de trabajo, soportes, presión, verificación | 6 navegables |
 
 Las cotas urbanas visitadas son **La Fiebre (4), El Nudo (3) y Los Puntales (2)**. El apartamento es la cuarta zona jugable y está en La Fiebre. El autor aprobó 3 vistas del apartamento y 6 por cota, con sus nombres y conexiones en [el diseño de 21 vistas](superpowers/specs/2026-10-21-21-vistas-zonas-design.md). Las vistas de calles y pasos públicos deben transmitir ciudades muy pobladas: en La Fiebre coinciden residentes, personal de servicio y visitantes de mayores recursos. La densidad ambiental no crea por sí sola nuevos personajes conversables ni altera las restricciones de acceso entre cotas.
+
+El autor corrigió el antiguo umbral de Velvet: la vista `fiebre_entrada` muestra ahora un [interior de salón](superpowers/specs/2026-10-24-velvet-interior-design.md) y conserva su ID para las partidas previas. En el pasaje, pulsar la puerta entra; la fila lateral mantiene la observación exterior. La salida interior devuelve al pasaje. Esto no atribuye la propiedad de Velvet a la Jefa ni añade una misión.
 
 Las puertas conectan habitaciones. La salida del apartamento se habilita al aceptar el contrato. Los trayectos entre cotas tienen rutas explícitas en `world.json`; bajar y subir se comprueban por separado. La residencia y la orden de visita justifican regresos concretos. El deck informa de los lugares y nunca permite saltarse estos accesos. Las 21 vistas forman un grafo alcanzable con camino de vuelta.
 

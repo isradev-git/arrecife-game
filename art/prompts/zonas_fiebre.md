@@ -8,7 +8,7 @@ Referencias para `fiebre_entrada`, `fiebre_encuentro` y `fiebre_galeria`: `art/o
 
 > Fondo de aventura narrativa 2D, vista fija en primera persona, 16:9 horizontal, sin interfaz. Umbral de Velvet en La Fiebre, cota 4, visto de cerca desde el pasaje existente; continuidad con el local rojo situado a la izquierda del pasaje. Puerta principal claramente legible para volver al pasaje, interior de ocio al fondo con cortinas, luz práctica roja y ámbar, personal y clientela adultos, dignos y variados, sin bloquear puertas ni paso lateral. No representar a Sota ni a la Jefa. Ilustración digital 2D con contorno oscuro firme, sombras amplias de bordes definidos y detalle selectivo en materiales gastados. Cámara a altura humana; Penumbra sin sol directo, neón rojo/ciruela y sombra azul verdosa. Sin textos legibles, rótulos, números grandes, logos, HUD, manos ni avatar; no pixel art ni 3D.
 
-Se seleccionó la primera generación; la puerta y el pasaje quedan despejados. La imagen introduce un umbral próximo a la entrada visible en el fondo anterior, sin establecer propiedad ni nueva escena narrativa.
+Se seleccionó la primera generación; la puerta y el pasaje quedan despejados. La imagen introducía un umbral próximo a la entrada visible en el fondo anterior, sin establecer propiedad ni nueva escena narrativa. El 24 oct 2026 el autor observó que seguía pareciendo exterior: esta versión se conserva en `art/iterations/zonas_fiebre/velvet_umbral_exterior/` y el fondo activo fue sustituido por el [candidato interior](velvet_interior_2026-10-24.md).
 
 ## `fiebre_encuentro.png`
 

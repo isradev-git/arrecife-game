@@ -2,6 +2,12 @@
 
 Actualizado: **24 de octubre de 2026**.
 
+## Velvet visto desde dentro · corrección 24 oct 2026
+
+El autor señaló que la antigua vista «Umbral de Velvet» seguía en la calle. `fiebre_entrada` conserva su ID de guardado y su conexión, pero ahora usa un fondo candidato de salón interior. El anterior PNG y su prompt se preservaron. El punto de la puerta en el pasaje entra; la fila lateral conserva la observación; la salida interior devuelve al pasaje. No se cambió el canon, el número de vistas ni la misión.
+
+**Comprobado:** 833/833 headless y 909/909 nativas; clic real, retorno táctil, observación, capturas [1280×720](../docs/evidence/velvet_interior_1280x720.png) y [844×390](../docs/evidence/velvet_interior_844x390.png), importación y exportación Web. En Chromium se llegó desde una partida nueva, se entró y se salió; sin errores de página. **Pendiente:** aprobación artística del autor y prueba en teléfono físico. La ampliación del guardado sigue aplazada.
+
 ## Piloto ambiental aprobado e implementado · 24 oct 2026
 
 El autor aprobó el [diseño de movimiento ambiental](../docs/superpowers/specs/2026-10-23-ambiente-dinamico-design.md): luces, reflejos, vapor y bruma; personajes y cámara fijos. Se implementó el primer pasaje de La Fiebre mediante una capa vectorial editable sobre el PNG existente, sin tocar retratos, originales, fondo ni canon. La opción «Reducir movimiento» detiene y oculta la capa; el menú y las otras veinte vistas siguen estáticos a la espera de la valoración visual de este piloto.
