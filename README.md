@@ -6,7 +6,7 @@ Aventura narrativa **2D ilustrada, en primera persona**, en el universo de *CARG
 
 Tres pantallas de apertura (logo, autoría y orientación), menú, introducción saltable, tres habitaciones y seis vistas de cada cota: La Fiebre, El Nudo y Los Puntales. Hay exploración por clic/toque, diálogo con retratos originales, deck, mensajes, tres contratos completos, documentos, terminal, ambiente sonoro y guardado local.
 
-El pasaje de La Fiebre incorpora un primer ambiente visual animado: luz de Velvet y reflejos, vapor de la ventilación y bruma lejana. Desde la exploración, **Opciones → Reducir movimiento** detiene estos efectos. [Ver el piloto animado a 844×390](docs/evidence/ambient_fiebre_844x390.gif). El menú y las demás vistas aún no tienen capas animadas.
+El pasaje de La Fiebre incorpora un primer ambiente visual animado: luz de Velvet y reflejos, vapor de la ventilación y bruma lejana. Desde la exploración, **Opciones → Reducir movimiento** detiene estos efectos. [Ver el piloto animado a 844×390](docs/evidence/ambient_fiebre_visible_844x390.gif). El menú y las demás vistas aún no tienen capas animadas.
 
 El arco narrativo y sus dos decisiones de cierre están implementados. El deck reúne conversaciones con la madre, la hermana, Lía, la Jefa y el enlace policial; llegan según el progreso, permiten respuestas breves y conservan lo leído. La duración objetivo de unos 30 minutos aún no se ha medido en una partida del autor. Los 21 fondos de exploración y el fondo de menú son candidatos ilustrados; la ficción nueva y el arte requieren su revisión antes de publicar la versión final. [Guía para la primera partida](docs/GUIA_PRIMERA_PARTIDA.md).
 
@@ -65,10 +65,10 @@ Instala las plantillas de exportación de **la misma versión** del motor:
 
 ```sh
 godot --headless --path game --export-release Web
-python3 -m http.server 8767 --bind 127.0.0.1 --directory game/build/web
+python3 tools/serve_web.py 8767
 ```
 
-Abre `http://127.0.0.1:8767`. El directorio `build/` es regenerable y está excluido de Git. No abras el HTML con `file://`. La exportación Web usa Compatibility, sin hilos ni extensiones.
+Abre `http://127.0.0.1:8767`. Este servidor local evita reutilizar el paquete anterior desde la caché del navegador al reexportar; recarga la pestaña para cargar la versión nueva. El directorio `build/` es regenerable y está excluido de Git. No abras el HTML con `file://`. La exportación Web usa Compatibility, sin hilos ni extensiones.
 
 El guardado usa `user://partida.json`, `.tmp` y `.bak`; una partida nueva conserva además una copia `.previa-*`. El menú avisa de que el progreso del invitado está sólo en el dispositivo. En navegador, borrar los datos del sitio, cambiar de origen o usar modo privado puede hacer perder el acceso; el archivo exportado permite restaurarlo manualmente. **No hay guardado en la nube ni cuentas activas.** La base de migración y la sincronización simulada se explican en [Protección del progreso](docs/SAVE_SYSTEM_ARCHITECTURE.md).
 
