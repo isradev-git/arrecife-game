@@ -347,7 +347,7 @@ func show_intro() -> void:
 
 func enter_exploration() -> void:
 	show_exploration()
-	observe("Toca los puntos de luz para explorar. El deck contiene mensajes nuevos.")
+	observe("Toca las flechas para desplazarte y los puntos para explorar. El deck contiene mensajes nuevos.")
 
 func show_exploration() -> void:
 	dismiss_observation()
@@ -428,7 +428,7 @@ func show_hints_panel() -> void:
 			close_modal()
 			interact(hotspot))
 	modal_body.add_child(HSeparator.new())
-	GameUI.action(modal_body, "Ocultar puntos de luz" if State.settings.hints else "Mostrar puntos de luz", func():
+	GameUI.action(modal_body, "Ocultar marcas" if State.settings.hints else "Mostrar marcas", func():
 		State.set_option("hints", not State.settings.hints)
 		current_view.set_hints(State.settings.hints)
 		show_hints_panel())

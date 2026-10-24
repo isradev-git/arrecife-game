@@ -2,6 +2,12 @@
 
 Actualizado: **24 de octubre de 2026**.
 
+## Navegación visible en las 21 vistas · corrección 24 oct 2026
+
+El autor pidió que todas las zonas permitan moverse y que la señal de ruta sea distinta de la interacción. Se auditó `world.json`: las 21 vistas ya disponían de salida y camino de vuelta. La UI ahora dibuja flechas vectoriales ámbar para `NAVIGATION` y conserva los puntos para objetos, personas y demás interacciones. Se bajó la ruta a la galería que quedaba bajo la cabecera en horizontal móvil. La primera ayuda y «Pistas» explican y ocultan ambas marcas. No se alteraron IDs, reglas de acceso, partidas, ficción ni arte.
+
+**Comprobado:** 931/931 headless, 1007/1007 nativas, importación, preservación, exportación Web y recorrido de dormitorio → cocina → baño en Chromium a 844×390, sin errores de página. [Pasaje](../docs/evidence/navegacion_fiebre_844x390.png) e [interior de Velvet](../docs/evidence/navegacion_velvet_844x390.png). **Pendiente:** prueba con teléfono físico y primer jugador. El guardado cloud continúa aplazado.
+
 ## Velvet visto desde dentro · corrección 24 oct 2026
 
 El autor señaló que la antigua vista «Umbral de Velvet» seguía en la calle. `fiebre_entrada` conserva su ID de guardado y su conexión, pero ahora usa un fondo candidato de salón interior. El anterior PNG y su prompt se preservaron. El punto de la puerta en el pasaje entra; la fila lateral conserva la observación; la salida interior devuelve al pasaje. No se cambió el canon, el número de vistas ni la misión.

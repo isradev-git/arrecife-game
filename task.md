@@ -17,6 +17,14 @@ Decisión del autor, 23 oct 2026: dejar en pendiente la siguiente tanda de guard
 
 Los pendientes de guardado y publicación Web siguen registrados al final de este archivo y en la [hoja de mejoras](docs/EL_ARRECIFE_AUDITORIA_Y_PLAN_DE_MEJORA.md); este cambio de prioridad no los da por completados.
 
+## Navegación legible en todas las vistas · 24 oct 2026
+
+- [x] Auditar las 21 vistas: todas conservan al menos una ruta y un camino de vuelta; los permisos entre cotas siguen vigentes.
+- [x] Distinguir visualmente las rutas con flecha ámbar de los puntos de interacción, sin alterar el tamaño táctil ni los IDs de las vistas.
+- [x] Sacar la ruta a la galería de debajo de la cabecera móvil y explicar las dos marcas al entrar en la partida.
+- [x] Comprobar tests headless y nativos, y revisar capturas de La Fiebre y Velvet a 844×390.
+- [ ] Probar la claridad y comodidad de ambas marcas en un teléfono físico y con el primer jugador.
+
 ## H0 · retiro recuperable
 
 - [x] Inspeccionar Git, canon, documentación, proyectos y arte.

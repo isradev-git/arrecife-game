@@ -163,6 +163,7 @@ func run() -> void:
 			if hotspot.type == "NAVIGATION" and content.world.screens.has(hotspot.target):
 				links[sid].append(hotspot.target)
 				returns[hotspot.target].append(sid)
+		check(links[sid].size() > 0, "Salida de la vista " + sid)
 	for graph in [links, returns]:
 		var reached := {"ap_dormitorio": true}
 		var pending := ["ap_dormitorio"]
@@ -254,7 +255,7 @@ func run() -> void:
 	await press("Saltar introducción")
 	check(is_instance_valid(app.current_view), "Introducción saltable")
 	check(app.get("ambience_player") is AudioStreamPlayer and app.ambience_player.stream is AudioStreamWAV and app.ambience_player.stream.loop_mode == AudioStreamWAV.LOOP_FORWARD, "Ambiente sonoro en bucle en exploración")
-	check(app.exploration_footer.visible and app.observation.text.begins_with("Toca los puntos de luz"), "Primera entrada conserva la ayuda para explorar")
+	check(app.exploration_footer.visible and app.observation.text.begins_with("Toca las flechas para desplazarte y los puntos para explorar"), "Primera entrada explica rutas e interacciones")
 	await capture("03_dormitorio")
 	await press("· La cama")
 	check(app.exploration_footer.visible and app.observation.text == content.story.observations.bed, "La observación aparece al tocar la cama")
@@ -297,9 +298,9 @@ func run() -> void:
 		if button.text in ["Deck externo", "Cerrar ×"]:
 			check(button.get_theme_stylebox("normal") is StyleBoxEmpty, "Acción de Pistas sin recuadro: " + button.text)
 	await capture("pistas_1280x720")
-	await press("Ocultar puntos de luz")
+	await press("Ocultar marcas")
 	check(not app.current_view.spots[0].get_child(0).visible, "Pistas oculta marcas sin desactivar hotspots")
-	await press("Mostrar puntos de luz")
+	await press("Mostrar marcas")
 	check(app.current_view.spots[0].get_child(0).visible, "Pistas recupera marcas discretas")
 	await press("Deck externo", app.overlay)
 	check(app.overlay.visible and app.modal_body.get_child_count() > 0, "Acción nombrada de Pistas abre el deck")
@@ -662,8 +663,12 @@ func run() -> void:
 		for button in app.current_view.spots:
 			check(button.visible and app.current_view.art_rect().encloses(Rect2(button.position, button.size)), "Área táctil sobre la ilustración " + str(resolution))
 			check(button.size.x <= 48.1 and button.size.y <= 48.1, "Área táctil acotada " + str(resolution) + " " + str(button.size))
-			check(button.text.is_empty() and button.get_child(0).size.is_equal_approx(Vector2(10,10)), "Indicador circular discreto " + str(resolution))
-			check(button.get_child(0).position.is_equal_approx((button.size - Vector2(10,10)) * 0.5), "Indicador centrado en el área pulsable " + str(resolution))
+			var marker := button.get_child(0) as Control
+			var navigation: bool = button.get_meta("hotspot").type == "NAVIGATION"
+			check((marker.get_child_count() == 2 and marker.get_child(0) is Line2D and marker.size == Vector2(24, 24)) if navigation else (marker is Panel and marker.size == Vector2(10, 10)), "Ruta distinta de interacción " + str(resolution))
+			check(marker.position.is_equal_approx((button.size - marker.size) * 0.5), "Indicador centrado en el área pulsable " + str(resolution))
+			if navigation and resolution == Vector2i(844, 390):
+				check(not marker.get_global_rect().intersects(app.exploration_header.get_global_rect()), "Ruta fuera de la cabecera " + button.get_meta("hotspot").id)
 		await capture("viewport_%dx%d" % [resolution.x,resolution.y])
 		if resolution == Vector2i(390,844):
 			check(app.current_view.image.size.y <= app.current_view.size.x * 0.6, "Ilustración vertical contenida")
@@ -715,6 +720,8 @@ func run() -> void:
 			check(app.current_view.image.texture != null, "Textura visible " + sid)
 			for spot in app.current_view.spots:
 				check(app.current_view.art_rect().encloses(Rect2(spot.position, spot.size)), "Hotspot visible " + sid + " " + str(resolution))
+				if spot.get_meta("hotspot").type == "NAVIGATION":
+					check(not (spot.get_child(0) as Control).get_global_rect().intersects(app.exploration_header.get_global_rect()), "Ruta fuera de la cabecera " + sid + " " + str(resolution))
 			await capture("zona_%s_%dx%d" % [sid, resolution.x, resolution.y])
 			if resolution == Vector2i(844, 390) and sid in ["nudo_acceso", "puntales_acceso"]:
 				await press("Pistas")
