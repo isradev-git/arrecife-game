@@ -1,6 +1,6 @@
 # EL ARRECIFE · ambientes dinámicos
 
-**Estado:** propuesta para aprobación del autor, 23 oct 2026. No cambia la dirección de aventura 2D ilustrada en primera persona.
+**Estado:** aprobado por el autor el 24 oct 2026. No cambia la dirección de aventura 2D ilustrada en primera persona.
 
 ## Intención
 
