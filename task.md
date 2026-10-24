@@ -115,7 +115,7 @@ Los pendientes de guardado y publicación Web siguen registrados al final de est
 ## Movimiento ambiental · piloto del pasaje · 24 oct 2026
 
 - [x] Autor: aprobar el [diseño](docs/superpowers/specs/2026-10-23-ambiente-dinamico-design.md) de luces, reflejos, vapor y bruma, sin animar personas ni mover la cámara.
-- [x] Implementar la capa del pasaje con coordenadas ligadas al fondo, por detrás de hotspots y paneles, y detenerla con «Reducir movimiento».
+- [x] Implementar la capa del pasaje con coordenadas ligadas al fondo, por detrás de hotspots y paneles, y detenerla con «Reducir movimiento» desde la escena.
 - [x] Comprobar reentrada, recorte a 844×390, clic sobre hotspot, capturas nativas, exportación Web y recorrido en Chromium; [resultados](docs/VALIDACION.md).
 - [ ] Autor: valorar la intensidad y el aspecto del [piloto animado](docs/evidence/ambient_fiebre_844x390.gif) antes de aplicarlo al menú y a las otras veinte vistas.
 - [ ] Extender con fuentes de luz, bruma y vapor propios de cada vista aprobada; comprobar rendimiento y lectura en teléfono físico.

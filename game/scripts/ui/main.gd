@@ -386,6 +386,9 @@ func show_exploration() -> void:
 	deck_unread_label.modulate = GameUI.AMBER
 	update_deck_unread()
 	GameUI.button(controls, "Pistas", show_hints_panel)
+	var options_link := GameUI.action(controls, "Opciones", show_options)
+	options_link.custom_minimum_size.y = 36
+	options_link.size_flags_horizontal = Control.SIZE_SHRINK_BEGIN
 	GameUI.button(controls, "Menú", show_menu)
 	var footer := PanelContainer.new()
 	exploration_footer = footer

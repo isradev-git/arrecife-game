@@ -36,11 +36,11 @@
 
 **Interfaces:** `AmbientFiebre.set_motion_enabled(enabled: bool) -> void`; `elapsed: float`; dibuja dentro de su propio rectángulo con coordenadas normalizadas.
 
-- [ ] **Step 1:** Escribir prueba que instancia el control, comprueba que `elapsed` avanza con movimiento y queda fijo al desactivarlo, y que el estado sin movimiento oculta los efectos.
-- [ ] **Step 2:** Ejecutar `godot --headless --path game --script tests/ambient_fiebre.gd` y comprobar el fallo inicial.
-- [ ] **Step 3:** Implementar capas vectoriales específicas de la composición existente: brillo del neón y reflejo unidos por la misma intensidad; vapor de la unidad visible en la pared derecha; bruma suave dentro del arco lejano. Limitar alpha y variar ritmos sin destellos repentinos. El código de coordenadas es la fuente editable de estas capas; documentar esa procedencia.
-- [ ] **Step 4:** Repetir prueba y comprobar 0 fallos.
-- [ ] **Step 5:** Commit de efecto y prueba.
+- [x] **Step 1:** Escribir prueba que instancia el control, comprueba que `elapsed` avanza con movimiento y queda fijo al desactivarlo, y que el estado sin movimiento oculta los efectos.
+- [x] **Step 2:** Ejecutar `godot --headless --path game --script tests/ambient_fiebre.gd` y comprobar el fallo inicial.
+- [x] **Step 3:** Implementar capas vectoriales específicas de la composición existente: brillo del neón y reflejo unidos por la misma intensidad; vapor de la unidad visible en la pared derecha; bruma suave dentro del arco lejano. Limitar alpha y variar ritmos sin destellos repentinos. El código de coordenadas es la fuente editable de estas capas; documentar esa procedencia.
+- [x] **Step 4:** Repetir prueba y comprobar 0 fallos.
+- [x] **Step 5:** Commit de efecto y prueba.
 
 ### Task 2: Vista y ajuste inmediato
 
@@ -51,11 +51,11 @@
 
 **Interfaces:** `Viewpoint.set_ambient_motion(enabled: bool) -> void`; `Viewpoint.ambient: Control` o `null`.
 
-- [ ] **Step 1:** Ampliar la prueba: sólo `fiebre_calle` recibe efectos; éstos son hijos de `image`, quedan bajo los botones y siguen exactamente `image.size` tras cambiar tamaño. Reentrada no duplica nodos; activar el ajuste desde Opciones modifica la vista abierta y mantiene los hotspots pulsables.
-- [ ] **Step 2:** Ejecutarla y comprobar el fallo.
-- [ ] **Step 3:** Añadir el control al mostrar `fiebre_multitud_v2`, liberar el anterior al cambiar de vista y aplicar `not State.settings.reduced_motion`; conectar el CheckButton actual y renombrar su etiqueta a «Reducir movimiento».
-- [ ] **Step 4:** Repetir la prueba aislada y la suite principal headless.
-- [ ] **Step 5:** Commit de integración.
+- [x] **Step 1:** Ampliar la prueba: sólo `fiebre_calle` recibe efectos; éstos son hijos de `image`, quedan bajo los botones y siguen exactamente `image.size` tras cambiar tamaño. Reentrada no duplica nodos; activar el ajuste desde Opciones modifica la vista abierta y mantiene los hotspots pulsables.
+- [x] **Step 2:** Ejecutarla y comprobar el fallo.
+- [x] **Step 3:** Añadir el control al mostrar `fiebre_multitud_v2`, liberar el anterior al cambiar de vista y aplicar `not State.settings.reduced_motion`; conectar el CheckButton actual y renombrar su etiqueta a «Reducir movimiento».
+- [x] **Step 4:** Repetir la prueba aislada y la suite principal headless.
+- [x] **Step 5:** Commit de integración.
 
 ### Task 3: Render, Web y continuidad
 
@@ -63,7 +63,7 @@
 - Modify: `docs/ART_DIRECTION.md`, `docs/VALIDACION.md`, `task.md`, `proceso/ESTADO_DEL_PROYECTO.md`
 - Test: capturas nativas y Web en carpeta regenerable; `game/tests/preservation.py`.
 
-- [ ] **Step 1:** Capturar dos momentos del pasaje a 1280×720 y 844×390, con movimiento activo y reducido; comprobar que se aprecia el cambio sin tapar salidas o paneles.
-- [ ] **Step 2:** Importar, ejecutar suite headless y nativa, preservación y exportación Web; abrir el pasaje por HTTP y comprobar errores de página.
-- [ ] **Step 3:** Registrar resultados y límites; dejar menu/cielo y resto de vistas como siguiente lote dependiente de valoración visual.
-- [ ] **Step 4:** Revisar diff, commit y push a la rama de trabajo.
+- [x] **Step 1:** Capturar dos momentos del pasaje a 1280×720 y 844×390, con movimiento activo y reducido; comprobar que se aprecia el cambio sin tapar salidas o paneles.
+- [x] **Step 2:** Importar, ejecutar suite headless y nativa, preservación y exportación Web; abrir el pasaje por HTTP y comprobar errores de página.
+- [x] **Step 3:** Registrar resultados y límites; dejar menu/cielo y resto de vistas como siguiente lote dependiente de valoración visual.
+- [x] **Step 4:** Revisar diff, commit y push a la rama de trabajo.

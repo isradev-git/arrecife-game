@@ -84,11 +84,29 @@ func run() -> void:
 	if is_instance_valid(app.opening):
 		app.opening.hide()
 	app.show_exploration()
-	app.show_options()
+	await process_frame
+	var open_view: Control = app.current_view
+	var options_button: Button
+	for button in app.exploration_header.find_children("*", "Button", true, false):
+		if button.text == "Opciones":
+			options_button = button
+	check(options_button != null, "La exploración ofrece Opciones sin salir al menú")
+	if options_button:
+		var options_hit := options_button.get_global_rect().get_center()
+		for down in [true, false]:
+			var event := InputEventMouseButton.new()
+			event.position = options_hit
+			event.button_index = MOUSE_BUTTON_LEFT
+			event.pressed = down
+			root.push_input(event, true)
+			for frame in 3:
+				await process_frame
+		check(app.overlay.visible and app.current_view == open_view, "Opciones se abre sobre la misma vista")
 	var motion_check: CheckButton
-	for candidate in app.modal_body.find_children("*", "CheckButton", true, false):
-		if candidate.text == "Reducir movimiento":
-			motion_check = candidate
+	if app.modal_body:
+		for candidate in app.modal_body.find_children("*", "CheckButton", true, false):
+			if candidate.text == "Reducir movimiento":
+				motion_check = candidate
 	check(motion_check != null, "Opciones describe el movimiento ambiental")
 	if motion_check:
 		motion_check.button_pressed = true
