@@ -52,16 +52,27 @@ func show_screen(value: Dictionary) -> void:
 		add_child(node)
 		spots.append(node)
 		if hotspot.type == "NAVIGATION":
-			var marker := Control.new()
+			var marker := Panel.new()
 			marker.mouse_filter = Control.MOUSE_FILTER_IGNORE
-			marker.size = Vector2(24, 24)
-			for width in [7.0, 3.5]:
-				var chevron := Line2D.new()
-				chevron.points = PackedVector2Array([Vector2(5, 4), Vector2(16, 12), Vector2(5, 20)])
-				chevron.width = width
-				chevron.default_color = Color(0.04, 0.08, 0.10, 0.95) if width == 7.0 else Color(0.98, 0.79, 0.47)
-				chevron.antialiased = true
-				marker.add_child(chevron)
+			var style := StyleBoxFlat.new()
+			style.bg_color = Color(0.025, 0.055, 0.065, 0.42)
+			style.border_color = Color(0.87, 0.73, 0.54, 0.72)
+			style.set_border_width_all(1)
+			style.set_corner_radius_all(10)
+			marker.add_theme_stylebox_override("panel", style)
+			marker.size = Vector2(20, 20)
+			var door := Line2D.new()
+			door.points = PackedVector2Array([Vector2(6, 16), Vector2(6, 5), Vector2(14, 5), Vector2(14, 16), Vector2(6, 16)])
+			door.width = 1.5
+			door.default_color = Color(0.97, 0.80, 0.57, 0.88)
+			door.antialiased = true
+			marker.add_child(door)
+			var knob := ColorRect.new()
+			knob.color = door.default_color
+			knob.mouse_filter = Control.MOUSE_FILTER_IGNORE
+			knob.position = Vector2(11, 10)
+			knob.size = Vector2(2, 2)
+			marker.add_child(knob)
 			node.add_child(marker)
 		else:
 			var marker := Panel.new()

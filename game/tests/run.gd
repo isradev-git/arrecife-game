@@ -255,7 +255,7 @@ func run() -> void:
 	await press("Saltar introducción")
 	check(is_instance_valid(app.current_view), "Introducción saltable")
 	check(app.get("ambience_player") is AudioStreamPlayer and app.ambience_player.stream is AudioStreamWAV and app.ambience_player.stream.loop_mode == AudioStreamWAV.LOOP_FORWARD, "Ambiente sonoro en bucle en exploración")
-	check(app.exploration_footer.visible and app.observation.text.begins_with("Toca las flechas para desplazarte y los puntos para explorar"), "Primera entrada explica rutas e interacciones")
+	check(app.exploration_footer.visible and app.observation.text.begins_with("Toca el símbolo de puerta para moverte y los puntos para explorar"), "Primera entrada explica rutas e interacciones")
 	await capture("03_dormitorio")
 	await press("· La cama")
 	check(app.exploration_footer.visible and app.observation.text == content.story.observations.bed, "La observación aparece al tocar la cama")
@@ -665,7 +665,7 @@ func run() -> void:
 			check(button.size.x <= 48.1 and button.size.y <= 48.1, "Área táctil acotada " + str(resolution) + " " + str(button.size))
 			var marker := button.get_child(0) as Control
 			var navigation: bool = button.get_meta("hotspot").type == "NAVIGATION"
-			check((marker.get_child_count() == 2 and marker.get_child(0) is Line2D and marker.size == Vector2(24, 24)) if navigation else (marker is Panel and marker.size == Vector2(10, 10)), "Ruta distinta de interacción " + str(resolution))
+			check((marker is Panel and marker.size == Vector2(20, 20) and marker.get_child_count() == 2 and marker.get_child(0) is Line2D and (marker.get_theme_stylebox("panel") as StyleBoxFlat).corner_radius_top_left == 10) if navigation else (marker is Panel and marker.size == Vector2(10, 10)), "Puerta circular distinta del punto " + str(resolution))
 			check(marker.position.is_equal_approx((button.size - marker.size) * 0.5), "Indicador centrado en el área pulsable " + str(resolution))
 			if navigation and resolution == Vector2i(844, 390):
 				check(not marker.get_global_rect().intersects(app.exploration_header.get_global_rect()), "Ruta fuera de la cabecera " + button.get_meta("hotspot").id)

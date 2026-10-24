@@ -347,7 +347,7 @@ func show_intro() -> void:
 
 func enter_exploration() -> void:
 	show_exploration()
-	observe("Toca las flechas para desplazarte y los puntos para explorar. El deck contiene mensajes nuevos.")
+	observe("Toca el símbolo de puerta para moverte y los puntos para explorar. Hay mensajes nuevos en el deck.")
 
 func show_exploration() -> void:
 	dismiss_observation()

@@ -20,9 +20,9 @@ Los pendientes de guardado y publicación Web siguen registrados al final de est
 ## Navegación legible en todas las vistas · 24 oct 2026
 
 - [x] Auditar las 21 vistas: todas conservan al menos una ruta y un camino de vuelta; los permisos entre cotas siguen vigentes.
-- [x] Distinguir visualmente las rutas con flecha ámbar de los puntos de interacción, sin alterar el tamaño táctil ni los IDs de las vistas.
+- [x] Distinguir las rutas con un aro tenue y una puerta interior de los puntos de interacción, sin alterar el tamaño táctil ni los IDs de las vistas. El autor rechazó la primera flecha por llamativa.
 - [x] Sacar la ruta a la galería de debajo de la cabecera móvil y explicar las dos marcas al entrar en la partida.
-- [x] Comprobar tests headless y nativos, y revisar capturas de La Fiebre y Velvet a 844×390.
+- [x] Comprobar tests headless y nativos, y revisar capturas de La Fiebre y Velvet a 844×390 y de las pasarelas a 1280×720.
 - [ ] Probar la claridad y comodidad de ambas marcas en un teléfono físico y con el primer jugador.
 
 ## H0 · retiro recuperable
