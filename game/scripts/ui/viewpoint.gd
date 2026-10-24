@@ -1,8 +1,11 @@
 extends Control
 
+const AmbientFiebre = preload("res://scripts/ui/ambient_fiebre.gd")
+
 signal activated(hotspot: Dictionary)
 var screen: Dictionary
 var image := TextureRect.new()
+var ambient: Control
 var spots: Array[Button] = []
 
 func _ready() -> void:
@@ -17,6 +20,15 @@ func _ready() -> void:
 func show_screen(value: Dictionary) -> void:
 	screen = value
 	image.texture = load("res://assets/backgrounds/candidates/%s.png" % screen.art)
+	if is_instance_valid(ambient):
+		image.remove_child(ambient)
+		ambient.queue_free()
+	ambient = null
+	if screen.art == "fiebre_multitud_v2":
+		ambient = AmbientFiebre.new()
+		image.add_child(ambient)
+		ambient.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+		set_ambient_motion(not State.settings.reduced_motion)
 	for node in spots:
 		remove_child(node)
 		node.queue_free()
@@ -55,6 +67,10 @@ func show_screen(value: Dictionary) -> void:
 func set_hints(value: bool) -> void:
 	for node in spots:
 		node.get_child(0).visible = value
+
+func set_ambient_motion(enabled: bool) -> void:
+	if is_instance_valid(ambient):
+		ambient.set_motion_enabled(enabled)
 
 func art_rect() -> Rect2:
 	var ratio := image.texture.get_size().aspect() if image.texture else 16.0 / 9.0

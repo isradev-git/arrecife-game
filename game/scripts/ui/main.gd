@@ -599,12 +599,15 @@ func show_options() -> void:
 		slider.custom_minimum_size.y = 60
 		slider.value_changed.connect(func(value: float): State.set_option(pair[0], value))
 		modal_body.add_child(slider)
-	for pair in [["hints", "Mostrar indicadores"],["large_text", "Texto grande en lecturas y diálogos"],["reduced_motion", "Reducir transiciones"]]:
+	for pair in [["hints", "Mostrar indicadores"],["large_text", "Texto grande en lecturas y diálogos"],["reduced_motion", "Reducir movimiento"]]:
 		var check := CheckButton.new()
 		check.text = pair[1]
 		check.custom_minimum_size.y = 60
 		check.button_pressed = State.settings[pair[0]]
-		check.toggled.connect(func(value: bool): State.set_option(pair[0], value))
+		check.toggled.connect(func(value: bool):
+			State.set_option(pair[0], value)
+			if pair[0] == "reduced_motion" and is_instance_valid(current_view):
+				current_view.set_ambient_motion(not value))
 		modal_body.add_child(check)
 	GameUI.label(modal_body, "El texto aparece completo, sin espera. En navegador, el guardado depende del almacenamiento local: borrar datos del sitio borra la partida. Evita el modo privado para conservarla.", 20)
 
