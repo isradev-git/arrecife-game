@@ -1,6 +1,12 @@
 # EL ARRECIFE · continuidad vigente
 
-Actualizado: **23 de octubre de 2026**.
+Actualizado: **24 de octubre de 2026**.
+
+## Piloto ambiental aprobado e implementado · 24 oct 2026
+
+El autor aprobó el [diseño de movimiento ambiental](../docs/superpowers/specs/2026-10-23-ambiente-dinamico-design.md): luces, reflejos, vapor y bruma; personajes y cámara fijos. Se implementó el primer pasaje de La Fiebre mediante una capa vectorial editable sobre el PNG existente, sin tocar retratos, originales, fondo ni canon. La opción «Reducir movimiento» detiene y oculta la capa; el menú y las otras veinte vistas siguen estáticos a la espera de la valoración visual de este piloto.
+
+**Comprobado:** `ambient_fiebre.gd` 17/17 headless, 23/23 nativas y captura animada de 48 fotogramas; suite principal 831/831 headless y 905/905 nativas; importación, preservación y exportación Web correctas. En Chromium local se alcanzó el pasaje desde un contrato nuevo, se revisó a 1280×720 y 844×390 y se activó el movimiento reducido desde Opciones; sin errores de página. [GIF y límites](../docs/VALIDACION.md). **Pendiente de aprobación del autor:** intensidad, aspecto final de estos efectos y extensión a otras vistas. Los teléfonos físicos y Safari no se han probado.
 
 ## Prioridad vigente · juego
 

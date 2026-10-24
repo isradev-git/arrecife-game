@@ -81,6 +81,8 @@ func run() -> void:
 	state.set_option("reduced_motion", false)
 	var app: Control = load("res://scenes/main.tscn").instantiate()
 	root.add_child(app)
+	if is_instance_valid(app.opening):
+		app.opening.hide()
 	app.show_exploration()
 	app.show_options()
 	var motion_check: CheckButton
@@ -93,10 +95,39 @@ func run() -> void:
 		check(not app.current_view.ambient.visible and not app.current_view.ambient.is_processing(), "Opciones detiene la vista abierta al instante")
 		motion_check.button_pressed = false
 		check(app.current_view.ambient.visible and app.current_view.ambient.is_processing(), "Opciones reanuda la vista abierta")
+	if OS.get_environment("ARRECIFE_AMBIENT_CAPTURE") == "1" and DisplayServer.get_name() != "headless":
+		app.close_modal()
+		var capture_dir := ProjectSettings.globalize_path("res://build/ambient")
+		DirAccess.make_dir_recursive_absolute(capture_dir)
+		for dimensions in [Vector2i(1280, 720), Vector2i(844, 390)]:
+			root.size = dimensions
+			for frame in 8:
+				await process_frame
+			for moment in [0.0, 2.1]:
+				app.current_view.ambient.elapsed = moment
+				app.current_view.ambient.queue_redraw()
+				await process_frame
+				RenderingServer.force_draw()
+				check(root.get_texture().get_image().save_png(capture_dir.path_join("fiebre_%dx%d_%.1f.png" % [dimensions.x, dimensions.y, moment])) == OK, "Captura ambiental %s, %.1f" % [dimensions, moment])
+			app.current_view.set_ambient_motion(false)
+			await process_frame
+			RenderingServer.force_draw()
+			check(root.get_texture().get_image().save_png(capture_dir.path_join("fiebre_%dx%d_reducido.png" % [dimensions.x, dimensions.y])) == OK, "Captura con movimiento reducido " + str(dimensions))
+			app.current_view.set_ambient_motion(true)
+		if OS.get_environment("ARRECIFE_AMBIENT_CLIP") == "1":
+			var frames_dir := capture_dir.path_join("frames")
+			DirAccess.make_dir_recursive_absolute(frames_dir)
+			for frame in 48:
+				app.current_view.ambient.elapsed = float(frame) * 0.125
+				app.current_view.ambient.queue_redraw()
+				await process_frame
+				RenderingServer.force_draw()
+				check(root.get_texture().get_image().save_png(frames_dir.path_join("%03d.png" % frame)) == OK, "Fotograma ambiental " + str(frame))
 	app.queue_free()
 	state.data = original_data
 	state.set_option("reduced_motion", original_motion)
 	for frame in 3:
 		await process_frame
+	await create_timer(0.1).timeout
 	print("AMBIENTE: %d comprobaciones, %d fallos" % [checks, failures.size()])
 	quit(0 if failures.is_empty() else 1)

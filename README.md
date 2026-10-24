@@ -6,6 +6,8 @@ Aventura narrativa **2D ilustrada, en primera persona**, en el universo de *CARG
 
 Tres pantallas de apertura (logo, autoría y orientación), menú, introducción saltable, tres habitaciones y seis vistas de cada cota: La Fiebre, El Nudo y Los Puntales. Hay exploración por clic/toque, diálogo con retratos originales, deck, mensajes, tres contratos completos, documentos, terminal, ambiente sonoro y guardado local.
 
+El pasaje de La Fiebre incorpora un primer ambiente visual animado: luz de Velvet y reflejos, vapor de la ventilación y bruma lejana. **Opciones → Reducir movimiento** detiene estos efectos. [Ver el piloto animado a 844×390](docs/evidence/ambient_fiebre_844x390.gif). El menú y las demás vistas aún no tienen capas animadas.
+
 El arco narrativo y sus dos decisiones de cierre están implementados. El deck reúne conversaciones con la madre, la hermana, Lía, la Jefa y el enlace policial; llegan según el progreso, permiten respuestas breves y conservan lo leído. La duración objetivo de unos 30 minutos aún no se ha medido en una partida del autor. Los 21 fondos de exploración y el fondo de menú son candidatos ilustrados; la ficción nueva y el arte requieren su revisión antes de publicar la versión final. [Guía para la primera partida](docs/GUIA_PRIMERA_PARTIDA.md).
 
 ## Rumbo actual
