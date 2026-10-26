@@ -4,6 +4,8 @@
 
 `art/originals/sota.png` y `jefa.png`, originales del autor. Contorno oscuro firme, sombras amplias de bordes definidos, tonos de piel cálidos, pelo en masas legibles, materiales usados con detalle selectivo. Los PNG del juego son copias idénticas por SHA256. No se reflejan, regeneran, pixelan ni repintan.
 
+**Decisión del autor, 25 oct 2026:** los fondos deben tener el mismo lenguaje ilustrado que los retratos. En cada fondo nuevo se comparan juntos a tamaño de juego: grosor y seguridad del contorno, masas de color, sombras angulares de borde definido, pocos brillos y detalle selectivo. Una paleta compatible por sí sola no basta; evitar microtextura, rayado fino y acabado de render arquitectónico o fotográfico.
+
 La ciudad se construye por acumulación: instalaciones añadidas, reparaciones y diferencias de recursos visibles. La Fiebre admite rojos y ciruela; el hogar usa petróleo, ocres y luz práctica. La Penumbra no tiene sol directo. No añadir números gigantes de cota ni convertir el fondo en una ciudad futurista limpia.
 
 ## Candidatos de este hito
@@ -23,6 +25,16 @@ El piloto está implementado y comprobado en escritorio, Web y horizontal peque�
 ## Velvet visto desde dentro · corrección 24 oct 2026
 
 El autor observó que el antiguo `fiebre_entrada.png` repetía el exterior del pasaje. Se conservó esa variante en `art/iterations/zonas_fiebre/velvet_umbral_exterior/` y se generó un nuevo candidato con el [prompt y las referencias](../art/prompts/velvet_interior_2026-10-24.md). La vista ahora mira la barra, mesas y reservados desde dentro; a la derecha queda la salida a la calle, sin gente delante. [Render 1280×720](evidence/velvet_interior_1280x720.png) · [render 844×390](evidence/velvet_interior_844x390.png). Los retratos, originales y canon no se modificaron. El fondo nuevo está integrado para prueba técnica; **su aprobación artística final sigue pendiente**.
+
+## Muestra de Los Puntales · 25 oct 2026
+
+Tras el canon visual D225, se produjo una [muestra candidata de `puntales_acceso`](../art/iterations/zonas_puntales/puntales_acceso_canon_v1.png) fuera del juego: refuerzos estructurales entre viviendas y comercios, paleta gris/óxido/azul, cielo proyectado y tres rutas despejadas. La primera generación tenía sombras de sol demasiado duras; se conserva junto al [prompt y la corrección de luz](../art/prompts/puntales_acceso_canon_v1.md). [Recorte de prueba a 844×390](evidence/puntales_acceso_canon_v1_844x390.png). Ambos PNG son aplanados. La revisión independiente observó que aún se repiten varias lámparas ámbar y quedan reflejos extensos en el pavimento: valorar si deben reducirse para distanciar la muestra de los fondos actuales. **Pendiente:** valoración artística del autor; no sustituir aún el fondo activo ni extender automáticamente la muestra a las otras vistas.
+
+**Corrección del autor, 25 oct:** la v1 parecía demasiado iluminada para Los Puntales. Se generó una [v2 más sombría](../art/iterations/zonas_puntales/puntales_acceso_canon_v2.png) con cielo proyectado azul grisáceo, sombras bajo la estructura y luz práctica localizada. La [vista a 844×390](evidence/puntales_acceso_canon_v2_844x390.png) conserva las tres rutas. [Prompt de la v2](../art/prompts/puntales_acceso_canon_v2.md). La v1 no se sobrescribió. La v2 también queda pendiente de valoración artística y fuera del juego.
+
+**Ajuste de estilo solicitado por el autor, 25 oct:** conserva la luz de la v2 y presenta una [v3 con formas y sombras más próximas a los retratos](../art/iterations/zonas_puntales/puntales_acceso_canon_v3.png). [Vista 844×390](evidence/puntales_acceso_canon_v3_844x390.png) · [prompt](../art/prompts/puntales_acceso_canon_v3.md). Se mantienen todas las versiones. **El autor aprobó este enfoque como dirección para Los Puntales** y pidió continuar.
+
+**Cota completa, 25 oct:** el juego usa la v3 del acceso y cinco [fondos candidatos propios](../art/prompts/zonas_puntales_canon_2026-10-25.md) para taller, frente de trabajo, soportes, presión y verificación. Se conservaron los PNG anteriores y el primer borrador del taller. La luz de Penumbra procede de cielo artificial entre estructuras y de luminarias locales; cada escena tiene función espacial distinta. La galería de soportes usa una v2: la marca blanca cruza una unión metálica con corrosión, como exige el documento jugable. Se alinearon sobre el arte final la marca, el manómetro y el registro. [Validación y capturas por vista](VALIDACION.md). **La v3 del acceso fija la dirección aprobada; las otras cinco ilustraciones y su continuidad dentro del juego siguen pendientes de aprobación artística del autor.**
 
 ## Población en las cotas mostradas
 
@@ -49,11 +61,11 @@ El autor aprobó tres vistas del apartamento y seis de cada cota, incluidos los 
 | Nudo: acceso | Conductos de red, control, circulación vertical y paso público concurrido | Verde/cian apagado, estado del lector |
 | Nudo: taller | Reparación de equipos, componentes y manos/oficios en segundo plano | Trabajo neutro, pantallas aisladas |
 | Nudo: terminal | Puerto físico y equipo de contraste, recibo comparado | Respuesta de pantalla; primer plano separable |
-| Puntales: acceso | Uniones estructurales y paso denso de trabajadores, sin bloquear la ruta | Luz industrial cálida, profundidad gris |
+| Puntales: acceso | Uniones estructurales y paso denso de trabajadores, sin bloquear la ruta | Sombra bajo estructura, cielo artificial gris azulado y luz de trabajo local |
 | Puntales: taller | Herramientas, piezas de conducción, registros de trabajo | Luz útil y materiales gastados; objeto comprobable separable |
 | Puntales: trabajo | Estructura que soporta otras cotas, intervención local concreta | Bruma y puntos de servicio; cierre visual pendiente de guion |
 
-La tabla recoge la dirección inicial de doce vistas; el inventario completo y sus conexiones están en el diseño espacial aprobado. Los 21 fondos activos son candidatos aplanados, pendientes de aprobación y despiece antes de considerarse arte final. Los seis fondos de Los Puntales muestran un lenguaje de render más detallado que los retratos y otros fondos; esa coherencia debe valorarse junto con la continuidad arquitectónica. La versión 0.2.0 incluye ambiente mecánico y un toque de interfaz; no tiene partitura musical.
+La tabla recoge la dirección inicial de doce vistas; el inventario completo y sus conexiones están en el diseño espacial aprobado. Los 21 fondos activos son candidatos aplanados, pendientes de aprobación y despiece antes de considerarse arte final. Los seis fondos antiguos de Los Puntales tenían un render más detallado y brillante; las nuevas versiones acercan contorno, sombras y luz a la muestra aprobada, y su coherencia con los retratos y entre escenas aún debe valorar el autor. La versión 0.2.0 incluye ambiente mecánico y un toque de interfaz; no tiene partitura musical.
 
 ## Originales históricos
 

@@ -1020,7 +1020,7 @@
       "zone": "puntales",
       "title": "Acceso estructural",
       "subtitle": "LOS PUNTALES · ENTRADA INDUSTRIAL",
-      "art": "puntales_acceso",
+      "art": "puntales_acceso_canon_v3",
       "implemented": true,
       "hotspots": [
         {
@@ -1077,7 +1077,7 @@
       "zone": "puntales",
       "title": "Taller de mantenimiento",
       "subtitle": "LOS PUNTALES · CONDUCCIONES",
-      "art": "puntales_taller",
+      "art": "puntales_taller_canon_v1",
       "implemented": true,
       "hotspots": [
         {
@@ -1122,7 +1122,7 @@
       "zone": "puntales",
       "title": "Zona de trabajo",
       "subtitle": "LOS PUNTALES · FRENTE DE TRABAJO",
-      "art": "puntales_observatorio",
+      "art": "puntales_observatorio_canon_v1",
       "implemented": true,
       "hotspots": [
         {
@@ -1167,7 +1167,7 @@
       "zone": "puntales",
       "title": "Galería de soportes",
       "subtitle": "LOS PUNTALES · ESTRUCTURA",
-      "art": "puntales_soportes",
+      "art": "puntales_soportes_canon_v2",
       "implemented": true,
       "hotspots": [
         {
@@ -1211,10 +1211,10 @@
           "label": "Marca del soporte",
           "type": "DOCUMENT",
           "bounds": [
-            0.65,
-            0.23,
+            0.57,
+            0.2,
             0.1,
-            0.12
+            0.14
           ],
           "target": "marca_soporte",
           "visible_if": {
@@ -1232,7 +1232,7 @@
       "zone": "puntales",
       "title": "Cámara de presión",
       "subtitle": "LOS PUNTALES · CONDUCCIÓN PRINCIPAL",
-      "art": "puntales_presion",
+      "art": "puntales_presion_canon_v1",
       "implemented": true,
       "hotspots": [
         {
@@ -1276,10 +1276,10 @@
           "label": "Lectura de presión",
           "type": "DOCUMENT",
           "bounds": [
-            0.65,
-            0.25,
+            0.55,
+            0.17,
             0.1,
-            0.12
+            0.15
           ],
           "target": "lectura_actual",
           "visible_if": {
@@ -1297,7 +1297,7 @@
       "zone": "puntales",
       "title": "Puesto de verificación",
       "subtitle": "LOS PUNTALES · CONTROL DE ESTRUCTURA",
-      "art": "puntales_verificacion",
+      "art": "puntales_verificacion_canon_v1",
       "implemented": true,
       "hotspots": [
         {
@@ -1341,10 +1341,10 @@
           "label": "Control de la conducción",
           "type": "DOCUMENT",
           "bounds": [
-            0.65,
-            0.28,
+            0.54,
+            0.23,
             0.1,
-            0.12
+            0.15
           ],
           "target": "verificacion_fisica",
           "visible_if": {

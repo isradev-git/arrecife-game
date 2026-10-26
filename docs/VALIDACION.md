@@ -1,6 +1,40 @@
 # Validación del juego y las 21 vistas
 
-Actualizado el 24 de octubre de 2026. Godot 4.7.2 oficial, Mac mini M4, Compatibility. Estas pruebas certifican el alcance descrito; no aprueban el arte ni la ficción.
+Actualizado el 25 de octubre de 2026. Godot 4.7.2 oficial, Mac mini M4, Compatibility. Estas pruebas certifican el alcance descrito; no aprueban el arte ni la ficción.
+
+## Los Puntales · renovación visual integrada · 25 oct 2026
+
+Se integraron seis PNG versionados en `game/assets/backgrounds/candidates/`: el acceso v3 cuyo **enfoque aprobó el autor** y cinco candidatos nuevos para las demás vistas. `world.json` conserva IDs, destinos, condiciones y textos. Sólo cambió el nombre de arte de las seis vistas y la posición de tres documentos sobre su marca, manómetro y registro visibles. Los seis PNG previos y retratos originales siguen intactos; los hashes de Sota, Jefa y los seis fondos anteriores coinciden con la línea base anotada en el [plan](superpowers/plans/2026-10-25-puntales-cota-completa.md).
+
+| Vista | Juego a 1280×720 | Juego a 844×390 |
+| --- | --- | --- |
+| Acceso | [Captura](evidence/puntales_acceso_canon_v3_jugable_1280x720.png) | [Captura](evidence/puntales_acceso_canon_v3_jugable_844x390.png) |
+| Taller | [Captura](evidence/puntales_taller_canon_v1_jugable_1280x720.png) | [Captura](evidence/puntales_taller_canon_v1_jugable_844x390.png) |
+| Frente de trabajo | [Captura](evidence/puntales_observatorio_canon_v1_jugable_1280x720.png) | [Captura](evidence/puntales_observatorio_canon_v1_jugable_844x390.png) |
+| Soportes | [Captura](evidence/puntales_soportes_canon_v2_jugable_1280x720.png) | [Captura](evidence/puntales_soportes_canon_v2_jugable_844x390.png) |
+| Presión | [Captura](evidence/puntales_presion_canon_v1_jugable_1280x720.png) | [Captura](evidence/puntales_presion_canon_v1_jugable_844x390.png) |
+| Verificación | [Captura](evidence/puntales_verificacion_canon_v1_jugable_1280x720.png) | [Captura](evidence/puntales_verificacion_canon_v1_jugable_844x390.png) |
+
+**Comprobación:** importación sin errores; **931/931 headless** y **1007/1007 nativas con GPU**; guardado **73/73**, archivos **13/13** y sincronización simulada **7/7**; exportación Web local correcta. Tras la revisión se repitieron importación, 931/931 y 1007/1007 con soportes v2. Las doce capturas se inspeccionaron: rutas izquierda/derecha, banco, conducción y tres objetos de misión siguen reconocibles; en horizontal móvil la cabecera no tapa los elementos consultables. La v2 de soportes corrige una discrepancia detectada en revisión: la marca ahora cruza una unión metálica con corrosión, conforme al documento de misión. El script `preservation.py` se detiene en el hash del canon porque `canon_el_arrecife.md` ya tenía cambios locales previos del autor. Se cotejaron por SHA-256 los dos retratos y seis PNG antiguos: idénticos a la línea base del plan. El recorrido Web de esta versión se describe a continuación.
+
+### Ensayo Web real · 25 oct 2026
+
+Exportación nueva de Godot 4.7.2 en `game/build/staging/puntales-web-qa-20261025/`, servida bajo `http://127.0.0.1:8769/puntales-web-qa-20261025/` y abierta en Chromium/WebGL 2 mediante `agent-browser`. HTML, JS, WASM y PCK respondieron HTTP 200; el PCK incluye las seis versiones correctas, soportes v2 incluida. No se subió nada a un servidor público.
+
+Se importó la partida v1 de pruebas desde **Partidas**, se confirmó la sustitución y **Continuar** restauró La Fiebre. Con clics sobre las rutas visibles se recorrió Fiebre → Nudo → acceso de Puntales → taller → frente → soportes → presión → verificación. A 844×390 se repitió el camino hasta Puntales y el anillo en sentido inverso hasta volver al acceso. Tras recargar, **Continuar** recuperó el acceso sin perder la zona. Para comprobar los documentos condicionados se importó en esa sesión una copia temporal de la fixture v1 con la misión `prueba_presion` activa y ubicación en soportes; los clics sobre [marca](evidence/puntales_web_marca_documento_844x390.png), [manómetro](evidence/puntales_web_lectura_documento_844x390.png) y [registro](evidence/puntales_web_registro_documento_844x390.png) abrieron los documentos correctos. Esta copia temporal no modificó la fixture del repositorio ni prueba el desbloqueo narrativo natural del tercer contrato.
+
+| Vista | Chromium 1280×577 | Chromium 844×390 |
+| --- | --- | --- |
+| Acceso | [Captura](evidence/puntales_web_acceso_1280x577.png) | [Captura](evidence/puntales_web_acceso_844x390.png) |
+| Taller | [Captura](evidence/puntales_web_taller_1280x577.png) | [Captura](evidence/puntales_web_taller_844x390.png) |
+| Frente | [Captura](evidence/puntales_web_observatorio_1280x577.png) | [Captura](evidence/puntales_web_observatorio_844x390.png) |
+| Soportes | [Captura](evidence/puntales_web_soportes_1280x577.png) | [Captura](evidence/puntales_web_soportes_844x390.png) |
+| Presión | [Captura](evidence/puntales_web_presion_1280x577.png) | [Captura](evidence/puntales_web_presion_844x390.png) |
+| Verificación | [Captura](evidence/puntales_web_verificacion_1280x577.png) | [Captura](evidence/puntales_web_verificacion_844x390.png) |
+
+`agent-browser errors` quedó vacío tras navegación, documentos y recarga. Se repitieron **931/931 headless**, **1007/1007 nativas**, guardado **73/73**, archivos **13/13**, sincronización **7/7** y ambiente **19/19 headless y nativas**. `preservation.py` sigue fallando en el hash previo del canon; las comprobaciones restantes de originales, copias, logo, proyecto único y ausencia de 3D pasaron por separado. El ZIP privado `game/build/el-arrecife-0.2.0-cdd66ed7-dirty-web.zip` pasó `playtest_package.py`; SHA-256 `b71ff1988f9847aa01ff627214165671f4e08862eb899cdc8da949d9380054b7`. La etiqueta `dirty` indica cambios locales sin confirmar. No se probó Safari, un teléfono físico ni toque real.
+
+**Aprobación:** la dirección de luz y estilo del acceso v3 sí está aprobada para continuar. Taller, frente, soportes, presión, verificación y su continuidad visual en partida aún esperan valoración artística individual del autor. La importación técnica no los convierte en arte final ni en canon.
 
 ## Rutas e interacciones diferenciadas · 24 oct 2026
 

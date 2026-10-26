@@ -17,6 +17,19 @@ Decisión del autor, 23 oct 2026: dejar en pendiente la siguiente tanda de guard
 
 Los pendientes de guardado y publicación Web siguen registrados al final de este archivo y en la [hoja de mejoras](docs/EL_ARRECIFE_AUDITORIA_Y_PLAN_DE_MEJORA.md); este cambio de prioridad no los da por completados.
 
+## Revisión de estética por cotas · 25 oct 2026
+
+- [x] Cotejar los 18 fondos activos de La Fiebre, El Nudo y Los Puntales con los retratos originales, `world.json` y el canon visual D225–D227. [Auditoría por vista](docs/AUDITORIA_VISUAL_COTAS_2026-10-25.md).
+- [x] Autor: escoger el enfoque de producción: una muestra de Los Puntales y después avanzar cota por cota (25 oct 2026).
+- [x] Autor: aprobar el [diseño de la muestra](docs/superpowers/specs/2026-10-25-puntales-muestra-canon-design.md) (25 oct 2026).
+- [x] Generar la [muestra candidata de `puntales_acceso`](art/iterations/zonas_puntales/puntales_acceso_canon_v1.png) con prompt y primer borrador conservados; comprobar composición a 1672×941 y [recorte 844×390](docs/evidence/puntales_acceso_canon_v1_844x390.png).
+- [x] Atender la observación del autor sobre exceso de luz: [v2 más sombría](art/iterations/zonas_puntales/puntales_acceso_canon_v2.png), [recorte 844×390](docs/evidence/puntales_acceso_canon_v2_844x390.png) y [prompt](art/prompts/puntales_acceso_canon_v2.md), sin sobrescribir la v1.
+- [x] Incorporar la regla del autor de igualar el lenguaje gráfico de los retratos y crear la [v3 de estilo](art/iterations/zonas_puntales/puntales_acceso_canon_v3.png), con [recorte móvil](docs/evidence/puntales_acceso_canon_v3_844x390.png) y [prompt](art/prompts/puntales_acceso_canon_v3.md).
+- [x] Autor: aprobar el enfoque de la muestra v3 de acceso para continuar con Los Puntales.
+- [ ] Rehacer La Fiebre y El Nudo según su identidad propia; conservar versiones, prompts, hotspots y continuidad entre vistas.
+
+**Estado:** Los Puntales integrados como candidatos técnicos tras aprobarse el enfoque del acceso v3. Las otras cinco vistas esperan aprobación artística individual; La Fiebre y El Nudo siguen pendientes de renovación. No se ha cambiado el canon ni la ficción. La prueba de preservación completa se detiene en el canon ya modificado localmente por el autor; retratos y seis fondos antiguos se comprobaron por hash.
+
 ## Navegación legible en todas las vistas · 24 oct 2026
 
 - [x] Auditar las 21 vistas: todas conservan al menos una ruta y un camino de vuelta; los permisos entre cotas siguen vigentes.
@@ -137,3 +150,13 @@ La ampliación del guardado y de la nube permanece pendiente por decisión del a
 - [x] Mantener `fiebre_entrada` y las seis vistas de La Fiebre; colocar entrada, salida y observación sobre el arte nuevo.
 - [x] Comprobar clic en la puerta, retorno táctil, capturas 1280×720 y 844×390, suites nativa/headless y Web local.
 - [ ] Autor: valorar la [imagen interior candidata](docs/evidence/velvet_interior_1280x720.png) y su continuidad antes de darla por arte final.
+
+## Los Puntales · renovación visual cota 2 · 25 oct 2026
+
+- [x] Autor: aprobar la luz sombría y el lenguaje de retratos de la [muestra v3 del acceso](art/iterations/zonas_puntales/puntales_acceso_canon_v3.png) como dirección de Los Puntales.
+- [x] Crear los otros cinco fondos con composición propia, conservar borradores, PNG anteriores y [prompts](art/prompts/zonas_puntales_canon_2026-10-25.md); corregir en soportes la marca sobre unión metálica en v2.
+- [x] Integrar seis candidatos versionados sin cambiar IDs, rutas, contratos ni canon; alinear marca, manómetro y registro con sus hotspots.
+- [x] Comprobar importación, 931/931 headless, 1007/1007 nativas, guardado, render a 1280×720 y 844×390 y exportación Web local; [evidencias](docs/VALIDACION.md).
+- [ ] Autor: valorar individualmente taller, frente de trabajo, soportes, presión y verificación dentro del juego; corregir acabado y continuidad donde lo indique.
+- [x] Recorrer las seis vistas y sus retornos en Chromium a 1280×577 y 844×390; abrir los tres documentos condicionados, recargar y continuar desde Puntales; comprobar consola y ZIP Web privado. [Evidencias](docs/VALIDACION.md).
+- [ ] Repetir navegación y toque en teléfono físico, además de Safari/iOS, antes de la aprobación técnica final.
